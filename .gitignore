@@ -1,0 +1,11 @@
+*~ 
+*.tmp
+._*
+*.sw*
+nohup*
+.Rhistory
+*.log
+p_*
+.~*
+*.pdf
+*.odt#

@@ -1,0 +1,12 @@
+autocite	exp use	main point
+duarte2009microbial	model	aqua-field nutrient levels (under pH) for microbial decomposers
+gonccalves2018extracellular	desc	secretome of A.castellanii
+haei2011effects	desc	temp limit of mocrobial decomposers
+loreau2001microbial	model	equations worth looking
+markou2014microalgal	model	cyanobacteria nutrition requirements
+mooshammer2014stoichiometric	desc	microbial decomposer biochemical plasticity
+neff1957purification	model	Amoeba nutrition
+wesselink2019feeding	model	mitochondria nutrition requirements
+wright1981acanthamoeba	desc	identify model consumer in model
+schuur2015climate	intro	human impact on climate from permafrost data
+yang2008progress	intro	carbon sequestration tech diversity

@@ -1,0 +1,180 @@
+
+% Author: PokMan Ho pok.ho19@imperial.ac.uk
+% Script: proposal.tex
+% Desc: `LaTex` proposal for MRes 9-months project
+% Input: none
+% Output: pdf proposal in same directory
+% Arguments: 0
+% Date: Nov 2019
+
+\documentclass[a4paper, 11pt]{article}
+
+%% packages
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{graphicx}
+\graphicspath{{graphics/}}
+
+\usepackage{fontspec}
+\setmainfont{Arial}
+
+\usepackage{hyperref, setspace, lineno, longtable}
+
+%% hyperlinks
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,      
+	urlcolor=blue,
+	citecolor=blue
+}
+
+%% test insert variables
+\newcommand{\ReportTitle}{Proposal for MRes CMEE Dissertation Project}
+\newcommand{\ReportAuthor}{PokMan HO (CID: 01786076)}
+\newcommand{\ReportAffil}{Department of Life Sciences, Faculty of Natural Sciences,\\Imperial College London}
+\newcommand{\Disclaim}{\textbf{A Proposal submitted in partial fulfilment of the requirements for the degree of Master of Research at Imperial College London\\\vspace{1cm}
+		Formatted in the journal style of the \textit{Nature} Journal\\
+		Submitted for the MRes in Computational Methods of Ecology and Evolution}}
+%% A Proposal submitted in partial fulfilment of the requirements for the degree of Master of Research at Imperial College London\\\\Formatted in the journal style of the \textit{Nature} Journal\\Submitted for the MRes in Computational Methods of Ecology and Evolution -- not accepting 4 backslashes
+
+%% tabular colouring <https://tex.stackexchange.com/questions/94799/how-do-i-color-table-columns>
+\usepackage{xcolor, colortbl}
+\definecolor{grey90}{rgb}{.9,.9,.9}
+\definecolor{lorange}{rgb}{1,.8,0}
+
+%% 90-deg tabular tab rotation
+%\usepackage{rotating, arraycols, booktabs, array}
+%\newcolumntype{R}{1}{>{\begin{turn}{90}\begin{minipage}{#1}\scriptsize}l
+%			<{\end{minipage}\end{turn}}}}
+
+\title{\ReportTitle}
+\author{\ReportAuthor}
+\date{}
+
+%% citation
+\usepackage[%
+autocite    = superscript,
+backend     = bibtex,
+sortcites   = true,
+style       = nature
+]{biblatex}
+\bibliography{../reference/00_2019ICLMResProposal.bib}
+
+%% set as required
+\onehalfspacing %% <https://tex.stackexchange.com/questions/30073/why-is-the-linespread-factor-as-it-is>
+\linenumbers
+
+\begin{document}
+	\begin{center}
+		\Huge\textbf{\ReportTitle}\\
+		\LARGE\ReportAuthor\\
+		\Large\ReportAffil\\
+		\Large{Last modified: Nov 2019}
+	\end{center}
+	\begin{figure}[h]
+		\centering\includegraphics[width=\linewidth]{icl.jpg}
+	\end{figure}
+External supervisor:\\
+\indent Prof. XXX\\
+\indent University of XXX\\
+\indent email: XXX@XXX.com\\
+Internal supervisor:\\
+\indent Dr. James Rosindell\\
+\indent Department of Life Sciences (Silwood Park), Faculty of Natural Sciences, Imperial College London\\
+\indent email: \href{mailto:j.rosindell@imperial.ac.uk}{j.rosindell@imperial.ac.uk}
+\begin{center}
+	\Large\Disclaim
+\end{center}
+\clearpage
+\section{Keywords}
+discrete-time model, principal components, hypothetical ecosystem, ecological photovoltaics, nutrient cycling, carbon sequestration
+\section{Introduction}
+Humans are destabilizing our climate\autocite{schuur2015climate}.  It is easy to create atmospheric carbons but hard to reverse\autocite{yang2008progress}.  Under the threats from rocketing carbon dioxide levels, it is crucial to investigate possibilities of seeking help from nature to slowdown the increasing threats to all lifeforms on Earth.\\
+Proposed research question: Is a self-standing artificial ecosystem possible?
+\section{Proposed methods}
+A discrete-time model will be scripted in R (ver 3.6.0).  Resource-consumer model would be run in course and fine resolutions with different raw material combinations.
+%Monitored chemical species and bio-component players will be listed in columns with each row as one time step.  Each chemical and biological components will be interlinked with one another using mole/unit ratios.  The model will be run for logical designated time-steps which could be translated to actual Earth time.  Short course-resolution models will be run as trials to get an overall picture on accuracy of achieving the global minimum of initial ingredients and maximum of carbon sequestration efficiency.  Fine-resolution models will be run in batches later after refinement of time steps to screen for possibilities in greater details.\\
+Principal components will be used to visualize the success combinations in clusters.  Network graphs will be used to animate the interaction fluctuations between different resource pools and bio-populations.
+\section{Anticipated outputs and outcomes}
+Expected Model output: csv listing all chemical and biological players population fluctuation at every time step for every simulation\\
+%\begin{itemize}
+%	\item a huge csv listing chemical species (i.e. resource) fluctuation at every time step for every simulation
+%	\item a long csv listing population of each bio-players (i.e. consumers) at every time step for every simulation
+%\end{itemize}
+Expected Analysis output:find out the optimal ingredient-to-efficiency combination\\
+%\begin{itemize}
+%	\item csv showing possible combinations of chemical species resulting in ecosystem equilibria
+%	\item animated network graphs showing fluctuations before achieving equilibria from the ecosystem requiring the least amount of initial chemical species and highest carbon sequestration efficiency
+%	\item cluster graphs showing carbon sequestration efficiency against raw ingredients
+%	\item any possible pattern analysis results
+%\end{itemize}
+Expected outcomes: know what and how much raw ingredients is needed to start an artificial carbon sequestering ecosystem
+%\begin{itemize}
+%	\item find the right ingredients for possible artificial minimal ecosystem with high carbon sequestration efficiency\\
+%	\item find the correct amount of initial ingredients to start an artificial minimal ecosystem\\
+%	\item calculate the theoretical carbon sequestration efficiency for the best artificial minimal ecosystem\\
+%\end{itemize}
+
+\section{Project feasibility}
+Most details on the nutrient conditions for producers\autocite{duarte2009microbial,markou2014microalgal} and consumers\autocite{neff1957purification,mooshammer2014stoichiometric} were published.  The only requirement for success is to put these data together and test for possible combinations.\\
+Key:
+\begin{tabular}{lll}
+	section & target & action\\\hline
+	1 = abstract & m = discrete-time model & s = scripting\\
+	2 = introduction & a = analysis & d = debug\\
+	3 = methodology & p = parameters & v = validation\\
+	4 = results && \cellcolor{grey90}work\\
+	5 = discussion && \cellcolor{lorange}buffer / if any\\
+\end{tabular}\\
+Gantt chart:\\
+\begin{longtable}{p{.1\linewidth}p{.1\linewidth}|p{.1\linewidth}|p{.1\linewidth}|p{.1\linewidth}|p{.1\linewidth}|p{.1\linewidth}|}
+	%Month & Week & \multicolumn{1}{R{1cm}}{writing} & \multicolumn{1}{R{1cm}}{writing} & \multicolumn{1}{R{1cm}}{writing} & \multicolumn{1}{R{1cm}}{writing} & \multicolumn{1}{R{1cm}}{writing} & \multicolumn{1}{R{1cm}}{writing}\\\hline
+	Month & Week & write & design & script & \begin{tabular}{c}MSc\\lecture\end{tabular} & \begin{tabular}{c}model\\run\end{tabular}\\\hline
+	Dec & 2 && \cellcolor{grey90}p,a &&&\\
+	& 3 && \cellcolor{grey90}p,m & \cellcolor{grey90}ms & \cellcolor{lorange} &\\
+	& 4 && \cellcolor{grey90} & \cellcolor{grey90} & \cellcolor{lorange} &\\
+	Dec-Jan & 5/1 && \cellcolor{grey90} & \cellcolor{grey90}md & \cellcolor{lorange} &\\
+	& 2 && \cellcolor{grey90}m & \cellcolor{grey90} & \cellcolor{lorange} & \cellcolor{lorange}trial \\
+	& 3 & \cellcolor{grey90}3 & \cellcolor{grey90} & \cellcolor{grey90}mv & \cellcolor{lorange} & \cellcolor{grey90}1st batch \\
+	& 4 & \cellcolor{grey90} & \cellcolor{grey90}a && \cellcolor{lorange} & \cellcolor{grey90} \\
+	& 5 & \cellcolor{grey90} & \cellcolor{grey90} && \cellcolor{lorange} & \cellcolor{grey90} \\
+	Feb & 1 & \cellcolor{grey90}2 &&& \cellcolor{lorange} & \cellcolor{grey90} \\
+	& 2 & \cellcolor{grey90} &&& \cellcolor{lorange} & \cellcolor{grey90} \\
+	& 3 &&&& \cellcolor{lorange} & \cellcolor{grey90} \\
+	& 4 &&&& \cellcolor{lorange} & \cellcolor{grey90} \\
+	Mar & 1 &&&& \cellcolor{lorange} & \cellcolor{grey90} \\
+	& 2 &&&& \cellcolor{lorange} & \cellcolor{grey90} \\
+	& 3 & \cellcolor{lorange}3 & \cellcolor{lorange}a & \cellcolor{grey90}as & \cellcolor{lorange} & \cellcolor{grey90}2nd batch \\
+	& 4 & \cellcolor{lorange} & \cellcolor{lorange} & \cellcolor{grey90} & \cellcolor{lorange} & \cellcolor{grey90} \\
+	Mar-Apr & 5/1 & \cellcolor{grey90}45 && \cellcolor{grey90}a(trial) && \cellcolor{grey90} \\
+	Apr & 2 & \cellcolor{grey90}5 && \cellcolor{grey90}a(1st) && \cellcolor{grey90} \\
+	& 3 & \cellcolor{grey90} && \cellcolor{grey90} && \cellcolor{grey90} \\
+	& 4 & \cellcolor{grey90} && \cellcolor{grey90} && \cellcolor{grey90} \\
+	& 5 & \cellcolor{grey90} && \cellcolor{grey90} && \cellcolor{grey90} \\
+	May & 1 & \cellcolor{grey90}45 && \cellcolor{grey90}a(2nd) && \cellcolor{grey90} \\
+	& 2 & \cellcolor{grey90}5 && \cellcolor{grey90} && \cellcolor{lorange} \\
+	& 3 & \cellcolor{grey90} && \cellcolor{grey90} && \cellcolor{lorange} \\
+	& 4 & \cellcolor{grey90} && \cellcolor{grey90} && \cellcolor{lorange} \\
+	Jun & 1 & \cellcolor{grey90} && \cellcolor{lorange} && \cellcolor{lorange} \\
+	& 2 & \cellcolor{lorange} && \cellcolor{lorange} && \cellcolor{lorange}3rd batch \\
+	& 3 & \cellcolor{lorange} &&&& \cellcolor{lorange} \\
+	& 4 & \cellcolor{lorange} &&&& \cellcolor{lorange} \\
+	Jun-Jul & 5/1 & \cellcolor{grey90}1 &&&& \cellcolor{lorange} \\
+	Jul & 2 & \cellcolor{grey90} &&&& \cellcolor{lorange} \\
+	& 3 & \cellcolor{grey90} &&&& \cellcolor{lorange} \\
+	& 4 & \cellcolor{grey90} &&&& \cellcolor{lorange} \\
+	& 5 & \cellcolor{lorange}any && \cellcolor{lorange}a(3rd) && \cellcolor{lorange} \\
+	Aug & 1 & \cellcolor{lorange} && \cellcolor{lorange} && \cellcolor{lorange} \\
+	& 2 & \cellcolor{lorange} && \cellcolor{lorange} && \cellcolor{lorange} \\
+	& 3 & \cellcolor{lorange} &&&& \cellcolor{lorange} \\
+	& 4 & \cellcolor{lorange} &&&&\\
+\end{longtable}
+\section{Budget}
+\begin{tabular}{r|r@{}lc|l}
+	item & \multicolumn{2}{c}{cost (GBP)} && justification\\\hline
+	Crucial 8GB external RAM & 27&.90 && insufficient computing power on the personal computer\\
+\end{tabular}
+\clearpage
+\nocite{*}\printbibliography
+\end{document}

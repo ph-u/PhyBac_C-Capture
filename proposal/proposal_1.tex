@@ -70,7 +70,7 @@ style       = nature
 		\Huge\textbf{\ReportTitle}\\
 		\LARGE\ReportAuthor\\
 		\Large\ReportAffil\\
-		\Large{Last modified: Nov 2019}
+		\Large{Last modified: Dec 2019}
 	\end{center}
 	\begin{figure}[h]
 		\centering\includegraphics[width=\linewidth]{icl.jpg}
@@ -92,12 +92,12 @@ Secondary supervisor:\\
 \end{center}
 \clearpage
 \section{Keywords}
-continuous-time model, ecological photovoltaics, carbon sequestration, co-existence, nutrient cycling
+continuous-time model, dynamic equilibria, ecological photovoltaics, carbon sequestration, co-existence, nutrient cycling
 \section{Introduction}
 Humans are destabilizing our climate\autocite{schuur2015climate}.  It is easy to create atmospheric carbons but hard to reverse\autocite{yang2008progress}.  Biological electricity generator is available\autocite{mccormick2015biophotovoltaics} yet still lagging behind the global energy thirst\autocite{ferguson2000electricity}.  This project aims at modelling an ecosystem which can extract energy from multiple solar bands.\\
 Proposed research question: What is the recipe for making a multi-banded self-standing ecological solar panel?
 \section{Proposed methods}
-A continuous-time model will be scripted in R (ver 3.6.0).  It would be run in coarse and fine resolutions with different raw material combinations.
+A continuous-time resource-consumer model will be scripted in R (ver 3.6.0).  It would be run in coarse and fine resolutions with different raw material combinations.  For successful attempts, non-linear-least-squares (NLLS) method would be used to optimize the parameters.  Boundary parameter values would be tested to get the successful range within the parameter space.
 %Monitored chemical species and bio-component players will be listed in columns with each row as one time step.  Each chemical and biological components will be interlinked with one another using mole/unit ratios.  The model will be run for logical designated time-steps which could be translated to actual Earth time.  Short course-resolution models will be run as trials to get an overall picture on accuracy of achieving the global minimum of initial ingredients and maximum of carbon sequestration efficiency.  Fine-resolution models will be run in batches later after refinement of time steps to screen for possibilities in greater details.\\
 \section{Anticipated outputs and outcomes}
 Initial parameter(s) for simulations achieving dynamic equilibria would be exported as csv and cluster graphs.  Respective biochemical and population flux would be shown in networks.

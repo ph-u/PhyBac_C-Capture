@@ -86,8 +86,19 @@ Secondary supervisor:\\
 \section{Keywords}
 continuous-time model, dynamic equilibria, ecological photovoltaics, carbon sequestration, co-existence, nutrient cycling
 \section{Introduction}
-Humans are destabilizing our climate \autocite{schuur2015climate}.  It is easy to create atmospheric carbons but hard to reverse \autocite{yang2008progress}.  Biological electricity generator is available \autocite{mccormick2015biophotovoltaics} yet still lagging behind the global energy thirst \autocite{ferguson2000electricity}.  This project aims at modelling an ecosystem which can extract energy from multiple solar bands.\\
-Proposed research question: What is the recipe for making a multi-banded self-standing ecological solar panel?
+Fossil fuels are still the dominant energy source for civilization.  However this lifestyle is not sustainable and consequences are appearing.  Solar energy is the ultimate unlimited source of bioenergy in shallow Earth biosphere.  Utilization of this clean energy source is the only way to take out the largest greenhouse gas emitter (i.e. the energy industry) from the system.  Only by having highly negative carbon footprint could there be a chance to restore biogas balance for the carbon cycle.\\
+
+This project aims at searching for the minimal ingredients for the most efficient self-sustaining biovoltaics ecosystem.  The minimal ecosystem should be able to sequester atmospheric carbon via photosynthesis and generate electricity.  The aim is to build a Ordinary Differential Equation (ODE) model to address the following questions:
+\begin{itemize}
+	\item What ingredients do a self-sustaining biovoltaics ecosystem need to initialize?
+	\item How much ingredients do such a system need for initialization?
+	\item Which organisms can coexist and coorporate to maximize electricity and carbon sequestration output by finding niches from multiple solar bands?
+\end{itemize}
+
+In order to build an ecosystem, one must know the flux of different biochemicals in different biological players and nutrient cycles of the artificial ecosystem.  The type and concentration of chemical and biological species have to be accurate to minimize probability of having unforeseen inpracticalities (e.g. the oxygen loss in ``Biosphere2 project", 1996).  This project will hence provide numerical basis for the future experimental testing of the eco-biovoltaics system.
+
+%Humans are destabilizing our climate \autocite{schuur2015climate}.  It is easy to create atmospheric carbons but hard to reverse \autocite{yang2008progress}.  Biological electricity generator is available \autocite{mccormick2015biophotovoltaics} yet still lagging behind the global energy thirst \autocite{ferguson2000electricity}.  This project aims at modelling an ecosystem which can extract energy from multiple solar bands.\\
+%Proposed research question: What is the recipe for making a multi-banded self-standing ecological solar panel?
 \section{Proposed methods}
 A continuous-time resource-consumer model will be scripted in R (ver 3.6.0).  It would be run in coarse and fine resolutions with different raw material combinations.  For successful attempts, non-linear-least-squares (NLLS) method would be used to optimize the parameters.  Boundary parameter values would be tested to get the successful range within the parameter space.
 \section{Anticipated outputs and outcomes}

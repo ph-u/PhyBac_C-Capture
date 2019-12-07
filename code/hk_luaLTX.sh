@@ -8,6 +8,8 @@
 ## Arguements: 1 or 2
 ## Date: Nov 2019
 
+## check pid of compilation: ps aux |grep Ho_Pok_Man|grep luaLTX|grep prop|awk '{OFS="\t"}{print $2}'
+
 if [ -z "$1" ];then
 
 echo

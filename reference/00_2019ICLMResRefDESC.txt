@@ -3,15 +3,17 @@ duarte2009microbial	model	aqua-field nutrient levels (under pH) for microbial de
 ferguson2000electricity	intro	electricity use and econ dev
 gonccalves2018extracellular	desc	secretome of A.castellanii
 haei2011effects	desc	temp limit of mocrobial decomposers
+joshi2018bacterial 	model 	mushroom with cyanobacteria
 loreau2001microbial	model	equations worth looking
 markou2014microalgal	model	cyanobacteria nutrition requirements
 mccormick2015biophotovoltaics	core	main framework of biovoltaics
 mooshammer2014stoichiometric	desc	microbial decomposer biochemical plasticity
 neff1957purification	model	Amoeba nutrition
+sawa2017electricity 	model 	cyanobacteria thin-film cell
+schuur2015climate	intro	human impact on climate from permafrost data
 Wang2013 	model 	ODE model bg knowledge
 wesselink2019feeding	model	mitochondria nutrition requirements
 wright1981acanthamoeba	desc	identify model consumer in model
-schuur2015climate	intro	human impact on climate from permafrost data
 yang2008progress	intro	carbon sequestration tech diversity
 
 summary	exp use	url

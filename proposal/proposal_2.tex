@@ -86,21 +86,25 @@ Secondary supervisor:\\
 \section{Keywords}
 ODE model, ecological photovoltaics, electricity, carbon sequestration, co-existence, nutrient cycling
 \section{Introduction}
-In the biovoltaics area, there were two main substrates to print cyanobacteria:  \textit{Synechocystis sp.} carbon nanotube-coated paper\autocite{sawa2017electricity} and \textit{Anabaena spp.} on mushrooms\autocite{joshi2018bacterial}.  Both successfully generate small photocurrents (micro-ampere on paper \autocite{sawa2017electricity} and nano-ampere on mushrooms \autocite{joshi2018bacterial} respectively).  Under the urge of clean energy due to climate change \autocite{schuur2015climate}, our civilization needs electricity as well as carbon sequestration services simultaneously and quickly.  We can augment photosynthesis by inserting carbon nanotubes inside phytocells \autocite{giraldo2014plant}, or incorporate biodiversity.  Freshwater cyanobacterium themo-extremophile \textit{Chroococcidiopsis thermalis} were found also able to utilize far red spectrum as light source to initialize photosynthesis apart from ordinary ones \autocite{nurnberg2018photochemistry}.  If this lineage is able to provide photocurrent, it would be a step towards the solar-powered civilization.\\
+Two main substrates were able to print cyanobacteria for electricity:  \textit{Synechocystis sp.} on carbon nanotube-coated paper \autocite{sawa2017electricity} and \textit{Anabaena spp.} on mushrooms \autocite{joshi2018bacterial}.  Both successfully generate small photocurrents (micro-ampere on paper \autocite{sawa2017electricity} and nano-ampere on mushrooms \autocite{joshi2018bacterial} respectively).  Under the urge of clean energy due to climate change \autocite{schuur2015climate}, our civilization needs electricity as well as carbon sequestration services simultaneously and quickly.  We can augment photosynthesis by inserting carbon nanotubes inside phytocells \autocite{giraldo2014plant}, or incorporate biodiversity.  Freshwater themo-extremophile \textit{Chroococcidiopsis thermalis} were found to utilize far red spectrum as light source to initialize photosynthesis apart from ordinary ones \autocite{nurnberg2018photochemistry}.  If this lineage is able to provide photocurrent, it would be a step towards the solar-powered civilization.\\
 
-With ecology in mind, this project aims at finding the theoretical recipe to make a multi-spectra bio-solar panel with carbon sequestration ability.  
+With ecology in mind, this project aims at finding the theoretical recipe to make a multi-spectra bio-solar panel with carbon sequestration ability.  The research questions are:
 
 \begin{itemize}
-	\item What ingredients do a self-sustaining biovoltaics ecosystem need to initialize?
+	\item What ingredients are necessary to build a healthy minimal ecosystem panel?
 	\item How much ingredients do such a system need for initialization?
-	\item Which organisms can coexist and coorporate to maximize electricity and carbon sequestration output by finding niches from multiple solar bands?
+	\item Which organisms can coexist and contribute in both electricity generation and carbon sequestration aspects?
 \end{itemize}
 
 \section{Proposed methods}
+Within a annual insolation cycle, ordinary differential equations (ODEs) would be scripted and solved in Python (ver 3.7.3).  Using insolation data from different latitudes, the system would be expected to achieve a resource-consumer population balance assuming light input is the only external independent variable for this ecosystem.  Atmospheric compositions were assumed to be constant and at sea-level.  Physical and chemical parameters will be obtained from general literatures describing habitats of considered lineages.  All cyanobacteria were assumed having same behaviour towards photocurrent stimuli.\\\\
+Solved ODE parameters would be analysed by principal component analysis (PCA) in R (ver 3.6.0) to identify important ingredients for the system.  If more than one optimal system statuses were founded, Kruskal-Wallis tests with posthoc Nemenyi pairwise comparisons would be carried out to identify the best system among all possibilities.
 
 \section{Anticipated outputs and outcomes}
+A animated model simulation of the best panel achieving ecosystem equilibrium would be expected.  Initializing chemicals and environmental factors would also be listed in a file.
 
 \section{Project feasibility}
+Past publications have many considered parameters.  Hence completing the project is considered positive.
 
 Key:
 \begin{tabular}{lll}

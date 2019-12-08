@@ -8,6 +8,7 @@ markou2014microalgal	model	cyanobacteria nutrition requirements
 mccormick2015biophotovoltaics	core	main framework of biovoltaics
 mooshammer2014stoichiometric	desc	microbial decomposer biochemical plasticity
 neff1957purification	model	Amoeba nutrition
+Wang2013 	model 	ODE model bg knowledge
 wesselink2019feeding	model	mitochondria nutrition requirements
 wright1981acanthamoeba	desc	identify model consumer in model
 schuur2015climate	intro	human impact on climate from permafrost data

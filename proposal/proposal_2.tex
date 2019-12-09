@@ -18,7 +18,7 @@
 \usepackage{fontspec}
 \setmainfont{Arial}
 
-\usepackage{hyperref, setspace, lineno, longtable}
+\usepackage{hyperref, setspace, lineno, longtable, amsmath, amssymb}
 
 %% hyperlinks
 \hypersetup{
@@ -97,8 +97,12 @@ With ecology in mind, this project aims at finding the theoretical recipe to mak
 \end{itemize}
 
 \section{Proposed methods}
-Within a annual insolation cycle, ordinary differential equations (ODEs) would be scripted and solved in Python (ver 3.7.3).  Using insolation data from different latitudes, the system would be expected to achieve a resource-consumer population balance assuming light input is the only external independent variable for this ecosystem.  Atmospheric compositions were assumed to be constant and at sea-level.  Physical and chemical parameters will be obtained from general literatures describing habitats of considered lineages.  All cyanobacteria were assumed having same behaviour towards photocurrent stimuli.\\\\
-Solved ODE parameters would be analysed by principal component analysis (PCA) in R (ver 3.6.0) to identify important ingredients for the system.  If more than one optimal system statuses were founded, Kruskal-Wallis tests with posthoc Nemenyi pairwise comparisons would be carried out to identify the best system among all possibilities.
+A set of ordinary differential equations (ODEs) would be implemented as a Lotka-Volterra model (LVM).  The cyanobacteria-mushroom system \autocite{joshi2018bacterial} would be the stem of this model.  The main equations included would be:\\
+\begin{tabular}{r|rl}
+	content...
+\end{tabular}
+Within a annual insolation cycle, ordinary differential equations (ODEs) would be scripted in C and solved in Python (ver 3.7.3).  Using insolation and sea-level temperature data from different latitudes, the system would be expected to achieve a resource-consumer population balance assuming light and thermal input are the only external independent variables for this ecosystem.  Atmospheric compositions were assumed to be constant and at sea-level.  Physical and chemical parameters will be obtained from general literatures describing habitats of considered lineages.  All cyanobacteria were assumed having same behaviour towards photocurrent stimuli.\\\\
+%Solved ODE parameters would be analysed by principal component analysis (PCA) in R (ver 3.6.0) to identify important ingredients for the system.  If more than one optimal system statuses were founded, Kruskal-Wallis tests with posthoc Nemenyi pairwise comparisons would be carried out to identify the best system among all possibilities.
 
 \section{Anticipated outputs and outcomes}
 A animated model simulation of the best panel achieving ecosystem equilibrium would be expected.  Initializing chemicals and environmental factors would also be listed in a file.

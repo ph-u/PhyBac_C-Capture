@@ -36,6 +36,8 @@
 \newcommand{\Disclaim}{\textbf{A Proposal submitted in partial fulfilment of the requirements for the degree of Master of Research at Imperial College London\\\vspace{1cm}
 		Formatted in the journal style of the \textit{Nature} Journal\\
 		Submitted for the MRes in Computational Methods of Ecology and Evolution}}
+\newcommand{\As}{\textit{Anabaena sp.}}
+\newcommand{\Ct}{\textit{Chroococcidiopsis thermalis}}
 
 %% tabular colouring <https://tex.stackexchange.com/questions/94799/how-do-i-color-table-columns>
 \usepackage{xcolor, colortbl}
@@ -86,29 +88,37 @@ Secondary supervisor:\\
 \section{Keywords}
 ODE model, ecological photovoltaics, electricity, carbon sequestration, co-existence, nutrient cycling
 \section{Introduction}
-Two main substrates were able to print cyanobacteria for electricity:  \textit{Synechocystis sp.} on carbon nanotube-coated paper \autocite{sawa2017electricity} and \textit{Anabaena spp.} on mushrooms \autocite{joshi2018bacterial}.  Both successfully generate small photocurrents (micro-ampere on paper \autocite{sawa2017electricity} and nano-ampere on mushrooms \autocite{joshi2018bacterial} respectively).  Under the urge of clean energy due to climate change \autocite{schuur2015climate}, our civilization needs electricity as well as carbon sequestration services simultaneously and quickly.  We can augment photosynthesis by inserting carbon nanotubes inside phytocells \autocite{giraldo2014plant}, or incorporate biodiversity.  Freshwater themo-extremophile \textit{Chroococcidiopsis thermalis} were found to utilize far red spectrum as light source to initialize photosynthesis apart from ordinary ones \autocite{nurnberg2018photochemistry}.  If this lineage is able to provide photocurrent, it would be a step towards the solar-powered civilization.\\
+Two main substrates were able to print cyanobacteria for electricity:  \textit{Synechocystis sp.} on carbon nanotube-coated paper \autocite{sawa2017electricity} and \As on mushrooms \autocite{joshi2018bacterial}.  Both successfully generate small photocurrents (micro-ampere on paper \autocite{sawa2017electricity} and nano-ampere on mushrooms \autocite{joshi2018bacterial} respectively).  Under the urge of clean energy due to climate change \autocite{schuur2015climate}, our civilization needs electricity as well as carbon sequestration services simultaneously and quickly.  We can augment photosynthesis by inserting carbon nanotubes inside phytocells \autocite{giraldo2014plant}, or incorporate biodiversity.  Primitive extremophile \Ct\ were found extremely tough \autocite{baque2013boss} and able to utilize extra far red spectrum as photosynthetic light source \autocite{nurnberg2018photochemistry}.  If this lineage is able to provide photocurrent, it would be a step towards the solar-powered civilization.\\
 
 With ecology in mind, this project aims at finding the theoretical recipe to make a multi-spectra bio-solar panel with carbon sequestration ability.  The research questions are:
-
 \begin{itemize}
-	\item What ingredients are necessary to build a healthy minimal ecosystem panel?
-	\item How much ingredients do such a system need for initialization?
-	\item Which organisms can coexist and contribute in both electricity generation and carbon sequestration aspects?
+	\item When would the coexistence system be stabilized?
+	\item How do \As, \Ct\ and the bio-substrate interact?
+	\item What is the expected performance on electricity generation and carbon sequestration based on this ecosystem?
 \end{itemize}
 
 \section{Proposed methods}
-A set of ordinary differential equations (ODEs) would be implemented as a Lotka-Volterra model (LVM).  The cyanobacteria-mushroom system \autocite{joshi2018bacterial} would be the stem of this model.  The main equations included would be:\\
+A set of ordinary differential equations (ODEs) would be implemented as a Lotka-Volterra model (LVM).  The cyanobacteria-mushroom system \autocite{joshi2018bacterial} would be the stem of this model.  Nutrients were assumed to be unlimited because wastewater was potentially an all-rounded fertilizer for cyanobacteria \autocite{markou2014microalgal}  The main equations included would be:\\
+%% eq 1,2 	: rate = growth - natural death - competition - substrate death
+%% eq 3 	: rate = growth - natural death
 \begin{tabular}{r|rl}
-	content...
-\end{tabular}
-Within a annual insolation cycle, ordinary differential equations (ODEs) would be scripted in C and solved in Python (ver 3.7.3).  Using insolation and sea-level temperature data from different latitudes, the system would be expected to achieve a resource-consumer population balance assuming light and thermal input are the only external independent variables for this ecosystem.  Atmospheric compositions were assumed to be constant and at sea-level.  Physical and chemical parameters will be obtained from general literatures describing habitats of considered lineages.  All cyanobacteria were assumed having same behaviour towards photocurrent stimuli.\\\\
-%Solved ODE parameters would be analysed by principal component analysis (PCA) in R (ver 3.6.0) to identify important ingredients for the system.  If more than one optimal system statuses were founded, Kruskal-Wallis tests with posthoc Nemenyi pairwise comparisons would be carried out to identify the best system among all possibilities.
+	\As						&$dA/dt$	&= $[r_A A] - [k_{A1} A] - [k_{A2} A C] - [K_M]$\\
+	\Ct						&$dC/dt$	&= $[r_C C] - [k_{C1} C] - [k_{C2} A C] - [K_M]$\\
+	\textit{mushroom}		&$dM/dt$	&= $[r_M M] - [k_M M]$\\
+\end{tabular}\\
+Left hand side half equations were instantaneous growth rates of representative populations.  The first and second terms of the right hand side half equations were natural growth and death rates.  For cyanobacteria species, another two terms were added, symbolizing growth hinder by competition and population loss upon mushroom death.  Assuming same growth conditions between \As\ and \Ct, the competition for space would be the only battle ground.  By modelling how this system react to isolation cycles would provide insight on future engineering design of the true panel.\\
+Natural growth and death rates for all three bio-players could be extracted in literature.  Assuming both cyanobacteria lineages only compete by growth, competition coefficient can be estimated by their difference in light harvesting ability.  This ratio would be a fraction further modified by their growth rate:
+\begin{tabular}{cc}
+	$k_{A2} = \dfrac{J_{Ct}}{J_{As} + J_{Ct}}\cdot r_A$ \&& $k_{C2} = \dfrac{J_{At}}{J_{As} + J_{Ct}}\cdot r_C$
+\end{tabular}, which energy harvested by \As\ per cell per unit time was $J_{As}$ and that by \Ct\ was $J_{Ct}$.\\
+Competition coefficients $k_{A2}$ \& $k_{C2}$ of one species was depending on how better the other one did from its (i.e. the fraction).  This term was also positively depending on its natural growth rate.  Logically the higher its growth rate, the bigger hinder effect it would be.\\
+By assuming \As\ layer printed on mushroom was a single cell layer on published article \autocite{joshi2018bacterial}, ratio between given light energy and photocurrent per photocell of \As\ could be calculated because of known cell size.  Photocurrent strength per cell could also be calculated for given solar wavelength.  By linking photocurrent size with population, expected electricity output per time step could be obtained.  On the other hand, carbon sequestration ability could also be estimated through biomass growth \autocite{markou2014microalgal}.
 
 \section{Anticipated outputs and outcomes}
-A animated model simulation of the best panel achieving ecosystem equilibrium would be expected.  Initializing chemicals and environmental factors would also be listed in a file.
+From the simulation, there would be a graph of population sizes for all ecological parties upon solving the equations.  Hence time of achieving population dynamic equilibria and expected fluctuation of the system in the first insolation annual cycle could also be deduced.
 
 \section{Project feasibility}
-Past publications have many considered parameters.  Hence completing the project is considered positive.
+Past publications have many considered parameters.  Hence completing the project within time limit is considered positive.
 
 Key:
 \begin{tabular}{lll}
@@ -136,6 +146,6 @@ Gantt chart:
 This project is free
 \section*{Acknowledgement}
 The author would like to thank \href{mailto:wei.huang@eng.ox.ac.uk}{Prof. Wei Huang} for agreeing to be the external adviser for this project.
-\clearpage
+%\clearpage
 \nocite{*}\printbibliography
 \end{document}

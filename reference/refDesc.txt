@@ -1,5 +1,6 @@
 autocite						Date		exp use	main point
 -------------------------------------------------------------------------------------------------------------------
+baque2013boss 					20191209 	desc 	survival capabilities of Chroococcidiopsis
 duarte2009microbial				pre 		model	aqua-field nutrient levels (under pH) for microbial decomposers
 ferguson2000electricity			pre 		intro	electricity use and econ dev
 giraldo2014plant 				20191208	intro 	bionanotubes in chloroplasts

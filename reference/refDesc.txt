@@ -14,6 +14,7 @@ mooshammer2014stoichiometric	pre 		desc	microbial decomposer biochemical plastic
 neff1957purification			pre 		model	Amoeba nutrition
 sawa2017electricity 			20191208 	model 	cyanobacteria thin-film cell
 schuur2015climate				pre 		intro	human impact on climate from permafrost data
+senthuran1997lactic 			20191210 	desc 	Lactobacillus fermentation efficiency and conditions
 Wang2013 						20191207 	model 	ODE model bg knowledge
 wesselink2019feeding			pre 		model	mitochondria nutrition requirements
 wright1981acanthamoeba			pre 		desc	identify model consumer in model

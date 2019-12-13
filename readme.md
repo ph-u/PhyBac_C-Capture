@@ -61,11 +61,27 @@ pdf file in designated directory
 
 *****
 
+### m_equations.R
+
+#### Features
+
+equations bin for the ODE model -- R version
+
+#### Suggested input
+
+```Rscript m_equations.R```
+
+#### Expected Output
+
+none
+
+*****
+
 ### m_equations.py
 
 #### Features
 
-equations bin for the ODE model
+equations bin for the ODE model -- python version
 
 #### Suggested input
 

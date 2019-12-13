@@ -2,7 +2,7 @@
 
 # Author 		: PokMan Ho (pok.ho19@imperial.ac.uk)
 # Script 		: m_equations.py
-# Desc 			: equations bin for the ODE model
+# Desc 			: equations bin for the ODE model -- python version
 # Input 		: ```python3 m_equations.py```
 # Output 		: none
 # Arguments 	: 0

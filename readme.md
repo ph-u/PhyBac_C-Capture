@@ -65,11 +65,11 @@ pdf file in designated directory
 
 #### Features
 
-ODE model
+equations bin for the ODE model
 
 #### Suggested input
 
-python3 m_equations.py
+```python3 m_equations.py```
 
 #### Expected Output
 

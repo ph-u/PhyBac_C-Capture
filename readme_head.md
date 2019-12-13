@@ -20,7 +20,7 @@ LaTeX version: TeX Live 2019
 1. Scripts in this project were stored in `code` subdirectory.  Header of each scripts were containing its own details.  A summary of these details were ordered alphabetically in Section "Scripts".  
 2. Data and intermediate files used in this project were stored in `data` subdirectory.  
 3. Graphs and reports in this project were stored in `results` subdirectory.  
-4. References for this project were stored in `reference` subdirectory.  Brief descriptions for each paper was written in `00_2019ICLMResRefDESC.txt` and bibliography file is `00_2019ICLMResThesis.bib`.
+4. References for this project were stored in `reference` subdirectory.  Brief descriptions for each paper was written in `refDesc.txt`; bibliography files for the proposal and thesis are  `proposal.bib` and `thesis.bib` respectively.
 
 ## Features
 

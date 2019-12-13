@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## Author: PokMan Ho (pok.ho19@imperial.ac.uk)
-## Script: hk_luaLTX.sh
-## Desc: use lualatex as .tex file compiler
-## Input: ```nohup bash hk_luaLTX.sh <tex with .tex> <optional/output/path/>```
-## Output: pdf file in designated directory
-## Arguements: 1 or 2
-## Date: Nov 2019
+## Author 		: PokMan Ho (pok.ho19@imperial.ac.uk)
+## Script 		: hk_luaLTX.sh
+## Desc 		: use lualatex as .tex file compiler
+## Input 		: ```nohup bash hk_luaLTX.sh <tex with .tex> <optional/output/path/>```
+## Output 		: pdf file in designated directory
+## Arguements 	: 1 or 2
+## Date 		: Nov 2019
 
 ## check pid of compilation: ps aux |grep Ho_Pok_Man|grep luaLTX|grep prop|awk '{OFS="\t"}{print $2}'
 

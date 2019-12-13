@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## Author: PokMan Ho (pok.ho19@imperial.ac.uk)
-## Script: hk_gen_readme.sh
-## Desc: readme.md generator
-## Input: ```bash hk_gen_readme.sh```
-## Output: `readme.md` file
-## Arguements: 0
-## Date: Nov 2019
+## Author 		: PokMan Ho (pok.ho19@imperial.ac.uk)
+## Script 		: hk_gen_readme.sh
+## Desc 		: readme.md generator
+## Input 		: ```bash hk_gen_readme.sh```
+## Output 		: `readme.md` file
+## Arguements 	: 0
+## Date 		: Nov 2019
 
 ## self-orientation
 p0=`dirname $0`
@@ -23,7 +23,7 @@ for i in `ls | grep "\."`;do
     echo >> ../readme.md
     echo -e "#### Features" >> ../readme.md
     echo >> ../readme.md
-    grep "Desc:" ${i}|cut -f 2 -d ":"|sed -e "s/ //1"|head -n 1 >> ../readme.md
+    grep "Desc " ${i}|cut -f 2 -d ":"|sed -e "s/ //1"|head -n 1 >> ../readme.md
     echo >> ../readme.md
     echo -e "#### Suggested input" >> ../readme.md
     echo >> ../readme.md

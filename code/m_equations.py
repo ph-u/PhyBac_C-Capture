@@ -30,14 +30,18 @@ def ebc( 												## eco-bioelectric cell model
 				deathA 		=.3, 						## death rate of PC
 				deathB 		=.3, 						## death rate of Cs
 				deathM 		=.001, 						## death rate of bm
-				hinderBA 	=.05, 						## hinder rate of Cs on PC
-				hinderAB 	=.05, 						## hinder rate of PC on Cs
+				energyA 	=.05, 						## energy extraction ability of PC
+				energyB 	=.05, 						## energy extraction ability of Cs
 				batch 		=.05 						## population removal upon death of host bm
 				):
 		"""eco-bioelectric cell: bio-population fluctuation main model"""
 		PA=pop[0] 												## PC population
 		PB=pop[1] 												## Cs population
 		PM=pop[2] 												## bm population
+
+		energy 		= energyB/(energyA+energyB) 				## energy factor division between PC & Cs
+		hinderBA 	= energy*growthA 							## competition hinder rate of Cs on PC
+		hinderAB 	= (1-energy)*growthB 						## competition hinder rate of PC on Cs
 
 		dPAdt = growthA*PA -deathA*PA -hinderBA*PA*PB -batch 	## rate of PC population fluctuation
 		dPBdt = growthB*PB -deathB*PB -hinderAB*PA*PB -batch 	## rate of Cs population fluctuation

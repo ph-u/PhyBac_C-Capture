@@ -1,0 +1,4 @@
+file 				use 						Desc 								source_url
+ASTMG173.csv 		ref for energy extraction 	US-global ref solar spectrum data 	https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html
+UK_AvgD.zip 		validate model 				UK insolation data 					https://solargis.com/maps-and-gis-data/download/united-kingdom
+CN_AvgD.zip 		validate model 				China insolation data 				https://solargis.com/maps-and-gis-data/download/china

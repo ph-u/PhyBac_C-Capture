@@ -1,7 +1,7 @@
-#!/bin/env python3
+#!/bin/env R
 
 # Author 		: PokMan Ho (pok.ho19@imperial.ac.uk)
-# Script 		: m_equations.py
+# Script 		: m_equations.R
 # Desc 			: equations bin for the ODE model -- R version
 # Input 		: ```Rscript m_equations.R```
 # Output 		: none

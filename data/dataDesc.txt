@@ -1,5 +1,5 @@
-file 				use 						Desc 									source_url
-ASTMG173.csv 		ref for energy extraction 	US-global ref solar spectrum data 		https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html
-UK_AvgD.zip 		validate model 				UK daily average insolation data 		https://solargis.com/maps-and-gis-data/download/united-kingdom <https://solargis.com/file?url=download/United%20Kingdom/United-Kingdom_GISdata_LTAym_AvgDailyTotals_GlobalSolarAtlas-v2_GEOTIFF.zip&bucket=globalsolaratlas.info>
-CN_AvgD.zip 		validate model 				China daily average insolation data 	https://solargis.com/maps-and-gis-data/download/china <https://solargis.com/file?url=download/China/China_GISdata_LTAym_AvgDailyTotals_GlobalSolarAtlas-v2_GEOTIFF.zip&bucket=globalsolaratlas.info>
-MIDAS (tmp) 		model validation 			hourly Global radiation observations 	https://catalogue.ceda.ac.uk/uuid/b4c028814a666a651f52f2b37a97c7c7
+file 				use 						Desc 																	source_url
+ASTMG173.csv 		ref for energy extraction 	US-global ref solar spectrum data 										https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html
+solarRef.csv 		model validation 			hourly Global radiation observations 									https://catalogue.ceda.ac.uk/uuid/b4c028814a666a651f52f2b37a97c7c7
+maxminLatLon.csv 	solar data trim 			outline HK & London geolocation 										//
+solarStation.kml 	solar station trim 			geolocation of MIDAS stations, from midas_stations_by_area.kmz 			http://archive.ceda.ac.uk/midas_stations/google_earth/

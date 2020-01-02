@@ -17,11 +17,15 @@ LaTeX version: TeX Live 2019
 
 ## Guides
 
-1. Scripts in this project were stored in `code` subdirectory.  Header of each scripts were containing its own details.  A summary of these details were ordered alphabetically in Section "Scripts".  
-2. Data and intermediate files used in this project were stored in `data` subdirectory.  
-3. Hourly solar time series [data](http://data.ceda.ac.uk/badc/ukmo-midas/data/RO) used in this project can be requested from [CEDA Archive](https://catalogue.ceda.ac.uk/uuid/220a65615218d5c9cc9e4785a3234bd0)
-4. Graphs and reports in this project were stored in `results` subdirectory.  
-5. References for this project were stored in `reference` subdirectory.  Brief descriptions for each paper was written in `refDesc.txt`; bibliography files for the proposal and thesis are  `proposal.bib` and `thesis.bib` respectively.
+1. Scripts were in `code` subdirectory with description headers, which summarized in Section "Scripts" in readme
+2. Intermediate files were in `data` subdirectory
+4. Download global solar station [geo-location](http://archive.ceda.ac.uk/midas_stations/google_earth/) open data from CEDA Archive
+5. Graphs were in `results` subdirectory
+6. Final report was `results` subdirectory
+7. References were in `reference` subdirectory
+   1. `refDesc.txt`: brief descriptions for each paper
+   2. `proposal.bib`: proposal bibliography
+   3. `thesis.bib`: thesis bibliography
 
 ## Features
 

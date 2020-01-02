@@ -11,7 +11,7 @@
 cd ../data
 
 echo -e "extract solar station id from time series data"
-awk '{print $8}' solarRef.csv | sort | uniq | cut -f 1 -d "," > solar0.txt ## get all solar station id from time series
+cat solarRef.txt | sort | uniq | cut -f 1 -d "," > solar0.txt ## get all solar station id from time series
 
 ## 		extract geo-data from .kmz to csv
 echo -e "extract geo-data info from stations around the globe"

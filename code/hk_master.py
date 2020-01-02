@@ -20,12 +20,14 @@ import subprocess as s
 s.Popen("date", shell=True).wait() # keep track of stepwise time
 s.Popen("./d_cleanStation.sh 		2> nohup.out", shell=True).wait() # extract station geo-info from kmz data
 s.Popen("date", shell=True).wait() # keep track of stepwise time
+s.Popen("./d_extStation.sh 			2> nohup.out", shell=True).wait() # extract station id from hourly insolation data
+s.Popen("date", shell=True).wait() # keep track of stepwise time
 s.Popen("Rscript d_avaStation.R 	2> nohup.out", shell=True).wait() # trim geo-info to solar data coverage
 s.Popen("date", shell=True).wait() # keep track of stepwise time
 s.Popen("./d_trimSolar.sh 			2> nohup.out", shell=True).wait() # combine solar hourly time series into single data
 s.Popen("date", shell=True).wait() # keep track of stepwise time
 
 ## completing Proj workflow
-s.Popen("./hk_gen_readme.sh 		2> nohup.out", shell=True).wait() # gen readme
 s.Popen("rm nohup* 								", shell=True).wait() # clean up
+s.Popen("./hk_gen_readme.sh 					", shell=True).wait() # gen readme
 s.Popen("date", shell=True).wait() # keep track of time

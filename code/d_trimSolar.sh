@@ -11,7 +11,7 @@
 cd ../data
 
 ## 	trim data, add header
-rm solarT.csv 2> nohup.out
+rm solarT.csv 2> ../code/nohup.out
 touch solarT.csv
 
 ## 	add selected headers

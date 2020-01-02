@@ -8,6 +8,8 @@
 # Arguments 	: 0
 # Date 			: Jan 2020
 
+cat("trim solar station data\n")
+
 ## 	read raw data
 a.0<-read.table("../data/solar0.txt", header=F, stringsAsFactors=F)[,1]
 a.1<-read.table("../data/solar1.txt", header=F, stringsAsFactors=F, sep=",")

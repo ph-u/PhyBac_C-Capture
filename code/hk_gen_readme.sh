@@ -12,6 +12,8 @@
 p0=`dirname $0`
 cd ${p0}
 
+echo -e "writing readme"
+
 ## head of real readme file
 cp ../readme_head.md ../readme.md
 echo -e "" >> ../readme.md ## force insert of an empty line at the bottom of target file

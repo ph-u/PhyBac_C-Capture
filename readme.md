@@ -62,6 +62,22 @@ extract station id and geolocations
 
 *****
 
+### d_extStation.sh
+
+#### Features
+
+extract all station info from yearly data files
+
+#### Suggested input
+
+```bash d_extStation.sh```
+
+#### Expected Output
+
+`data/` directory - `solarRef.txt`
+
+*****
+
 ### d_trimSolar.sh
 
 #### Features

@@ -19,6 +19,7 @@ LaTeX version: TeX Live 2019
 
 1. Scripts were in `code` subdirectory with description headers, which summarized in Section "Scripts" in readme
 2. Intermediate files were in `data` subdirectory
+3. Request for hourly insolation [data](http://data.ceda.ac.uk/badc/ukmo-midas/data/RO) from [CEDA Archive](https://catalogue.ceda.ac.uk/uuid/220a65615218d5c9cc9e4785a3234bd0)
 4. Download global solar station [geo-location](http://archive.ceda.ac.uk/midas_stations/google_earth/) open data from CEDA Archive
 5. Graphs were in `results` subdirectory
 6. Final report was `results` subdirectory

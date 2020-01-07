@@ -147,6 +147,22 @@ none - see child scripts
 
 *****
 
+### m_equations.R
+
+#### Features
+
+equations bin for the ODE model -- R version
+
+#### Suggested input
+
+```Rscript m_equations.R```
+
+#### Expected Output
+
+none
+
+*****
+
 ### m_equations.py
 
 #### Features
@@ -163,18 +179,17 @@ none
 
 *****
 
-### m_equations.R
+### thesis.tex
 
 #### Features
 
-equations bin for the ODE model -- R version
 
 #### Suggested input
 
-```Rscript m_equations.R```
+none
 
 #### Expected Output
 
-none
+pdf thesis in same directory
 
 *****

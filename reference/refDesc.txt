@@ -22,4 +22,4 @@ nurnberg2018photochemistry 		20191208 	intro 	infrared-absorption cyanobacteria
 yang2008progress				pre 		intro	carbon sequestration tech diversity
 
 summary	exp use	url
-world energy consumption	X	https://en.wikipedia.org/wiki/World_energy_consumption#cite_note-14
+world energy consumption					X		https://en.wikipedia.org/wiki/World_energy_consumption#cite_note-14

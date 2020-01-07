@@ -183,6 +183,7 @@ none
 
 #### Features
 
+MRes thesis main tex
 
 #### Suggested input
 

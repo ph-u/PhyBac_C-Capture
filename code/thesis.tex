@@ -1,0 +1,62 @@
+% Author: PokMan Ho pok.ho19@imperial.ac.uk
+% Script: thesis.tex
+% Desc: MRes thesis main tex
+% Input: none
+% Output: pdf thesis in same directory
+% Arguments: 0
+% Date: Jan 2020
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx, hyperref, longtable, amsmath, amssymb}
+\graphicspath{{result/}{../result/}}
+
+\usepackage[
+autocite 	= superscript,
+backend 	= bibtex,
+sortcites 	= true,
+style 		= nature
+]{biblatex}
+\bibliography{../reference/thesis.bib}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,      
+	urlcolor=blue,
+	citecolor=blue
+}
+
+\usepackage{subfiles} %% load last
+
+\title{MRes thesis}
+\author{PokMan Ho}
+\date{September 2020}
+
+\begin{document}
+\maketitle
+
+\section{Abstract}
+\subfile{thesisSec/abstract}
+
+\section{Introduction}
+\subfile{thesisSec/intro}
+
+\section{Methodology}
+\subfile{thesisSec/method}
+
+\section{Result}
+\subfile{thesisSec/res}
+
+\section{Discussion}
+\subfile{thesisSec/disc}
+
+\section{Conclusion}
+\subfile{thesisSec/conclu}
+
+\section{Acknowledgement}
+The author would like to thank\autocite{giraldo2014plant} \href{mailto:j.rosindell@imperial.ac.uk}{Dr. James Rosindell} and \href{mailto:s.pawar@imperial.ac.uk}{Dr. Samraat Pawar} for accepting this project idea.  Thank you \href{mailto:wei.huang@eng.ox.ac.uk}{Prof. Wei Huang} for agreeing to be the external adviser.  Big thanks to \href{mailto:e.cavan@imperial.ac.uk}{Dr. Emma Cavan} and \href{mailto:t.clegg17@imperial.ac.uk}{Mr. Tom Clegg} for giving great technical helps.
+
+\nocite{*}\printbibliography
+\end{document}

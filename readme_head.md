@@ -14,6 +14,13 @@ bash version: 3.2.57(1)-release
 python3 version: 3.7.3  
 r version: 3.6.0  
 LaTeX version: TeX Live 2019
+BibTex version: 0.99d (TeX Live 2019)
+Other languages: awk
+
+## Packages used
+LaTeX: geometry, inputenc, babel, graphicx, hyperref, longtable, amsmath, amssymb, subfiles
+R: NONE
+Python3: subprocess, scipy
 
 ## Guides
 
@@ -31,5 +38,10 @@ LaTeX version: TeX Live 2019
 ## Features
 
 This readme.md and the project was automated with minimal non-structural manual modifications for reproducibility and flexibility.
+
+## Reproduce project
+
+1. Request and download 
+2. Run the code `python3 hk_master.py` in the `code/` subdirectory
 
 ## Scripts

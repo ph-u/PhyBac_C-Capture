@@ -41,7 +41,7 @@ This readme.md and the project was automated with minimal non-structural manual 
 
 ## Reproduce project
 
-1. Request and download 
+1. Request and download CEDA Archive data (.txt files) to `data/yearly_files` subdirectory
 2. Run the code `python3 hk_master.py` in the `code/` subdirectory
 
 ## Scripts

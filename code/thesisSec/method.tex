@@ -11,5 +11,48 @@
 \begin{document}
 %this is the methodology
 %growth rates are related to the light intensity of the measurement location
-A set of ordinary differential equations (ODEs) were used to describe different part of the coexistence ecosystem of two cyanobacteria lineages \As\ (or \Ss) and \Cs\ ink-jet printed on button mushrooms.\autocite{joshi2018bacterial}  Assuming cyanobacteria lineages only differ by its ability to capture sunlight but not nutritional requirements,\autocite{giraldo2014plant} energy budget is the core focus of model.  The assumption is based on the widespread distribution of \As\ (or \Ss) globally\autocite{joshi2018bacterial,sawa2017electricity} and the tough survival ability tested for Mars terraforming\autocite{baque2013boss}
+\subsection{Model}
+A set of ordinary differential equations (ODEs) were used to describe the coexistence ecosystem.  All units used were SI units used in physics.  The coexistence ecosystem contained two cyanobacteria lineages \As\ (or \Ss) and \Cs\ ink-jet printed on button mushrooms.\autocite{joshi2018bacterial} . The main equations of perpetuation were:\\
+For \As:
+\begin{equation}
+	dA/dt = [r_A A] - [k_{A1} A] - [k_{A2} A C] - [K_M]
+\end{equation}
+For \Cs:
+\begin{equation}
+	dC/dt = [r_C C] - [k_{C1} C] - [k_{C2} A C] - [K_M]
+\end{equation}
+For button mushroom:
+\begin{equation}
+	dM/dt = [r_M M] - [k_M M]
+\end{equation}
+
+$dA/dt, dC/dt$ and $dM/dt$ were instantaneous growth rates.  $[r_A A], [r_C C]$ and $[r_M M]$ were natural growth terms (growth rates \times \ps s).  $[k_{A1} A], [k_{C1} C]$ and $[k_M M]$ were natural death terms (death rates \times \ps s).  These natural death rates were assumed to be constants only related to expected cell lifespans.  $[k_{A2} A C]$ and $[k_{C2} A C]$ were growth hinder terms on spatial competition (competition death rates \times \ps s).  $[K_M]$ was the cohort removals when host mushrooms died.  Mushrooms were considered as having a continuous dying behaviour affecting the coexistence population immobilized by their umbrella-shaped pilei.  This model would be validated by having population cycles following the insolation cycles.
+
+Growth rates of button mushrooms should be a constant given a stable nutrient supply.  Yet the two cyanobacteria lineages would also be affected by the cellular energy stock accumulated through photosynthesis.  As wavelength of the incident light was positively affecting the energy budget of the cell (hence the energy available for growth), $[r_A A], [r_C C]$ should be considered as a ratio related to the published experimental conditions and the simulated conditions:\\
+For \As:
+\begin{equation}
+    r_A = \dfrac{r_A|_{expt}}{J|_{expt}}\cdot J_{As}
+\end{equation}
+For \Cs:
+\begin{equation}
+    r_C = \dfrac{r_C|_{expt}}{J|_{expt}}\cdot J_{Cs}
+\end{equation}
+
+$r_A|_{expt}$ and $r_C|_{expt}$ were the growth rates measured experimentally in literature.  $J|_{expt}$ was the respective energy supplied per cell per unit time to the experiment system in respective papers.  $J_{As}$ and $J_{Cs}$ were the energy supply per cell per unit time in the simulated ecosystem.
+
+Competition death rates were assumed only related to energy budgets of the two populations and both populations only compete for space with each other by growth.  Hence these terms were also calculated using ratio of energy gained between the two cyanobacteria lineages.  The calculation assumed the whole area of all mushrooms pilei were covered by either \As\ or \Cs.  The equations were:\\
+For \As:
+\begin{equation}
+    k_{A2} = \dfrac{J_{Ct}}{J_{As} + J_{Ct}}\cdot r_A
+\end{equation}
+For \Cs:
+\begin{equation}
+    k_{C2} = \dfrac{J_{At}}{J_{As} + J_{Ct}}\cdot r_C
+\end{equation}
+
+The model were validated by using past solar data (1947-2019) from Centre of Environmental Data Analysis (CEDA) Archive\autocite{solarData}
+
+\subsection{Solar Data}
+To validate the model,
+
 \end{document}

@@ -11,7 +11,7 @@
 cd ../data
 
 echo -e "extract solar station id from time series data"
-cat solarRef.txt | sort | uniq | cut -f 1 -d "," > solar0.txt ## get all solar station id from time series
+cat solarR.txt | sort | uniq  > solar0.txt ## get all solar station id from time series
 
 ## 		extract geo-data from .kmz to csv
 echo -e "extract geo-data info from stations around the globe"
@@ -25,10 +25,10 @@ grep coordinates midas_stations_by_area.kml | cut -f 2 -d ">" | cut -f 1 -d "<" 
 paste t1 t2 -d "," > solar1.txt # col: id, lon, lat, alt
 
 ## 		clean
+rm solarR.txt
 rm midas_stations_by_area.zip
 rm midas_stations_by_area.kml
 rm t1
 rm t2
-rm solarRef.txt
 
 exit

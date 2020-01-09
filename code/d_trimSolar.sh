@@ -15,8 +15,8 @@ rm solarT.csv 2> ../code/nohup.out
 touch solarT.csv
 
 ## 	add selected headers
-p=`cat ../data/RO_Column_Headers.csv | tr -d " " | awk -F "," '{OFS=","}{print $3,$5,$7,$9}' | tr -s ","` # get header as text string | rm all " " | rm irrelevant cols | min rep sep
-echo -e "date${p}" > solarT.csv # add leading colname
+p=`cat ../data/RO_Column_Headers.csv | tr -d " " | awk -F "," '{OFS=","}{print $3,$7,$9}' | tr -s ","` # get header as text string | rm all " " | rm irrelevant cols | min rep sep
+echo -e "date,${p}" > solarT.csv # add leading colname
 
 ## 	add information columns
 echo -e "Trim insolation data"
@@ -27,19 +27,12 @@ for i in `ls yearly_files/midas*.txt`;do
 		i0=`echo ${i} | cut -f 1 -d "." | cut -f 4 -d "_"`
 		echo -e "current progress: ${i0}"
 	fi
-	awk -F "," '{OFS=","}{print $3,$5,$7,$9}' ${i} | 	# DateTime, Met QC, station id, irradiation
+	grep ", 1, " ${i} | 								# grep Met QC rows; only MetQC col can have this pattern
+	awk -F "," '{OFS=","}{print $3,$7,$9}' | 			# DateTime, station id, irradiation
 	sed -e "s/ /,/g" | 									# all space to ","
 	tr -s "," | 										# min repeated " "
-	sed -e "s/,//" | 									# trim leading ","
-	while IFS=, read -r f1 f2 f3 f4 f5;do 				# date, time, Met QC, station id, irradiation
-		if [ $((${f3})) -eq 1 ];then 					# Met QC confirm =1
-			echo "${f1},${f2},${f4},${f5}">> solarT.csv
-		fi
-	done
+	sed -e "s/,//" >> solarT.csv 						# trim leading ","
 	msg0=`echo $((${msg0}+1))`
 done
-
-## 	clean
-rm nohup.out
 
 exit

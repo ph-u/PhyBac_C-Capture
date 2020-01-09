@@ -9,13 +9,14 @@
 ## Date 		: Jan 2020
 
 cd ../data
-rm solarRef.txt 2> ../code/nohup.out
-touch solarRef.txt
+rm solarR.txt 2> ../code/nohup.out
+touch solarR.txt
 
 echo -e "extract station id data"
 
 for i in `ls yearly_files/mi*.txt`;do
-	awk -F "," '{print $7}' ${i} | sort | uniq >> solarRef.txt # extract station data per year
+	awk -F "," '{print $7}' ${i} | sort | uniq >> solarR.txt
+	# extract station data per year
 done
 
 exit

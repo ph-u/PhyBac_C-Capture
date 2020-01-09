@@ -21,3 +21,7 @@ a.1[,4]<-as.numeric(a.1[,4]) # unknown reason not initially treated as int
 
 ## 	export geo-data as useable station geo-data
 write.csv(a.1,"../data/solar1.csv", quote=F, row.names=F)
+
+## clean up directory
+unlink("../data/solar0.txt")
+unlink("../data/solar1.txt")

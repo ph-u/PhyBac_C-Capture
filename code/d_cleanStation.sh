@@ -29,5 +29,6 @@ rm midas_stations_by_area.zip
 rm midas_stations_by_area.kml
 rm t1
 rm t2
+rm solarRef.txt
 
 exit

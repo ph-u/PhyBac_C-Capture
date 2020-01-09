@@ -24,8 +24,10 @@ import scipy as sc
 def ebc( 												## eco-bioelectric cell model
 				pop 		=sc.array([500,500,30]), 	## population array [PC, Cs, bm]
 				time		=0, 						## time-step series, start with 0
-				growthA 	=1., 						## growth rate of PC
-				growthB 	=1., 						## growth rate of Cs
+				gAexpt 		=1., 						## growth rate of PC in reference experiment
+				gBexpt 		=1., 						## growth rate of Cs in reference experiment
+				JAexpt 		=1., 						## energy per unit time gained by PC in reference experiment
+				JBexpt 		=1., 						## energy per unit time gained by Cs in reference experiment
 				growthM 	=.01, 						## growth rate of bm
 				deathA 		=.3, 						## death rate of PC
 				deathB 		=.3, 						## death rate of Cs
@@ -38,6 +40,9 @@ def ebc( 												## eco-bioelectric cell model
 		PA=pop[0] 												## PC population
 		PB=pop[1] 												## Cs population
 		PM=pop[2] 												## bm population
+
+		growthA 	= gAexpt/JAexpt*energyA 					## PC growth rate
+		growthB 	= gBexpt/JBexpt*energyB 					## Cs growth rate
 
 		energy 		= energyB/(energyA+energyB) 				## energy factor division between PC & Cs
 		hinderBA 	= energy*growthA 							## competition hinder rate of Cs on PC

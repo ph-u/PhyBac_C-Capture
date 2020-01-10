@@ -15,7 +15,8 @@ solarGeoL<-read.csv("../data/solar1.csv", header = T, stringsAsFactors = F)
 solarHour<-read.table("../data/solarT.csv", header = T, stringsAsFactors = F, sep = ",")
 
 ## get unique location
-a.0<-gsub(";","_",unique(solarGeoL$clus))
+a.1<-unique(solarGeoL$clus)
+a.0<-gsub(";","_",a.1)
 a.0<-gsub(":","",a.0)
 
 ## match location with solar data
@@ -25,6 +26,6 @@ for(i in 1:nrow(solarGeoL)){
 };rm(i)
 
 ## export data by location
-for(i in 1:length(a.0)){
-  write.csv(solarHour[which(solarHour$location==a.0[i]),-3], paste0("../data/solarGeoCleaned/solar_",a.0[i],".csv"), col.names = T, quote = F)
+for(i in 1:length(a.1)){
+  write.csv(solarHour[which(solarHour$location==a.1[i]),-c(3,5)], paste0("../data/solarGeoCleaned/solar_",a.0[i],".csv"), row.names = F, quote = F)
 };rm(i)

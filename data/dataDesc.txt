@@ -1,6 +1,6 @@
 file 						use 						Desc 																	source_url
 ASTMG173.csv 				ref for energy extraction 	US-global ref solar spectrum data 										https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html
-solarRef.csv 				model validation 			hourly Global radiation observations 									https://catalogue.ceda.ac.uk/uuid/b4c028814a666a651f52f2b37a97c7c7
-maxminLatLon.csv 			solar data trim 			outline HK & London geolocation 										//
 midas_stations_by_area.kmz 	solar station trim 			geolocation of MIDAS stations 											http://archive.ceda.ac.uk/midas_stations/google_earth/
-midas_stations_by_area.csv 	solar station trim 			online-converted csv version of midas_stations_by_area.kmz 				https://www.gearthblog.com/blog/archives/2017/01/google-earth-placemarks-excel.html
+cities_GPCI.csv 			model id city 				city geo-location ref 													//
+solarT.csv 					model cleaned raw data 		hourly solar data trimed and filtered for QC and global irradiation 	from yearly_files/
+RO_Column_Headers.csv 		naming solarT.csv 			colnames for solar data													https://artefacts.ceda.ac.uk/badc_datadocs/ukmo-midas/RO_Table.html

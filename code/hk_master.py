@@ -26,6 +26,8 @@ s.Popen("Rscript d_avaStation.R 				2> nohup.out", shell=True).wait() # trim geo
 s.Popen("date", shell=True).wait() # keep track of stepwise time
 s.Popen("./d_trimSolar.sh 						2> nohup.out", shell=True).wait() # combine solar hourly time series into single data
 s.Popen("date", shell=True).wait() # keep track of stepwise time
+s.Popen("Rscript d_filSolar.R 					2> nohup.out", shell=True).wait() # combine solar hourly time series with location categories
+s.Popen("date", shell=True).wait() # keep track of stepwise time
 
 #s.Popen("./hk_luaLTX.sh thesis.tex ../result 	2> nohup.out", shell=True).wait() # write report
 s.Popen("date", shell=True).wait() # keep track of stepwise time

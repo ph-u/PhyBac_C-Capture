@@ -33,8 +33,8 @@ a.2<-read.csv("../data/cities_GPCI.csv", header=T, stringsAsFactors=F)[,-5]
 a.1<-a.1[which(a.1[,1] %in% a.0),]
 
 ## set up necessary global pixels with information
-a.1$clus<-paste0("lat:",round(a.1$lat),";lon:",round(a.1$lon))
-a.2$clus<-paste0("lat:",round(a.2$latitude),";lon:",round(a.2$longitude))
+a.1$clus<-paste0("lat",round(a.1$lat),"lon",round(a.1$lon))
+a.2$clus<-paste0("lat",round(a.2$latitude),"lon",round(a.2$longitude))
 for(i in 1:nrow(a.2)){
   if(a.2$clus[i] %in% a.1$clus){a.1$clus[which(a.1$clus==a.2$clus[i])]<-a.2$City[i]}
 };rm(i)

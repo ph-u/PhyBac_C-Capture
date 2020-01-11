@@ -12,43 +12,21 @@
 %this is the methodology
 %growth rates are related to the light intensity of the measurement location
 \subsection{Coexistence Ecosystem Model}
-A set of ordinary differential equations (ODEs) were used to describe the coexistence ecosystem.  All units used were SI units used in physics.  The coexistence ecosystem contained two cyanobacteria lineages \As\ (or \Ss) and \Cs\ ink-jet printed on button mushrooms.\autocite{joshi2018bacterial}  The main equations of perpetuation were:\\
-For \As:
-\begin{equation}
-	dA/dt = [r_A A] - [k_{A1} A] - [k_{A2} A C] - [K_M]
+
+The numeric model was describing two cyanobacteria lineages \As\ (or \Ss) and \Cs\ coexisting and competing on a button mushroom,\autocite{joshi2018bacterial} which they were ink-jet printed on.  The initial community was expected to be a single cell layer filling the whole mushroom pileus upper surface with each lineage contributing 1:1 \ps.  The system would then be left flat at sea-level under natural sunlight at different latitudes and longitudes to observe the spatial competition of the two lineages.  Nutrients and water supply were assumed unlimited, stable and all-rounded by using domestic sewage.\autocite{markou2014microalgal}  Electricity generation by this system would be monitored.  Time of reaching dynamic equilibrium and respective population contribution to the community would be recorded.  At the end of model, biomass accumulation will be calculated.
+
+A set of ordinary differential equations (ODEs) were used describing this coexistence ecosystem.  Physics SI units were strictly adopted in calculations.  Cyanobacteria community dynamic equations were:
+\begin{equation}\label{eq:main}
+    dp/dt = r_p [p] - k_{p1} [p] - k_{p2} [p][q]
 \end{equation}
-For \Cs:
-\begin{equation}
-	dC/dt = [r_C C] - [k_{C1} C] - [k_{C2} A C] - [K_M]
+\begin{equation}\label{eq:growth}
+    r_p = \dfrac{r_p|_{expt}}{J_p|_{expt}}\cdot J_p
 \end{equation}
-For button mushroom:
-\begin{equation}
-	dM/dt = [r_M M] - [k_M M]
+\begin{equation}\label{eq:compete}
+    k_{p2} = \dfrac{J_q}{J_p + J_q}\cdot r_p = \dfrac{J_q J_p}{J_p + J_q}\cdot \dfrac{r_p|_{expt}}{J_p|_{expt}}
 \end{equation}
 
-$dA/dt, dC/dt$ and $dM/dt$ were instantaneous growth rates.  $[r_A A], [r_C C]$ and $[r_M M]$ were natural growth terms (growth rates \times\ \ps s).  $[k_{A1} A], [k_{C1} C]$ and $[k_M M]$ were natural death terms (death rates \times\ \ps s).  These natural death rates were assumed to be constants only related to expected cell lifespans.  $[k_{A2} A C]$ and $[k_{C2} A C]$ were growth hinder terms on spatial competition (competition death rates \times\ \ps s).  $[K_M]$ was the cohort removals when host mushrooms died.  Mushrooms were considered as having a continuous dying behaviour affecting the coexistence population immobilized by their umbrella-shaped pilei.  This model would be validated by having population cycles following the insolation cycles.
-
-Growth rates of button mushrooms should be a constant given a stable nutrient supply.  Yet the two cyanobacteria lineages would also be affected by the cellular energy stock accumulated through photosynthesis.  As wavelength of the incident light was positively affecting the energy budget of the cell (hence the energy available for growth), $[r_A A], [r_C C]$ should be considered as a ratio related to the published experimental conditions and the simulated conditions:\\
-For \As:
-\begin{equation}
-    r_A = \dfrac{r_A|_{expt}}{J_A|_{expt}}\cdot J_{A}
-\end{equation}
-For \Cs:
-\begin{equation}
-    r_C = \dfrac{r_C|_{expt}}{J_C|_{expt}}\cdot J_{C}
-\end{equation}
-
-$r_A|_{expt}$ and $r_C|_{expt}$ were the growth rates measured experimentally in literature.  $J_A|_{expt}$ and $J_C|_{expt}$ were the respective energy supplied per cell per unit time to the experiment system in respective papers.  $J_A$ and $J_C$ were the energy supply per cell per unit time in the simulated ecosystem.
-
-Competition death rates were assumed only related to energy budgets of the two populations and both populations only compete for space with each other by growth.  Hence these terms were also calculated using ratio of energy gained between the two cyanobacteria lineages.  The calculation assumed the whole area of all mushrooms pilei were covered by either \As\ or \Cs.  The equations were:\\
-For \As:
-\begin{equation}
-    k_{A2} = \dfrac{J_C}{J_A + J_C}\cdot r_A
-\end{equation}
-For \Cs:
-\begin{equation}
-    k_{C2} = \dfrac{J_A}{J_A + J_C}\cdot r_C
-\end{equation}
+$dp/dt$ was the instantaneous growth rate.  $[p]$ was the \ps\ of target lineage (either \As\ or \Cs).  $[q]$ was the \ps\ of the other lineage interacting with the target.  $r_p$ was the growth rate of target population.  This coefficient was calculated by ratio comparison of energy gain ($J_p$ and $J_p|_{expt}$) between prior experiment report of growth rate $r_p|_{expt}$ (using their light source, assuming nutrition conditions identical between literature and this model).  $k_{p1}$ was the natural death rate of target population.  $k_{p2}$ was the resultant death rate from spatial competition between the two cyanobacteria lineages.  This term was a hinder factor for growth rate.  The coefficient was calculated by energy ratio gained by the interacting lineage ($J_q$) compared to the target's.
 
 The model were validated by using mean hourly, annual and eleven-year cycles.  Hourly means were to validate the daily cycle, annual means were to validate the seasonal cycle and the eleven-year means were to validate the solar cycle.  The data (1947-2019) was requested from Centre of Environmental Data Analysis (CEDA) Archive.\autocite{solarData}
 

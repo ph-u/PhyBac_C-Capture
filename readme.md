@@ -143,6 +143,22 @@ solarG.csv
 
 *****
 
+### d_rfcvSolar.sh
+
+#### Features
+
+organize solar reference curve data
+
+#### Suggested input
+
+```bash d_rfcvSolar.sh```
+
+#### Expected Output
+
+`data/` subdirectory - solarREF.csv
+
+*****
+
 ### d_tearSolCh.sh
 
 #### Features

@@ -18,6 +18,8 @@ __license__ 	="None"
 import subprocess as s
 
 s.Popen("date", shell=True).wait() # keep track of stepwise time
+s.Popen("./d_rfcvSolar.sh 						2> nohup.out", shell=True).wait() # organize solar power reference curve data
+s.Popen("date", shell=True).wait() # keep track of stepwise time
 s.Popen("./d_extStation.sh 						2> nohup.out", shell=True).wait() # extract station id from hourly insolation data
 s.Popen("date", shell=True).wait() # keep track of stepwise time
 s.Popen("./d_cleanStation.sh 					2> nohup.out", shell=True).wait() # extract station geo-info from kmz data

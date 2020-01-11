@@ -51,11 +51,27 @@ This readme.md and the project was automated with minimal non-structural manual 
 
 #### Features
 
-extract station geo-data within solar time series data coverage
+extract station geo-data within solar time series and city data coverage - R version
 
 #### Suggested input
 
 ```Rscript d_avaStation.R```
+
+#### Expected Output
+
+none
+
+*****
+
+### d_avaStation.py
+
+#### Features
+
+extract station geo-data within solar time series and city data coverage - py3 version
+
+#### Suggested input
+
+```python3 d_avaStation.py```
 
 #### Expected Output
 
@@ -92,6 +108,70 @@ extract all station info from yearly data files
 #### Expected Output
 
 `data/` directory - `solarRef.txt`
+
+*****
+
+### d_filSolar.R
+
+#### Features
+
+combine irradiation data with location - R version
+
+#### Suggested input
+
+```Rscript d_filSolar.R```
+
+#### Expected Output
+
+solarG.csv
+
+*****
+
+### d_filSolar.py
+
+#### Features
+
+combine irradiation data with location - py3 version
+
+#### Suggested input
+
+```python3 d_filSolar.py```
+
+#### Expected Output
+
+solarG.csv
+
+*****
+
+### d_tearSolCh.sh
+
+#### Features
+
+child script for tear solar data blob by location
+
+#### Suggested input
+
+```bash d_tearSolCh.sh <name>```
+
+#### Expected Output
+
+`data/solarGeoClearned/` subdirectory - one csv file
+
+*****
+
+### d_tearSolar.sh
+
+#### Features
+
+tear solar data blob by location
+
+#### Suggested input
+
+```bash d_tearSolar.sh <num_Intended_parallel_CPU>```
+
+#### Expected Output
+
+`data/solarGeoClearned/` subdirectory - one location one csv file
 
 *****
 

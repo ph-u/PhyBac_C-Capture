@@ -4,7 +4,7 @@
 ## Script 		: d_rfcvSolar.sh
 ## Desc 		: organize solar reference curve data
 ## Input 		: ```bash d_rfcvSolar.sh```
-## Output 		: `data/` subdirectory - solarREF.csv
+## Output 		: `data/` directory - `solarCurve.csv`
 ## Arguements 	: 0
 ## Date 		: Jan 2020
 

@@ -4,7 +4,7 @@
 # Script 		: d_filSolar.py
 # Desc 			: combine irradiation data with location - py3 version
 # Input 		: ```python3 d_filSolar.py```
-# Output 		: solarG.csv
+# Output 		: `data/` directory - `solarG.csv`
 # Arguments 	: 0
 # Date 			: Jan 2020
 

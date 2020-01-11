@@ -2,9 +2,9 @@
 
 ## Author 		: PokMan Ho (pok.ho19@imperial.ac.uk)
 ## Script 		: d_tearSolar.sh
-## Desc 		: tear solar data blob by location
+## Desc 		: parallel CPU tear solar data blob by location
 ## Input 		: ```bash d_tearSolar.sh <num_Intended_parallel_CPU>```
-## Output 		: `data/solarGeoClearned/` subdirectory - one location one csv file
+## Output 		: none - parallel call `d_tearSolCh.sh`, see child script
 ## Arguements 	: 1
 ## Date 		: Jan 2020
 

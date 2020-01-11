@@ -4,7 +4,7 @@
 ## Script 		: d_tearSolCh.sh
 ## Desc 		: child script for tear solar data blob by location
 ## Input 		: ```bash d_tearSolCh.sh <name>```
-## Output 		: `data/solarGeoClearned/` subdirectory - one csv file
+## Output 		: `data/solarGeoClearned/` subdirectory - one csv file from single location
 ## Arguements 	: 0
 ## Date 		: Jan 2020
 

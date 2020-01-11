@@ -4,7 +4,7 @@
 # Script 		: d_filSolar.R
 # Desc 			: combine irradiation data with location - R version
 # Input 		: ```Rscript d_filSolar.R```
-# Output 		: solarG.csv
+# Output 		: `data/` directory - `solarG.csv`
 # Arguments 	: 0
 # Date 			: Jan 2020
 

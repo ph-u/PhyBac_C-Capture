@@ -30,3 +30,4 @@ write.csv(solarHour[,-3], "../data/solarG.csv", row.names = F, quote = F)
 #for(i in 1:length(a.1)){
 #  write.csv(solarHour[which(solarHour$location==a.1[i]),-c(3,5)], paste0("../data/solarGeoCleaned/solar_",a.0[i],".csv"), row.names = F, quote = F)
 #};rm(i)
+unlink("../data/solarT.csv")

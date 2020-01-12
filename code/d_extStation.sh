@@ -4,7 +4,7 @@
 ## Script 		: d_extStation.sh
 ## Desc 		: extract all station info from yearly data files
 ## Input 		: ```bash d_extStation.sh```
-## Output 		: `data/` directory - `solarRef.txt`
+## Output 		: `data/` directory - `solarR.txt`
 ## Arguements 	: 0
 ## Date 		: Jan 2020
 

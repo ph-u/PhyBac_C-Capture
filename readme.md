@@ -115,7 +115,7 @@ extract all station info from yearly data files
 
 #### Expected Output
 
-`data/` directory - `solarRef.txt`
+`data/` directory - `solarR.txt`
 
 *****
 

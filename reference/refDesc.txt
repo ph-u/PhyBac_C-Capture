@@ -20,6 +20,7 @@ Wang2013 						20191207 	model 	ODE model bg knowledge
 wesselink2019feeding			pre 		model	mitochondria nutrition requirements
 wright1981acanthamoeba			pre 		desc	identify model consumer in model
 yang2008progress				pre 		intro	carbon sequestration tech diversity
+zavvrel2017phenotypic 			20200112 	model 	Synechocystis sp growth details
 
 summary	exp use	url
 world energy consumption					X		https://en.wikipedia.org/wiki/World_energy_consumption#cite_note-14

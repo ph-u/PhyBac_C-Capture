@@ -67,7 +67,7 @@ extract station geo-data within solar time series and city data coverage - R ver
 
 #### Expected Output
 
-none
+`data/` directory - `solar1.csv`
 
 *****
 
@@ -119,38 +119,6 @@ extract all station info from yearly data files
 
 *****
 
-### d_filSolar.R
-
-#### Features
-
-combine irradiation data with location - R version
-
-#### Suggested input
-
-```Rscript d_filSolar.R```
-
-#### Expected Output
-
-`data/` directory - `solarG.csv`
-
-*****
-
-### d_filSolar.py
-
-#### Features
-
-combine irradiation data with location - py3 version
-
-#### Suggested input
-
-```python3 d_filSolar.py```
-
-#### Expected Output
-
-`data/` directory - `solarG.csv`
-
-*****
-
 ### d_rfcvSolar.sh
 
 #### Features
@@ -167,35 +135,19 @@ organize solar reference curve data
 
 *****
 
-### d_tearSolCh.sh
+### d_trimSolCh.sh
 
 #### Features
 
-child script for tear solar data blob by location
+child script to `d_trimSolar.sh`
 
 #### Suggested input
 
-```bash d_tearSolCh.sh <name>```
+```bash d_trimSolCh.sh <infile> <LocLine> <Location>```
 
 #### Expected Output
 
-`data/solarGeoClearned/` subdirectory - one csv file from single location
-
-*****
-
-### d_tearSolar.sh
-
-#### Features
-
-parallel CPU tear solar data blob by location
-
-#### Suggested input
-
-```bash d_tearSolar.sh <num_Intended_parallel_CPU>```
-
-#### Expected Output
-
-none - parallel call `d_tearSolCh.sh`, see child script
+`data/solarGeoCleaned/` subdirectory one csv file
 
 *****
 
@@ -203,15 +155,15 @@ none - parallel call `d_tearSolCh.sh`, see child script
 
 #### Features
 
-combine global 1947-2019 solar data into single file
+organize 1947-2019 "global" solar data into csv files according to station location
 
 #### Suggested input
 
-```bash d_trimSolar.sh```
+```bash d_trimSolar.sh <num_CPU_parallel>```
 
 #### Expected Output
 
-`data/` subdirectory - `solarT.csv`
+initiate all csv files for `d_trimSolCh.sh` child scripts
 
 *****
 

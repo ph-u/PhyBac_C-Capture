@@ -15,10 +15,9 @@ cd ../data
 #	sleep 1
 #done
 
-locLin=`wc -l incStat_$2_$3.txt | cut -f 1 -d "	"` # sep by \t
+locLin=`wc -l incStat_$2_$3.txt | cut -f 1 -d " "` # sep by " "
 for k in `seq 1 ${locLin}`;do
-	txtrp=`head -n ${k} incStat_$2_$3.txt | tail -n 1`
-	txtrp=`grep ${txtrp}` # grep OR patterns
+	txtrp=`head -n ${k} incStat_$2_$3.txt | tail -n 1` # get grep pattern
 
 	## organizing data
 	awk -F "," -vq=" 1" -vx=${txtrp} '{OFS=","} $5==q && $7==x {print $3,$9}' $1 | # filter: MetQC==1, specific station; export: DateTime, irradiation

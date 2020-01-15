@@ -32,14 +32,13 @@ for i in `ls yearly_files/midas*.txt`;do
 	fi
 
 	for j in `seq 1 ${locLine}`;do
-#	while [ `ps aux | grep $USER | grep "trimSolCh" | wc -l` -gt $1 ];do # cpu overflow protection, just in case
-#			echo -e "quota ($1) full, waiting 5 sec"
-#			sleep 5
-#		done
+		while [ `ps aux | grep $USER | grep "midas" | grep "d_trim" | wc -l` -gt $1 ];do # cpu overflow protection, just in case
+			sleep 5
+		done
 
 		uLoc=`head -n ${j} uniqLoc.txt | tail -n 1` # get location indicator
 		grep ${uLoc} solar1.csv | awk -F "," '{print $1}' > incStat_${j}_${uLoc}.txt # get station id within Location
-		../code/d_trimSolCh.sh ${i} ${j} ${uLoc} #& # organize solar data in parallel
+		../code/d_trimSolCh.sh ${i} ${j} ${uLoc} & # organize solar data in parallel
 	done
 
 	msg0=`echo $((${msg0}+1))`

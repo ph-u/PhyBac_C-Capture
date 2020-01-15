@@ -4,7 +4,7 @@
 # Script 		: d_avaStation.R
 # Desc 			: extract station geo-data within solar time series and city data coverage - R version
 # Input 		: ```Rscript d_avaStation.R```
-# Output 		: none
+# Output 		: `data/` directory - `solar1.csv`
 # Arguments 	: 0
 # Date 			: Jan 2020
 

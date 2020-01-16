@@ -11,9 +11,9 @@
 cd ../data
 
 ## ensure only one child writing in one file each time
-while [ `ps aux | grep olCh.sh | grep mSolC | grep $3` -gt 0 ];do
-	sleep 1
-done
+#while [ `ps aux | grep SolCh | grep $3 | grep -v grep | wc -l` -gt 1 ];do
+#	sleep 1
+#done
 
 locLin=`wc -l incStat_$2_$3.txt | cut -f 1 -d " "` # sep by " "
 for k in `seq 1 ${locLin}`;do

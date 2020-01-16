@@ -29,22 +29,23 @@ for i in `ls yearly_files/midas*.txt`;do
 	if [ $((${msg0} % 10)) -eq 0 ];then # show scan progress
 		i0=`echo ${i} | cut -f 1 -d "." | cut -f 4 -d "_"`
 		echo -e "Scan passed: ${i0}"
+		date # show checkpoint time
 	fi
 
 	for j in `seq 1 ${locLine}`;do
-		while [ `ps aux | grep $USER | grep "midas" | grep "d_trim" | wc -l` -gt $1 ];do # cpu overflow protection, just in case
+		while [ `ps aux | grep mSolCh | grep -v grep | wc -l` -gt $1 ];do # cpu overflow protection, just in case
 			sleep 5
 		done
 
 		uLoc=`head -n ${j} uniqLoc.txt | tail -n 1` # get location indicator
 		grep ${uLoc} solar1.csv | awk -F "," '{print $1}' > incStat_${j}_${uLoc}.txt # get station id within Location
-		../code/d_trimSolCh.sh ${i} ${j} ${uLoc} & # organize solar data in parallel
+		../code/d_trimSolCh.sh ${i} ${j} ${uLoc} # organize solar data
 	done
 
 	msg0=`echo $((${msg0}+1))`
 done
 
-while [ `ps aux | grep mSolC | grep h.sh` -gt 0 ];do # wait for sorting to finish
+while [ `ps aux | grep mSolCh | grep -v grep | wc -l` -gt 0 ];do # wait for sorting to finish
 	sleep 1
 done
 

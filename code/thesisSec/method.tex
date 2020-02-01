@@ -11,5 +11,24 @@
 \begin{document}
 %this is the methodology
 %growth rates are related to the light intensity of the measurement location
+\subsection{Simulation model}
+Competition Lotka-Volterra equations were used for describing interactions between the two cyanobacteria lineages.  Using $p$ and $q$ resembling the two lineages with logistic dynamics, the differential equations were:
+\begin{equation}
+    \left\{\begin{array}{rl}
+        \dfrac{dp(t)}{dt} &= r_pp\Big(1-\dfrac{p+h_{pq}q}{K_p}\Big)\\
+        \dfrac{dq(t)}{dt} &= r_qq\Big(1-\dfrac{q+h_{qp}p}{K_q}\Big)
+    \end{array}\right.\text{, }t\geq0
+    \label{eq:main}
+\end{equation}
+which $r_p$, $K_p$, $h_{pq}$ and $\dfrac{dp(t)}{dt}$ represent maximum growth rate, carrying capacity, hindering factor by interacting species (i.e. $q$) on target species (i.e. $p$) and the instantaneous growth rate of lineage $p$ respectively.  Equivalent variables denoted with $q$ were describing biological limits and interactions with respect to lineage $q$.  Hinder factors can be described as
+\begin{equation}
+    h_{pq} = \dfrac{J_q}{J_p+J_q}
+    \label{eq:hinder1}
+\end{equation}
+\begin{equation}
+    h_{qp} = 1-h_{pq}
+    \label{eq:hinder2}
+\end{equation}
+which $J_p$ is the theoretical energy gained by lineage $p$ and $J_q$ is the equivalent variable for lineage $q$.  $h_{pq}$ and $h_qp$ were antagonistic factors assuming no external contamination or empty space left in the modeling environment throughout the simulation.
 
 \end{document}

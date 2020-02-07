@@ -1,0 +1,262 @@
+% Author        : PokMan Ho pok.ho19@imperial.ac.uk
+% Script        : candPlay.tex
+% Desc          : find candidates in model
+% Input         : none
+% Output        : pdf report in same directory
+% Arguments     : 0
+% Date          : Feb 2020
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage[english]{babel}
+\usepackage{graphicx, longtable, amsmath, amssymb, csquotes}
+\graphicspath{{graph/}{graph/}}
+
+\usepackage{xcolor,colortbl}
+\definecolor{green}{rgb}{0,.4,0}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=green,
+	filecolor=red,      
+	urlcolor=blue,
+	citecolor=orange
+}
+
+%% citation
+\usepackage[%
+%autocite 	= superscript,
+backend 	= bibtex,
+sortcites 	= true,
+style 		= nature
+]{biblatex}
+\bibliography{ref0206.bib}
+
+\title{Searching for suitable candidate players in the Autotroph-Heterotroph coupled Eco-Bioelectric Cell}
+\author{PokMan Ho}
+\date{06-07 Feb 2020}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    
+    \section{Main message}
+    Look like I have to use my very limited theoretical modeling knowledge to make an autotroph-heterotroph interaction model
+    
+    \section{candidates}
+    A \href{https://www.nature.com/articles/nrmicro2113}{list} of \href{https://en.wikipedia.org/wiki/Exoelectrogen}{species} and extra (start from \#22)
+    
+    \begin{enumerate}
+            \item Shewanella oneidensis MR-1
+            \item Shewanella putrefaciens IR-1
+            \item Clostridium butyricum
+            \item Desulfuromonas acetoxidans
+            \item Geobacter metallireducens
+            \item Geobacter sulfurreducens
+            \item Rhodoferax ferrireducens
+            \item Aeromonas hydrophilia (A3)
+            \item Pseudomonas aeruginosa
+            \item Desulfobulbus propionicus
+            \item Geopsychrobacter electrodiphilus
+            \item Geothrix fermentans
+            \item Shewanella oneidensis DSP10
+            \item \href{https://microbewiki.kenyon.edu/index.php/Escherichia_coli}{\textbf{Escherichia coli}}: \href{https://www.greenoptimistic.com/bio-battery-e-coli-20130718/}{existing battery}
+            \item Rhodopseudomonas palustris
+            \item Ochrobactrum anthropic YZ-1
+            \item Desulfovibrio desulfuricans
+            \item Acidiphilium sp.3.2Sup5
+            \item Klebsiella pneumoniae L17
+            \item Thermincola sp.strain JR
+            \item Pichia anomala
+            \item \href{https://pubs.acs.org/doi/pdf/10.1021/es2020007}{\textbf{Bacillus stratosphericus}}
+        \end{enumerate}
+    
+    \subsection{Electricigens: microbial powerhouse}
+    \href{https://microbewiki.kenyon.edu/index.php/Escherichia_coli}{\textit{Escherichia coli}}
+    \begin{itemize}
+        \item easy accessible
+        \item common, lots of researches on living condition
+        \item existing working \href{https://www.greenoptimistic.com/bio-battery-e-coli-20130718/}{battery}
+        \item it can help food breakdown and digestion - potential simulation of gut environment will work already?
+    \end{itemize}
+    \href{https://microbewiki.kenyon.edu/index.php/Bacillus_stratosphericus#Applications_to_Biotechnology}{\textit{Bacillus stratosphericus}}
+    \begin{itemize}
+        \item can be found in extreme environments
+        \item can release energy to cathode in anaerobic environment
+        \item not too preferred in our situation as it should be a oxic environment
+    \end{itemize}
+    
+    \subsection{Exoelectrogen: microbial wires}
+    \href{https://microbewiki.kenyon.edu/index.php/Geobacter}{\textit{Geobacter sulfurreducens}}\autocite{reguera2005extracellular}\\
+    Reasons:
+    \begin{itemize}
+        \item this genus is highly electro-conductive
+        \item this species do not have highly-mobile pilli
+        \item this species can attach to electron source head-to-tail and let electron run through
+        \item (disadvantage) need Fe(II) ions in culture as nutrient source
+    \end{itemize}
+    
+    \subsection{Autotroph: food source}
+    \href{https://www.researchgate.net/publication/259495650_Spirulina_Cultivation_A_Review}{Spirulina}\autocite{usharani2012spirulina}
+    \begin{itemize}
+        \item as currently a type of superfood (E.coli should have no problem in ingesting)
+        \item easily cultivable (no fancy, hence expensive and leave heavy C-footprint, materials required)
+        \item common organism
+    \end{itemize}
+    
+    \section{papers on electricigen cyanobacteria}
+    \href{https://www.nature.com/articles/s41467-017-01084-4/}{printed on paper}\\
+    \href{sci-hub.se/10.1021/acs.nanolett.8b02642}{printed on mushrooms}
+    
+    \section{Useful reference quotes}
+    model-related articles: 1985\autocite{bratbak1985phytoplankton}, 1992\autocite{sanders1992relationships}\\
+    parameter-related articles: 2014\autocite{beliaev2014inference}, 1990\autocite{currie1990large}\\
+    application-related articles: 2018\autocite{light2018flavin}, 2005\autocite{reguera2005extracellular}, 2013\autocite{xie2013microbial}
+
+    \subsection{Interactions between Diatoms and Bacteria\autocite{amin2012interactions}}
+    conclusion: not too useful unless choose seawater and diatoms as media
+    Diatoms
+    \begin{itemize}
+        \item phycosphere: region of enhanced bacterial growth due to extracellular products of alga cell/colony
+        \item total flux of molecules proportional to cellular surface area (i.e. cell size-related)
+        \item diatoms release ``transparent exopolymer particles" (TEP) - either actively or upon cell lysis, often colonized by bacteria
+        \item signaling likely serving:
+        \begin{itemize}
+            \item nurture specific bacteria
+            \item facilitate bacterial attachment
+        \end{itemize}
+        \item provide dissolved organic carbon (DOC)
+    \end{itemize}
+    Bacteria
+    \begin{itemize}
+        \item average velocity 30$\mu ms^{-1}$ (very slow, \textit{E. coli})
+        \item run-and-tumble mechanism, \textit{E. coli}
+        \item release exopolysaccharies (EPS) respond to presence of phytoplankton to initiate attachment
+        \item attach to diatoms for vitamins
+    \end{itemize}
+    
+    \subsection{Inference of interactions in cyanobacterial– heterotrophic co-cultures via transcriptome sequencing\autocite{beliaev2014inference}}
+    conclusion: can use as parameter reference source
+    \begin{itemize}
+        \item photoautotroph-heterotroph interactions
+        \item cyanobacteria: Synechococcus sp. PCC 7002
+        \item marine facultative aerobe Shewanella putrefaciens W3-18-1
+        \item given artificial culture medium recipe
+        \item baseline cultivation conditions and physiological outputs of cyanobacteria \& co-cultured bacteria: C-source, dilution rate, irradiance ($\mu$mol photons), DOT, OD730, biomass
+        \item metabolic coupling leading to co-culture growth on either inorganic / organic carbon
+        \item excreted metabolite table
+        \item functional assignment pie charts (only on enhanced expression genes $>$200\%, mRNA abundance as indicator)
+        \item lists of biochemical pathway enhancement with p-value
+    \end{itemize}
+    
+    \subsection{Phytoplankton-bacteria interactions: an apparant paradox? Analysis of a model system with both competition and commensalism\autocite{bratbak1985phytoplankton}}
+    conclusion: can use a preliminary model reference
+    \begin{itemize}
+        \item compare simple mathematical model to biological model system
+        \item biological model syste: diatom \textit{Skeletonema costatum} \& marine bacterium strain with limited phosphate
+        \item paradox of enrichment, predicted by model
+        \item enrich chemostat content by remove water
+    \end{itemize}
+    
+    \subsection{Interactions between bacteria and algae in aquatic ecosystems\autocite{cole1982interactions}}
+    conclusion: not useful
+    \begin{itemize}
+        \item positive correlation between primary production and heterotrophic bacterial abundance
+        \item heavily based on lab culture results
+        \item support on phycosphere concept
+    \end{itemize}
+    
+    \subsection{Large-scale variability and interactions among phytoplankton, bacterioplankton, and phosphorus\autocite{currie1990large}}
+    conclusion: maybe preliminary parameter ideas
+    \begin{itemize}
+        \item freshwater ecosystem
+        \item phosphate limited environment
+        \item chemical and/or temperature limit ecosystem development
+        \item linearized log equations, using R$^2$ as fit indicator
+        \item statistical test on empirical model parameters
+    \end{itemize}
+    
+    \subsection{Phytoplankton-bacteria coupling under elevated CO2 levels: A stable isotope labelling study\autocite{de2010phytoplankton}}
+    conclusion: parameter value if need to consider CO$_2$ effect
+    \begin{itemize}
+        \item lab simulated algal bloom
+        \item CO$_2$ has no significant effect on C transfer to bacteria during algal bloom
+        \item CO$_2$ effect has most pronounced effect in post-bloom phase, under nutrient limitation
+        \item simple C-13 source-sink isotope ratio model
+        \item CO$_2$ effect on biomass table
+        \item empirical model + statistical test validation
+    \end{itemize}
+    
+    \subsection{Recognition Cascade and Metabolite Transfer in a Marine Bacteria-Phytoplankton Model System\autocite{durham2017recognition}}
+    conclusion: nothing related
+    \begin{itemize}
+        \item metabolites relationship towards bacterial growth mediation
+        \item potential insight on oceanic carbon transformations
+        \item gene regulations and biochemical pathways
+    \end{itemize}
+    
+    \subsection{Dynamics of bacterial abundance and the related environmental factors in large shallow eutrophic Lake Taihu\autocite{gong2017dynamics}}
+    conclusion: unrelated
+    \begin{itemize}
+        \item optimizing bacterial cell counting method in field
+        \item environmental parameters for eutrophied lakes
+    \end{itemize}
+    
+    \subsection{The release of micro-algal photosynthate and associated bacterial uptake and heterotrophic growth\autocite{jones1986release}}
+    conclusion: not related
+    \begin{itemize}
+        \item summary table of measured C-14 uptake by algae
+        \item biomass energy content
+        \item empirical measurement-based
+    \end{itemize}
+    
+    \subsection{An Experimental Study of Microbial Fuel Cells for Electricity Generating: Performance Characterization and Capacity Improvement\autocite{li2013experimental}}
+    conclusion: not useful
+    \begin{itemize}
+        \item benthic mud sample anaerobic electricity generation
+        \item heteroorgannotrophic microbes
+        \item max electricity generation (mV) at day 0, linearly dropping until day 10 (voltage =0)
+        \item aquarium pump needed - C-footprint
+    \end{itemize}
+    
+    \subsection{A flavin-based extracellular electron transfer mechanism in diverse Gram-positive bacteria\autocite{light2018flavin}}
+    conclusion: application-citable
+    \begin{itemize}
+        \item extracellular electron transfer (EET) constructed a novel electron transport chain that supports growth on extracellular electron acceptors
+        \item mutation-related study
+    \end{itemize}
+    
+    \subsection{Extracellular electron transfer via microbial nanowires\autocite{reguera2005extracellular}}
+    conclusion: potential ebc-player
+    \begin{itemize}
+        \item for bioengineering of novel conductive materials
+        \item bacteria that intake and excrete electrons
+    \end{itemize}
+    
+    \subsection{Relationships between bacteria and heterotrophic nanoplankton in marine and fresh waters: an inter-ecosystem comparison\autocite{sanders1992relationships}}
+    conclusion: primary model structure, not related to autotrophs
+    \begin{itemize}
+        \item chemosensitivity of bacteria and heterotrophic nanoplankton
+        \item density-dependent Michaelis-Menten (Monod) type relationships
+        \item simple predator-prey model
+    \end{itemize}
+    
+    \subsection{Cultivation of an Obligate Fe(II)-Oxidizing Lithoautotrophic Bacterium Using Electrodes\autocite{summers2013cultivation}}
+    conclusion: not related
+    \begin{itemize}
+        \item metal-consuming bacteria generate current
+        \item \textit{M. ferrooxydans} PV-1, are capable of accepting electrons from an external source
+    \end{itemize}
+    
+    \subsection{Microbial battery for efficient energy recovery\autocite{xie2013microbial}}
+    conclusion: not related to model but ok for discussion
+    \begin{itemize}
+        \item coupling electricigens as microbial fuel cells using reversible redox solid state electrode as bridges
+        \item 0.01-1mAcm$^{-2}$
+        \item energy loss reason and percentages
+        \item voltage drop seriously within hours
+    \end{itemize}
+    
+    \nocite{*}\printbibliography
+\end{document}

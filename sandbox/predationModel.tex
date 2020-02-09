@@ -37,7 +37,7 @@ style 		= nature
 \newcommand{\am}{Amoeba}
 \newcommand{\ap}{\textit{Arthrospira platensis} (Spirulina)}
 
-\title{Predation in Eco-Bioelectric Cell}
+\title{Eco-Bioelectric Cell}
 \author{PokMan Ho}
 \date{08 Feb 2020}
 
@@ -47,6 +47,8 @@ style 		= nature
 
     \section{Predation model in diagram}
     Overall eco-bioelectric cell:\\
+    \includegraphics[width=\linewidth]{sandbox/graph/battery.png}
+    Eco-bioelectric cell anode:\\
     \includegraphics[width=\linewidth]{sandbox/graph/modelOverview.png}
     In each meta-block:\\
     \includegraphics[width=\linewidth]{sandbox/graph/model.png}
@@ -124,9 +126,30 @@ style 		= nature
         \item no internal loss of electricity in cell culture once produced
     \end{itemize}
     
-    \section{carbon sequestration}
+    \section{carbon sequestration and fossilization}
+    \subsection{C-sequestration}
+    \begin{itemize}
+        \item in the oxic anode, net fixed by producer \ap
+        \item details are as follow:
+        \begin{itemize}
+            \item CO$_2$ fixed by photosynthesis
+            \item majority of the C storage used by \am\ through predation or \ec\ through electricity generation
+            \item no net C content can expected being fixed before stable limit cycles
+            \item C content can be fixed in net amount when \am\ suppress further expansion of \ec, limiting the initial carrying capacity of \ec\ through predation
+        \end{itemize}
+        \item only a small portion of the C is net fixed in the ecosystem
+    \end{itemize}
+
+    \subsection{C-fossilization}
+    \begin{itemize}
+        \item in the anoxic cathode, by fermentation of Lactobacillus
+        \item can be put in external sewage or depreciated anode ecosystem
+        \item all contents in the ecosystem is expected to be fossilized as lactic acid (lactate ion minus electron = lactic acid) for long-term storage
+        \item not directly related to the anode ecosystem, hence no need to be included into the consideration of the ODEs system
+    \end{itemize}
     
     \section{conclusion}
+    By assuming the eco-bioelectric cell ecosystem is a closed system, four ODE equations should be included into the calculation system.  Irradiation time series, solar spectrum, thermal performance curves and metabolic theory should be all taken into account into this autotroph-heterotroph system.
 
     \nocite{*}\printbibliography
 \end{document}

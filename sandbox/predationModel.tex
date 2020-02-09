@@ -1,6 +1,6 @@
 % Author        : PokMan Ho pok.ho19@imperial.ac.uk
 % Script        : predationModel.tex
-% Desc          : three players predation model
+% Desc          : three bio-players predation model
 % Input         : none
 % Output        : pdf report in same directory
 % Arguments     : 0
@@ -34,7 +34,7 @@ style 		= nature
 \bibliography{predationModel.bib}
 
 \newcommand{\ec}{\textit{Escherichia coli}}
-\newcommand{\am}{Amoeba}
+\newcommand{\am}{\textit{Acanthamoeba castellanii} (Amoeba)}
 \newcommand{\ap}{\textit{Arthrospira platensis} (Spirulina)}
 
 \title{Eco-Bioelectric Cell}
@@ -48,42 +48,48 @@ style 		= nature
     \section{Predation model in diagram}
     Overall eco-bioelectric cell:\\
     \includegraphics[width=\linewidth]{sandbox/graph/battery.png}
-    Eco-bioelectric cell anode:\\
+    Eco-bioelectric cell anodes connected in parallel:\\
     \includegraphics[width=\linewidth]{sandbox/graph/modelOverview.png}
     In each meta-block:\\
     \includegraphics[width=\linewidth]{sandbox/graph/model.png}
     
     \section{Main considerations}
     \begin{itemize}
-        \item metabolic theory determines energy transferring mechanism between trophic levels (i.e. arrows)
+        \item metabolic theory\autocite{schramski2015metabolic} determines energy transferring mechanism between trophic levels (i.e. arrows)
         \item solar intensity affect energy budget of primary production, which determines interaction rate between groups
-        \item \ap\ as producer, expected to live at top of meta-ecosystem
-        \item \am\ as mobile predator, expected to move between meta-ecosystems and pelagic columns foraging for the other two components for food
-        \item \ec\ as detritivores, expected to stick tight to anode of the eco-bioelectric half-cell because of attraction between cytochrome D (cytD) and anode (orange arrow at bottom)
+        \item \ap\ as producer\autocite{usharani2012spirulina}, expected to live and migrate at top of meta-ecosystem pelagic column
+        \item \am\ as mobile predator\autocite{gonccalves2018extracellular,wright1981acanthamoeba}, expected to move between meta-ecosystems and pelagic columns foraging for the other two components for food.  It is assumed that \am, which is known to predate on filamentous \textit{Anabaena flos-aquae}\autocite{wright1981acanthamoeba}, would also use \ap\ as its food source.
+        \item \ec\ as detritivores\autocite{edwards2000escherichia}, expected to stick tight to anode of the eco-bioelectric half-cell because of attraction between cytochrome D (cytD)\autocite{gennis1987cytochromes,rhieu2009direct} and anode (orange arrow at bottom)
     \end{itemize}
     
-    \section{Interaction ODEs in words}
+    \section{Interaction ODEs (or discrete time model) in words}
     \begin{enumerate}
-        \item \ap\ has 3 components: pure growth, kill, pure death
+        \item \ap\ has 5 components: pure growth, kill, pure death, immigration, emigration
         \begin{itemize}
-            \item pure growth: positively correlated with solar intensity, guided by thermal performance curve and metabolic theory\autocite{schramski2015metabolic}
+            \item pure growth: positively correlated with solar intensity, guided by thermal performance curve (point data only) and metabolic theory\autocite{schramski2015metabolic}
             \item kill: loss term done solely contributed by encounter factor with \am; this is assuming cells are loss either by damage or eaten
             \item pure death: positively correlated with cell loss due to natural death
-            \item energy budget is from solar supply * energy conversion efficiency
+            \item immigration: a fraction of edge-connected neighbouring meta-blocks population moving in, modified by the population ratio across the border (smaller population will have higher immigration population)
+            \item emigration: a fraction of edge-connected neighbouring meta-blocks population moving out, modified by the population ratio across the border (smaller population will have lower emigration population)
+            \item energy budget is from solar supply * energy conversion efficiency\autocite{usharani2012spirulina}
         \end{itemize}
         
-        \item \am\ has 2 components: pure growth, pure death
+        \item \am\ has 5 components: pure growth, pure death, immigration, emigration
         \begin{itemize}
-            \item pure growth: positively correlated with food encounter factor * handling efficiency, guided by thermal performance curve and metabolic theory\autocite{schramski2015metabolic}
+            \item pure growth: positively correlated with food encounter factor * handling efficiency\autocite{wright1981acanthamoeba}, guided by thermal performance curve (point data only) and metabolic theory\autocite{schramski2015metabolic}
             \item pure death: positively correlated with cell loss due to natural death
-            \item energy budget is from encounter factor * handling efficiency * conversion efficiency
+            \item immigration: a fraction of edge-connected neighbouring meta-blocks population moving in, modified by the population ratio across the border (smaller population will have higher immigration population)
+            \item emigration: a fraction of edge-connected neighbouring meta-blocks population moving out, modified by the population ratio across the border (smaller population will have lower emigration population)
+            \item energy budget is from encounter factor * handling efficiency\autocite{wright1981acanthamoeba} * ($\dfrac{1}{\text{digestion time}}$)\autocite{wright1981acanthamoeba}
         \end{itemize}
         
-        \item \ec\ has 3 components: pure growth, kill, pure death
+        \item \ec\ has 5 components: pure growth, kill, pure death, immigration, emigration
         \begin{itemize}
-            \item pure growth: positively correlated with amount of organic biomass available from pelagic column in meta-ecosystem, guided by thermal performance curve
+            \item pure growth: positively correlated with amount of organic biomass available from pelagic column in meta-ecosystem, guided by thermal performance curve (lack data) and metabolic theory\autocite{schramski2015metabolic}
             \item kill: loss term done solely contributed by encounter factor with \am; this is assuming cells are loss either by damage or eaten
             \item pure death: positively correlated with cell loss due to natural death
+            \item immigration: a fraction of edge-connected neighbouring meta-blocks population moving in, modified by the population ratio across the border (smaller population will have higher immigration population)
+            \item emigration: a fraction of edge-connected neighbouring meta-blocks population moving out, modified by the population ratio across the border (smaller population will have lower emigration population)
             \item energy budget is from death ratio of all three players: \ap, \am\ and \ec.
         \end{itemize}
         
@@ -109,8 +115,8 @@ style 		= nature
         \item organic matter content should be creeping up in the stable limit cycle period, lowering the ecosystem carrying capacities in the long term
         \begin{itemize}
             \item frequency of \ap\ triggering \am\ surge should be more frequent than \ec\ as \ap\ is expected to colonize the pelagic 3D environment and most of the \ec population is expected to colonize benthic 2D environment
-            \item hence accumulation of organic matter is expected due to the strong suppression of \ec\ activity by \am; the accumulation of organic matter should slowly show its impact in terms of external current/voltage drop because of increasing electrical resistance and internal power loss brought by conductivity of organic matter and mass migration of \ec\ away from anode
-            \item that's the time of replacing this block of artificial ecosystem, dumping this ecosystem into Lactobacillus fermentation chamber for carbon fossilization
+            \item hence accumulation of organic matter is expected due to the strong suppression of \ec\ activity by \am; the accumulation of organic matter should slowly show its impact in terms of external current/voltage drop because of increasing electrical resistance (less and less \ec\ are directly attaching to the anode).
+            \item that's the time of replacing this block of artificial ecosystem, dumping this ecosystem into Lactobacillus fermentation chamber (bio-cathode) for carbon fossilization
         \end{itemize}
     \end{enumerate}
     
@@ -123,7 +129,7 @@ style 		= nature
     \begin{itemize}
         \item cytochrome protein abundance on cell membrane have positive linear correlation with power output
         \item population density has positive correlation with power output
-        \item no internal loss of electricity in cell culture once produced
+        \item no internal loss of electricity in cell culture once the electricity is produced
     \end{itemize}
     
     \section{carbon sequestration and fossilization}
@@ -149,7 +155,7 @@ style 		= nature
     \end{itemize}
     
     \section{conclusion}
-    By assuming the eco-bioelectric cell ecosystem is a closed system, four ODE equations should be included into the calculation system.  Irradiation time series, solar spectrum, thermal performance curves and metabolic theory should be all taken into account into this autotroph-heterotroph system.
+    By assuming the eco-bioelectric cell ecosystem is a closed system, four ODE equations should be included into the calculation system.  Irradiation time series, solar spectrum, thermal performance data and metabolic theory should be all taken into account into this autotroph-heterotroph system.
 
     \nocite{*}\printbibliography
 \end{document}

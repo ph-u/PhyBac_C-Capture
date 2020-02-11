@@ -11,17 +11,17 @@ Apache-2.0
 ##  Getting started
 
 bash version: 3.2.57(1)-release  
-Julia version: v.1.3.1
+Julia version: v.1.3.1  
 python3 version: 3.7.3  
 r version: 3.6.0  
-LaTeX version: TeX Live 2019
-BibTex version: 0.99d (TeX Live 2019)
+LaTeX version: TeX Live 2019  
+BibTex version: 0.99d (TeX Live 2019)  
 Other languages: awk
 
 ## Packages used
 
 Julia: RCall, PyCall, Plots, ProgressMeter, DataFrames  
-python3: scipy, scipy.constants, scipy.integrate, math
+python3: scipy, scipy.constants, scipy.integrate, math  
 R: NONE  
 LaTeX: geometry, inputenc, babel, graphicx, hyperref, longtable, amsmath, amssymb, subfiles  
 

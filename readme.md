@@ -19,9 +19,10 @@ BibTex version: 0.99d (TeX Live 2019)
 Other languages: awk
 
 ## Packages used
-LaTeX: geometry, inputenc, babel, graphicx, hyperref, longtable, amsmath, amssymb, subfiles  
+Julia: RCall, PyCall, Plots, ProgressMeter, DataFrames
+python3: scipy, scipy.constants, scipy.integrate, math
 R: NONE  
-Python3: subprocess, scipy
+LaTeX: geometry, inputenc, babel, graphicx, hyperref, longtable, amsmath, amssymb, subfiles  
 
 ## Guides
 

@@ -11,6 +11,7 @@ Apache-2.0
 ##  Getting started
 
 bash version: 3.2.57(1)-release  
+Julia version: v.1.3.1
 python3 version: 3.7.3  
 r version: 3.6.0  
 LaTeX version: TeX Live 2019
@@ -55,118 +56,6 @@ This readme.md and the project was automated with minimal non-structural manual 
 ## Scripts
 
 
-### d_avaStation.R
-
-#### Features
-
-extract station geo-data within solar time series and city data coverage - R version
-
-#### Suggested input
-
-```Rscript d_avaStation.R```
-
-#### Expected Output
-
-`data/` directory - `solar1.csv`
-
-*****
-
-### d_avaStation.py
-
-#### Features
-
-extract station geo-data within solar time series and city data coverage - py3 version
-
-#### Suggested input
-
-```python3 d_avaStation.py```
-
-#### Expected Output
-
-none
-
-*****
-
-### d_cleanStation.sh
-
-#### Features
-
-extract station id and geolocations
-
-#### Suggested input
-
-```bash d_cleanStation.sh```
-
-#### Expected Output
-
-`data/` directory - `solar0.txt`, `solar1.txt`
-
-*****
-
-### d_extStation.sh
-
-#### Features
-
-extract all station info from yearly data files
-
-#### Suggested input
-
-```bash d_extStation.sh```
-
-#### Expected Output
-
-`data/` directory - `solarR.txt`
-
-*****
-
-### d_rfcvSolar.sh
-
-#### Features
-
-organize solar reference curve data
-
-#### Suggested input
-
-```bash d_rfcvSolar.sh```
-
-#### Expected Output
-
-`data/` directory - `solarCurve.csv`
-
-*****
-
-### d_trimSolCh.sh
-
-#### Features
-
-child script to `d_trimSolar.sh`
-
-#### Suggested input
-
-```bash d_trimSolCh.sh <infile> <LocLine> <Location>```
-
-#### Expected Output
-
-`data/solarGeoCleaned/` subdirectory one csv file
-
-*****
-
-### d_trimSolar.sh
-
-#### Features
-
-organize 1947-2019 "global" solar data into csv files according to station location
-
-#### Suggested input
-
-```bash d_trimSolar.sh <num_CPU_parallel>```
-
-#### Expected Output
-
-initiate all csv files for `d_trimSolCh.sh` child scripts
-
-*****
-
 ### hk_gen_readme.sh
 
 #### Features
@@ -199,31 +88,15 @@ pdf file in designated directory
 
 *****
 
-### hk_master.py
+### m_equations.py
 
 #### Features
 
-Project workflow
+adapted competition Lotka-Volterra equations
 
 #### Suggested input
 
-```python3 hk_master.py```
-
-#### Expected Output
-
-none - see child scripts
-
-*****
-
-### m_equations.R
-
-#### Features
-
-equations bin for the ODE model -- R version
-
-#### Suggested input
-
-```Rscript m_equations.R```
+```python3 m_equations.py```
 
 #### Expected Output
 
@@ -231,15 +104,15 @@ none
 
 *****
 
-### m_equations.py
+### m_runModel.py
 
 #### Features
 
-equations bin for the ODE model -- python version
+run competition LV model
 
 #### Suggested input
 
-```python3 m_equations.py```
+```python3 m_runModel.py```
 
 #### Expected Output
 

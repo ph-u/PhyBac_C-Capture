@@ -11,6 +11,7 @@ Apache-2.0
 ##  Getting started
 
 bash version: 3.2.57(1)-release  
+Julia version: v.1.3.1
 python3 version: 3.7.3  
 r version: 3.6.0  
 LaTeX version: TeX Live 2019

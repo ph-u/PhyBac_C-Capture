@@ -50,8 +50,9 @@ style 		= nature
     \includegraphics[width=\linewidth]{sandbox/graph/model_01.png}
     \section{what do i need}
     \begin{itemize}
-        \item a model describing surface mixed layer and benthic surface only
+        \item a one-/two-slab model for water column with benthic layer
         \item unlimited all-rounded nutrient supply
+        \item NPD model (nutrient, phytoplankton, detritivore)
         \item no metabolites needed to be taken into account
         \item space limited
         \item address irradiation cycle
@@ -61,7 +62,9 @@ style 		= nature
     \begin{enumerate}
         \item EMPOWER-1.0\autocite{anderson2015empower}
         \begin{itemize}
-            \item 
+            \item seasonally varying surface mixed layer that contains the ecosystem positioned above a deep homogeneous layer containing unchanging nutrient and no plankton
+            \item temperature dependencies for the physiological rates
+            \item seasonally varying MLD [mixed layer depth], irradiance (I) and sea surface temperature (T)
         \end{itemize}
         \item Southern Ocean model\autocite{kidston2013phytoplankton}
         \begin{itemize}

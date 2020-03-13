@@ -20,7 +20,7 @@ Other languages: awk
 
 ## Packages used
 
-Julia: RCall, PyCall, Plots, ProgressMeter, DataFrames  
+Julia: RCall, PyCall, Plots, ProgressMeter, DataFrames, SymPy  
 python3: scipy, scipy.constants, scipy.integrate, math  
 R: NONE  
 LaTeX: geometry, inputenc, babel, graphicx, hyperref, longtable, amsmath, amssymb, subfiles  

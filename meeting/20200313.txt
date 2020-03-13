@@ -1,0 +1,2 @@
+SymPy: bound para values, concatenate @vars
+set eqm eq > population at eqm > parameters when population at eqm

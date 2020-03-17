@@ -21,7 +21,7 @@ Other languages: awk
 ## Packages used
 
 Julia: RCall, PyCall, Plots, ProgressMeter, DataFrames, SymPy  
-python3: scipy, scipy.constants, scipy.integrate, math  
+python3: scipy, scipy.constants, scipy.integrate, math, sympy, mpmath  
 R: NONE  
 LaTeX: geometry, inputenc, babel, graphicx, hyperref, longtable, amsmath, amssymb, subfiles  
 

@@ -1,0 +1,3 @@
+comparison between my model & previous model
+compare reasons of adding what parameters
+suggest future improvement directions

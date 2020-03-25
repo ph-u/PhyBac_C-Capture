@@ -1,0 +1,42 @@
+% Author        : PokMan Ho pok.ho19@imperial.ac.uk
+% Script        : m_ebc7_comparison.tex
+% Desc          : model comparison between 2010 and this
+% Input         : none
+% Output        : pdf comparison report here
+% Arguments     : 0
+% Date          : Mar 2020
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx, hyperref, longtable, amsmath, amssymb, csquotes}
+\graphicspath{{graph/}{graph/}}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,      
+	urlcolor=blue,
+	citecolor=blue
+}
+
+\begin{document}
+Latest version of ecosystem carbon cycle \href{https://www.sciencedirect.com/science/article/pii/B9780123850058000071}{model}
+
+\begin{align}
+    GPP &= p_0e^{E_p/kT}M_{TOT}^p\langle M^{1-\alpha}\rangle_p\\
+    NPP &= \varepsilon GPP\\
+    AR &= (1-\varepsilon)GPP\\
+    HR &= r_0e^{E_r/kT}M_{TOT}^r\langle M^{1-\alpha}\rangle_r\\
+    ER &= AR + HR\\
+    MP &= m_0e^{E_m/kT}M_{TOT}^m\langle M^{1-\alpha}\rangle_m\\
+    ER/GPP &= \dfrac{r_0e^{E_r/kT}M_{TOT}^r\langle M^{1-\alpha}\rangle_r}{p_0e^{E_p/kT}M_{TOT}^p\langle M^{1-\alpha}\rangle_p}\text{, which assume AR = 0}
+\end{align}
+
+my model
+
+\begin{equation}\left\{\begin{array}{rl}
+C'(t) &= (1-\varepsilon_P)\varepsilon_{PR}P_0e^{-E_P/kT}P^{0.75} +a_PP^2 -B_0e^{-E_B/kT}B^{0.75} -g_B\varepsilon_{B}CB +m_BB\\
+P'(t) &= \varepsilon_P\varepsilon_{PR}P_0e^{-E_P/kT}P^{0.75} -a_PP^2\\
+B'(t) &= g_B\varepsilon_{B}CB -m_BB
+\end{array}\right.\end{equation}
+
+\end{document}

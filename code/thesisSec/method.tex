@@ -8,7 +8,14 @@
 
 \documentclass[../thesis.tex]{subfiles} %% use packages & commands as this main file
 
-\newcommand{\As}{\textit{Anabaena sp.}}
+\newcommand{\gP}{g_P}
+\newcommand{\eP}{\varepsilon_P}
+\newcommand{\aP}{a_P}
+\newcommand{\ePR}{\varepsilon_{PR}}
+\newcommand{\gB}{g_B}
+\newcommand{\eB}{\varepsilon_B}
+\newcommand{\mB}{m_B}
+\newcommand{\eBR}{\varepsilon_{BR}}
 
 \begin{document}
 \section{Methodology}
@@ -26,13 +33,58 @@ A minimal open microbial ecosystem was constructed with two players (phytoplankt
 In Fig.\ref{modelInWord}, players were sharing all but one linking methods to carbon pools, which was their carbon extraction pathway.  Phytoplanktons acquired carbon from external unlimited atmospheric carbon dioxide (CO$_2$) pool while detritivores gained carbon from finite C pool contributed from cellular leakages and remains upon death.  Both players carried out aerobic respiration and processed remaining portion of extracted carbon.  After carbon processed, a fraction of the portion was leaked from the cell (direct contribution to C pool) and the remaining part was incorporated into respective biomass carbon pool (either P or B pool).  Cellular death would release carbon from P and B pool to the C pool.  In the system, biomass pool (P and B) would logically be linked to carbon extraction power from food pools (either external CO$_2$ or C pool) directly because organisms were built from biomass.  Also, none of the pools can go to negative numbers because zero means a void pool.  However, there was not a upper boundary for any pools and the only limiting factor was the intraspecific interference (density-dependent) from phytoplanktons.
 
 \subsection{Minimal ecosystem in an Ordinary Differential Equation (ODE) System}
-The ecosystem described in Fig.\ref{modelInWord} can be translated to the following ODE system with the rate of change of carbon pool contents as subjects:
+The ecosystem described in Fig.\ref{modelInWord} can be translated and summarized to the following ODE system with the rate of change of carbon pool contents as subjects:
 
 \begin{equation*}\left\{\begin{array}{rl}
-    C'(t) &= (1-\varepsilon_P)\varepsilon_{PR}g_PP +a_PP^2 +g_BCB(e_{BR}(1-e_B)-1) +m_BB\\
-    P'(t) &= \varepsilon_P\varepsilon_{PR}g_PP -a_PP^2\\
-    B'(t) &= g_B\varepsilon_{BR}\varepsilon_{B}CB -m_BB
+    C'(t) &= (1-\eP)\ePR\cdot\gP\cdot P +\aP\cdot P^2 +\gB\cdot C\cdot B(\eBR(1-\eB)-1) +\mB\cdot B\\
+    P'(t) &= \eP\cdot\ePR\cdot\gP\cdot P -\aP\cdot P^2\\
+    B'(t) &= \gB\cdot\eBR\cdot\eB\cdot C\cdot B -\mB\cdot B
 \end{array}\right.\end{equation*}
+
+\begin{table}[H]
+    \centering
+    \caption[Algebra variables definitions]{Table showing definition of variables used in the ODE system}
+    \begin{tabular}{p{.1\linewidth}p{.1\linewidth}p{.7\linewidth}}\hline
+        variable & unit & biological meaning \\\hline
+        $C'(t)$ & gC t$^{-1}$ & rate of change of organic matter pool\\
+        $P'(t)$ & gC t$^{-1}$ & rate of change of phytocell biomass pool\\
+        $B'(t)$ & gC t$^{-1}$ & rate of change of detritivore biomass pool\\
+        $C$ & gC & organic matter pool carbon content (in grams)\\
+        $P$ & gC & phytocell  biomass pool carbon content (in grams)\\
+        $B$ & gC & detritivore biomass pool carbon content (in grams)\\
+        $\gP$ & t$^{-1}$ & cellular rate of photosynthesis\\
+        $\ePR$ & no & fraction of carbon (in grams) retained in phytocells (i.e. not respired)\\
+        $\eP$ & no & fraction of carbon (in grams) incorporated into phytocell biomass\\
+        $\aP$ & (gC t)$^{-1}$ & death rate of phytocells per unit carbon (in grams) due to intraspecific interference\\
+        $\gB$ & t$^{-1}$ & cellular rate of organic carbon assimilation\\
+        $\eBR$ & no & fraction of carbon (in grams) retained in detritivores (i.e. not respired)\\
+        $\eB$ & no & fraction of carbon (in grams) incorporated into detritivore biomass\\
+        $\mB$ & t$^{-1}$ & cellular death rate of detritivores\\\hline
+    \end{tabular}
+    \label{varInTab}
+\end{table}
+
+The above ODE system can be decipher and linked to Fig.\ref{modelInWord} term-by-term using variables defined in Table.\ref{varInTab}:
+
+\begin{table}[H]
+    \centering
+    \caption[Processes in algebra terms]{Table showing processes in Fig.\ref{modelInWord} direct translation into mathematical terms}
+    \begin{tabular}{p{.25\linewidth}p{.2\linewidth}p{.2\linewidth}p{.25\linewidth}}\hline
+        Fig.\ref{modelInWord} term & ODE term & notation & biological meaning\\\hline
+        Photosynthesis &$\gP P$& $+P'(t)$ & carbon sequestration from unlimited external $CO_2$ pool\\
+        Aerobic respiration (phytoplankton) &$\gP(1-\ePR)P$& $-P'(t)$ & phytocell release of $CO_2$ due to metabolism\\
+        Leakage (phytoplankton) &$\gP\ePR(1-\eP)P$& $+C'(t)\text{ }-P'(t)$ & inefficiency of cells from caging processed organic carbon within phytocells\\
+        Resource allocation (phytoplankton) &$\gP\ePR\eP P$& $+P'(t)$ & transform organic carbon to phytocell biomass (maintenance or growth)\\
+        Death (phytoplankton) &$\aP P^2$& $+C'(t)\text{ }-P'(t)$ & phytocell population loss\\
+        &&&\\
+        Eat &$\gB CB$& $-C'(t)\text{ }+B'(t)$ & ingestion of organic carbon from system environment\\
+        Aerobic respiration (detritivore) &$\gB(1-\eBR)CB$& $-B'(t)$ & detritivore release of $CO_2$ due to metabolism\\
+        Leakage (detritivore) &$\gB\eBR(1-\eB)CB$& $+C'(t)\text{ }-B'(t)$ & inefficiency of cells from caging processed organic carbon within detritivore\\
+        Resource allocation (detritivore) &$\gB\eBR\eB CB$& $+B'(t)$ & transform organic carbon to detritivore biomass (maintenance or growth)\\
+        Death (detritivore) &$\mB B$& $+C'(t)\text{ }-B'(t)$ & detritivore population loss\\\hline
+    \end{tabular}
+    \label{termInTab}
+\end{table}
 
 This was due to all microbial cell membranes were not impermeable to carbon compounds as measured.(REF)  So apart from metabolism (i.e. aerobic respiration) and resource allocated to maintenance and population growth there was a portion of resource leakage.  Cellular life also were finite, hence death had to be considered as carbon pool transfer from biotic (i.e. biomass) to abiotic (i.e. organic matter) pools.  Due to the difference in energy acquiring strategies, phytoplanktons could extract carbon dioxide (CO$_2$) externally but detritivores could only take carbon from finite C pool.
 

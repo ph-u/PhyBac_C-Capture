@@ -36,9 +36,9 @@ In Fig.\ref{modelInWord}, players were sharing all but one linking methods to ca
 The ecosystem described in Fig.\ref{modelInWord} can be translated and summarized to the following ODE system with the rate of change of carbon pool contents as subjects:
 
 \begin{equation*}\left\{\begin{array}{rl}
-    C'(t) &= (1-\eP)\ePR\cdot\gP\cdot P +\aP\cdot P^2 +\gB\cdot C\cdot B(\eBR(1-\eB)-1) +\mB\cdot B\\
-    P'(t) &= \eP\cdot\ePR\cdot\gP\cdot P -\aP\cdot P^2\\
-    B'(t) &= \gB\cdot\eBR\cdot\eB\cdot C\cdot B -\mB\cdot B
+    C'(t) &= (1-\eP)\ePR\cdot\gP\cdot P +\aP\cdot P^2 +(\eBR(1-\eB)-1)\cdot\gB\cdot C\cdot B +\mB\cdot B\\
+    P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2\\
+    B'(t) &= \eBR\cdot\eB\cdot\gB\cdot C\cdot B -\mB\cdot B
 \end{array}\right.\end{equation*}
 
 \begin{table}[H]
@@ -52,13 +52,13 @@ The ecosystem described in Fig.\ref{modelInWord} can be translated and summarize
         $C$ & gC & organic matter pool carbon content (in grams)\\
         $P$ & gC & phytocell  biomass pool carbon content (in grams)\\
         $B$ & gC & detritivore biomass pool carbon content (in grams)\\
-        $\gP$ & t$^{-1}$ & cellular rate of photosynthesis\\
         $\ePR$ & no & fraction of carbon (in grams) retained in phytocells (i.e. not respired)\\
         $\eP$ & no & fraction of carbon (in grams) incorporated into phytocell biomass\\
+        $\gP$ & t$^{-1}$ & cellular rate of photosynthesis\\
         $\aP$ & (gC t)$^{-1}$ & death rate of phytocells per unit carbon (in grams) due to intraspecific interference\\
-        $\gB$ & t$^{-1}$ & cellular rate of organic carbon assimilation\\
         $\eBR$ & no & fraction of carbon (in grams) retained in detritivores (i.e. not respired)\\
         $\eB$ & no & fraction of carbon (in grams) incorporated into detritivore biomass\\
+        $\gB$ & t$^{-1}$ & cellular rate of organic carbon assimilation\\
         $\mB$ & t$^{-1}$ & cellular death rate of detritivores\\\hline
     \end{tabular}
     \label{varInTab}

@@ -8,5 +8,6 @@ nohup*
 p_*
 .~*
 *.pdf
+*.csv
 *.odt#
 .ipynb_checkpoints

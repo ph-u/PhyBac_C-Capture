@@ -37,14 +37,14 @@ function ebc7eqm(x, e_PR,e_P,g_P,a_P, e_BR,e_B,g_B,m_B)
 end
 
 ##### test range set-up #####
-x = 0 # rate of carbon removal
+x = collect(0:.5:1)#0 # rate of carbon removal
 #e = [1:100;]/100 # scan test of fractions
-ePR = .563 # [1:100;]/100 # non-respired carbon fraction of photocell
-eP = .63 # fraction of biomass-fixed carbon in photocell
+ePR = collect(.1:.5:1)#.563 # non-respired carbon fraction of photocell
+eP = collect(.1:.5:1)#.63 # fraction of biomass-fixed carbon in photocell
 gP = collect(.1:.5:10) # rate of phytocell growth
 aP = collect(.001:.1:1) # rate of phytocell death due to intraspecific interference
-eBR = .6 # non-respired carbon fraction of detritivore
-eB = .55 # fraction of biomass-fixed carbon in detritivore
+eBR = collect(.1:.5:1)#.6 # non-respired carbon fraction of detritivore
+eB = collect(.1:.5:1)#.55 # fraction of biomass-fixed carbon in detritivore
 gB = collect(.1:.5:10) # rate of detritivore growth
 mB = collect(.001:.1:1) # rate of detritivore death
 
@@ -62,4 +62,4 @@ end
 end;end;end;end;end;end;end;end;end
 
 ##### export data #####
-CSV.write("../result/maxYield.csv", rEs)
+CSV.write("../result/maxYield_"*string(ags)*".csv", rEs)

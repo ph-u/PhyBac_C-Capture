@@ -38,16 +38,22 @@ end
 
 ##### test range set-up #####
 x = 0 # rate of carbon removal
-e = [1:100;]/100 # test fractions: non-respired or biomass-incorporated carbon for both phytocell and bacteria
+#e = [1:100;]/100 # scan test of fractions
+ePR = .563 # [1:100;]/100 # non-respired carbon fraction of photocell
+eP = .63 # fraction of biomass-fixed carbon in photocell
 gP = collect(.1:.5:10) # rate of phytocell growth
 aP = collect(.001:.1:1) # rate of phytocell death due to intraspecific interference
+eBR = .6 # non-respired carbon fraction of detritivore
+eB = .55 # fraction of biomass-fixed carbon in detritivore
 gB = collect(.1:.5:10) # rate of detritivore growth
 mB = collect(.001:.1:1) # rate of detritivore death
 
 ##### eqm scan #####
 for c0 in x
-for p1 in e;for p2 in e;for p3 in gP;for p4 in aP
-for b1 in e;for b2 in e;for b3 in gB;for b4 in mB
+for p1 in ePR;for p2 in eP;for p3 in gP;for p4 in aP
+for b1 in eBR;for b2 in eB;for b3 in gB;for b4 in mB
+#for p1 in e;for p2 in e;for p3 in gP;for p4 in aP
+#for b1 in e;for b2 in e;for b3 in gB;for b4 in mB
 resu = ebc7eqm(c0,p1,p2,p3,p4,b1,b2,b3,b4)
 if resu[10]>ags && resu[11]>ags && resu[12]>ags ## eqm never return an absolute zero, must have a significance threshold
 	push!(rEs, resu)

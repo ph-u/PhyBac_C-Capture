@@ -7,10 +7,6 @@ nohup*
 *.log
 p_*
 .~*
-pdf
 *.pdf
 *.odt#
-yearly*
-solar*
-uniqLoc*
 .ipynb_checkpoints

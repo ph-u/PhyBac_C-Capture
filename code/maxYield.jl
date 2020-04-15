@@ -37,16 +37,16 @@ function ebc7eqm(x, e_PR,e_P,g_P,a_P, e_BR,e_B,g_B,m_B)
 end
 
 ##### test range set-up #####
-x = collect(0:.1:1)#0 # rate of carbon removal
+x = collect(0:.2:1)#0 # rate of carbon removal
 #e = [1:100;]/100 # scan test of fractions
-ePR = collect(.1:.1:1)#.563 # non-respired carbon fraction of photocell
-eP = collect(.1:.1:1)#.63 # fraction of biomass-fixed carbon in photocell
-gP = collect(.1:.1:2) # rate of phytocell growth
-aP = collect(.001:.1:1) # rate of phytocell death due to intraspecific interference
-eBR = collect(.1:.1:1)#.6 # non-respired carbon fraction of detritivore
-eB = collect(.1:.1:1)#.55 # fraction of biomass-fixed carbon in detritivore
-gB = collect(.1:.1:2) # rate of detritivore growth
-mB = collect(.001:.1:1) # rate of detritivore death
+ePR = collect(.5:.1:1)#.563 # non-respired carbon fraction of photocell
+eP = collect(.5:.1:1)#.63 # fraction of biomass-fixed carbon in photocell
+gP = collect(.1:.2:2) # rate of phytocell growth
+aP = collect(.1:.2:1) # rate of phytocell death due to intraspecific interference
+eBR = collect(.5:.1:1)#.6 # non-respired carbon fraction of detritivore
+eB = collect(.5:.1:1)#.55 # fraction of biomass-fixed carbon in detritivore
+gB = collect(.1:.2:2) # rate of detritivore growth
+mB = collect(.1:.2:1) # rate of detritivore death
 
 ##### eqm scan #####
 for c0 in x

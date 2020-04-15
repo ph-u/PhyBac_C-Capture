@@ -10,7 +10,7 @@
 
 ##### env set-up #####
 using DataFrames, CSV
-ags = parse(Float16, ARGS[1])
+ags = parse(Float16, ARGS[1]) # https://stackoverflow.com/questions/33440857/julia-convert-numeric-string-to-float-or-int
 # @vars C P B
 # x, e_PR,e_P,g_P,a_P, e_BR,e_B,g_B,m_B = symbols("x e_PR e_P g_P a_P e_BR e_B g_B m_B",positive=true)
 

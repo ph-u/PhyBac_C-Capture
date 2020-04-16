@@ -35,9 +35,20 @@ colExist=c();for(i in 1:ncol(oRi)){ ## detect empty columns
 
 rAw = oRi[,which(colnames(rAw) %in% colExist)] ## prepare for fine filter
 rAw = rAw[,c(2,8,9,17,21:24)] ## extract relevant growth rate columns
+rAw = rAw[which(rAw$StandardisedTraitValue>0),] ## rm data recording no growth (purpose is only to obtain a reasonable standardization constant)
 
-##### data allocation #####
-rAw$SpNm <- paste(rAw$ConGenus,rAw$ConSpecies) ## assemble binomial nomenclature
-eXport = data.frame("phylum"=rAw$ConPhylum, "name"=rAw$SpNm, "commonRole"=NA, "optimalCondition"=NA)
-eXport = eXport[!duplicated(eXport),] ## subset unique species
-write.table(eXport, "../data/int_role.txt", quote = F, sep = ",", col.names = T, row.names = F)
+##### standardization constant (std-cst) calculation #####
+rAw$Ea.eV <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],.32,.65) ## activation energy of photosynthetic (0.32eV) and heterotrophic (0.65eV) lifestyle
+rAw$role <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],"photocell","bacterial decomposer")
+rAw$stdConst.day <- normArrheniusEq(rAw$StandardisedTraitValue, rAw$Ea.eV, rAw$ConTemp)*60^2*24
+
+##### boxplot std-cst #####
+png("../result/stdCst.png", width = 700)
+par(mfrow=c(1,2))
+boxplot(rAw$stdConst.day~rAw$role)
+boxplot(rAw$stdConst.day~rAw$role, ylim=c(0,9e5))
+text(1,4e5,"values out of bound",srt=90)
+dev.off()
+
+summary(rAw$stdConst.day[which(rAw$role=="photocell")])
+summary(rAw$stdConst.day[which(rAw$role!="photocell")])

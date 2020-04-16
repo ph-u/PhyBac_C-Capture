@@ -34,15 +34,10 @@ colExist=c();for(i in 1:ncol(oRi)){ ## detect empty columns
 };rm(i)
 
 rAw = oRi[,which(colnames(rAw) %in% colExist)] ## prepare for fine filter
-rAw = rAw[,c(2,8,9,21:24)] ## extract relevant growth rate columns
+rAw = rAw[,c(2,8,9,17,21:24)] ## extract relevant growth rate columns
 
 ##### data allocation #####
 rAw$SpNm <- paste(rAw$ConGenus,rAw$ConSpecies) ## assemble binomial nomenclature
-write.table(data.frame("name"=unique(rAw$SpNm), "role"=NA, "aerobic"=NA), "../data/int_role.txt", quote = F, sep = ",", col.names = T, row.names = F)
-
-##### fine filter set-up #####
-
-##### minimal fine data filter #####
-
-##### drafts #####
-colnames(rAw)
+eXport = data.frame("phylum"=rAw$ConPhylum, "name"=rAw$SpNm, "commonRole"=NA, "optimalCondition"=NA)
+eXport = eXport[!duplicated(eXport),] ## subset unique species
+write.table(eXport, "../data/int_role.txt", quote = F, sep = ",", col.names = T, row.names = F)

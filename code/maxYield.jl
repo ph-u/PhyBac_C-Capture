@@ -9,8 +9,10 @@
 # Date: 	Apr 2020
 
 ##### env set-up #####
-using DataFrames, CSV
+using DataFrames, CSV, PyCall
 ags = parse(Float16, ARGS[1]) # https://stackoverflow.com/questions/33440857/julia-convert-numeric-string-to-float-or-int
+cst = pyimport("scipy.constants")
+
 # @vars C P B
 # x, e_PR,e_P,g_P,a_P, e_BR,e_B,g_B,m_B = symbols("x e_PR e_P g_P a_P e_BR e_B g_B m_B",positive=true)
 
@@ -32,21 +34,32 @@ function ebc7eqm(x, e_PR,e_P,g_P,a_P, e_BR,e_B,g_B,m_B)
 	eqmP = e_P*e_PR*g_P/a_P
 	eqmB = (a_P*m_B*x - e_B*e_BR*e_P*e_PR^2*g_B*g_P^2)/(a_P*e_BR*g_B*m_B - a_P*g_B*m_B)
 	eqmA = eqmC + eqmP + eqmB
-
 	return([x e_PR e_P g_P a_P e_BR e_B g_B m_B eqmC eqmP eqmB eqmA])
 end
 
+function arRhenius(A0, Ea, TC)
+		k = cst.physical_constants["Boltzmann constant in eV/K"][1]
+		A = A0*exp(-Ea/(k*(TC+273.15)))
+		return(A)
+end
+
+##### calculated rates #####
+P0 = [72288 155144] ## IQR of photocell standardization value
+B0 = [1.205e11 1.536e12] ## IQR of bacterial decomposer standardization value
+P = arRhenius(P0, .32, 23) ## testing daily growth rates range of photocell
+B = arRhenius(B0, .65, 23) ## testing daily growth rates range of bacterial decomposer
+
 ##### test range set-up #####
-x = collect(0:.2:1)#0 # rate of carbon removal
+x = collect(0:.1:1) # rate of carbon removal
 #e = [1:100;]/100 # scan test of fractions
-ePR = collect(.5:.1:1)#.563 # non-respired carbon fraction of photocell
-eP = collect(.5:.1:1)#.63 # fraction of biomass-fixed carbon in photocell
-gP = collect(.1:.2:2) # rate of phytocell growth
-aP = collect(.1:.2:1) # rate of phytocell death due to intraspecific interference
-eBR = collect(.5:.1:1)#.6 # non-respired carbon fraction of detritivore
-eB = collect(.5:.1:1)#.55 # fraction of biomass-fixed carbon in detritivore
-gB = collect(.1:.2:2) # rate of detritivore growth
-mB = collect(.1:.2:1) # rate of detritivore death
+ePR = .563 #collect(.5:.1:1) # non-respired carbon fraction of photocell
+eP = .63 #collect(.5:.1:1) # fraction of biomass-fixed carbon in photocell
+gP = collect(P[1]:(P[2]-P[1])/10:P[2]) # rate of phytocell growth
+aP = collect(.001:(.4-.001)/10:.4) # rate of phytocell death due to intraspecific interference
+eBR = .6 #collect(.5:.1:1) # non-respired carbon fraction of detritivore
+eB = .55 #collect(.5:.1:1) # fraction of biomass-fixed carbon in detritivore
+gB = collect(B[1]:(B[2]-B[1])/100:B[2]) # rate of detritivore growth
+mB = .14 #collect(.1:.2:1) # rate of detritivore death
 
 ##### eqm scan #####
 for c0 in x

@@ -50,5 +50,7 @@ boxplot(rAw$stdConst.day~rAw$role, ylim=c(0,9e5))
 text(1,4e5,"values out of bound",srt=90)
 dev.off()
 
-summary(rAw$stdConst.day[which(rAw$role=="photocell")])
-summary(rAw$stdConst.day[which(rAw$role!="photocell")])
+##### intermediate data export #####
+write.csv(rAw, "../data/gRate.csv", quote = F, row.names = F)
+# summary(rAw$stdConst.day[which(rAw$role=="photocell")])
+# summary(rAw$stdConst.day[which(rAw$role!="photocell")])

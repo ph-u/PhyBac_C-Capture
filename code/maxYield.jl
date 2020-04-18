@@ -50,7 +50,7 @@ P = arRhenius(P0, .32, 23) ## testing daily growth rates range of photocell
 B = arRhenius(B0, .65, 23) ## testing daily growth rates range of bacterial decomposer
 
 ##### test range set-up #####
-x = collect(0:.1:1) # rate of carbon removal
+x = collect(0:.01:1) # rate of carbon removal
 #e = [1:100;]/100 # scan test of fractions
 ePR = .563 #collect(.5:.1:1) # non-respired carbon fraction of photocell
 eP = .63 #collect(.5:.1:1) # fraction of biomass-fixed carbon in photocell

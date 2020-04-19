@@ -52,7 +52,7 @@ B = arRhenius(B0, .65, 23) ## testing daily growth rates range of bacterial deco
 ##### test range set-up #####
 x = collect(0:.01:1) # rate of carbon removal
 #e = [1:100;]/100 # scan test of fractions
-ePR = .563 #collect(.5:.1:1) # non-respired carbon fraction of photocell
+ePR = .875 #collect(.5:.1:1) # non-respired carbon fraction of photocell
 eP = .63 #collect(.5:.1:1) # fraction of biomass-fixed carbon in photocell
 gP = collect(P[1]:(P[2]-P[1])/10:P[2]) # rate of phytocell growth
 aP = collect(.001:(.4-.001)/10:.4) # rate of phytocell death due to intraspecific interference

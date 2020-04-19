@@ -1,68 +1,76 @@
-title,name,pdf_loc
-Global Power City Index 2019,GPCI2019_summary,pdf
-(book) Encyclopedia of Systems Biology,dubitzky2013encyclopedia,pdf
-"The BOSS and BIOMEX space experiments on the EXPOSE-R2 mission: Endurance of the desert cyanobacterium Chroococcidiopsis under simulated space vacuum, Martian atmosphere, UVC radiation and temperature extremes.",baque2013boss,pdf
-A method for ENA extraction from the desert Cyanobacterium Chroococcidiopsis and its application to identification of ftsZ,billi1998method,pdf
-Microbial decomposer communities are mainly structured by trophic status in circumneutral and alkaline streams,duarte2009microbial,pdf
-electricity use and economic development,ferguson2000electricity,pdf
-plant nanobionics approach to augument photosynthesis and biochemical sensing,giraldo2014plant,pdf
-extracellular vesicles and vesicle-free secretome of the protozoa Acanthamoeba castellanii under homeostasis and nutritional stress and their damaging potential to host cells,gonccalves2018extracellular,pdf
-"effects of soil frost on growth, composition and respiration of the soil microbial decomposer community",haei2011effects,pdf
-bacterial nanobionics via 3D printing,joshi2018bacterial,pdf
-"microbial diversity, producer-decomposer interactions and ecosystem processes: a theoretical model",loreau2001microbial,pdf
-microalgal and cyanobacterial cultivation: the supply of nutrients,markou2014microalgal,pdf
-biophotocoltaics: oxygenic photosynthetic organisms in the world of bioelectrochemical systems,mccormick2015biophotovoltaics,pdf
-stoichiometric imbalances between terrestrial decomposer communities and their resources: mechanisms and implications of microbial adaptations to their resources,mooshammer2014stoichiometric,pdf
-"purification, axenic cultivation, and description of a soil amoeba, Acanthamoeba sp.",neff1957purification,pdf
-photochemistry beyond the red limit in chlorophyll f-containing photosystems,nurnberg2018photochemistry,pdf
-supp,nurnberg2018photochemistry_supp,pdf
-electricity generation from digitally printed cyanobacteria,sawa2017electricity,pdf
-climate change and the permafrost carbon feedback,schuur2015climate,pdf
-lactic acid fermentation in a recycle batch reactor using immobilized Lactobacillus casei,senthuran1997lactic,pdf
-feeding mitochondria: potential role of nutritional components to improve critical illness concalescence,wesselink2019feeding,pdf
-"Acanthamoeba castellanii, a predator of cyanobacteria",wright1981acanthamoeba,pdf
-progress in carbon dioxide separation and capture: a review,yang2008progress,pdf
-phenotypic characterization of Synechocystis sp. PCC 6803 substrains reveals differences in sensitivity to abiotic stress,zavvrel2017phenotypic,pdf
-supp_bulb,zavvrel2017phenotypic_1964100,pdf
-interactions between diatoms and bacteria,amin2012interactions,pdf_1
-inferences of interactions in cyanobacterial-heterotrophic co-cultures via transcriptome sequencing,beliaev2014inference,pdf_1
-Phytoplankton-bacteria interactions: an apparent paradox?  Analysis of a model system with both competition and commensalism,bratbak1985phytoplankton,pdf_1
-interactions between bacteria and algae in aquatic ecosystems,cole1982interactions,pdf_1
-"Large-scale variability and interactions among phytoplankton, bacterioplankton, and phosphorus",currie1990large,pdf_1
-Phytoplankton-bacteria coupling under elevated CO2 levels: a stable isotope labelling study,de2010phytoplankton,pdf_1
-recognition cascade and metabolite transfer in a marine bacteria-phytoplankton model system,durham2017recognition,pdf_1
-"the Escherichia coli MG1655 in silico metabolic genotype: its definition, characteristics, and capabilities",edwards2000escherichia,pdf_1
-the cytochromes of escherichia coli,gennis1987cytochromes,pdf_1
-dynamics of bacterial abundance and the related environmental factors in large shallow eutrophic lake Taihu,gong2017dynamics,pdf_1
-the release of micro-algal photosynthate and associated bacterial uptake and heterotrophic growth,jones1986release,pdf_1
-an experimental study of microbial fuel cells for electricity generating: performance characterization and capacity improvement,li2013experimental,pdf_1
-a flavin-based extracellular electron transfer mechanism in diverse gram-positive bacteria,light2018flavin,pdf_1
-effects of pH and detergent on the kinetic and electrochemical properties of the purified cytochrome d terminal oxidase complex of escherichia coli,lorence1984effects,pdf_1
-electricity generation using membrane and salt bridge microbial fuel cells,min2005electricity,pdf_1
-extracellular electron transfer via microbial nanowires,reguera2005extracellular,pdf_1
-direct electrochemistry of cytochrome P450 27B1 in surfactant films,rhieu2009direct,pdf_1
-relationships between bacteria and heterotrophic nanoplankton in marine and freshwaters: an inter-ecosystem comparison,sanders1992relationships,pdf_1
-metabolic theory predicts whole-ecosystem properties,schramski2015metabolic,pdf_1
-cultivation of an obligate Fe(II)-Oxidizing lithoautotrophic bacterium using electrodes,summers2013cultivation,pdf_1
-spirulina cultivation: a review,usharani2012spirulina,pdf_1
-microbial battery for efficient energy recovery,xie2013microbial,pdf_1
-role of carbon allocation efficiency in the temperature dependence of aurotroph growth rates,garcia2018role,pdf
-"available energy fluxes drive a transition in the diversity, stability, and functional structure of microbial communities",marsland2019available,pdf
-EMPOWER-1.0: an Efficient Model of Planktonic ecOsystems WrittEn in R,anderson2015empower,pdf
-Julia: A Fast Dynamic Language for Technical Computing,bezanson2012julia,pdf
-electricity generation in microbial fuel cell by the decomposition of organic slurry using E-coli,songera2012electricity,pdf
-"Geographical variation in antibiotic-resistant Escherichia coli isolates from stool, cow-dung and drinking water",sahoo2012geographical,pdf
-"Hyperspectral remote sensing of cyanobacteria in turbid productive water usingoptically active pigments, chlorophyllaand phycocyanin",randolph2008hyperspectral,pdf
-Bacteria can control stoichiometry and nutrient limitation of phytoplankton,danger2007bacteria,pdf
-Interplay between the paradox of enrichment and nutrient cycling in food webs,quevreux2020interplay,pdf
-Biofixation of carbon dioxide by Spirulina sp. and Scenedesmus obliquus cultivated in a three-stage serial tubular photobioreactor,de2007biofixation,pdf
-Respiration and microalgal growth: a review of the quantitative relationship between dark respiration and growth,j1989respiration,pdf
-Growth rate of Escherichia coli,marr1991growth,pdf
-"Growth, reproduction, and death rates of Escherichia coli at increased hydrostatic pressures",zobell1962growth,pdf
-Are growth rates of Escherichia coli in batch cultures limited by respiration?,andersen1980growth,pdf
-Quantification of Intracellular 2-Oxoglutarate Levels in Escherichia coli: Overcoming Fluctuation and Leakage Problems,yan2011quantification,pdf
-Optimization and profile calculation of ODE models using second order adjoint sensitivity analysis,stapor2018optimization,pdf
-Community-level respiration of prokaryotic microbes may rise with global warming,smith2019community,pdf
-Dissolved organic carbon contribution to oxygen respiration in the central Red Sea,calleja2019dissolved,pdf
-Oxygen profiles in intertidal sediments of Ria Formosa (S. Portugal),brotas1990oxygen,pdf
-Metabolic resource allocation in individual microbes determines ecosystem interactions and spatial dynamics,harcombe2014metabolic,pdf
+title,name
+Global Power City Index 2019,GPCI2019_summary
+(book) Encyclopedia of Systems Biology,dubitzky2013encyclopedia
+"The BOSS and BIOMEX space experiments on the EXPOSE-R2 mission: Endurance of the desert cyanobacterium Chroococcidiopsis under simulated space vacuum, Martian atmosphere, UVC radiation and temperature extremes.",baque2013boss
+A method for ENA extraction from the desert Cyanobacterium Chroococcidiopsis and its application to identification of ftsZ,billi1998method
+Microbial decomposer communities are mainly structured by trophic status in circumneutral and alkaline streams,duarte2009microbial
+electricity use and economic development,ferguson2000electricity
+plant nanobionics approach to augument photosynthesis and biochemical sensing,giraldo2014plant
+extracellular vesicles and vesicle-free secretome of the protozoa Acanthamoeba castellanii under homeostasis and nutritional stress and their damaging potential to host cells,gonccalves2018extracellular
+"effects of soil frost on growth, composition and respiration of the soil microbial decomposer community",haei2011effects
+bacterial nanobionics via 3D printing,joshi2018bacterial
+"microbial diversity, producer-decomposer interactions and ecosystem processes: a theoretical model",loreau2001microbial
+microalgal and cyanobacterial cultivation: the supply of nutrients,markou2014microalgal
+biophotocoltaics: oxygenic photosynthetic organisms in the world of bioelectrochemical systems,mccormick2015biophotovoltaics
+stoichiometric imbalances between terrestrial decomposer communities and their resources: mechanisms and implications of microbial adaptations to their resources,mooshammer2014stoichiometric
+"purification, axenic cultivation, and description of a soil amoeba, Acanthamoeba sp.",neff1957purification
+photochemistry beyond the red limit in chlorophyll f-containing photosystems,nurnberg2018photochemistry
+supp,nurnberg2018photochemistry_supp
+electricity generation from digitally printed cyanobacteria,sawa2017electricity
+climate change and the permafrost carbon feedback,schuur2015climate
+lactic acid fermentation in a recycle batch reactor using immobilized Lactobacillus casei,senthuran1997lactic
+feeding mitochondria: potential role of nutritional components to improve critical illness concalescence,wesselink2019feeding
+"Acanthamoeba castellanii, a predator of cyanobacteria",wright1981acanthamoeba
+progress in carbon dioxide separation and capture: a review,yang2008progress
+phenotypic characterization of Synechocystis sp. PCC 6803 substrains reveals differences in sensitivity to abiotic stress,zavvrel2017phenotypic
+supp_bulb,zavvrel2017phenotypic_1964100
+interactions between diatoms and bacteria,amin2012interactions
+inferences of interactions in cyanobacterial-heterotrophic co-cultures via transcriptome sequencing,beliaev2014inference
+Phytoplankton-bacteria interactions: an apparent paradox?  Analysis of a model system with both competition and commensalism,bratbak1985phytoplankton
+interactions between bacteria and algae in aquatic ecosystems,cole1982interactions
+"Large-scale variability and interactions among phytoplankton, bacterioplankton, and phosphorus",currie1990large
+Phytoplankton-bacteria coupling under elevated CO2 levels: a stable isotope labelling study,de2010phytoplankton
+recognition cascade and metabolite transfer in a marine bacteria-phytoplankton model system,durham2017recognition
+"the Escherichia coli MG1655 in silico metabolic genotype: its definition, characteristics, and capabilities",edwards2000escherichia
+the cytochromes of escherichia coli,gennis1987cytochromes
+dynamics of bacterial abundance and the related environmental factors in large shallow eutrophic lake Taihu,gong2017dynamics
+the release of micro-algal photosynthate and associated bacterial uptake and heterotrophic growth,jones1986release
+an experimental study of microbial fuel cells for electricity generating: performance characterization and capacity improvement,li2013experimental
+a flavin-based extracellular electron transfer mechanism in diverse gram-positive bacteria,light2018flavin
+effects of pH and detergent on the kinetic and electrochemical properties of the purified cytochrome d terminal oxidase complex of escherichia coli,lorence1984effects
+electricity generation using membrane and salt bridge microbial fuel cells,min2005electricity
+extracellular electron transfer via microbial nanowires,reguera2005extracellular
+direct electrochemistry of cytochrome P450 27B1 in surfactant films,rhieu2009direct
+relationships between bacteria and heterotrophic nanoplankton in marine and freshwaters: an inter-ecosystem comparison,sanders1992relationships
+metabolic theory predicts whole-ecosystem properties,schramski2015metabolic
+cultivation of an obligate Fe(II)-Oxidizing lithoautotrophic bacterium using electrodes,summers2013cultivation
+spirulina cultivation: a review,usharani2012spirulina
+microbial battery for efficient energy recovery,xie2013microbial
+role of carbon allocation efficiency in the temperature dependence of aurotroph growth rates,garcia2018role
+"available energy fluxes drive a transition in the diversity, stability, and functional structure of microbial communities",marsland2019available
+EMPOWER-1.0: an Efficient Model of Planktonic ecOsystems WrittEn in R,anderson2015empower
+Julia: A Fast Dynamic Language for Technical Computing,bezanson2012julia
+electricity generation in microbial fuel cell by the decomposition of organic slurry using E-coli,songera2012electricity
+"Geographical variation in antibiotic-resistant Escherichia coli isolates from stool, cow-dung and drinking water",sahoo2012geographical
+"Hyperspectral remote sensing of cyanobacteria in turbid productive water usingoptically active pigments, chlorophyllaand phycocyanin",randolph2008hyperspectral
+Bacteria can control stoichiometry and nutrient limitation of phytoplankton,danger2007bacteria
+Interplay between the paradox of enrichment and nutrient cycling in food webs,quevreux2020interplay
+Biofixation of carbon dioxide by Spirulina sp. and Scenedesmus obliquus cultivated in a three-stage serial tubular photobioreactor,de2007biofixation
+Respiration and microalgal growth: a review of the quantitative relationship between dark respiration and growth,j1989respiration
+Growth rate of Escherichia coli,marr1991growth
+"Growth, reproduction, and death rates of Escherichia coli at increased hydrostatic pressures",zobell1962growth
+Are growth rates of Escherichia coli in batch cultures limited by respiration?,andersen1980growth
+Quantification of Intracellular 2-Oxoglutarate Levels in Escherichia coli: Overcoming Fluctuation and Leakage Problems,yan2011quantification
+Optimization and profile calculation of ODE models using second order adjoint sensitivity analysis,stapor2018optimization
+Community-level respiration of prokaryotic microbes may rise with global warming,smith2019community
+Dissolved organic carbon contribution to oxygen respiration in the central Red Sea,calleja2019dissolved
+Oxygen profiles in intertidal sediments of Ria Formosa (S. Portugal),brotas1990oxygen
+Metabolic resource allocation in individual microbes determines ecosystem interactions and spatial dynamics,harcombe2014metabolic
+Division of labour between chloroplast and cytoplasm,raven1976division
+On the heterotrophic growth of Chlorella pyrenoidosa,samejima1958heterotrophic
+Energetics and transport in aquatic plants,raven1984energetics
+Heterotrophic nutrition,hellebust1977heterotrophic
+An estimation of microbial death rate and limitations of N or C during wheat straw decomposition,cochran1988estimation
+Reconciling the temperature dependence of respiration across timescales and ecosystem types,yvon2012reconciling
+Scaling the metabolic balance of the oceans,lopez2006scaling
+A delay differential equations model of plankton allelopathy,mukhopadhyay1998delay

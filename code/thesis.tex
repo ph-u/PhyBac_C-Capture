@@ -27,6 +27,28 @@ style 		= authoryear%nature
 	citecolor=blue
 }
 
+\newcommand{\beginSupp}{%% https://support.authorea.com/en-us/article/how-to-create-an-appendix-section-or-supplementary-information-1g25i5a/
+\setcounter{table}{0}
+\renewcommand{\thetable}{AT\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{AF\arabic{figure}}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{AQ\arabic{equation}}
+}
+
+%% variables used in model
+\newcommand{\dC}{C'(t)}
+\newcommand{\dP}{P'(t)}
+\newcommand{\dB}{B'(t)}
+\newcommand{\ePR}{e_{PR}}
+\newcommand{\eP}{e_P}
+\newcommand{\gP}{g_P}
+\newcommand{\aP}{a_P}
+\newcommand{\eBR}{e_{BR}}
+\newcommand{\eB}{e_B}
+\newcommand{\gB}{g_B}
+\newcommand{\mB}{m_B}
+
 \usepackage{subfiles} %% load last
 
 \title{MRes thesis}

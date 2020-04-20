@@ -1,0 +1,16 @@
+variable,unit,biological meaning
+$\dC$,$gC/t$,rate of change of organic matter pool
+$\dP$,$gC/t$,rate of change of phytocell biomass pool
+$\dB$,$gC/t$,rate of change of bacterial decomposer biomass pool
+$C$,$gC$,organic matter pool carbon content
+$P$,$gC$,phytocell biomass pool carbon content
+$B$,$gC$,bacterial decomposer biomass pool carbon content
+$x$,$t^{-1}$,rate of carbon removal from organic matter carbon pool
+$\ePR$,no,fraction of non-respired carbon in phytocell
+$\eP$,no,fraction of carbon incorporated into phytocell biomass
+$\gP$,$t^{-1}$,specific growth rate of phytocell
+$\aP$,(gC t)$^{-1}$,intraspecific interference death rate of phytocell per unit carbon
+$\eBR$,no,fraction of non-respired carbon in bacterial decomposer
+$\eB$,no,fraction of carbon incorporated into bacterial decomposer biomass
+$\gB$,(gC t)$^{-1}$,growth rate of bacterial decomposer per unit carbon
+$\mB$,$t^{-1}$,death rate of bacterial decomposer

@@ -4,9 +4,9 @@ Evans and Parslow,spring,yes,no,1+0,yes
 Frost,continuous,yes,no,2+0,no
 Fasham et al,continuous,yes,no,2+1,yes
 Robinson et al,yearly,yes,u,3+0,no equations
-Fasham,//,//,//,//,\autocite{fasham1990nitrogen}
+Fasham,//,//,//,//,Fasham 1990
 Matear,continuous,yes,no,2+0,yes
-Hurtt and Armstrong,continuous,yes,no,1+0,\autocite{fasham1990nitrogen}
+Hurtt and Armstrong,continuous,yes,no,1+0,Fasham 1990
 Xiao et al,continuous,no,no,1+1,yes
 Popoca et al,continuous,yes,no,2+0,yes
 Anderson and Williams,continuous,yes,no,2+1,no
@@ -14,7 +14,7 @@ Spitz et al,continuous,yes,no,2+1,yes
 Fennel et al,continuous,yes,no,2+0,yes
 Natvik et al,//,//,//,//,not a maths model
 Schartau et al,continuous,yes,no,2+0,no
-Spitz et al,continuous,yes,no,2+1,\autocite{spitz1998data}
+Spitz et al,continuous,yes,no,2+1,Spitz 1998
 Ito and Oikawa,no,no,no,1+0,yes
 Hemmings et al,//,//,//,//,statistical model
 Onitsuka and Yanagi,continuous,yes,no,2+0,yes

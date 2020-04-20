@@ -1,0 +1,26 @@
+,year,land/aqua,organisms,model type,location,element-base,unit-based
+this project,,aqua,CPB,mxLayer,theoretical,C,density
+Evans and Parslow,1985,aqua,NPZ,mxLayer,subarctic Pac,na,population
+Frost,1987,aqua,NP(Z),mxLayer,subarctic Pac,na,population
+Fasham et al,1990,aqua,2NPZDB(DOM),homogenous,Sargasso sea,N,molConc
+Robinson et al,1993,aqua,P2Z,mxLayer,upwell Pac,C,density
+Fasham,1995,aqua,2NPZDB(DOM),//,subarctic Pac,//,//
+Matear,1995,aqua,2NP2ZDB(DOM),mxLayer,subarctic Pac,na,population
+Hurtt and Armstrong,1996,aqua,2NPR,mxLayer,Sargasso sea,N,molConc
+Xiao et al,1996,land,CNP,dual cycles,theoretical,"C,N",density
+Popoca et al,1997,aqua,NPZD,mxLayer,theoretical,N,molConc
+Anderson and Williams,1998,aqua,2NPZDB(DOM),slab,English Channel,N,molConc
+Spitz et al,1998,aqua,2NPZDB(DOM),mxLayer,Sargasso sea,N,molConc
+Fennel et al,2001,aqua,NPZD,mxLayer,Sargasso sea,N,molConc
+Natvik et al,2001,aqua,NPZ,//,Flemish Cap,//,//
+Schartau et al,2001,aqua,NPZ,mxLayer,Sargasso sea,N,molConc
+Spitz et al,2001,aqua,2NPZDB(DOM),mxLayer,Sargasso sea,N,molConc
+Ito and Oikawa,2002,land,CP,homogenous,theoretical,C,density
+Hemmings et al,2004,aqua,NPZ,//,N Atlantic,//,//
+Onitsuka and Yanagi,2005,aqua,"NPZD, 2N2P3Z(DOM)",slab,Japan sea,N,molConc
+Findlay et al,2006,aqua,NP,mxLayer,theoretical,hypothetical,molConc
+Mitra et al,2007,aqua,2NPZDB(DOM),homogenous,N Atlantic,N,molConc
+Mitra,2009,aqua,2NPZDB(DOM),homogenous,N Atlantic,N,molConc
+Llebot et al,2010,aqua,2N2PD(DOM),homogenous,Mediterranean Bay,N,molConc
+Kidston et al,2013,aqua,NPZD,mxLayer,Southern Ocean,N,molConc
+Anderson et al,2015,aqua,NPZD,mxLayer,theoretical,N,molConc

@@ -1,0 +1,26 @@
+,time-frame,thermocline,Density-depend mortality,trophic levels (main+decomposer),explicit players,light intensity,setting,respiration,resource allocation
+this project,continuous,no,phy,1+1,yes,no,fluctuation,yes,yes
+Evans and Parslow,spring,yes,no,1+0,yes,yes,steady,no,no
+Frost,continuous,yes,no,2+0,no,yes,steady,no,no
+Fasham et al,continuous,yes,no,2+1,yes,no,steady,no,no
+Robinson et al,yearly,yes,u,3+0,no equations,yes,fluctuation,no,no
+Fasham,//,//,//,//,1990,//,//,no,no
+Matear,continuous,yes,no,2+0,yes,yes,fluctuation,no,no
+Hurtt and Armstrong,continuous,yes,no,1+0,1990,no,steady,no,no
+Xiao et al,continuous,no,no,1+1,yes,yes,steady,yes,yes
+Popoca et al,continuous,yes,no,2+0,yes,yes,fluctuation,no,no
+Anderson and Williams,continuous,yes,no,2+1,no,yes,fluctuation,no,no
+Spitz et al,continuous,yes,no,2+1,yes,yes,fluctuation,no,no
+Fennel et al,continuous,yes,no,2+0,yes,yes,fluctuation,no,no
+Natvik et al,//,//,//,//,not a model,//,//,no,no
+Schartau et al,continuous,yes,no,2+0,no,yes,fluctuation,no,no
+Spitz et al,continuous,yes,no,2+1,1998,no,fluctuation,no,no
+Ito and Oikawa,no,no,no,1+0,yes,no,steady,no,no
+Hemmings et al,//,//,//,//,stat,//,//,no,no
+Onitsuka and Yanagi,continuous,yes,no,2+0,yes,no,fluctuation,no,no
+Findlay et al,continuous,yes,no,1+0,no,no,fluctuation,no,no
+Mitra et al,short,no,no,2+1,no,no,perturbation,no,no
+Mitra,continuous,no,no,2+1,yes,no,cannibalism,no,no
+Llebot et al,continuous,no,no,2+0,yes,yes,steady,no,no
+Kidston et al,continuous,yes,phy,2+0,yes,yes,steady,no,no
+Anderson et al,continuous,yes,phy,2+1,yes,yes,fluctuation,no,no

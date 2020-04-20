@@ -1,26 +1,26 @@
-,light intensity,setting,respiration,resource allocation
-this project,no,fluctuation,yes,yes
-\autocite{evans1985model},yes,steady,no,no
-\autocite{frost1987grazing},yes,steady,no,no
-\autocite{fasham1990nitrogen},no,steady,no,no
-\autocite{robinson1993simulated},yes,fluctuation,no,no
-\autocite{fasham1995use},//,//,no,no
-\autocite{matear1995parameter},yes,fluctuation,no,no
-\autocite{hurtt1996pelagic},no,steady,no,no
-\autocite{mcguire1997equilibrium},yes,steady,yes,yes
-\autocite{popova1997chaotic},yes,fluctuation,no,no
-\autocite{anderson1998modelling},yes,fluctuation,no,no
-\autocite{spitz1998data},yes,fluctuation,no,no
-\autocite{fennel2001testing},yes,fluctuation,no,no
-\autocite{natvik2001weak},//,//,no,no
-\autocite{schartau2001parameter},yes,fluctuation,no,no
-\autocite{spitz2001configuring},no,fluctuation,no,no
-\autocite{ito2002simulation},no,steady,no,no
-\autocite{hemmings2004split},//,//,no,no
-\autocite{onitsuka2005differences},no,fluctuation,no,no
-\autocite{findlay2006modelling},no,fluctuation,no,no
-\autocite{mitra2007accounting},no,perturbation,no,no
-\autocite{mitra2009closure},no,cannibalism,no,no
-\autocite{llebot2010role},yes,steady,no,no
-\autocite{kidston2013phytoplankton},yes,steady,no,no
-\autocite{anderson2015empower},yes,fluctuation,no,no
+,light intensity,setting,respiration,resource allocation,cite
+this project,no,fluctuation,yes,yes,
+\autocite{evans1985model},yes,steady,no,no,\autocite{evans1985model}
+\autocite{frost1987grazing},yes,steady,no,no,\autocite{frost1987grazing}
+\autocite{fasham1990nitrogen},no,steady,no,no,\autocite{fasham1990nitrogen}
+\autocite{robinson1993simulated},yes,fluctuation,no,no,\autocite{robinson1993simulated}
+\autocite{fasham1995use},//,//,no,no,\autocite{fasham1995use}
+\autocite{matear1995parameter},yes,fluctuation,no,no,\autocite{matear1995parameter}
+\autocite{hurtt1996pelagic},no,steady,no,no,\autocite{hurtt1996pelagic}
+\autocite{mcguire1997equilibrium},yes,steady,yes,yes,\autocite{mcguire1997equilibrium}
+\autocite{popova1997chaotic},yes,fluctuation,no,no,\autocite{popova1997chaotic}
+\autocite{anderson1998modelling},yes,fluctuation,no,no,\autocite{anderson1998modelling}
+\autocite{spitz1998data},yes,fluctuation,no,no,\autocite{spitz1998data}
+\autocite{fennel2001testing},yes,fluctuation,no,no,\autocite{fennel2001testing}
+\autocite{natvik2001weak},//,//,no,no,\autocite{natvik2001weak}
+\autocite{schartau2001parameter},yes,fluctuation,no,no,\autocite{schartau2001parameter}
+\autocite{spitz2001configuring},no,fluctuation,no,no,\autocite{spitz2001configuring}
+\autocite{ito2002simulation},no,steady,no,no,\autocite{ito2002simulation}
+\autocite{hemmings2004split},//,//,no,no,\autocite{hemmings2004split}
+\autocite{onitsuka2005differences},no,fluctuation,no,no,\autocite{onitsuka2005differences}
+\autocite{findlay2006modelling},no,fluctuation,no,no,\autocite{findlay2006modelling}
+\autocite{mitra2007accounting},no,perturbation,no,no,\autocite{mitra2007accounting}
+\autocite{mitra2009closure},no,cannibalism,no,no,\autocite{mitra2009closure}
+\autocite{llebot2010role},yes,steady,no,no,\autocite{llebot2010role}
+\autocite{kidston2013phytoplankton},yes,steady,no,no,\autocite{kidston2013phytoplankton}
+\autocite{anderson2015empower},yes,fluctuation,no,no,\autocite{anderson2015empower}

@@ -1,0 +1,26 @@
+,year,land/aqua,organisms,model type,location,element-base,unit-based,time-frame,thermocline,density-dep mortality,trophic levels (main+decomposer),explicit players,light intensity,setting,respiration term,resource allocation term,url
+,this project,aqua,CPB,mxLayer,theoretical,C,density,continuous,no,phy,1+1,yes,no,fluctuation,yes,yes,
+Evans and Parslow,1985,aqua,NPZ,mxLayer,subarctic Pac,na,population,spring,yes,no,1+0,yes,yes,steady,no,no,https://www.tandfonline.com/doi/pdf/10.1080/01965581.1985.10749478
+Frost,1987,aqua,NP(Z),mxLayer,subarctic Pac,na,population,continuous,yes,no,2+0,no,yes,steady,no,no,https://www.int-res.com/articles/meps/39/m039p049.pdf
+Fasham et al,1990,aqua,2NPZDB(DOM),homogenous,Sargasso sea,N,molConc,continuous,yes,no,2+1,yes,no,steady,no,no,https://www.ingentaconnect.com/content/jmr/jmr/1990/00000048/00000003/art00006?crawler=true&mimetype=application/pdf
+Robinson et al,1993,aqua,P2Z,mxLayer,upwell Pac,C,density,yearly,yes,u,3+0,no equations,yes,fluctuation,no,no,https://academic.oup.com/plankt/article-pdf/15/2/161/4349641/15-2-161.pdf
+Fasham,1995,aqua,2NPZDB(DOM),//,subarctic Pac,//,//,//,//,//,//,1990,//,//,no,no,https://royalsocietypublishing.org/doi/pdf/10.1098/rstb.1995.0062
+Matear,1995,aqua,2NP2ZDB(DOM),mxLayer,subarctic Pac,na,population,continuous,yes,no,2+0,yes,yes,fluctuation,no,no,https://www.ingentaconnect.com/contentone/jmr/jmr/1995/00000053/00000004/art00003?crawler=true
+Hurtt and Armstrong,1996,aqua,2NPR,mxLayer,Sargasso sea,N,molConc,continuous,yes,no,1+0,1990,no,steady,no,no,https://www.sciencedirect.com/science/article/pii/0967064596000070
+Xiao et al,1996,land,CNP,dual cycles,theoretical,"C,N",density,continuous,no,no,1+1,yes,yes,steady,yes,yes,http://web.mit.edu/globalchange/www/rpt8.html
+Popoca et al,1997,aqua,NPZD,mxLayer,theoretical,N,molConc,continuous,yes,no,2+0,yes,yes,fluctuation,no,no,https://academic.oup.com/plankt/article/19/10/1495/1488759
+Anderson and Williams,1998,aqua,2NPZDB(DOM),slab,English Channel,N,molConc,continuous,yes,no,2+1,no,yes,fluctuation,no,no,https://www.sciencedirect.com/science/article/pii/S0272771497902572
+Spitz et al,1998,aqua,2NPZDB(DOM),mxLayer,Sargasso sea,N,molConc,continuous,yes,no,2+1,yes,yes,fluctuation,no,no,https://www.sciencedirect.com/science/article/pii/S0924796397000997
+Fennel et al,2001,aqua,NPZD,mxLayer,Sargasso sea,N,molConc,continuous,yes,no,2+0,yes,yes,fluctuation,no,no,https://www.sciencedirect.com/science/article/pii/S092479630000083X
+Natvik et al,2001,aqua,NPZ,//,Flemish Cap,//,//,//,//,//,//,not a model,//,//,no,no,https://www.sciencedirect.com/science/article/pii/S0924796300000828
+Schartau et al,2001,aqua,NPZ,mxLayer,Sargasso sea,N,molConc,continuous,yes,no,2+0,no,yes,fluctuation,no,no,https://www.sciencedirect.com/science/article/pii/S0967064500001612
+Spitz et al,2001,aqua,2NPZDB(DOM),mxLayer,Sargasso sea,N,molConc,continuous,yes,no,2+1,1998,no,fluctuation,no,no,https://www.sciencedirect.com/science/article/pii/S0967064500001594
+Ito and Oikawa,2002,land,CP,homogenous,theoretical,C,density,no,no,no,1+0,yes,no,steady,no,no,https://www.sciencedirect.com/science/article/pii/S0304380001004732
+Hemmings et al,2004,aqua,NPZ,//,N Atlantic,//,//,//,//,//,//,stat,//,//,no,no,https://www.sciencedirect.com/science/article/pii/S0924796304001010
+Onitsuka and Yanagi,2005,aqua,"NPZD, 2N2P3Z(DOM)",slab,Japan sea,N,molConc,continuous,yes,no,2+0,yes,no,fluctuation,no,no,https://link.springer.com/content/pdf/10.1007/s10872-005-0051-1.pdf
+Findlay et al,2006,aqua,NP,mxLayer,theoretical,hypothetical,molConc,continuous,yes,no,1+0,no,no,fluctuation,no,no,https://academic.oup.com/plankt/article/28/2/209/1428450
+Mitra et al,2007,aqua,2NPZDB(DOM),homogenous,N Atlantic,N,molConc,short,no,no,2+1,no,no,perturbation,no,no,https://aslopubs.onlinelibrary.wiley.com/doi/pdf/10.4319/lo.2007.52.2.0649
+Mitra,2009,aqua,2NPZDB(DOM),homogenous,N Atlantic,N,molConc,continuous,no,no,2+1,yes,no,cannibalism,no,no,https://www.sciencedirect.com/science/article/pii/S0304380008005899
+Llebot et al,2010,aqua,2N2PD(DOM),homogenous,Mediterranean Bay,N,molConc,continuous,no,no,2+0,yes,yes,steady,no,no,https://www.sciencedirect.com/science/article/pii/S092479631000120X
+Kidston et al,2013,aqua,NPZD,mxLayer,Southern Ocean,N,molConc,continuous,yes,phy,2+0,yes,yes,steady,no,no,https://www.sciencedirect.com/science/article/pii/S0924796313001012
+Anderson et al,2015,aqua,NPZD,mxLayer,theoretical,N,molConc,continuous,yes,phy,2+1,yes,yes,fluctuation,no,no,https://eprints.soton.ac.uk/382241/1/gmd-8-2231-2015.pdf

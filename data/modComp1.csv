@@ -7,7 +7,7 @@ Robinson et al,1993,aqua,P2Z,mxLayer,upwell Pac,C,density
 Fasham,1995,aqua,2NPZDB(DOM),//,subarctic Pac,//,//
 Matear,1995,aqua,2NP2ZDB(DOM),mxLayer,subarctic Pac,na,population
 Hurtt and Armstrong,1996,aqua,2NPR,mxLayer,Sargasso sea,N,molConc
-Xiao et al,1996,land,CNP,dual cycles,theoretical,"C,N",density
+Xiao et al,1996,land,CNP,dual cycles,theoretical,C N,density
 Popoca et al,1997,aqua,NPZD,mxLayer,theoretical,N,molConc
 Anderson and Williams,1998,aqua,2NPZDB(DOM),slab,English Channel,N,molConc
 Spitz et al,1998,aqua,2NPZDB(DOM),mxLayer,Sargasso sea,N,molConc

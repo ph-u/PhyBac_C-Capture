@@ -1,26 +1,26 @@
 ,time-frame,thermocline,Density-depend mortality,trophic levels (main+decomposer),explicit players
 this project,continuous,no,phy,1+1,yes
-Evans and Parslow,spring,yes,no,1+0,yes
-Frost,continuous,yes,no,2+0,no
-Fasham et al,continuous,yes,no,2+1,yes
-Robinson et al,yearly,yes,u,3+0,no equations
-Fasham,//,//,//,//,1990
-Matear,continuous,yes,no,2+0,yes
-Hurtt and Armstrong,continuous,yes,no,1+0,1990
-Xiao et al,continuous,no,no,1+1,yes
-Popoca et al,continuous,yes,no,2+0,yes
-Anderson and Williams,continuous,yes,no,2+1,no
-Spitz et al,continuous,yes,no,2+1,yes
-Fennel et al,continuous,yes,no,2+0,yes
-Natvik et al,//,//,//,//,not a model
-Schartau et al,continuous,yes,no,2+0,no
-Spitz et al,continuous,yes,no,2+1,1998
-Ito and Oikawa,no,no,no,1+0,yes
-Hemmings et al,//,//,//,//,stat
-Onitsuka and Yanagi,continuous,yes,no,2+0,yes
-Findlay et al,continuous,yes,no,1+0,no
-Mitra et al,short,no,no,2+1,no
-Mitra,continuous,no,no,2+1,yes
-Llebot et al,continuous,no,no,2+0,yes
-Kidston et al,continuous,yes,phy,2+0,yes
-Anderson et al,continuous,yes,phy,2+1,yes
+\autocite{evans1985model},spring,yes,no,1+0,yes
+\autocite{frost1987grazing},continuous,yes,no,2+0,no
+\autocite{fasham1990nitrogen},continuous,yes,no,2+1,yes
+\autocite{robinson1993simulated},yearly,yes,u,3+0,no equations
+\autocite{fasham1995use},//,//,//,//,1990
+\autocite{matear1995parameter},continuous,yes,no,2+0,yes
+\autocite{hurtt1996pelagic},continuous,yes,no,1+0,1990
+\autocite{mcguire1997equilibrium},continuous,no,no,1+1,yes
+\autocite{popova1997chaotic},continuous,yes,no,2+0,yes
+\autocite{anderson1998modelling},continuous,yes,no,2+1,no
+\autocite{spitz1998data},continuous,yes,no,2+1,yes
+\autocite{fennel2001testing},continuous,yes,no,2+0,yes
+\autocite{natvik2001weak},//,//,//,//,not a model
+\autocite{schartau2001parameter},continuous,yes,no,2+0,no
+\autocite{spitz2001configuring},continuous,yes,no,2+1,1998
+\autocite{ito2002simulation},no,no,no,1+0,yes
+\autocite{hemmings2004split},//,//,//,//,stat
+\autocite{onitsuka2005differences},continuous,yes,no,2+0,yes
+\autocite{findlay2006modelling},continuous,yes,no,1+0,no
+\autocite{mitra2007accounting},short,no,no,2+1,no
+\autocite{mitra2009closure},continuous,no,no,2+1,yes
+\autocite{llebot2010role},continuous,no,no,2+0,yes
+\autocite{kidston2013phytoplankton},continuous,yes,phy,2+0,yes
+\autocite{anderson2015empower},continuous,yes,phy,2+1,yes

@@ -38,7 +38,7 @@ rAw = rAw[,c(2,8,9,17,21:24)] ## extract relevant growth rate columns
 rAw = rAw[which(rAw$StandardisedTraitValue>0),] ## rm data recording no growth (purpose is only to obtain a reasonable standardization constant)
 
 ##### standardization constant (std-cst) calculation #####
-rAw$Ea.eV <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],.32,.65) ## activation energy of photosynthetic (0.32eV) and heterotrophic (0.65eV) lifestyle
+rAw$Ea.eV <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],.32,.66) ## activation energy of photosynthetic (0.32eV) and heterotrophic (0.65eV) lifestyle
 rAw$role <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],"photocell","bacterial decomposer")
 rAw$stdConst.day <- normArrheniusEq(rAw$StandardisedTraitValue, rAw$Ea.eV, rAw$ConTemp)*60^2*24
 

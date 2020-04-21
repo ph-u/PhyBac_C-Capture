@@ -22,12 +22,14 @@ The minimalist model used was composed by two players/ecological engines and thr
 \end{figure}
 
 \subsection{variables in the model}
-Nine parameters were used to describe the system, two sets of four biological parameters for the players P and B plus one carbon removal rate parameter.  Due to the parameter values obtained, the finest time scale of this model was set as ``day".  $\ePR$ and $\eBR$ were non-respired carbon fractions for P and B respectively.  $\eP$ and $\eB$ were carbon fractions incorporated into biomass for P and B respectively.  These two fractions were unit-less and modeled using different parameters because experimentally these numbers were measured using different methods.  Detailed version of calculating some parameters was in the Appendix.
+Nine parameters were used to describe the system, two sets of four biological parameters for the players P and B plus one carbon removal rate parameter.  Due to the parameter values obtained, the finest time scale of this model was set as ``day".  $\ePR$ and $\eBR$ were non-respired carbon fractions for P and B respectively.  $\eP$ and $\eB$ were carbon fractions incorporated into biomass for P and B respectively.  These two fractions were unit-less and modeled using different parameters because experimentally these numbers were measured using different methods.  $\gP$ and $\gB$ were specific growth rates for P and B with different units.  Due to the model being an open system, $\gP$ only depended on P because the interacting counterpart was assumed being unlimited.  However, a finite resource pool C had made $\gB$ depended on both the resource (i.e. C) and consumer (i.e. B) density.  In this project, since it was assumed that the environment was homogeneous, $\gB$ was logically sounded to take units rate ($t^{-1}$) and rate per unit density($m^3/(gCt)$) as equivalent.  Death rates in the model were logically different between P and B.  $\aP$ was a mechanistic death term for P based on intraspecific interference, one of the reasons leading to carrying capacity.  On a contrary, $\mB$ was a simple specific death rate for B.  Hence this model had an intrinsic assumption, which assumed the only limiting factor for P was competition (the intraspecific interference) while that for B was the carbon resource availability.  Detailed version of calculating some parameters was in the Appendix.
 
 \begin{table}[H]
     \centering
     \caption[Algebra variables]{Table showing variables and corresponding values used in the ODE system}
+    \begin{tiny}
     \csvautotabular[]{thesisSec/varTab.csv}
+    \end{tiny}
     \label{varInTab}
 \end{table}
 

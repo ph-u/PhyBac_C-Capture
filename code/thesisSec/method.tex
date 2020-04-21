@@ -50,6 +50,18 @@ Using the parameters defined in Table \ref{varInTab}, linkages in Fig.\ref{model
 \end{array}\right.\label{eq:ode}\end{equation}
 
 \subsection{solving the model}
-Solving the ODE system analytically (i.e. integration by SciPy (v.1.4.1) ``odeint" function) showed a stable equilibrium mostly regardless to the initial value.  Solving the ODE system numerically (setting $\dC=\dP=\dB=0$ and solve the system of unknowns by SymPy (v.1.0.7) in Julia-lang (v.1.3.1)) revealed three alternative equlibrium positions but only one of them contained all three carbon pools with non-zero densities.  Both methods gave similar (values converged to 2 d.p.) equilibrium positions when using the same set of parameter values selected at random within the ranges in Table\ref{varInTab}.
+Solving the ODE system analytically (i.e. integration by SciPy (v.1.4.1) ``odeint" function) showed a stable equilibrium mostly regardless to the initial value.  Solving the ODE system numerically (setting $\dC=\dP=\dB=0$ and solve the system of unknowns by SymPy (v.1.0.7) in Julia-lang (v.1.3.1)) revealed four alternative equlibrium positions but only one of them contained all non-zero three carbon pools densities (coexistence equilibrium).  When comparing the analytical result with the coexistence equilibrium using parameter values within the ranges in Table\ref{varInTab}, both methods gave similar equilibria values (converged to 2 d.p.).
+
+The coexistence equilibrium is solved as
+\begin{equation}\left\{\begin{array}{rl}
+    C &= \dfrac{\mB}{\eBR\eB\gB}\\
+    P &= \dfrac{\ePR\eP\gP}{\aP}\\
+    B &= \dfrac{\aP\mB x-\eBR\eB\gB\eP(\ePR\gP)^2}{\gB\mB\aP(\eBR-1)}
+\end{array}\label{eq:solC}\text{, when }\dC=\dP=\dB=0
+\right.\end{equation}
+
+It is logical to conclude the validity of using this set of carbon pool solution to get rapid detection of coexistence on the ODE system across designated parameter spaces (Table \ref{varInTab}).
+
+\subsection{analysis}
 
 \end{document}

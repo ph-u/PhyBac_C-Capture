@@ -1,4 +1,4 @@
-variable,unit,parameter value/test range,temperature ($^oC$),obtain method,source
+variable,unit,parameter range,temp ($^oC$),obtain method,source
 $\dC$,$gC/(m^3t)$,,,,
 $\dP$,$gC/(m^3t)$,,,,
 $\dB$,$gC/(m^3t)$,,,,

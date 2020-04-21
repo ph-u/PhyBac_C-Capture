@@ -1,13 +1,13 @@
 Term in graphical model,ODE term,notation
 Photocell,,
-photosynthesis,$\gP P$,$+\dP$
-aerobic respiration,$\gP(1-\ePR)P$,$-\dP$
-leakage,$\gP\ePR(1-\eP)P$,$+\dC$ $-\dP$
-resource allocation,$\gP\ePR\eP P$,$+\dP$
-death,$\aP P^2$,$+\dC$ $-\dP$
+    photosynthesis,$\gP P$,$+\dP$
+    aerobic respiration,$\gP(1-\ePR)P$,$-\dP$
+    leakage,$\gP\ePR(1-\eP)P$,$+\dC$ $-\dP$
+    resource allocation,$\gP\ePR\eP P$,$+\dP$
+    death,$\aP P^2$,$+\dC$ $-\dP$
 Bacterial decomposer,,
-eat,$\gB CB$,$-\dC$ $+\dB$
-aerobic respiration,$\gB(1-\eBR)CB$,$-\dB$
-leakage,$\gB\eBR(1-\eB)CB$,$+\dC$ $-\dB$
-resource allocation,$\gB\eBR\eB CB$,$+\dB$
-death,$\mB B$,$+\dC$ $-\dB$
+    eat,$\gB CB$,$-\dC$ $+\dB$
+    aerobic respiration,$\gB(1-\eBR)CB$,$-\dB$
+    leakage,$\gB\eBR(1-\eB)CB$,$+\dC$ $-\dB$
+    resource allocation,$\gB\eBR\eB CB$,$+\dB$
+    death,$\mB B$,$+\dC$ $-\dB$

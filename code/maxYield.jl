@@ -47,7 +47,7 @@ end
 P0 = [72288 155144] ## IQR of photocell standardization value
 B0 = [1.205e11 1.536e12] ## IQR of bacterial decomposer standardization value
 P = arRhenius(P0, .32, 23) ## testing daily growth rates range of photocell
-B = arRhenius(B0, .65, 23) ## testing daily growth rates range of bacterial decomposer
+B = arRhenius(B0, .66, 23) ## testing daily growth rates range of bacterial decomposer
 
 ##### test range set-up #####
 x = collect(0:.01:1) # rate of carbon removal

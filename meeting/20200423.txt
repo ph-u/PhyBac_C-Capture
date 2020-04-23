@@ -47,3 +47,12 @@ jaccovian matrix
 contour fixed gP gB low-x low-aP
 each contour: int low-x low-aP
 
+############# lab meeting ####################################
+meaning of max carbon when x=0 & x!=0
+optimum parameter spaces when x=0 & x!=0
+analytical = solving equations
+numerical = integration
+
+stable eqm -> stability analysis
+phase-plane analysis: behaviour across parameter space
+stability across time

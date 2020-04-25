@@ -21,15 +21,25 @@ Many interactive models are built for different purposes, mainly grouped by thei
 
 Features of this model/system are fitted between the previous two clusters of models.  It is a three-parts system modeling carbon density at equilibrium position.  The open system is modeled under the research question ``how much carbon can a minimal artificial ecosystem sequester?"  Under this motivation, three hypotheses are proposed:
 \begin{itemize}
-    \item there are biological constraint ranges for a lineage being considered as a ``suitable candidate" for the system;
+    \item presence of artificial removal of organic carbon shifts optimal biological feature values of phytoplanktons and bacterial decomposers;
+%    \item there are biological constraint ranges for a lineage being considered as a ``suitable candidate" for the system;
 \end{itemize}
 
-\begin{itemize}
-    \item there are a few important factors bringing system stability; and
-\end{itemize}
+The carbon removal term is an alien term in the ODE system (Eq.\ref{eq:ode}) within the rate of organic carbon equation.  This specific term depend only on the instantaneous density of organic carbon without interacting with any other carbon pools.  It will also disappear if the rate of artificial carbon extraction of the system is set zero.  Hence presence of the external perturbation can potentially shift the final ecosystem stability through favouring phytoplanktons and/or bacterial decomposers with a different set of biological features comparing to the set under no artificial perturbations.
 
 \begin{itemize}
-    \item this system can bring biologically significant effect on carbon sequestration
+    \item carbon sequestration system under respective optimum conditions performs better with higher rate of artificial organic carbon removal;
+    and
+%    \item there are a few important factors bringing system stability; and
+\end{itemize}
+
+It is based on the logic that stabilized ecosystems contain a static amount of carbon while developing ecosystems have a net carbon absorption
+
+\begin{itemize}
+    \item artificial removal rate of organic carbon linearly-correlates with total collected carbon density at the end of system run-time under the same set of biological features.
+%    \item this system can bring biologically significant effect on carbon sequestration
 \end{itemize} %% need to be more specific, can change in later stage of project (20200423)
+
+a
 
 \end{document}

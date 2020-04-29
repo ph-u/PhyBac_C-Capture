@@ -13,6 +13,7 @@ library(lattice)
 
 ##### data in #####
 rAw = read.csv("../result/nScan.csv",header = T)
+rAw[rAw<=0] =NA
 uNiqRAW = vector(mode = "list");for(i in 1:9){uNiqRAW[[i]] = unique(rAw[,i])};rm(i)
 
 lvpLt = function(pLt, rAw, uNiqRAW){

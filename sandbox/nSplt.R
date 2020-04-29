@@ -40,6 +40,3 @@ lvpLt = function(pLt, rAw, uNiqRAW){
   
   levelplot(oRi[,pLt[length(pLt)]]~oRi[,aXis[1]]*oRi[,aXis[2]], xlab=colnames(oRi)[aXis[1]], ylab=colnames(oRi)[aXis[2]], main=tiTle, col.regions = rev(gray(10:90/100)))
 }
-
-##### test: x ePR eP gP aP eBR eB gB mB #####
-lvpLt(c(0, 1,1,3,0, 1,1,3,1, 13), rAw, uNiqRAW)

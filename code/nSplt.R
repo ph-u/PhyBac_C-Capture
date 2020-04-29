@@ -4,7 +4,7 @@
 # Script: 	nSplt.R
 # Desc: 	plot contourplots for parameter scan result
 # Input: 	none
-# Output: 	graph/ctr_${i}.png
+# Output: 	none
 # Arg: 		0
 # Date: 	Apr 2020
 

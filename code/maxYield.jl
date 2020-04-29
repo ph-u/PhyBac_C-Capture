@@ -2,7 +2,7 @@
 
 # Author: 	PokMan HO (hpokman@connect.hku.hk)
 # Script: 	maxYield.jl
-# Desc: 	numerical solve for searching the max yield of carbon
+# Desc: 	analytical solve for searching the max yield of carbon
 # Input: 	julia maxYield.jl <sig. density threshold>
 # Output: 	../result/maxYield.csv
 # Arg: 		1

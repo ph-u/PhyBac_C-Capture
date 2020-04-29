@@ -9,7 +9,7 @@
 # Date: 	Apr 2020
 
 echo -e "start identify parameter scan space"
-Rscript numScan2.R $1 $2 $3 $4 $5 $6 $7 $8 $9 $10 $11 $12 $13 $14 $15 $16 $17 $18
+Rscript numScan2.R $1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11} ${12} ${13} ${14} ${15} ${16} ${17} ${18}
 
 echo -e "done space scan, start model scan"
 date

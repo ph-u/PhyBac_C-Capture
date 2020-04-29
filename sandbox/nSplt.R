@@ -13,7 +13,7 @@ library(lattice)
 
 ##### data in #####
 rAw = read.csv("../result/nScan.csv",header = T)
-rAw[rAw<=0] =NA
+for(i in 10:ncol(rAw)){rAw[which(rAw[,i]<=0),10:ncol(rAw)]=NA};rm(i) ## filter down only coexistence situation remains
 uNiqRAW = vector(mode = "list");for(i in 1:9){uNiqRAW[[i]] = unique(rAw[,i])};rm(i)
 
 lvpLt = function(pLt, rAw, uNiqRAW){
@@ -32,12 +32,14 @@ lvpLt = function(pLt, rAw, uNiqRAW){
   }};rm(i)
   
   ##### levelplot #####
-  tiTle = paste0("Density of ",colnames(oRi)[pLt[length(pLt)]])
+  tiTle = paste0("Density of ",colnames(oRi)[pLt[length(pLt)]]," under coexistence\n")
   for(i in 1:length(uNiqRAW)){if(pLt[i]!=0){
     tiTle = paste0(tiTle,", ",colnames(oRi)[i],"=",uNiqRAW[[i]][pLt[i]])
     if(i==6){tiTle = paste0(tiTle,"\n")}
   }};rm(i)
-  levelplot(oRi[,pLt[length(pLt)]]~oRi[,aXis[1]]*oRi[,aXis[2]], xlab=colnames(oRi)[aXis[1]], ylab=colnames(oRi)[aXis[2]], main=tiTle, col.regions = rev(gray(30:70/100)))
+  
+  levelplot(oRi[,pLt[length(pLt)]]~oRi[,aXis[1]]*oRi[,aXis[2]], xlab=colnames(oRi)[aXis[1]], ylab=colnames(oRi)[aXis[2]], main=tiTle, col.regions = rev(gray(10:90/100)))
 }
 
-lvpLt(c(0,1,1,2,0,1,1,3,1,13), rAw, uNiqRAW)
+##### test: x ePR eP gP aP eBR eB gB mB #####
+lvpLt(c(0, 1,1,3,0, 1,1,3,1, 13), rAw, uNiqRAW)

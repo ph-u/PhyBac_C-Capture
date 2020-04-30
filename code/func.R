@@ -8,8 +8,13 @@
 # Arg: 		0
 # Date: 	Apr 2020
 
+##### pkg #####
+library(deSolve)
+
+##### constant #####
 k <- 8.617333262145e-5 ## Boltzmann constant (unit eV/K)
 
+##### standardization value (Arrhenius) #####
 normArrheniusEq = function(rate, Ea, tempC){
   ## a function calculate standardization value from measured rate
   ## rate: in any unit for rate
@@ -19,6 +24,7 @@ normArrheniusEq = function(rate, Ea, tempC){
   return(rate0)
 }
 
+##### Arrhenius Equation #####
 ArrheniusEq = function(A0, Ea, tempC){
   ## a function calculate temperature-standardized rate from standardized data
   ## A0: in any unit for rate
@@ -28,10 +34,49 @@ ArrheniusEq = function(A0, Ea, tempC){
   return(A)
 }
 
+##### calculate x values from given y #####
 getXfromY = function(y, yInt, sLope){
   ## a function calculate relative x values from given y
   ## yInt: y intercept
   ## sLope: slope value of the linear equation
   X = (y-yInt)/sLope
   return(X)
+}
+
+##### project model #####
+ebc7 = function(t, pop, para){
+  ## the 7th version of the model in this project
+  ## t = time series sequence starting from 0
+  ## pop = initial population, a named vector
+  ## para = parameters used, a named vector
+  with(as.list(c(pop, para)),{
+    ## ode
+    dC = g_P*e_PR*(1-e_P)*P +a_P*P^2 +g_B*(e_BR*(1-e_B)-1)*C*B +m_B*B -x*C
+    dP = g_P*e_PR*e_P*P -a_P*P^2
+    dB = g_B*e_BR*e_B*C*B -m_B*B
+    
+    list(c(dC, dP, dB))
+  })
+}
+
+##### numerical solving project model #####
+ebcData = function(endTime=1e3, iniPop=1e-12, parameter=c(0,.875,.63,.259,.001,.6,.55,1.046,.14)){
+  ## a function solving integral of the model using deSolve package
+  ## endTime: time of finishing integral
+  ## iniPop: collective start carbon density for the three pools
+  ## parameter: values of parameters used in the project model, an unnamed vector
+  
+  ## env setting
+  tIme = seq(0,endTime,1)
+  pAra = c(x = parameter[1],
+           e_PR = parameter[2], e_P = parameter[3], g_P = parameter[4], a_P = parameter[5],
+           e_BR = parameter[6], e_B = parameter[7], g_B = parameter[8], m_B = parameter[9])
+  pops = c(C = iniPop, P = iniPop, B = iniPop)
+  
+  ## ode solve
+  rEs = ode(y=pops, times=tIme, func=ebc7, parms=pAra)
+  rEs = as.data.frame(rEs)
+  rEs$total = rEs$C+rEs$P+rEs$B
+  
+  return(rEs)
 }

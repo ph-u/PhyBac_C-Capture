@@ -10,7 +10,8 @@
 
 ##### env set-up #####
 using DataFrames, CSV, PyCall
-ags = parse(Float16, ARGS[1]) # https://stackoverflow.com/questions/33440857/julia-convert-numeric-string-to-float-or-int
+#ags = parse(Float16, ARGS[1]) # https://stackoverflow.com/questions/33440857/julia-convert-numeric-string-to-float-or-int
+ags = ARGS[1]
 cst = pyimport("scipy.constants")
 
 # @vars C P B
@@ -68,9 +69,9 @@ for b1 in eBR;for b2 in eB;for b3 in gB;for b4 in mB
 #for p1 in e;for p2 in e;for p3 in gP;for p4 in aP
 #for b1 in e;for b2 in e;for b3 in gB;for b4 in mB
 resu = ebc7eqm(c0,p1,p2,p3,p4,b1,b2,b3,b4)
-if resu[10]>ags && resu[11]>ags && resu[12]>ags ## eqm never return an absolute zero, must have a significance threshold
+#if resu[10]>ags && resu[11]>ags && resu[12]>ags ## eqm never return an absolute zero, must have a significance threshold
 	push!(rEs, resu)
-end
+#end
 
 end;end;end;end;end;end;end;end;end
 

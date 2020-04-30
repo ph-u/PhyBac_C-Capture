@@ -9,6 +9,6 @@ p_*
 .~*
 *.xlsx
 *.pdf
-maxYield_0.*.csv
+maxYield_*.csv
 *.odt#
 .ipynb_checkpoints

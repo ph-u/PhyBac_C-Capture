@@ -17,9 +17,12 @@ dIff = as.data.frame(matrix(NA,nr=nrow(rAw),nc=4))
 for(i in 1:nrow(rAw)){
   pA = ebcData(parameter = unname(rAw[i,1:9]))
   dIff[i,] = pA[nrow(pA),-1]-rAw[i,10:13]
+  if(i%%5e3==0){cat(paste0(round(i/nrow(rAw)*100),"% finished\n"))}
 };rm(i)
 
 ##### result export #####
 colnames(dIff) = paste0(colnames(rAw)[10:13],":num-ana")
 eXport = cbind(rAw[,1:9],dIff)
+cat("exporting result\n")
 write.csv(eXport,"../result/discrepancy.csv", quote = F, row.names = F)
+cat("done\n")

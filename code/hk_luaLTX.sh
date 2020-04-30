@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Author 		: PokMan Ho (pok.ho19@imperial.ac.uk)
+## Author 		: PokMan Ho
 ## Script 		: hk_luaLTX.sh
 ## Desc 		: use lualatex as .tex file compiler
 ## Input 		: ```nohup bash hk_luaLTX.sh <tex with .tex> <optional/output/path/>```

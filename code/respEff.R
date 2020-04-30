@@ -1,6 +1,6 @@
 #!/bin/env R
 
-# Author: 	PokMan HO (hpokman@connect.hku.hk)
+# Author: 	PokMan HO
 # Script: 	respEff.R
 # Desc: 	getting ranges of respiration efficiencies from BioTrait data and published respiration linear equation in relation to growth rate
 # Input: 	none

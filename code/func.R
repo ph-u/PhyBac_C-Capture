@@ -1,6 +1,6 @@
 #!/bin/env R
 
-# Author: 	PokMan HO (hpokman@connect.hku.hk)
+# Author: 	PokMan HO
 # Script: 	func.R
 # Desc: 	self-defined functions
 # Input: 	none

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Author: 	PokMan HO (hpokman@connect.hku.hk)
+# Author: 	PokMan HO
 # Script: 	numScan0.sh <xMin> <xMax>  <ePRMin> <ePRMax> <ePMin> <ePMax>  <gPMin> <gPMax> <aPMin> <aPMax>  <eBRMin> <eBRMax> <eBMin> <eBMax>  <gBMin> <gBMax> <mBMin> <mBMax>
 # Desc: 	master script for numerical scan of model
 # Input: 	bash numScan0.sh

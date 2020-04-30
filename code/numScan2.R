@@ -1,6 +1,6 @@
 #!/bin/env Rscript
 
-# Author: 	PokMan HO (hpokman@connect.hku.hk)
+# Author: 	PokMan HO
 # Script: 	numScan2.R
 # Desc: 	generate runID and parameter values
 # Input: 	Rscript numScan2.R <xMin> <xMax>  <ePRMin> <ePRMax> <ePMin> <ePMax>  <gPMin> <gPMax> <aPMin> <aPMax>  <eBRMin> <eBRMax> <eBMin> <eBMax>  <gBMin> <gBMax> <mBMin> <mBMax>

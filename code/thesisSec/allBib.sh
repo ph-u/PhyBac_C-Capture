@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Author: 	PokMan Ho (hpokman@connect.hku.hk)
+## Author: 	PokMan Ho
 ## Script: 	allBib.sh
 ## Desc: 	scavange all bib contacted prior writing up
 ## Input: 	bash allBib.sh

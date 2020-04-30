@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Author 		: PokMan Ho (pok.ho19@imperial.ac.uk)
+## Author 		: PokMan Ho
 ## Script 		: hk_gen_readme.sh
 ## Desc 		: readme.md generator
 ## Input 		: ```bash hk_gen_readme.sh```

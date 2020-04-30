@@ -1,6 +1,6 @@
 #!/bin/env Rscript
 
-# Author: 	PokMan HO (hpokman@connect.hku.hk)
+# Author: 	PokMan HO
 # Script: 	nSplt.R
 # Desc: 	plot contourplots for parameter scan result
 # Input: 	none

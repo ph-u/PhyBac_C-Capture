@@ -19,27 +19,29 @@ Aquatic photosynthetic communities are guesstimated as powerful as terrestrial o
 
 Many interactive models are built for different purposes, mainly grouped by their growth media (aquatic or terrestrial) and number of players (multi-lineages or multi-organs within an individual).  These models are specific to their respective environmental settings and nutrient limitations.  By comparing model features (Table \ref{modComp}), a new general model should be constructed.  Apart from the above phenotypical models, there are two models published, a community model based on whole genomes\autocite{harcombe2014metabolic} and a specific model for biofuel\autocite{kirthiga2014mathematical}.  These two models are too specific because they require prior knowledge and data regarding to the microbes of interest.  Hence this new ordinary differential equation (ODE) model is aimed at visualising a minimal ecosystem as a whole, which accommodates known and unknown microbes as long as they fit into either the phytoplankton or bacterial decomposer categories.
 
-Features of this model/system are fitted between the previous two known clusters of models (i.e. aquatic nutrient and terrestrial carbon-based).  It is a three-part system modeling carbon density from start to equilibrium.  The open system is modeled under the research question ``how much carbon can a minimal artificial ecosystem sequester?"  Under this motivation, three hypotheses are proposed:
+Features of this model/system are fitted between the previous two known clusters of models (i.e. aquatic nutrient and terrestrial carbon-based).  It is a three-part system modeling carbon density from start to equilibrium.  The open system is modeled under the research question ``how fast can we remove atmospheric CO$_2$ using a simple microbial ecosystem?"  Under this motivation, three hypotheses are proposed:
 \begin{itemize}
-    \item \textbf{presence of artificial removal of organic carbon shifts optimal biological feature values of phytoplanktons and bacterial decomposers};
-%    \item there are biological constraint ranges for a lineage being considered as a ``suitable candidate" for the system;
+    \item \textbf{human intervention in the microbial system destabilizes the internal balance}
+%    \item \textbf{presence of artificial removal of organic carbon shifts optimal biological feature values of phytoplanktons and bacterial decomposers}
+    ;
 \end{itemize}
 
-The carbon removal term is an alien term in the ODE system (Eq.\ref{eq:ode}) within the equation on rate of change in organic carbon pool.  This specific term depend only on the instantaneous density of organic carbon without interacting with any other carbon pools.  It will also disappear if the rate of artificial carbon extraction from the system is set zero.  Hence presence of the external perturbation can potentially shift the final ecosystem stability through favouring phytoplanktons and/or bacterial decomposers with a different set of biological features comparing to the set under no artificial perturbations.
+The carbon removal term is an alien term in the ODE system (Eq.\ref{eq:ode}).  This specific term depend only on the instantaneous density of organic carbon.  It also has no interaction with any other carbon pools.  It will disappear under ``no intervention" scenario (removal rate is set zero).  Hence presence of the external perturbation can potentially shift the internal balance, shifting optimal biological features (e.g. growth rates, intraspecific interference, death rates and carbon handling efficiencies) to other values.
 
 \begin{itemize}
-    \item \textbf{carbon sequestration systems under respective optimum conditions perform better with higher rate of artificial organic carbon removal};
-    and
-%    \item there are a few important factors bringing system stability; and
+    \item \textbf{human intervention benefits carbon sequestration performance of the system}
+%    \item \textbf{carbon sequestration systems under respective optimum conditions perform better with higher rate of artificial organic carbon removal}
+    ; and
 \end{itemize}
 
-It is based on the idea that developing ecosystems may be more reliable in carbon sequeestration than climax ecosystem, such as grasslands may be more reliable than forests in terms of being a carbon sink.\autocite{dass2018grasslands}  Under this idea, overall carbon sequestration ability is higher in developing ecosystems because the systems are more frequently perturbed.  Hence the carbon cycle in the ecosystem can potentially be sped up by channeling sequestered carbon out from the system, indirectly driving the ecosystem to ``fill-up" the constant ``carbon void" created to disturb its ecosystem stability.
+It is based on the idea that carbon sequestration ability of grasslands (i.e. a frequently-disturbed ecosystem by wild fire) may be more reliable than forests (i.e. a stable ecosystem).\autocite{dass2018grasslands}  A possible reason is because young individuals maximize growth (i.e. carbon accumulation for biomass) to win over competitors.  Under this idea, the carbon cycle in the ecosystem can potentially be sped up by taking carbon out from the system and conserve this momentum of growth.
 
 \begin{itemize}
-    \item \textbf{artificial removal rate of organic carbon exponentially-correlates with total collected carbon density at the end of system run-time under the same set of biological features}.
-%    \item this system can bring biologically significant effect on carbon sequestration
-\end{itemize} %% need to be more specific, can change in later stage of project (20200423)
+    \item \textbf{with a given set of microbial features, human intervention brings up the total removed carbon at a linear manner}
+%    \item \textbf{artificial removal rate of organic carbon exponentially-correlates with total collected carbon density at the end of system run-time under the same set of biological features}
+    .
+\end{itemize}
 
-From Eq.\ref{eq:ode}, the carbon removal term is a linear term linked with organic carbon pool size. By integration, this value is linked to $\dfrac{C^2}{2}$ and is expected to bring exponential effect to the instantaneous removed carbon density.
+From Eq.\ref{eq:ode}, the alien term of carbon removal is linearly-linked with the instantaneous density of organic carbon.  Hence increase of the removal rate is expected to bring a linear effect on the total amount of carbon sequestered.
 
 \end{document}

@@ -11,6 +11,7 @@
 ##### pkg #####
 library(deSolve)
 library(lattice)
+cBp <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#0072B2", "#D55E00", "#CC79A7", "#e79f00", "#9ad0f3", "#F0E442", "#999999", "#cccccc", "#6633ff", "#00FFCC", "#0066cc")
 
 ##### constant #####
 k <- 8.617333262145e-5 ## Boltzmann constant (unit eV/K)
@@ -72,7 +73,15 @@ ebcData = function(endTime=1e3, iniPop=1e-12, parameter=c(0,.875,.63,.259,.001,.
   pAra = c(x = parameter[1],
            e_PR = parameter[2], e_P = parameter[3], g_P = parameter[4], a_P = parameter[5],
            e_BR = parameter[6], e_B = parameter[7], g_B = parameter[8], m_B = parameter[9])
-  pops = c(C = iniPop, P = iniPop, B = iniPop)
+  if(length(iniPop)==3){
+    pops = c(C = iniPop[1], P = iniPop[2], B = iniPop[3])
+  }else{
+    if(length(iniPop)!=1){
+      iniPop=1e-12
+      cat(paste0("invalid initial values, setting all ",iniPop,"\n"))
+    }
+    pops = c(C = iniPop, P = iniPop, B = iniPop)
+  }
   
   ## ode solve
   rEs = ode(y=pops, times=tIme, func=ebc7, parms=pAra)
@@ -80,4 +89,23 @@ ebcData = function(endTime=1e3, iniPop=1e-12, parameter=c(0,.875,.63,.259,.001,.
   rEs$total = rEs$C+rEs$P+rEs$B
   
   return(rEs)
+}
+
+##### analytical model solution #####
+ebcEqm = function(parameter=c(0,.875,.63,.259,.001,.6,.55,1.046,.14)){
+  x = parameter[1]
+  ePR = parameter[2]
+  eP = parameter[3]
+  gP = parameter[4]
+  aP = parameter[5]
+  eBR = parameter[6]
+  eB = parameter[7]
+  gB = parameter[8]
+  mB = parameter[9]
+  
+  C = mB/(eBR*eB*gB)
+  P = ePR*eP*gP/aP
+  B = (aP*mB*x - eBR*eB*gB*eP*(ePR*gP)^2)/(gB*mB*aP*(eBR-1))
+  
+  return(c(C,P,B))
 }

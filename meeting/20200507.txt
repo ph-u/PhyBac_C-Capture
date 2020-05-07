@@ -1,0 +1,10 @@
+plot y-axis with manual limit (crashed systems)
+why the python solver not same as R (ask Tom)
+start system at stationary point 3%
+evaluate C'(t) at the 3%
+X: set of initial conditions converge C vs P, see whether they come to stationary point of not
+max -xC from analytical solution Eqn2
+- take eqn for B -> rearrange x as subject on B * eqn for C = harvesting term
+- find B leading to max harvest (only B positive)
+- plot xC vs x: cal x make B very small?
+cal x for high& low cases, C (changing high/Low parameters)

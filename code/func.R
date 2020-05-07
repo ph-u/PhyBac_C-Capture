@@ -10,6 +10,7 @@
 
 ##### pkg #####
 library(deSolve)
+library(lattice)
 
 ##### constant #####
 k <- 8.617333262145e-5 ## Boltzmann constant (unit eV/K)

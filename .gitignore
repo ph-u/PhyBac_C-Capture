@@ -12,4 +12,4 @@ p_*
 maxYield_*.csv
 *.odt#
 .ipynb_checkpoints
-discrepancy.csv
+discrepancy*.csv

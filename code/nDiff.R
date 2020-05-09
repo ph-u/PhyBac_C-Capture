@@ -3,9 +3,9 @@
 # Author:   PokMan Ho
 # Script:   nDiff.R
 # Desc:   	scan for discrepancies between numerical and analytical model solution scan
-# Input: 	Rscript nDiff.R <run_id> <iniPop>
-# Output: 	../result/discrepancy.csv
-# Arg: 		2
+# Input: 	Rscript nDiff.R <iniPop>
+# Output: 	../result/discrepancy_${i}.csv
+# Arg: 		1
 # Date: 	Apr 2020
 
 ##### env set-up #####
@@ -16,7 +16,7 @@ dIff = as.data.frame(matrix(NA,nr=nrow(rAw),nc=4))
 
 ##### discrepancies scan #####
 for(i in 1:nrow(rAw)){
-  pA = ebcData(iniPop=as.numeric(args[2]), parameter = unname(rAw[i,1:9]))
+  pA = ebcData(iniPop=as.numeric(args[1]), parameter = unname(rAw[i,1:9]))
   dIff[i,] = pA[nrow(pA),-1]-rAw[i,10:13]
   if(i%%5e3==0){cat(paste0(round(i/nrow(rAw)*100),"% finished\n"))}
 };rm(i)

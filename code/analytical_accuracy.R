@@ -32,7 +32,7 @@ for(i in 1:ncol(nPos)){nPos[,i]=c(length(which(nD1e0[,i+9]>=tHres | nD1e0[,i+9]<
                                   length(which(nD1e12[,i+9]>=tHres | nD1e12[,i+9]<=-tHres)))};rm(i)
 nPos$iniPop=c(1,1e-2,1e-3,1e-4,1e-5,1e-11,1e-12)
 
-{png("../result/discrepancyByIniPop.png", height=600, width=600)
+{png(paste0("../result/discrepancy",tHres,"ByIniPop.png"), height=600, width=600)
 matplot(log10(nPos[,5]),nPos[,-5],type = "l", col = cBp[-c(3,5)], lty=1, lwd=5, xlab="log10 initial popoulation", ylab="number of extreme simulations with high discrepancy", main=paste("Extreme discrepancy threshold=",tHres))
 legend("topright", inset=c(.1,0), bty="n", legend = colnames(nPos)[-5], pch = rep(16,4), col = cBp[-c(3,5)])
 abline(v=-3, col="green", lwd=3, lty=2)

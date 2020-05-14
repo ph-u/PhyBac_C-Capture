@@ -1,0 +1,8 @@
+plot discrepancy situations, some +/-
+possible causes of discrepancy: rate of change 0 when fixed, initial conditions
+oscilating system -- discrepancy exist
+face plane: some parameters rate change = 0
+express discrepancy in %
+find a reason for discrepancy: ini, num definitely right?
+plug parameters in ode & num solve -> rate should be matching; eqm solution matching; plug eqm sol to start num solve again -> change==0
+repeat rate & eqm tracing in both py3 & R

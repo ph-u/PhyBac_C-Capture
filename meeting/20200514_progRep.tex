@@ -1,0 +1,48 @@
+% Author        : PokMan Ho
+% Script        : 20200507_progRep.tex
+% Desc          : MRes progress report tex
+% Input         : none
+% Output        : pdf report in same directory
+% Arguments     : 0
+% Date          : May 2020
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx, hyperref, longtable, amsmath, amssymb}
+\graphicspath{{figure/}{figure/}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,      
+	urlcolor=blue,
+	citecolor=blue
+}
+
+\title{Thursday mornings MRes project progress report}
+\author{PokMan Ho}
+\date{}
+
+\begin{document}
+    \maketitle
+    
+    \begin{tabular}{rl}
+        Date Time: & 14-May-2020 09:00 \\
+        Location: & MS Teams \\
+        People: & James, Samraat, Emma, PokMan \\
+    \end{tabular}
+    
+    \section{Topics discussed}
+    \begin{enumerate}
+        \item discrepancy between py3 scipy.odeint, R deSolve.ode \& py3 SymPy
+    \end{enumerate}
+    
+    \section{Consensus}
+    \begin{enumerate}
+        \item investigate reasons of discrepancies between the three methods: numerical solver, mathematical bug, real alternative equilibria
+        \item check rate of change of ode system and equilibrium position at any given time, confirm same tracing pattern
+        \item plot analytical equilibrium position on any selected parameter sets with discrepancies showing differences between py3 odeint, SymPy \& R
+    \end{enumerate}
+\end{document}

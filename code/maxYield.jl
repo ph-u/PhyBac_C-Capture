@@ -27,15 +27,29 @@ cst = pyimport("scipy.constants")
 rEs = DataFrame(x=Float16[],
 				e_PR=Float16[],e_P=Float16[],g_P=Float16[],a_P=Float16[],
 				e_BR=Float16[],e_B=Float16[],g_B=Float16[],m_B=Float16[],
-				eqmC=Float16[],eqmP=Float16[],eqmB=Float16[],eqmA=Float16[])
+				eqmC1=Float16[],eqmP1=Float16[],eqmB1=Float16[],eqmA1=Float16[],
+                eqmC2=Float16[],eqmP2=Float16[],eqmB2=Float16[],eqmA2=Float16[],
+                eqmC3=Float16[],eqmP3=Float16[],eqmB3=Float16[],eqmA3=Float16[],
+                eqmC4=Float16[],eqmP4=Float16[],eqmB4=Float16[],eqmA4=Float16[])
 
 ##### eqm carbon density functions #####
 function ebc7eqm(x, e_PR,e_P,g_P,a_P, e_BR,e_B,g_B,m_B)
-	eqmC = m_B/(e_B*e_BR*g_B)
-	eqmP = e_P*e_PR*g_P/a_P
-	eqmB = (a_P*m_B*x - e_B*e_BR*e_P*e_PR^2*g_B*g_P^2)/(a_P*e_BR*g_B*m_B - a_P*g_B*m_B)
-	eqmA = eqmC + eqmP + eqmB
-	return([x e_PR e_P g_P a_P e_BR e_B g_B m_B eqmC eqmP eqmB eqmA])
+	C2 = m_B/(e_BR*e_B*g_B)
+	P2 = 0
+	B2 = x/(g_B*(e_BR-1))
+	A2 = C2 + P2 + B2
+
+	C3 = e_P*(e_PR*g_P)^2/(a_P*x)
+	P3 = e_PR*e_P*g_P/a_P
+	B3 = 0
+	A3 = C3 + P3 + B3
+
+	C4 = m_B/(e_B*e_BR*g_B)
+	P4 = e_P*e_PR*g_P/a_P
+	B4 = (a_P*m_B*x - e_B*e_BR*e_P*e_PR^2*g_B*g_P^2)/(a_P*e_BR*g_B*m_B - a_P*g_B*m_B)
+	A4 = C4 + P4 + B4
+
+	return([x e_PR e_P g_P a_P e_BR e_B g_B m_B 0 0 0 0 C2 P2 B2 A2 C3 P3 B3 A3 C4 P4 B4 A4])
 end
 
 function arRhenius(A0, Ea, TC)

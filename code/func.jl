@@ -15,7 +15,7 @@ cst = pyimport("scipy.constants")
 itg = pyimport("scipy.integrate")
 
 ##### project model #####
-function ebc7(Den,t,x, g_P,e_PR,e_P,a_P, g_B,e_BR,e_B,m_B)
+function ebc7(Den,t,x, e_PR,e_P,g_P,a_P, e_BR,e_B,g_B,m_B)
 
     ## variable sorting
     C = Den[:1]
@@ -44,7 +44,7 @@ end
 ##### analytical model solution #####
 function ebcEqm(parameter=[0 .875 .63 .259 .001 .6 .55 1.046 .14])
 		x=parameter[1]
-		ePR=parameter[2]; eP=parameter[2]; gP=parameter[4]; aP=parameter[5]
+		ePR=parameter[2]; eP=parameter[3]; gP=parameter[4]; aP=parameter[5]
 		eBR=parameter[6]; eB=parameter[7]; gB=parameter[8]; mB=parameter[9]
 
 		C = mB/(eBR*eB*gB)
@@ -57,7 +57,7 @@ end
 ##### analytical model all solutions #####
 function ebcAlt(parameter=[0 .875 .63 .259 .001 .6 .55 1.046 .14], out=1)
 		x=parameter[1]
-        ePR=parameter[2]; eP=parameter[2]; gP=parameter[4]; aP=parameter[5]
+        ePR=parameter[2]; eP=parameter[3]; gP=parameter[4]; aP=parameter[5]
         eBR=parameter[6]; eB=parameter[7]; gB=parameter[8]; mB=parameter[9]
 
 		a1 = [0,0,0,0]
@@ -81,6 +81,6 @@ end
 
 ##### ebc rate #####
 function ebcRate(pop=[1e-5,1e-5,1e-5], para=[0 .875 .63 .259 .001 .6 .55 1.046 .14])
-		a=ebc7(pop,0,para[1],para[1],para[3],para[4],para[5],para[6],para[7],para[8],para[9])
+		a=ebc7(pop,0,para[1],para[2],para[3],para[4],para[5],para[6],para[7],para[8],para[9])
 		return(a)
 end

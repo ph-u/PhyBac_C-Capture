@@ -104,6 +104,7 @@ ebcEqm = function(parameter=c(0,.875,.63,.259,.001,.6,.55,1.046,.14)){
   return(c(C,P,B))
 }
 
+##### analytical model all solutions #####
 ebcAlt = function(parameter=c(0,.875,.63,.259,.001,.6,.55,1.046,.14), out=1){
   x = parameter[1]
   ePR = parameter[2]; eP = parameter[3]; gP = parameter[4]; aP = parameter[5]

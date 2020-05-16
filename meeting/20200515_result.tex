@@ -28,16 +28,29 @@
     \section{Summary}
     \begin{itemize}
         \item most discrepancies in previous occasions fixed (I'm so dumb; this is due to a historic parameter arrangement issue)
-        \item 
+        \item initial population still has effect in some situations
+        \item There are different equilibria and shapes of achieving them
+        \begin{itemize}
+            \item there are three equilibria positions, dominated by co-existing one
+            \item there are (rare) cases that the system shifted to the second equilibrium, which is predicted by the analytical approach, in the middle of the time series
+        \end{itemize}
     \end{itemize}
     
     \section{document links}
     \begin{itemize}
         \item third-party calculation using Google  \href{https://docs.google.com/spreadsheets/d/1k4eZ2qmefPx8dAj6BVPFUE00JBayk8zqMAfbH60slB8/edit#gid=939440998}{spreadsheet} tab ``analytical"
-        \item function bin scripts in \href{https://github.com/ph-u/Project/blob/master/code/func.R}{R-lang} and \href{https://github.com/ph-u/Project/blob/master/code/func.jl}{Julia-lang}
+        \item function bin scripts in \href{https://github.com/ph-u/Project/blob/master/code/func.R}{R-lang} and \href{https://github.com/ph-u/Project/blob/master/code/func.jl}{Julia-lang}, which are functionally-identical
         \item Jupyter notebooks doing the same thing using \href{https://nbviewer.jupyter.org/github/ph-u/Project/blob/master/sandbox/cpb_0514_r.ipynb}{R-lang} and \href{https://nbviewer.jupyter.org/github/ph-u/Project/blob/master/sandbox/cpb_0514_jp.ipynb}{Julia-lang}
     \end{itemize}
     
-    \section{Descriptions}
+    \section{Descriptions for chosen parameter set samples}
+    Larger differences between results were observed in section:
     
+    \begin{tabular}{cc|r}\hline
+    section & iniPop & reason\\\hline
+        3.1 & $10^{-12}$ & final result diff\\
+        4.1 & $10^{-8}$ & carbon density time series trace diff\\
+        5.1 & $10^{-12}$ & R model crashed\\\hline
+    \end{tabular}
+
 \end{document}

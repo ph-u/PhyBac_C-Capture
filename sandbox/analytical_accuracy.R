@@ -9,8 +9,9 @@
 # Date: 	Apr 2020
 
 ##### import #####
-source("func.R")
+source("../code/func.R")
 aNa = read.csv("../result/maxYield_all.csv", header = T)
+aNA = read.csv("../result/maxYield_ALL.csv", header = T)
 nD1e0 = read.csv("../result/discrepancy_1.csv", header = T)
 nD1e2 = read.csv("../result/discrepancy_1e-2.csv", header = T)
 nD1e3 = read.csv("../result/discrepancy_1e-3.csv", header = T)
@@ -37,3 +38,26 @@ matplot(log10(nPos[,5]),nPos[,-5],type = "l", col = cBp[-c(3,5)], lty=1, lwd=5, 
 legend("topright", inset=c(.1,0), bty="n", legend = colnames(nPos)[-5], pch = rep(16,4), col = cBp[-c(3,5)])
 abline(v=-3, col="green", lwd=3, lty=2)
 dev.off()}
+
+##### identify eqm position #####
+nUm = aNa[,10:13]+nD1e12[,10:13]
+iDeqm = function(df=nUm,ref=aNA){
+  a0 = as.data.frame(matrix(0,nr=nrow(df),nc=5))
+  colnames(a0)=1:ncol(a0)
+  a1 = abs(df-ref[,10:13]); a0[,1]=a1[,1]+a1[,2]+a1[,3]
+  a2 = abs(df-ref[,14:17]); a0[,2]=a2[,1]+a2[,2]+a2[,3]
+  a3 = abs(df-ref[,18:21]); a0[,3]=a3[,1]+a3[,2]+a3[,3]
+  a4 = abs(df-ref[,22:25]); a0[,4]=a4[,1]+a4[,2]+a4[,3]
+  
+  for(i in 1:nrow(a0)){if(any(a0[i,1:4]<10)){
+    a0[i,5] = as.numeric(colnames(a0)[which(a0[i,1:4]==min(a0[i,1:4]))])
+    if(i%%1e4==0){cat(paste0("i=",i/1e3,"K;",round(i/nrow(df)*100,2),"%\n"))}
+  }};rm(i)
+  return(table(a0[,5]))
+}
+aa="1e-12"
+png(paste0("tmp/",aa,".png"))
+pie(a,main = paste0("Solution distribution for initial population=",aa))
+dev.off()
+
+write.table(as.data.frame(a),paste0("tmp/",aa,".csv"), sep=",", col.names = F,row.names = F)

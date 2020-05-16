@@ -27,13 +27,10 @@
     \maketitle
     \section{Summary}
     \begin{itemize}
-        \item most discrepancies in previous occasions fixed (I'm so dumb; this is due to a historic parameter arrangement issue)
-        \item initial population still has effect in some situations
-        \item There are different equilibria and shapes of achieving them
-        \begin{itemize}
-            \item there are three equilibria positions, dominated by co-existing one
-            \item there are (rare) cases that the system shifted to the second equilibrium, which is predicted by the analytical approach, in the middle of the time series
-        \end{itemize}
+        \item most discrepancies fixed -- this is sourced from a dumb mistake on parameter arrangement
+        \item situations' equilibrium position are mostly coexisting, with a small portion of phytoplankton-dominating situations (see pie charts below)
+        \item R \& py3 integration engines now mostly agreeing on each other, exception samples listed below
+        \item initial carbon densities 
     \end{itemize}
     
     \section{document links}
@@ -45,12 +42,37 @@
     
     \section{Descriptions for chosen parameter set samples}
     Larger differences between results were observed in section:
+    \begin{center}
+        \begin{tabular}{cc|r}\hline
+            section & iniPop & reason\\\hline
+            3.1 & $10^{-12}$ & final result diff\\
+            4.1 & $10^{-8}$ & carbon density time series trace diff\\
+            5.1 & $10^{-12}$ & R model crashed\\\hline
+        \end{tabular}
+    \end{center}
     
-    \begin{tabular}{cc|r}\hline
-    section & iniPop & reason\\\hline
-        3.1 & $10^{-12}$ & final result diff\\
-        4.1 & $10^{-8}$ & carbon density time series trace diff\\
-        5.1 & $10^{-12}$ & R model crashed\\\hline
-    \end{tabular}
+    Equilibrium solutions were listed below:
+    \begin{center}
+        \begin{tabular}{c|ccc}\hline
+            Sol & C & P & B\\\hline
+            (1) & 0 & 0 & 0\\
+            (2) & $\frac{m_B}{e_{BR}e_B g_B}$ & 0 & $\frac{x}{g_B(e_{BR} - 1)}$\\
+            (3) & $\frac{e_P(e_{PR}g_P)^2}{a_P x}$ & $\frac{e_{PR}e_Pg_P}{a_P}$ & 0\\
+            (4) & $\frac{m_B}{e_{BR}e_B g_B}$ & $\frac{e_{PR}e_P g_P}{a_P}$ & $\frac{a_P m_B x - e_{BR}e_B g_B e_P(e_{PR}g_P)^2}{a_P m_B g_B(e_{BR}-1)}$\\\hline
+        \end{tabular}
+    \end{center}
+    
+    \section{distributions from parameter space scanning: 1234321 situations}
+    \begin{itemize}
+        \item $x$: seq(0:1, by=.01)
+        \item $e_{PR}$: .875
+        \item $e_P$: .63
+        \item $g_P$: seq(0.259:0.556, by=(.556-.259)/10)
+        \item $a_P$: seq(0.001:0.400, by=(.4-.001)/10)
+        \item $e_{BR}$: .6
+        \item $e_B$: .55
+        \item $g_B$: seq(0.707:9.010, by=(9.01-.707)/100)
+        \item $m_B$: .14
+    \end{itemize}
 
 \end{document}

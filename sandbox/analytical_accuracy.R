@@ -61,3 +61,25 @@ pie(a,main = paste0("Solution distribution for initial population=",aa))
 dev.off()
 
 write.table(as.data.frame(a),paste0("tmp/",aa,".csv"), sep=",", col.names = F,row.names = F)
+
+##### check changes of eqm position #####
+r00 = read.csv("p_tmp/1e-0.csv", header = F)
+r02 = read.csv("p_tmp/1e-2.csv", header = F)
+r03 = read.csv("p_tmp/1e-3.csv", header = F)
+r04 = read.csv("p_tmp/1e-4.csv", header = F)
+r05 = read.csv("p_tmp/1e-5.csv", header = F)
+r11 = read.csv("p_tmp/1e-11.csv", header = F)
+r12 = read.csv("p_tmp/1e-12.csv", header = F)
+aNA = read.csv("../result/maxYield_ALL.csv", header = T)
+
+rEs = cbind(r00[,5],r02[,5],r03[,5],r04[,5],r05[,5],r11[,5],r12[,5],aNA[,1:9])
+colnames(rEs) = c(paste0("p",c("00","02","03","04","05","11","12")),colnames(aNA)[1:9])
+uQrEs = unique(rEs[,1:7])
+rEs$name=paste0(rEs[,8],rEs[,9],rEs[,10],rEs[,11],rEs[,12],rEs[,13],rEs[,14],rEs[,15],rEs[,16])
+rEs$eqmid=paste0(rEs[,1],rEs[,2],rEs[,3],rEs[,4],rEs[,5],rEs[,6],rEs[,7])
+
+pLt=table(rEs$eqmid)
+png("graph/eqmPoSum.png")
+pie(pLt,labels=as.data.frame(pLt)[,1], main="eqm position for 11 categories with different starting densities\n1e00, 1e-2, 1e-3, 1e-4, 1e-5, 1e-11, 1e-12 (gC/m^3)", cex=.7)
+legend("topleft", bty="n", legend = paste0(as.data.frame(pLt)[,1],": ",as.data.frame(pLt)[,2],"(",round(prop.table(pLt)*100),"%)"))
+dev.off()

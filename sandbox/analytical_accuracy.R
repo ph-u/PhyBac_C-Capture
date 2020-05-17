@@ -34,10 +34,10 @@ for(i in 1:ncol(nPos)){nPos[,i]=c(length(which(nD1e0[,i+9]>=tHres | nD1e0[,i+9]<
 nPos$iniPop=c(1,1e-2,1e-3,1e-4,1e-5,1e-11,1e-12)
 
 {png(paste0("../result/discrepancy",tHres,"ByIniPop.png"), height=600, width=600)
-matplot(log10(nPos[,5]),nPos[,-5],type = "l", col = cBp[-c(3,5)], lty=1, lwd=5, xlab="log10 initial popoulation", ylab="number of extreme simulations with high discrepancy", main=paste("Extreme discrepancy threshold=",tHres))
-legend("topright", inset=c(.1,0), bty="n", legend = colnames(nPos)[-5], pch = rep(16,4), col = cBp[-c(3,5)])
-abline(v=-3, col="green", lwd=3, lty=2)
-dev.off()}
+  matplot(log10(nPos[,5]),nPos[,-5],type = "l", col = cBp[-c(3,5)], lty=1, lwd=5, xlab="log10 initial popoulation", ylab="number of extreme simulations with high discrepancy", main=paste("Extreme discrepancy threshold=",tHres))
+  legend("topright", inset=c(.1,0), bty="n", legend = colnames(nPos)[-5], pch = rep(16,4), col = cBp[-c(3,5)])
+  abline(v=-3, col="green", lwd=3, lty=2)
+  dev.off()}
 
 ##### identify eqm position #####
 nUm = aNa[,10:13]+nD1e12[,10:13]
@@ -84,3 +84,17 @@ png("graph/eqmPoSum.png")
 pie(pLt,labels=as.data.frame(pLt)[,1], main="eqm position for 11 categories with different starting densities\n1e00, 1e-2, 1e-3, 1e-4, 1e-5, 1e-11, 1e-12 (gC/m^3)", cex=.7)
 legend("topleft", bty="n", legend = paste0(as.data.frame(pLt)[,1],": ",as.data.frame(pLt)[,2],"(",round(prop.table(pLt)*100),"%)"))
 dev.off()
+
+##### check unique parameters #####
+a = read.csv("p_tmp/eqmSummary.csv")
+{a2=unique(a$eqmid)
+  for(j in 1:length(a2)){
+    a1=a2[j]
+    a0 = a[which(a$eqmid==a1),8:16]
+    print(a1)
+    a1=rep(NA,ncol(a0))
+    for(i in 1:ncol(a0)){
+      a1[i]=length(unique(a0[,i]))
+    };rm(i)
+    print(a1)
+  };rm(j)}

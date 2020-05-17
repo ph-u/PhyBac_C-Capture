@@ -74,9 +74,10 @@ aNA = read.csv("../result/maxYield_ALL.csv", header = T)
 
 rEs = cbind(r00[,5],r02[,5],r03[,5],r04[,5],r05[,5],r11[,5],r12[,5],aNA[,1:9])
 colnames(rEs) = c(paste0("p",c("00","02","03","04","05","11","12")),colnames(aNA)[1:9])
-uQrEs = unique(rEs[,1:7])
-rEs$name=paste0(rEs[,8],rEs[,9],rEs[,10],rEs[,11],rEs[,12],rEs[,13],rEs[,14],rEs[,15],rEs[,16])
 rEs$eqmid=paste0(rEs[,1],rEs[,2],rEs[,3],rEs[,4],rEs[,5],rEs[,6],rEs[,7])
+write.csv(rEs,"p_tmp/eqmSummary.csv",quote = F,row.names = F)
+
+uQrEs = unique(rEs[,1:7])
 
 pLt=table(rEs$eqmid)
 png("graph/eqmPoSum.png")

@@ -9,7 +9,7 @@
 # Date: 	Apr 2020
 
 ##### pkg import #####
-source("func.R")
+source("../code/func.R")
 
 ##### data import #####
 gRate = read.csv("../data/gRate.csv",stringsAsFactors = F) ## dimension (n*c) = 3160*11

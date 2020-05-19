@@ -9,7 +9,7 @@
 # Date: 	Apr 2020
 
 ##### pkg import #####
-source("func.R")
+source("../code/func.R")
 
 ##### data import #####
 rAw = read.csv("../data/BioTraits.csv",stringsAsFactors = F) ## dimension (n*c) = 25826*155

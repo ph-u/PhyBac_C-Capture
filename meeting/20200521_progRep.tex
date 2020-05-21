@@ -1,0 +1,54 @@
+% Author        : PokMan Ho
+% Script        : 20200521_progRep.tex
+% Desc          : MRes progress report tex
+% Input         : none
+% Output        : pdf report in same directory
+% Arguments     : 0
+% Date          : May 2020
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx, hyperref, longtable, amsmath, amssymb}
+\graphicspath{{figure/}{figure/}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,      
+	urlcolor=blue,
+	citecolor=blue
+}
+
+\title{Thursday mornings MRes project progress report}
+\author{PokMan Ho}
+\date{}
+
+\begin{document}
+    \maketitle
+    
+    \begin{tabular}{rl}
+        Date Time: & 21-May-2020 09:00 \\
+        Location: & MS Teams \\
+        People: & James, Samraat, Emma, PokMan \\
+    \end{tabular}
+    
+    \section{Topics discussed}
+    \begin{enumerate}
+        \item R vs Julia-py3 using same equation settings
+        \item R initial carbon density scanning
+    \end{enumerate}
+    
+    \section{Consensus}
+    \begin{enumerate}
+        \item Do the same scan using Julia-py3 to confirm numerical stability (pie charts)
+        \item if scipy.integrate.odeint not having numerical stability, try other solvers (default: LSODA; alt: LSODE, LSODES)
+        \item do a stability test in Julia-py3 numerical solution using analytical solution as initial values
+        \item (James) do very small initial values practically meaningful?
+        \begin{itemize}
+            \item ecosystem stochasticity may take over
+            \item microbial cells are easy to obtain
+        \end{itemize}
+    \end{enumerate}
+\end{document}

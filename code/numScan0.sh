@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Author: 	PokMan HO
-# Script: 	numScan0.sh <xMin> <xMax>  <ePRMin> <ePRMax> <ePMin> <ePMax>  <gPMin> <gPMax> <aPMin> <aPMax>  <eBRMin> <eBRMax> <eBMin> <eBMax>  <gBMin> <gBMax> <mBMin> <mBMax>
-# Desc: 	master script for numerical scan of model
-# Input: 	bash numScan0.sh
-# Output: 	none
-# Arg: 		18
-# Date: 	Apr 2020
+# Author 	: PokMan HO
+# Script 	: numScan0.sh <xMin> <xMax>  <ePRMin> <ePRMax> <ePMin> <ePMax>  <gPMin> <gPMax> <aPMin> <aPMax>  <eBRMin> <eBRMax> <eBMin> <eBMax>  <gBMin> <gBMax> <mBMin> <mBMax>
+# Desc 		: master script for numerical scan of model
+# Input 	: bash numScan0.sh
+# Output 	: none
+# Arg 		: 18
+# Date 		: Apr 2020
 
 echo -e "start identify parameter scan space"
 Rscript numScan2.R $1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11} ${12} ${13} ${14} ${15} ${16} ${17} ${18}

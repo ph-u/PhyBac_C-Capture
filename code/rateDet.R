@@ -1,12 +1,12 @@
 #!/bin/env R
 
-# Author: 	PokMan HO
-# Script: 	rateDet.R
-# Desc: 	BioTraits data handling
-# Input: 	none
-# Output: 	none
-# Arg: 		0
-# Date: 	Apr 2020
+# Author 	: PokMan HO
+# Script 	: rateDet.R
+# Desc 		: BioTraits data handling
+# Input 	: none
+# Output 	: none
+# Arg 		: 0
+# Date 		: Apr 2020
 
 ##### pkg import #####
 source("../code/func.R")

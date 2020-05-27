@@ -1,12 +1,12 @@
 #!/bin/env julia
 
-# Author: 	PokMan HO
-# Script: 	func.jl
-# Desc: 	self-defined functions
-# Input: 	none
-# Output: 	none
-# Arg: 		0
-# Date: 	May 2020
+# Author 	: PokMan HO
+# Script 	: func.jl
+# Desc 		: self-defined functions
+# Input 	: none
+# Output 	: none
+# Arg 		: 0
+# Date 		: May 2020
 
 ##### pkg #####
 using PyCall, DataFrames, CSV, Plots, SymPy
@@ -33,8 +33,13 @@ end
 
 ##### numerical solving project model #####
 function ebcData(endTime=1000, iniPop=1e-12, parameter=[0 .875 .63 .259 .001 .6 .55 1.046 .14])
+		if length(iniPop)==3
+			iniPop = sc.array(iniPop)
+		else
+			iniPop = sc.array([iniPop,iniPop,iniPop])
+		end
 		tIme = sc.linspace(0, endTime, endTime)
-		pops, infodict = itg.odeint(ebc7, sc.array([iniPop,iniPop,iniPop]), tIme, full_output=true, args=(parameter[1],parameter[2],parameter[3],parameter[4],parameter[5],parameter[6],parameter[7],parameter[8],parameter[9]))
+		pops, infodict = itg.odeint(ebc7, iniPop, tIme, full_output=true, args=(parameter[1],parameter[2],parameter[3],parameter[4],parameter[5],parameter[6],parameter[7],parameter[8],parameter[9]))
 		pops = DataFrame(pops)
 		pops[:,:x4] = pops[:,:x1]+pops[:,:x2]+pops[:,:x3]
 		

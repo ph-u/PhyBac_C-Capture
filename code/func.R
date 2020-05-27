@@ -1,12 +1,12 @@
 #!/bin/env R
 
-# Author: 	PokMan HO
-# Script: 	func.R
-# Desc: 	self-defined functions
-# Input: 	none
-# Output: 	none
-# Arg: 		0
-# Date: 	Apr 2020
+# Author 	: PokMan HO
+# Script 	: func.R
+# Desc 		: self-defined functions
+# Input 	: none
+# Output 	: none
+# Arg 		: 0
+# Date 		: Apr 2020
 
 ##### pkg #####
 library(deSolve)

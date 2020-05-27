@@ -1,12 +1,12 @@
 #!/bin/env Rscript
 
-# Author: 	PokMan HO
-# Script: 	numScan2.R
-# Desc: 	generate runID and parameter values
-# Input: 	Rscript numScan2.R <xMin> <xMax>  <ePRMin> <ePRMax> <ePMin> <ePMax>  <gPMin> <gPMax> <aPMin> <aPMax>  <eBRMin> <eBRMax> <eBMin> <eBMax>  <gBMin> <gBMax> <mBMin> <mBMax>
-# Output: 	../data/nS_para.txt
-# Arg: 		18
-# Date: 	Apr 2020
+# Author 	: PokMan HO
+# Script 	: numScan2.R
+# Desc 		: generate runID and parameter values
+# Input 	: Rscript numScan2.R <xMin> <xMax>  <ePRMin> <ePRMax> <ePMin> <ePMax>  <gPMin> <gPMax> <aPMin> <aPMax>  <eBRMin> <eBRMax> <eBMin> <eBMax>  <gBMin> <gBMax> <mBMin> <mBMax>
+# Output 	: ../data/nS_para.txt
+# Arg 		: 18
+# Date 		: Apr 2020
 
 ##### env set-up #####
 args = (commandArgs(T))

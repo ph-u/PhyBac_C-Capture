@@ -1,12 +1,12 @@
 #!/bin/env julia
 
-# Author: 	PokMan HO
-# Script: 	maxYield.jl
-# Desc: 	analytical solve for searching the max yield of carbon
-# Input: 	julia maxYield.jl <sig. density threshold>
-# Output: 	../result/maxYield.csv
-# Arg: 		1
-# Date: 	Apr 2020
+# Author 	: PokMan HO
+# Script 	: maxYield.jl
+# Desc 		: analytical solve for searching the max yield of carbon
+# Input 	: julia maxYield.jl <sig. density threshold>
+# Output 	: ../result/maxYield.csv
+# Arg 		: 1
+# Date 		: Apr 2020
 
 ##### env set-up #####
 using DataFrames, CSV, PyCall

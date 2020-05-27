@@ -1,12 +1,12 @@
 #!/bin/env Rscript
 
-# Author: 	PokMan HO
-# Script: 	nSplt.R
-# Desc: 	plot contourplots for parameter scan result
-# Input: 	none
-# Output: 	none
-# Arg: 		0
-# Date: 	Apr 2020
+# Author 	: PokMan HO
+# Script 	: nSplt.R
+# Desc 		: plot contourplots for parameter scan result
+# Input 	: none
+# Output 	: none
+# Arg 		: 0
+# Date 		: Apr 2020
 
 ##### pkg in #####
 library(lattice)

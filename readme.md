@@ -21,7 +21,7 @@ Other languages: awk
 ## Packages used
 
 Julia: RCall, PyCall, Plots, ProgressMeter, DataFrames, SymPy  
-python3: scipy, scipy.constants, scipy.integrate, math  
+python3: scipy, scipy.constants, scipy.integrate, math, sympy, mpmath  
 R: NONE  
 LaTeX: geometry, inputenc, babel, graphicx, hyperref, longtable, amsmath, amssymb, subfiles  
 
@@ -58,6 +58,54 @@ This readme.md and the project was automated with minimal non-structural manual 
 ## Scripts
 
 
+### ctEqm.jl
+
+#### Features
+
+[hpc] numerical integration scanning
+
+#### Suggested input
+
+julia ctEqm.jl <iniPop>
+
+#### Expected Output
+
+result csv
+
+*****
+
+### func.jl
+
+#### Features
+
+self-defined functions
+
+#### Suggested input
+
+none
+
+#### Expected Output
+
+none
+
+*****
+
+### func.R
+
+#### Features
+
+self-defined functions
+
+#### Suggested input
+
+none
+
+#### Expected Output
+
+none
+
+*****
+
 ### hk_gen_readme.sh
 
 #### Features
@@ -90,15 +138,15 @@ pdf file in designated directory
 
 *****
 
-### m_equations.py
+### jobSub_ctEqm.sh
 
 #### Features
 
-adapted competition Lotka-Volterra equations
+[hpc] submitting numerical integration job
 
 #### Suggested input
 
-```python3 m_equations.py```
+qsub -v pb=${i} jobSub_ctEqm.sh
 
 #### Expected Output
 
@@ -106,15 +154,159 @@ none
 
 *****
 
-### m_runModel.py
+### j_pie.R
 
 #### Features
 
-run competition LV model
+[hpc] equilibrium position identification & representation
 
 #### Suggested input
 
-```python3 m_runModel.py```
+j_pie.R <power>
+
+#### Expected Output
+
+`res/` directory - j_d1e-${i}.csv, j_p1e-${i}.png
+
+*****
+
+### maxYield.jl
+
+#### Features
+
+analytical solve for searching the max yield of carbon
+
+#### Suggested input
+
+julia maxYield.jl <sig. density threshold>
+
+#### Expected Output
+
+../result/maxYield.csv
+
+*****
+
+### nDiff.R
+
+#### Features
+
+scan for discrepancies between numerical and analytical model solution scan
+
+#### Suggested input
+
+Rscript nDiff.R <iniPop>
+
+#### Expected Output
+
+../result/discrepancy_${i}.csv
+
+*****
+
+### nDisc.R
+
+#### Features
+
+plot discrepancy.csv result, showing parameter-wise solution differences between analytical and numerical approaches
+
+#### Suggested input
+
+none
+
+#### Expected Output
+
+../sandbox/graph/
+
+*****
+
+### nSplt.R
+
+#### Features
+
+plot contourplots for parameter scan result
+
+#### Suggested input
+
+none
+
+#### Expected Output
+
+none
+
+*****
+
+### numScan0.sh
+
+#### Features
+
+master script for numerical scan of model
+
+#### Suggested input
+
+bash numScan0.sh
+
+#### Expected Output
+
+none
+
+*****
+
+### numScan1.jl
+
+#### Features
+
+numerical solve for searching breakpoint boundary for parameters combinations
+
+#### Suggested input
+
+julia numScan1.jl <id> <min_x> <ePR> <eP> <gP> <min_aP> <eBR> <eB> <gB> <mB>
+
+#### Expected Output
+
+../data/numScan_<id>.csv
+
+*****
+
+### numScan2.R
+
+#### Features
+
+generate runID and parameter values
+
+#### Suggested input
+
+Rscript numScan2.R <xMin> <xMax>  <ePRMin> <ePRMax> <ePMin> <ePMax>  <gPMin> <gPMax> <aPMin> <aPMax>  <eBRMin> <eBRMax> <eBMin> <eBMax>  <gBMin> <gBMax> <mBMin> <mBMax>
+
+#### Expected Output
+
+../data/nS_para.txt
+
+*****
+
+### rateDet.R
+
+#### Features
+
+BioTraits data handling
+
+#### Suggested input
+
+none
+
+#### Expected Output
+
+none
+
+*****
+
+### respEff.R
+
+#### Features
+
+getting ranges of respiration efficiencies from BioTrait data and published respiration linear equation in relation to growth rate
+
+#### Suggested input
+
+none
 
 #### Expected Output
 

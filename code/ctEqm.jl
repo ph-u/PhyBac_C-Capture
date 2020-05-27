@@ -1,12 +1,12 @@
 #!/bin/env julia
 
-# Author:   PokMan Ho
-# Script:   ctEqm.jl
-# Desc:   	numerical integration scanning in hpc
-# Input: 	julia ctEqm.jl <iniPop>
-# Output: 	result csv
-# Arg: 		1
-# Date: 	May 2020
+# Author 	: PokMan Ho
+# Script 	: ctEqm.jl
+# Desc 		: [hpc] numerical integration scanning
+# Input 	: julia ctEqm.jl <iniPop>
+# Output 	: result csv
+# Arg 		: 1
+# Date 		: May 2020
 
 ##### pkg #####
 iNi = parse(Float64, ARGS[1])

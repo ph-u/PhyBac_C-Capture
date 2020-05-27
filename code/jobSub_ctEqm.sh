@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# author: 	PokMan Ho
-# script: 	jobSub_ctEqm.sh
-# desc: 	submitting numerical integration job to hpc
-# in: 		qsub -v pb=${i} jobSub_ctEqm.sh
-# out: 		none
-# arg: 		0
-# date: 	May 2020
+# Author 	: PokMan Ho
+# Script 	: jobSub_ctEqm.sh
+# Desc 		: [hpc] submitting numerical integration job
+# Input 	: qsub -v pb=${i} jobSub_ctEqm.sh
+# Output 	: none
+# Arg 		: 0
+# Date 		: May 2020
 
 ## hpc-specific arg
 #PBS -l walltime=72:00:00

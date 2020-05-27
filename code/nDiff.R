@@ -1,12 +1,12 @@
 #!/bin/env Rscript
 
-# Author:   PokMan Ho
-# Script:   nDiff.R
-# Desc:   	scan for discrepancies between numerical and analytical model solution scan
-# Input: 	Rscript nDiff.R <iniPop>
-# Output: 	../result/discrepancy_${i}.csv
-# Arg: 		1
-# Date: 	Apr 2020
+# Author 	: PokMan Ho
+# Script 	: nDiff.R
+# Desc 		: scan for discrepancies between numerical and analytical model solution scan
+# Input 	: Rscript nDiff.R <iniPop>
+# Output 	: ../result/discrepancy_${i}.csv
+# Arg 		: 1
+# Date 		: Apr 2020
 
 ##### env set-up #####
 args = (commandArgs(T))

@@ -1,12 +1,12 @@
 #!/bin/env Rscript
 
-# Author:   PokMan Ho
-# Script:   nDisc.R
-# Desc:   	plot discrepancy.csv result, showing parameter-wise solution differences between analytical and numerical approaches
-# Input: 	none
-# Output: 	../sandbox/graph/
-# Arg: 		none
-# Date: 	Apr 2020
+# Author 	: PokMan Ho
+# Script 	: nDisc.R
+# Desc 		: plot discrepancy.csv result, showing parameter-wise solution differences between analytical and numerical approaches
+# Input 	: none
+# Output 	: ../sandbox/graph/
+# Arg 		: none
+# Date 		: Apr 2020
 
 ##### import #####
 library(lattice)

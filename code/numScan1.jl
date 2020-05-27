@@ -1,12 +1,12 @@
 #!/bin/env julia
 
-# Author: 	PokMan HO
-# Script: 	numScan1.jl
-# Desc: 	numerical solve for searching breakpoint boundary for parameters combinations
-# Input: 	julia numScan1.jl <id> <min_x> <ePR> <eP> <gP> <min_aP> <eBR> <eB> <gB> <mB>
-# Output: 	../data/numScan_<id>.csv
-# Arg: 		10
-# Date: 	Apr 2020
+# Author 	: PokMan HO
+# Script 	: numScan1.jl
+# Desc 		: numerical solve for searching breakpoint boundary for parameters combinations
+# Input 	: julia numScan1.jl <id> <min_x> <ePR> <eP> <gP> <min_aP> <eBR> <eB> <gB> <mB>
+# Output 	: ../data/numScan_<id>.csv
+# Arg 		: 10
+# Date 		: Apr 2020
 
 ##### pkg #####
 using PyCall, DataFrames, CSV

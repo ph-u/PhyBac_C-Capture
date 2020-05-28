@@ -1,0 +1,6 @@
+viva: initial condition quantitative result vs qualitative
+using analytical solution replace numerical
+parameters reasons for logical ranges
+non-dimension analysis
+scan parameters analytically
+yield: realistic parameter set -> carbon removal

@@ -57,7 +57,7 @@ iDeqm = function(df=nUm,ref=aNA){
 }
 {aa="00"
 png(paste0("p_tmp/1e-",aa,".png"))
-pie(iDeqm(aNa[,10:13]+nD1e0[,10:13],aNA),main = paste0("Solution distribution for initial population=",aa))
+pie(iDeqm(aNa[,10:13]+nD1e0[,10:13],aNA),main = paste0("Solution distribution for initial population = 1e-",aa))
 dev.off()}
 
   write.table(as.data.frame(a),paste0("tmp/",aa,".csv"), sep=",", col.names = F,row.names = F)

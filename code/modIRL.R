@@ -33,7 +33,7 @@ ePR = range(ePR)
 ##### phytoplankton fraction of biomass-incorpporated carbon #####
 eP = c(.75, .75, .82, 1.2, .75, 1.4, 1.1, .9, .5, .4, .85, 1.2, .63) ## data collected from literature (Table 5 "heterotrophic growth of microalgae" section in https://doi.org/10.1111/j.1469-8137.1989.tb00321.x)
 eP = range(eP)
-if(eP[2]>1){eP[2]==1} ## capped at 1 assuming phytoplanktons do not consume organic carbon in this model
+if(eP[2]>1){eP[2]=1} ## capped at 1 assuming phytoplanktons do not consume organic carbon in this model
 
 ##### phytoplankton intraspecific interference #####
 aP = c(.36, .22, .43) ## data collected from literature (left column text middle part in p.4 from https://doi.org/10.1016/j.jbiotec.2007.01.009)
@@ -54,7 +54,7 @@ mB = -log(.5)/5 ## "This biomass was estimated to have a half-life of 5 days..."
 rEsult = as.data.frame(matrix(NA, nc=(9+4*3), nr=length(x)*length(ePR)*length(eP)*length(gP)*length(aP)*length(eBR)*length(eB)*length(gB)*length(mB)))
 
 tmp=c()
-for(i in paste0("eqm",1:4)){
+for(i in paste0("eqm",2:4)){
   tmp = c(tmp,paste0(i,c("C","P","B","A")))
 };rm(i)
 colnames(rEsult) = c("x", "ePR","eP","gP","aP", "eBR","eB","gB","mB", tmp)

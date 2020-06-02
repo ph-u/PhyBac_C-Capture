@@ -36,7 +36,7 @@ done
 
 ## Cleanup
 echo -e "cleaning"
-for i in aux dvi log nav out snm toc bbl bcf blg run.xml synctex.gz;do
+for i in aux dvi nav out snm toc bbl bcf blg run.xml synctex.gz lof lot;do
 if [ `ls|grep -c ${i}` -gt 0 ];then
 rm *.${i}
 fi

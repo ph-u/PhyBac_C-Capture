@@ -1,0 +1,22 @@
+max sustainable yield with para**
+- all players still exist
+- feasible or not
+objective affect test conducted
+feasibility vs stability
+eqm position above 0
+why feasibility is important
+
+understand whether it is feasible at all
+do i need bacteria to max carbon export? (compare that with/out bac)
+simple vs complex system**
+more organism harder to stabilise
+
+what method max extraction
+draw a cartoon
+
+parameter ranges for MSY, what is MSY
+measure of parameter space VS extraction rate (relate to: MSY gC/t)
+- continuously available
+- free parameter
+
+whether increase recovery rate (integration)

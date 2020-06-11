@@ -53,9 +53,9 @@ text(x=-10, y=1.5e5, labels = paste0("P: phytoplankton\nB: bacterial decomposer"
 dev.off()
 
 ##### why organic carbon fraction behaved choppy #####
-uC = unique(a$log4C)
-t.L4C = a[which(a$log4C==uC[2]),]
-t.F=c();for(i in 1:9){if(length(unique(t.L4C[,i]))==1){t.F=c(t.F,i)}};rm(i)
+png(paste0(ot,"gBEffectOnOrgC.png"))
+plot(a$log4C~a$gB, xlab="bacterial growth rate per unit organic carbon (m^3/(gC day))", ylab = "log organic carbon density", pch=4)
+dev.off()
 
 ##### yield calculation: feasibility vs MSY plot #####
 a$yield3C = a$eqm3C*a$x

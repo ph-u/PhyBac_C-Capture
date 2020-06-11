@@ -25,8 +25,6 @@ a[a==Inf] = a[a<0] = NA ## exclude meaningless result for later filtering
 # a0 = a[-eXc,-c(10:13)];rm(eXc) ## eliminate excludable rows & columns
 
 ##### total carbon log distribution P vs PB systems #####
-# qqnorm(log(a0$eqm3A), pch=16, cex=.5, ylab = "equilibrium position 3 total carbon distribution")
-# qqline(log(a0$eqm3A), probs = c(.25,.75)) ## plot confidence intervals
 a$log3C = log(a$eqm3C);a$log3A = log(a$eqm3A)
 a$log4C = log(a$eqm4C);a$log4A = log(a$eqm4A)
 
@@ -39,7 +37,7 @@ hist(a$log3A, breaks = seq(min(a$log3A, na.rm = T),max(a$log3A, na.rm = T),by=(m
 hist(a$log4A, breaks = seq(min(a$log4A, na.rm = T),max(a$log4A, na.rm = T),by=(max(a$log4A, na.rm = T)-min(a$log4A, na.rm = T))/100),
      col = rgb(1,.3,.1,.2), lty=1, add = T)
 text(x=-8, y=5e4, labels = paste0("Wilcoxon test:\nW = ",signif(as.numeric(w0$statistic),3),"\np = ",w0$p.value))
-text(x=-8, y=4e4, labels = paste0("P: phytoplankton\nB: bacterial decomposer"))
+text(x=-6, y=4e4, labels = paste0("P: phytoplankton\nB: bacterial decomposer"))
 dev.off()
 
 w1 = wilcox.test(a$log3C,a$log4C) ## sig
@@ -54,8 +52,10 @@ text(x=-10, y=2e5, labels = paste0("Wilcoxon test:\nW = ",signif(as.numeric(w1$s
 text(x=-10, y=1.5e5, labels = paste0("P: phytoplankton\nB: bacterial decomposer"))
 dev.off()
 
-# matplot(a2$ePR,a2[,c(10:11)], type = "l", lwd = 5, lty = 1, col = cBp[c(3,2)], xlab = "non-respired phytoplanktonic carbon fraction", ylab = "maximum sustainable yield (gC/(m^3 day))")
-# legend("topleft", inset=c(0,0), legend = c("P only","P+B"), pch = rep(16,2), col = cBp[c(3,2)], bty="n", cex = 1.5)
+##### why organic carbon fraction behaved choppy #####
+uC = unique(a$log4C)
+t.L4C = a[which(a$log4C==uC[2]),]
+t.F=c();for(i in 1:9){if(length(unique(t.L4C[,i]))==1){t.F=c(t.F,i)}};rm(i)
 
 ##### yield calculation: feasibility vs MSY plot #####
 a$yield3C = a$eqm3C*a$x
@@ -82,7 +82,7 @@ rEf = c(1:5,8);for(i in 1:ncol(a0)){for(j in 1:nrow(a0)){
   colnames(a3) = c(colnames(a0)[i],colnames(a1)[i],colnames(a2)[i])
   png(paste0(ot,"MSY_",colnames(a0)[i],".png"))
   matplot(a3[,1],a3[,-1], type = "l",lty = 1,lwd = 5, col = cBp[c(3,2)],
-          xlab = colnames(a0)[i], ylab = "fraction of top 5% carbon yield", main=paste0("Fraction of situations with sustainable yield\nranked top 5% (",round(tHh,2)," gC/day) against ",colnames(a0)[i]))
+          xlab = colnames(a0)[i], ylab = "fraction of top 5% carbon yield", main=paste0("Fraction of situations with sustainable yield flux\nranked top 5% (",round(tHh,2)," gC/(m^3 day)) against ",colnames(a0)[i]))
   legend("topleft", inset=c(0,0), legend = c("P only","P+B"), pch = rep(16,2), col = cBp[c(3,2)], bty="n", cex = 1.5)
   dev.off()
 }

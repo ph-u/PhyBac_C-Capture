@@ -53,6 +53,13 @@ text(x=-10, y=1.5e5, labels = paste0("P: phytoplankton\nB: bacterial decomposer"
 dev.off()
 
 ##### why organic carbon fraction behaved choppy #####
+for(i in unique(a$log4C)){
+  t = a[which(a$log4C==i),]
+  cat(i, " : ",length(unique(t$x)), " , ",length(unique(t$ePR)), " , ",length(unique(t$eP)), " , ",length(unique(t$gP)), " , ",length(unique(t$aP)), " , ",length(unique(t$eBR)), " , ",length(unique(t$eB)), " , ",length(unique(t$gB)), " , ",length(unique(t$mB)), "\n")
+  };rm(i,t)
+
+for(i in 1:9){cat(paste0(paste(range(a[,i]), collapse = " "),"\n"))};rm(i)
+
 png(paste0(ot,"gBEffectOnOrgC.png"))
 plot(a$log4C~a$gB, xlab="bacterial growth rate per unit organic carbon (m^3/(gC day))", ylab = "log organic carbon density", pch=4)
 dev.off()
@@ -129,9 +136,20 @@ matplot(a0[,1],a0[,-1], type = "l",lty = 1:2,lwd = 4,col = cBp[c(3,2)], ylim = c
 legend("topright", inset=c(0,0), legend = c("P only","P+B"), pch = rep(16,2), col = cBp[c(3,2)], bty="n", cex = 1.5)
 dev.off()
 
+##### linear x-scale feasibility vs SY, no explosive yield #####
+png(paste0(ot,"MSY_",colnames(a0)[1],"_sySmall.png"))
+matplot(a0[-11,1],a0[-11,-1], type = "l",lty = 1:2,lwd = 4,col = cBp[c(3,2)],
+        xlab = "sustainable yield (gC/day)",ylab = "feasibility fraction",main="Fraction of feasibility simulated within parameter space\nagainst sustainable yield")
+legend("topright", inset=c(0,0), legend = c("P only","P+B"), pch = rep(16,2), col = cBp[c(3,2)], bty="n", cex = 1.5)
+dev.off()
+
 ##### log x-scale feasibility vs SY #####
 png(paste0(ot,"MSY_",colnames(a0)[1],"_syLog.png"))
 matplot(log(a0[,1]),a0[,-1], type = "l",lty = 1:2,lwd = 4,col = cBp[c(3,2)], ylim = c(0,1),
         xlab = "log sustainable yield",ylab = "feasibility fraction",main="Fraction of feasibility simulated within parameter space\nagainst sustainable yield")
 legend("topright", inset=c(0,0), legend = c("P only","P+B"), pch = rep(16,2), col = cBp[c(3,2)], bty="n", cex = 1.5)
 dev.off()
+
+##### what parameter combinations leading to huge yield #####
+a.large = a[which(a$yield4C>a0[10,1]),]
+for(i in 1:9){cat(paste0(colnames(a.large)[i]," : ",length(unique(a.large[,i])),"\n"))};rm(i)

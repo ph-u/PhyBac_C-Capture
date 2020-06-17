@@ -1,7 +1,7 @@
 #!/bin/env R
 
 # Author 	: PokMan HO
-# Script 	: MSYanalysis.R
+# Script 	: MSYanalysis_1.R
 # Desc 		: plot and analysis parameter sets with maximum sustainable yields (MSY)
 # Input 	: none
 # Output 	: plots
@@ -56,7 +56,7 @@ dev.off()
 for(i in unique(a$log4C)){
   t = a[which(a$log4C==i),]
   cat(i, " : ",length(unique(t$x)), " , ",length(unique(t$ePR)), " , ",length(unique(t$eP)), " , ",length(unique(t$gP)), " , ",length(unique(t$aP)), " , ",length(unique(t$eBR)), " , ",length(unique(t$eB)), " , ",length(unique(t$gB)), " , ",length(unique(t$mB)), "\n")
-  };rm(i,t)
+};rm(i,t)
 
 for(i in 1:9){cat(paste0(paste(range(a[,i]), collapse = " "),"\n"))};rm(i)
 
@@ -96,28 +96,28 @@ rEf = c(1:5,8);for(i in 1:ncol(a0)){for(j in 1:nrow(a0)){
 
 ##### plot distribution of sustainable yield (SY) #####
 {i=8 ## i=c(1:5,8)
-  a0 = as.data.frame(matrix(NA,nc=7, nr=length(unique(a[,i]))))
-  colnames(a0) = c(colnames(a)[i], paste0(rep(paste0("SY.",c("05","50","95"),"."),2),c(rep(3,3),rep(4,3))))
-  a0[,1] = unique(a[,i])
-  for(i0 in 1:nrow(a0)){ ## rec 95% distribution of data at every simulated batch
-    t = a[which(a[,i]==a0[i0,1]),]
-    a0[i0,2:4] = quantile(t$yield3C, probs = c(.05,.5,.95), na.rm = T)
-    a0[i0,5:7] = quantile(t$yield4C, probs = c(.05,.5,.95), na.rm = T)
-  };rm(i0,t)
-  a0[is.na(a0)] = 0
-  
-  yLim = c(0,ceiling(max(a0[,-1])/10)*10) ## pre-set plot limits
-  png(paste0(ot,"MSY_",colnames(a0)[1],"_d.png"))
-  matplot(a0[,1],a0[,-1], type = "l",lty = rep(c(3,1,2),2),lwd = 5,col = c(rep(cBp[3],3),rep(cBp[2],3)), ylim = yLim,
-          xlab = colnames(a0)[1], ylab = "sustainable yield 95% distribution (gC/day)", main=paste0("Susteinable Yield 95% distribution across\nparameter range of ",colnames(a0)[1]))
-  legend("topleft", inset=c(0,0), legend = c("P only","P+B"), pch = rep(16,2), col = cBp[c(3,2)], bty="n", cex = 1.5)
-  dev.off()
-  
-  png(paste0(ot,"MSY_",colnames(a0)[1],"_dLog.png"))
-  matplot(a0[,1],log(a0[,-1]), type = "l",lty = rep(c(3,1,2),2),lwd = 5,col = c(rep(cBp[3],3),rep(cBp[2],3)),
-          xlab = colnames(a0)[1], ylab = "log sustainable yield 95% distribution", main=paste0("Susteinable Yield 95% distribution across\nparameter range of ",colnames(a0)[1]))
-  legend("topleft", inset=c(0,0), legend = c("P only","P+B"), pch = rep(16,2), col = cBp[c(3,2)], bty="n", cex = 1.5)
-  dev.off()
+a0 = as.data.frame(matrix(NA,nc=7, nr=length(unique(a[,i]))))
+colnames(a0) = c(colnames(a)[i], paste0(rep(paste0("SY.",c("05","50","95"),"."),2),c(rep(3,3),rep(4,3))))
+a0[,1] = unique(a[,i])
+for(i0 in 1:nrow(a0)){ ## rec 95% distribution of data at every simulated batch
+  t = a[which(a[,i]==a0[i0,1]),]
+  a0[i0,2:4] = quantile(t$yield3C, probs = c(.05,.5,.95), na.rm = T)
+  a0[i0,5:7] = quantile(t$yield4C, probs = c(.05,.5,.95), na.rm = T)
+};rm(i0,t)
+a0[is.na(a0)] = 0
+
+yLim = c(0,ceiling(max(a0[,-1])/10)*10) ## pre-set plot limits
+png(paste0(ot,"MSY_",colnames(a0)[1],"_d.png"))
+matplot(a0[,1],a0[,-1], type = "l",lty = rep(c(3,1,2),2),lwd = 5,col = c(rep(cBp[3],3),rep(cBp[2],3)), ylim = yLim,
+        xlab = colnames(a0)[1], ylab = "sustainable yield 95% distribution (gC/day)", main=paste0("Susteinable Yield 95% distribution across\nparameter range of ",colnames(a0)[1]))
+legend("topleft", inset=c(0,0), legend = c("P only","P+B"), pch = rep(16,2), col = cBp[c(3,2)], bty="n", cex = 1.5)
+dev.off()
+
+png(paste0(ot,"MSY_",colnames(a0)[1],"_dLog.png"))
+matplot(a0[,1],log(a0[,-1]), type = "l",lty = rep(c(3,1,2),2),lwd = 5,col = c(rep(cBp[3],3),rep(cBp[2],3)),
+        xlab = colnames(a0)[1], ylab = "log sustainable yield 95% distribution", main=paste0("Susteinable Yield 95% distribution across\nparameter range of ",colnames(a0)[1]))
+legend("topleft", inset=c(0,0), legend = c("P only","P+B"), pch = rep(16,2), col = cBp[c(3,2)], bty="n", cex = 1.5)
+dev.off()
 }
 
 ##### plot fesibility vs yield #####
@@ -153,3 +153,16 @@ dev.off()
 ##### what parameter combinations leading to huge yield #####
 a.large = a[which(a$yield4C>a0[10,1]),]
 for(i in 1:9){cat(paste0(colnames(a.large)[i]," : ",length(unique(a.large[,i])),"\n"))};rm(i)
+
+##### yield distribution across specific parameters using box #####
+a.yd3 = a[,-ncol(a)]
+a.yd4 = a[,-(ncol(a)-1)]
+colnames(a.yd3)[ncol(a.yd3)] = colnames(a.yd4)[ncol(a.yd4)] = "yield"
+a.yd3$eqm = 3; a.yd4$eqm = 4
+a.yd = rbind(a.yd3,a.yd4); rm(a.yd3,a.yd4)
+a.yd = a.yd[which(a.yd$x>0),]
+{aa = 8
+  boxplot(a.yd$yield~interaction(a.yd$eqm,round(a.yd[,aa],2), sep = "_"), col=cBp[c(3,2)],# ylim=c(0,1),
+          xlab = paste(colnames(a.yd)[ncol(a.yd)],colnames(a.yd)[aa], sep = "_"),
+          ylab = "yield (gC/(m^3 day))")
+  rm(aa)}

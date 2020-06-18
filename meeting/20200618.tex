@@ -1,0 +1,56 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage[english]{babel}
+\usepackage{graphicx, hyperref, longtable, amsmath, amssymb}
+\graphicspath{{figure/}{figure/}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,      
+	urlcolor=blue,
+	citecolor=blue
+}
+
+\title{Thursday mornings MRes project progress report}
+\author{PokMan Ho}
+\date{}
+
+\begin{document}
+    \maketitle
+    
+    \begin{tabular}{rl}
+        Date Time: & 18-Jun-2020 09:00 \\
+        Location: & MS Teams \\
+        People: & James, Samraat, PokMan \\
+    \end{tabular}
+    
+    \section{Topics discussed}
+    \begin{enumerate}
+        \item 20200615.pdf
+        \item log (total \& organic carbon pool) carbon distributions at steady state
+        \item log total carbon distribution at steady state with/without harvest
+    \end{enumerate}
+    
+    \section{Consensus}
+    \begin{enumerate}
+        \item root parameter values with feasible distributions (Gaussian/Normal with variance as std-error?)
+        \item Latin hypercube sampling (LHS; after having parameter samples)
+        \item analytical solve 4 variations of the model: (P+B/P-only)vs(harvest/no) [SP,PH]
+        \item literature search on model papers, see how others address ``clearance rate" $g_B$ in published models [SP,PH]
+        \item get $g_B$ without usage of substrate concentration [SP,PH]
+    \end{enumerate}
+    
+    \section{Extra}
+    \begin{itemize}
+        \item project title: Carbon harvest maximised by a theoretical phytoplankton and bacteria system
+        \item research Q: Is P+B better than P-only in C-harvest?
+        \item hypotheses
+        \begin{enumerate}
+            \item Stable yield harvest: P+B harvest more than P
+            \item Stable yield harvest: continuous harvest yield more than whole system take down
+            \item Biological features have significant impact on total C-harvest
+        \end{enumerate}
+        \item statistical tests: Wilcoxon \& (two-way) Kruskal
+    \end{itemize}
+\end{document}

@@ -58,23 +58,23 @@ This readme.md and the project was automated with minimal non-structural manual 
 ## Scripts
 
 
-### ctEqm.jl
+### analysis.R
 
 #### Features
 
-[hpc] numerical integration scanning
+modIRL.R result analyses
 
 #### Suggested input
 
-julia ctEqm.jl <iniPop>
+none
 
 #### Expected Output
 
-result csv
+plots
 
 *****
 
-### func.jl
+### func.R
 
 #### Features
 
@@ -90,7 +90,7 @@ none
 
 *****
 
-### func.R
+### func.jl
 
 #### Features
 
@@ -122,19 +122,19 @@ readme.md generator
 
 *****
 
-### hk_luaLTX.sh
+### j_pie.R
 
 #### Features
 
-use lualatex as .tex file compiler
+[hpc] equilibrium position identification & representation
 
 #### Suggested input
 
-```nohup bash hk_luaLTX.sh <tex with .tex> <optional/output/path/>```
+j_pie.R <power>
 
 #### Expected Output
 
-pdf file in designated directory
+`res/` directory - j_d1e-${i}.csv, j_p1e-${i}.png
 
 *****
 
@@ -154,22 +154,6 @@ none
 
 *****
 
-### j_pie.R
-
-#### Features
-
-[hpc] equilibrium position identification & representation
-
-#### Suggested input
-
-j_pie.R <power>
-
-#### Expected Output
-
-`res/` directory - j_d1e-${i}.csv, j_p1e-${i}.png
-
-*****
-
 ### maxYield.jl
 
 #### Features
@@ -183,6 +167,22 @@ julia maxYield.jl <sig. density threshold>
 #### Expected Output
 
 ../result/maxYield.csv
+
+*****
+
+### modIRL.R
+
+#### Features
+
+analytical scan using real-life parameter ranges
+
+#### Suggested input
+
+none
+
+#### Expected Output
+
+`../result/anaIRL.csv`
 
 *****
 
@@ -311,21 +311,5 @@ none
 #### Expected Output
 
 none
-
-*****
-
-### thesis.tex
-
-#### Features
-
-MRes thesis main tex
-
-#### Suggested input
-
-none
-
-#### Expected Output
-
-pdf thesis in same directory
 
 *****

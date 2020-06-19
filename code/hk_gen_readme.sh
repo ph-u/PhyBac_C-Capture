@@ -19,7 +19,7 @@ cp ../readme_head.md ../readme.md
 echo -e "" >> ../readme.md ## force insert of an empty line at the bottom of target file
 
 ## insert each scripts as a section
-for i in `ls | grep "\."`;do
+for i in `ls | grep "\." | grep -v "p_"`;do
     echo >> ../readme.md
     echo -e "### ${i}" >> ../readme.md
     echo >> ../readme.md

@@ -4,17 +4,19 @@
 \usepackage{graphicx, hyperref, longtable, amsmath, amssymb, csquotes, float, csvsimple, forloop}
 \graphicspath{{../report/media/}{../result/}}
 
-\newcounter{i}
-
 \begin{document}
 
 \section{Scan details}
 
 
 \section{System carbon distribution}
-\forloop{i}{1}{i<10}{\includegraphics[width=.5\linewidth]{result/sys_0\arabic{i}.png}\\}
-\includegraphics[width=.5\linewidth]{result/sys_10.png}
-\section{Yield carbon distribution}
+\newcounter{i0}
+\forloop{i0}{1}{\value{i0}<10}{\includegraphics[width=.5\linewidth]{../result/sys_0\arabic{i0}.png}\\}
+\includegraphics[width=.5\linewidth]{../result/sys_10.png}
 
+\section{Yield carbon distribution}
+\newcounter{i1}
+\forloop{i1}{1}{\value{i1}<10}{\includegraphics[width=.5\linewidth]{../result/yld_0\arabic{i1}.png}\\}
+\includegraphics[width=.5\linewidth]{../result/yld_10.png}
 
 \end{document}

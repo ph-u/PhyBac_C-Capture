@@ -22,7 +22,7 @@ rEspR = read.csv("../data/photoResp.csv", stringsAsFactors = F) ## phytoplankton
 ##### rate ranges data at 23 deg-C #####
 gRate$rate.23C = ArrheniusEq(gRate$stdConst.day,gRate$Ea.eV,23) ## temperature-standardized growth rate
 gP = gRate$rate.23C[which(gRate$role=="photocell")]
-gB = gRate$rate.23C[which(gRate$role!="photocell" & gRate$rate.23C>1)]*.1
+gB = gRate$rate.23C[which(gRate$role!="photocell" & gRate$rate.23C>1)]/10
 ## gB = rMax*constant
 ## gB is clearance rate; "constant" is an arbitrary inverted density
 ## rMax is BioTrait data

@@ -71,7 +71,7 @@ self-defined functions
 
 #### Suggested input
 
-`source(../code/func.R)` in R scripts
+`source("../code/func.R")` in R scripts
 
 #### Expected Output
 

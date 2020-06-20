@@ -45,8 +45,8 @@ rAw$stdConst.day <- normArrheniusEq(rAw$StandardisedTraitValue, rAw$Ea.eV, rAw$C
 ##### boxplot std-cst #####
 png("../result/stdCst.png", width = 700)
 par(mfrow=c(1,2))
-boxplot(rAw$stdConst.day~rAw$role)
-boxplot(rAw$stdConst.day~rAw$role, ylim=c(0,9e5))
+boxplot(rAw$stdConst.day~rAw$role, xlab = "role", ylab = "Standardisation constant (1/day)")
+boxplot(rAw$stdConst.day~rAw$role, ylim=c(0,9e5), xlab = "role", ylab = "Standardisation constant (1/day)")
 text(1,4e5,"values out of bound",srt=90)
 dev.off()
 

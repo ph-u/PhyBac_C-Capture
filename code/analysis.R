@@ -25,7 +25,7 @@ a$log4C = log(a$eqm4C);a$log4A = log(a$eqm4A)
 a[a==Inf] = a[a==-Inf] = NA
 
 ## seq(.1,1, by=.1)
-xX = 1;{
+xX = .1;{
 ##### system carbon distribution #####
 w.total = wilcox.test(a$log3A[which(a$x==xX)], a$log4A[which(a$x==xX)])
 w.orgCb = wilcox.test(a$log3C[which(a$x==xX)], a$log4C[which(a$x==xX)])

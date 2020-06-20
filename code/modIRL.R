@@ -58,14 +58,14 @@ eP.per = range(eP)/mean(eP)-1
 if(diff(ePR.per)>diff(eP.per)){rAg2 = ePR.per}else{rAg2 = eP.per}
 
 ##### parameter ranges #####
-ePR = mean(ePR)*c(1+ePR.per[1],ePR.per[2])
-eP = mean(eP)*c(1+eP.per[1],eP.per[2])
-gP = mean(gP)*c(1+gP.per[1],gP.per[2])
-aP = mean(aP)*c(1+rAg1[1],rAg1[2])
-eBR = mean(eBR)*c(1+rAg2[1],rAg2[2])
-eB = mean(eB)*c(1+rAg2[1],rAg2[2])
-gB = mean(gB)*c(1+gB.per[1],gB.per[2])
-mB = mean(mB)*c(1+rAg1[1],rAg1[2])
+ePR = mean(ePR)*(1+ePR.per);if(ePR[2]>1){ePR[2]=1} ## restrict fraction max to 1 if necessary
+eP = mean(eP)*(1+eP.per);if(eP[2]>1){eP[2]=1}
+gP = mean(gP)*(1+gP.per)
+aP = mean(aP)*(1+rAg1)
+eBR = mean(eBR)*(1+rAg2);if(eBR[2]>1){eBR[2]=1}
+eB = mean(eB)*(1+rAg2);if(eB[2]>1){eB[2]=1}
+gB = mean(gB)*(1+gB.per)
+mB = mean(mB)*(1+rAg1)
 
 ##### parameter sequences under uniform prior #####
 paRef = as.data.frame(matrix(NA, nc=9, nr=11))

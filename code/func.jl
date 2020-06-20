@@ -9,7 +9,7 @@
 # Date 		: May 2020
 
 ##### pkg #####
-using PyCall, DataFrames, CSV, Plots, SymPy
+using PyCall, DataFrames, SymPy
 sc = pyimport("scipy")
 cst = pyimport("scipy.constants")
 itg = pyimport("scipy.integrate")

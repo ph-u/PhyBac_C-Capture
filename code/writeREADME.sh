@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Author 		: PokMan Ho
-## Script 		: hk_gen_readme.sh
+## Script 		: writeREADME.sh
 ## Desc 		: readme.md generator
 ## Input 		: ```bash hk_gen_readme.sh```
 ## Output 		: `readme.md` file
@@ -15,7 +15,7 @@ cd ${p0}
 echo -e "writing readme"
 
 ## head of real readme file
-cp ../readme_head.md ../readme.md
+cp ../readmeH.md ../readme.md
 echo -e "" >> ../readme.md ## force insert of an empty line at the bottom of target file
 
 ## insert each scripts as a section

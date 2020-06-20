@@ -106,4 +106,4 @@ for(i in 1:nrow(rEsult)){
 
 ##### export #####
 cat("scan finished, exporting\n")
-write.csv(rEsult, "../result/anaIRL.csv", quote = F, row.names = F)
+write.csv(rEsult, "../data/anaIRL.csv", quote = F, row.names = F)

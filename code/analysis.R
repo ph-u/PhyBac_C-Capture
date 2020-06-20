@@ -14,7 +14,7 @@ ot = "../result/"
 cBpA = as.data.frame(col2rgb(cBp)/255);cBpA[4,] = .3;cBpA[4,1] = .1
 cBpT = rep(NA,length(cBp));for(i in 1:ncol(cBpA)){cBpT[i] = rgb(cBpA[1,i],cBpA[2,i],cBpA[3,i],cBpA[4,i])};rm(i,cBpA)
 
-a = read.csv("../result/anaIRL.csv", header = T)
+a = read.csv("../data/anaIRL.csv", header = T)
 ## yield calculation
 a$yield3C = log(a$eqm3C*ifelse(a$x==0,1,a$x))
 a$yield4C = log(a$eqm4C*ifelse(a$x==0,1,a$x))

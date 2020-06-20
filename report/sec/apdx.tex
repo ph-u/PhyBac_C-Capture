@@ -28,28 +28,40 @@
 \end{table}
 
 \subsection{parameter values}
-This part is for explanation of logic and calculations behind some obtained parameter values listed in Table\ref{varInTab}.
+This part is for explanation of logic and calculations behind parameter ranges in Table\ref{varInTab}.
 
-\subsubsection{temperature-standardized growth rate for phytoplankton and bacterial decomposer}
-These are terms $\gP$ and $\gB$ respectively.  Values calculated from this section also used to calculate $\ePR$.  Thermal performance data was obtained from ``BioTrait" database\autocite{della2013thermal} with 25826 entries and 155 columns of data and descriptions (original, standardised values and units with citations).  Six filters were applied to the data, extracting data entries that were published and about aquatic species growth rates that were identified to species level and being either microbial phytoplankton or bacterial decomposer.  The resultant data was around 3.2K rows.  The intermediate data was further filtered to remove any standardised growth rate record with no growth because the purpose of this section is to get standardization constants based on temperature.  Since data with no growth would eliminate temperature factor during standardisation process, they are eliminated with logical reason.  The final growth rate data was standardised to specific growth rate based on seconds (sec$^{-1}$) with different empirical temperatures given by the respective experiments.
+\subsubsection{temperature-standardization}
+The procedure included two parts.  Parameter values collected from literature were temperature-tagged.  For parameters with very limited data points, majority of the data were collected under 23-25$^o$C.  Hence this study chose 23$^o$C as the standard reference to investigate with the proposed model.
 
-Standardisation was using Arrhenius Equation
+Growth rate data was obtained from ``BioTrait" database\autocite{della2013thermal}.  Six filters were applied to extract published aquatic microbial P or B species entries which were identified to species level.  The matched data set was further filtered to eliminate entries reported no growth because these records could not reflect the temperature effect using the Arrhenius Equation.
+
 \begin{equation}
     A = A_0e^{-\dfrac{E_a}{k(T_C+273.15)}}
     \label{arrEq}
 \end{equation}
+
 which $A$ is rate standardised in data and $A_0$ is the standardisation constant with the same unit, $E_a$ is the activation energy with unit eV, $k$ is Boltzmann constant from Scipy (v1.4.1) package under unit eV/K and $T_C$ is the temperature of the organism measured from the data with unit ($^oC$).
 
-Activation energies for phytoplanktons and bacterial decomposers are 0.32eV and 0.66eV respectively.\autocite{regaudie2012temperature}  By Eqn\ref{arrEq}, ranges of standardisation values are obtained, as shown in Fig.\ref{growStdVal}
+Activation energies for phytoplanktons and bacterial decomposers are 0.32eV and 0.66eV respectively.\autocite{regaudie2012temperature}  Standardised rate unit in data was initially ``$sec^{-1}$" and the unit was re-standardised to ``$day^{-1}$" for this study (Fig.\ref{growStdVal}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.8\linewidth]{media/stdCst.png}
-    \caption[Boxplot of standardisation growth rates]{Boxplot showing range of standardisation values for temperature-dependent growth rate for phytoplanktons and bacterial decomposers}
+    \includegraphics[width=.8\linewidth]{../result/stdCst.png}
+    \caption[Boxplot of standardised $A_0$]{Boxplots of $A_0$ for P and B with unit ``$day^{-1}$"}
     \label{growStdVal}
 \end{figure}
 
-The interquartile ranges in Fig.\ref{growStdVal} for the two organism types were used to calculate the range of $\gP$ and $\gB$ (Table \ref{varInTab}).
+The interquartile ranges in Fig.\ref{growStdVal} for the two organism types were used to standardise the growth rates data of respective categories.
+
+\subsubsection{phytoplankton growth rates}
+
+
+\subsubsection{bacterial decomposer clearance rates}
+For growth rate data, values were standardised
+
+These are terms $\gP$ and $\gB$ respectively.  Values calculated from this section also used to calculate $\ePR$.  Thermal performance data was obtained from ``BioTrait" database\autocite{della2013thermal} with 25826 entries and 155 columns of data and descriptions (original, standardised values and units with citations).  Six filters were applied to the data, extracting data entries that were published and about aquatic species growth rates that were identified to species level and being either microbial phytoplankton or bacterial decomposer.  The resultant data was around 3.2K rows.  The intermediate data was further filtered to remove any standardised growth rate record with no growth because the purpose of this section is to get standardization constants based on temperature.  Since data with no growth would eliminate temperature factor during standardisation process, they are eliminated with logical reason.  The final growth rate data was standardised to specific growth rate based on seconds (sec$^{-1}$) with different empirical temperatures given by the respective experiments.
+
+Standardisation was using Arrhenius Equation
 
 \subsubsection{non-respired carbon fraction for phytoplankton}
 This is the term $\ePR$ which was calculated using the summary of linear equations from \autocite{j1989respiration} and result of $\gP$ calculations.  Intercepts, slope values and their respective experimental temperatures were collected from respiration-growth analysis of the above paper.  Only entries from experiments with temperature ranging 23-25$^oC$ are extracted because it is the temperature range for all other parameters in this model (Table \ref{varInTab}).

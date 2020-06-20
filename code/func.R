@@ -3,7 +3,7 @@
 # Author 	: PokMan HO
 # Script 	: func.R
 # Desc 		: self-defined functions
-# Input 	: none
+# Input 	: `source(../code/func.R)` in R scripts
 # Output 	: none
 # Arg 		: 0
 # Date 		: Apr 2020

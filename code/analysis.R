@@ -3,8 +3,8 @@
 # Author 	: PokMan HO
 # Script 	: analysis.R
 # Desc 		: modIRL.R result analyses
-# Input 	: none
-# Output 	: plots in `../result/`
+# Input 	: run this script in R console; graphs can't be run via automated loops
+# Output 	: plots in `result/`
 # Arg 		: 0
 # Date 		: Jun 2020
 

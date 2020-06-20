@@ -3,7 +3,7 @@
 # Author 	: PokMan HO
 # Script 	: func.jl
 # Desc 		: self-defined functions
-# Input 	: none
+# Input 	: `include("../code/func.jl")` in jl scripts
 # Output 	: none
 # Arg 		: 0
 # Date 		: May 2020

@@ -10,7 +10,7 @@ Apache-2.0
 
 ##  Getting started
 
-language | package | version
+comp-lang | packages | version
 --- | --- | ---
 bash | | 3.2.57(1)-release
 Julia-lang | | 1.3.1
@@ -44,4 +44,4 @@ TeX | | TeX Live 2019
 4. `result/`: important graphs
 5. `report/`: main thesis TeX script and categorized report content
 
-## Scripts
+## Coding scripts summary

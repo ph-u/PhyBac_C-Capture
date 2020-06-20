@@ -10,7 +10,7 @@ Apache-2.0
 
 ##  Getting started
 
-language | package | version
+comp-lang | packages | version
 --- | --- | ---
 bash | | 3.2.57(1)-release
 Julia-lang | | 1.3.1
@@ -44,7 +44,7 @@ TeX | | TeX Live 2019
 4. `result/`: important graphs
 5. `report/`: main thesis TeX script and categorized report content
 
-## Scripts
+## Coding scripts summary
 
 
 ### analysis.R
@@ -55,11 +55,11 @@ modIRL.R result analyses
 
 #### Suggested input
 
-none
+run this script in R console; graphs can't be run via automated loops
 
 #### Expected Output
 
-plots in `../result/`
+plots in `result/`
 
 *****
 
@@ -71,7 +71,7 @@ self-defined functions
 
 #### Suggested input
 
-none
+`source(../code/func.R)` in R scripts
 
 #### Expected Output
 
@@ -87,7 +87,7 @@ self-defined functions
 
 #### Suggested input
 
-none
+`include("../code/func.jl")` in jl scripts
 
 #### Expected Output
 
@@ -103,11 +103,11 @@ analytical scan using real-life parameter ranges
 
 #### Suggested input
 
-none
+`Rscript modIRL.R`
 
 #### Expected Output
 
-`../result/anaIRL.csv`
+`result/anaIRL.csv`
 
 *****
 
@@ -115,15 +115,15 @@ none
 
 #### Features
 
-BioTraits data handling
+BioTraits data wrangling
 
 #### Suggested input
 
-none
+`Rscript rateDet.R`
 
 #### Expected Output
 
-`../data/gRate.csv`, `../result/stdCst.png`
+`data/gRate.csv`, `result/stdCst.png`
 
 *****
 
@@ -135,7 +135,7 @@ readme.md generator
 
 #### Suggested input
 
-```bash hk_gen_readme.sh```
+```bash writeREADME.sh```
 
 #### Expected Output
 

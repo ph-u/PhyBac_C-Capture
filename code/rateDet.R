@@ -2,9 +2,9 @@
 
 # Author 	: PokMan HO
 # Script 	: rateDet.R
-# Desc 		: BioTraits data handling
-# Input 	: none
-# Output 	: `../data/gRate.csv`, `../result/stdCst.png`
+# Desc 		: BioTraits data wrangling
+# Input 	: `Rscript rateDet.R`
+# Output 	: `data/gRate.csv`, `result/stdCst.png`
 # Arg 		: 0
 # Date 		: Apr 2020
 

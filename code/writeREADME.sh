@@ -3,7 +3,7 @@
 ## Author 		: PokMan Ho
 ## Script 		: writeREADME.sh
 ## Desc 		: readme.md generator
-## Input 		: ```bash hk_gen_readme.sh```
+## Input 		: ```bash writeREADME.sh```
 ## Output 		: `readme.md` file
 ## Arguements 	: 0
 ## Date 		: Nov 2019

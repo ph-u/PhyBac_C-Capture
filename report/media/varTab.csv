@@ -1,0 +1,16 @@
+variable,unit,parameter range,temp ($^oC$),obtain method,source
+$\dC$,$gC/(m^3t)$,,,,
+$\dP$,$gC/(m^3t)$,,,,
+$\dB$,$gC/(m^3t)$,,,,
+$C$,$gC/m^3$,,,,
+$P$,$gC/m^3$,,,,
+$B$,$gC/m^3$,,,,
+$x$,$t^{-1}$,0 – 1,//,wild scan,//
+$\ePR$,no,0.875,23,calculation,\autocite{j1989respiration}
+$\eP$,no,0.63,25,direct obtain,"\autocite{j1989respiration,samejima1958heterotrophic}"
+$\gP$,$t^{-1}$,0.259 – 0.556,23,standardisation,\autocite{della2013thermal}
+$\aP$,$m^3/(gC t)$,0 – 0.4,23,wild scan with max,\autocite{de2007biofixation}
+$\eBR$,no,0.98,23,calculation,\autocite{cochran1988estimation}
+$\eB$,no,0.55,23,direct obtain,\autocite{cochran1988estimation}
+$\gB$,$m^3/(gC t)$,1.05 – 13.33,23,standardisation,\autocite{della2013thermal}
+$\mB$,$t^{-1}$,0.139,23,direct obtain,\autocite{cochran1988estimation}

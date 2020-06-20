@@ -10,7 +10,7 @@
 
 ##### pkg, data in #####
 source("func.R") ## self-defined functions
-gRate = read.csv("../data/gRate.csv", header = T) ## rate determined by `rateDet.R` using BioTrait database
+gRate = read.csv("../data/gRate.csv", header = T) ## standardisation constants determined by `rateDet.R` using BioTrait database
 rEspR = read.csv("../data/photoResp.csv", stringsAsFactors = F) ## phytoplankton respiration linear models collected from literature (data from Table 3 of https://doi.org/10.1111/j.1469-8137.1989.tb00321.x)
 
 ##### unit category for biological parameters #####

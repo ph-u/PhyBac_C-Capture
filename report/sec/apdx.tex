@@ -4,7 +4,7 @@
 % Input: none
 % Output: none
 % Arguments: 0
-% Date: Jan 2020
+% Date: Jun 2020
 
 \documentclass[../thesis.tex]{subfiles} %% use packages & commands as this main file
 
@@ -48,32 +48,55 @@ Activation energies for phytoplanktons and bacterial decomposers are 0.32eV and 
     \label{growStdVal}
 \end{figure}
 
-The interquartile ranges in Fig.\ref{growStdVal} for the two organism types were used to standardise the growth rates data of respective categories.
+Temperature-standardised growth rates were calculated by time-standardised and respective activation energies mentioned above.  The resultant data hence was in the unit of $day^{-1}$ under 23$^o$C.
 
-\subsection{phytoplankton growth rates}
+\subsection{phytoplankton growth rates data wrangling}
+Percentage range of the temperature-standardised data was calculated by the deviation of rate extremes from the mean.  This range was also considered one of the candidates for rate parameters which did not have sufficient data (min data entries of 5) to construct their percentage ranges.
 
+The parameter range was hence calculated by mean of the standardised phytoplankton growth rates $\pm$ percentage range of its own.
 
-\subsection{bacterial decomposer clearance rates}
-For growth rate data, values were standardised
-
-These are terms $\gP$ and $\gB$ respectively.  Values calculated from this section also used to calculate $\ePR$.  Thermal performance data was obtained from ``BioTrait" database\autocite{della2013thermal} with 25826 entries and 155 columns of data and descriptions (original, standardised values and units with citations).  Six filters were applied to the data, extracting data entries that were published and about aquatic species growth rates that were identified to species level and being either microbial phytoplankton or bacterial decomposer.  The resultant data was around 3.2K rows.  The intermediate data was further filtered to remove any standardised growth rate record with no growth because the purpose of this section is to get standardization constants based on temperature.  Since data with no growth would eliminate temperature factor during standardisation process, they are eliminated with logical reason.  The final growth rate data was standardised to specific growth rate based on seconds (sec$^{-1}$) with different empirical temperatures given by the respective experiments.
-
-Standardisation was using Arrhenius Equation
-
-\subsection{non-respired carbon fraction for phytoplankton}
-This is the term $\ePR$ which was calculated using the summary of linear equations from \autocite{j1989respiration} and result of $\gP$ calculations.  Intercepts, slope values and their respective experimental temperatures were collected from respiration-growth analysis of the above paper.  Only entries from experiments with temperature ranging 23-25$^oC$ are extracted because it is the temperature range for all other parameters in this model (Table \ref{varInTab}).
-
-Growth rates for phytoplanktons at 23$^oC$ were calculated from Eqn.\ref{arrEq}.  The non-respired fraction of carbon ($n(R')$) was calculated as
+\subsection{bacterial decomposer clearance rates data wrangling}
+Temperature-time-standardised growth rate data from ``BioTrait" were not applicable directly due to the disagreement of units.  Clearance rate for microbes were also technically unfeasible to measure.  Yet these two quantities were related by the following linear relationship
 
 \begin{equation}
-    P(R') = 1-P(R) = 1-\dfrac{\Bar{\text{intercept}}+\Bar{\text{slope}}\cdot\Bar{\gP}}{\Bar{\gP}}
+    clearance \times resource\_density = growth
+    \label{eq:gB}
+\end{equation}
+
+Due to the lack of data for resource density in literature collected by ``BioTrait" database\autocite{della2013thermal}, the only approach was using an arbitrary density (10 was used in this study) to resolve the unit issue.  The process was based on prior knowledge on cell size scaling of metabolism, so that the resultant ranges of growth rate is comparable between P and B.
+
+With data modifiable, percentage ranges of $\gB$ were calculated and parameter ranges were deduced using the same method mentioned above.  Its percentage range was also considered as a candidate for other similar parameters without sufficient data to construct a percentage range for its own.
+
+\subsection{parameter ranges for intraspecific interference of P and death rate of B}
+Three and one data point(s) were available from reachable literature for $\aP$ \autocite{de2007biofixation} and $\mB$ \autocite{cochran1988estimation} respectively.  These rate parameters hence chose the widest percentage range from available candidates in the same category.  Percentage range of $\gP$ was hence selected as their reference range indicator in this study.  Their parameter ranges were calculated using the same approach explained in previous section.
+
+For $\aP$ data collected from \autocite{de2007biofixation}, they were in 30$^o$C.  Although there was a temperature mismatch, they were still used because of no available data.  Hence it was assumed that the resultant parameter range could cover possible values in 23-25$^o$C.
+
+\subsection{non-respired carbon fraction for phytoplankton data wrangling}
+Data was available in the form of linear equations in \autocite{j1989respiration}.  These equations from literature was temperature-tagged with y-axis as respiration rate and x-axis as growth rate.  Hence only the equations within the considered temperature ranges were accepted.  Among the six equations matched , intercepts and slope values were collected.
+
+Using the growth rates for phytoplankton at 23$^oC$ calculated, the non-respired fraction of carbon ($n(R')$) was deduced as
+
+\begin{equation}
+    n(R') = 1-n(R) = 1-\dfrac{\text{intercept}+\text{slope}\cdot\gP}{\gP}
     \label{ePReqn}
 \end{equation}
 
-\subsection{non-respired carbon fraction for bacterial decomposer}
-This is the term $\eBR$ calculated from Fig.1b and glucose recovery rate values of \autocite{cochran1988estimation}.  This paper is also the only publication with values associated with its respected parameter in the model.  In the figure a net 100mg of carbon originated from straw material was recovered per gram of straw at around 24-28 days (from day 0).  At that period, the recovery rate of carbon released by respiration originated from external glucose was 80\%.  Since in the environment carbon source was either external glucose or straw, the respired carbon fraction is $\dfrac{100\cdot10^{-3}}{28\cdot(1-0.8)}$ and the non-respired carbon fraction is (1-[respired fraction]).
+Due to lack of matches between growth rate data and species available for these linear equations, the pool of parameter values were calculated by pairing every available growth rate with every available intercept-slope couple.  Percentage range was calculated and was considered as a candidate of reference range in the ``fraction" category.
 
-\subsection{maximum limit for intraspecific interference of phytoplankton}
-This is the term $\aP$, which the maximum value of the wild scan was capped at 0.4.\autocite{de2007biofixation}  It is because logically higher temperature would lead to higher growth rate and hence a more intense competition.  So a higher death related to the intraspecific interference is associated.  Since the value measured in the paper was at 30$^oC$, the relative intraspecific interference value should logically be under this value.  Adding to the fact that the above paper is the only paper published with a value of intraspecific interference, it is unjustified to assume an Arrhenius equation can be applied to guesstimate the respective value at the model's temperature range setting with one data entry.
+Parameter range of $\ePR$ was calculated using the method described above but the maximum value was capped at 1 because in the proposed model it was assumed that P cannot absorb carbon from the C pool.
+
+\subsection{biomass assimilated carbon fraction for P data wrangling}
+Two papers were containing values with temperature matches.  Due to the assumption of ``no absorption of organic carbon from C pool by P", these fractions were capped at 1.  Percentage range for this wrangled data pool was calculated and considered as a reference candidate for the ``fraction" category.
+
+Parameter range of $\eP$ was calculated with the above method with maximum capped at 1.
+
+\subsection{non-respired carbon fraction for bacterial decomposer parameter range calculation}
+$\eBR$ was calculated from Fig.1b and glucose recovery rate values of \autocite{cochran1988estimation}.  This paper was also the only publication with values associated with its respected parameter.  In the figure a net 100mg of carbon originated from straw material was recovered per gram of straw at around 24-28 days (from day 0).  At that period, the recovery rate of carbon released by respiration originated from external glucose was 80\%.  Since in the environment carbon source was either external glucose or straw, the respired carbon fraction is $\dfrac{100\cdot10^{-3}}{28\cdot(1-0.8)}$ and the non-respired carbon fraction is (1-[respired fraction]).
+
+The calculated value was treated as the parameter mean and the percentage range of $\ePR$ was selected as the reference range for deduction of possible parameter range for $\eBR$
+
+\subsection{biomass assimilated carbon fraction for B parameter range calculation}
+The only data was embedded in \autocite{cochran1988estimation} and was treated as the mean of its parameter range.  Percentage range of $\ePR$ was selected as its reference range to deduce the range values.
 
 \end{document}

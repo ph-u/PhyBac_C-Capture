@@ -576,17 +576,17 @@ MTD5045,4.65e-05,s^-1,Firmicutes,Geobacillus,thermoleovorans,50.0633,Celsius,0.6
 MTD5045,6.93e-05,s^-1,Firmicutes,Geobacillus,thermoleovorans,60.1178,Celsius,0.66,bacterial decomposer,57275645735.5628
 MTD5045,0.000295206,s^-1,Firmicutes,Geobacillus,thermoleovorans,70.0304,Celsius,0.66,bacterial decomposer,125624278059.943
 MTD5045,0.000146637,s^-1,Firmicutes,Geobacillus,thermoleovorans,73.001,Celsius,0.66,bacterial decomposer,51524453281.8162
-MTD5049,2.31e-06,s^-1,Cyanobacteria,Synechococcus,lividus,72.04539785,Celsius,0.32,photocell,9376.84086781375
-MTD5049,7.53e-06,s^-1,Cyanobacteria,Synechococcus,lividus,69.73026278,Celsius,0.32,photocell,32868.8509242102
-MTD5049,9.91e-06,s^-1,Cyanobacteria,Synechococcus,lividus,69.00523583,Celsius,0.32,photocell,44261.8809007165
-MTD5049,1.87e-05,s^-1,Cyanobacteria,Synechococcus,lividus,67.9245896,Celsius,0.32,photocell,86443.3697019934
-MTD5049,2.18e-05,s^-1,Cyanobacteria,Synechococcus,lividus,65.07405314,Celsius,0.32,photocell,110457.983146634
-MTD5049,2.04e-05,s^-1,Cyanobacteria,Synechococcus,lividus,62.85118272,Celsius,0.32,photocell,111151.611262224
-MTD5049,1.71e-05,s^-1,Cyanobacteria,Synechococcus,lividus,59.85698649,Celsius,0.32,photocell,102905.440028108
-MTD5049,1.4e-05,s^-1,Cyanobacteria,Synechococcus,lividus,56.91459364,Celsius,0.32,photocell,93055.7074693167
-MTD5049,1.13e-05,s^-1,Cyanobacteria,Synechococcus,lividus,56.0204247,Celsius,0.32,photocell,77440.1495171263
-MTD5049,9.91e-06,s^-1,Cyanobacteria,Synechococcus,lividus,55.01904644,Celsius,0.32,photocell,70292.8888255858
-MTD5049,5.72e-06,s^-1,Cyanobacteria,Synechococcus,lividus,54.02481277,Celsius,0.32,photocell,41992.1041564806
+MTD5049,2.31e-06,s^-1,Cyanobacteria,Synechococcus,lividus,72.04539785,Celsius,0.32,phytoplankton,9376.84086781375
+MTD5049,7.53e-06,s^-1,Cyanobacteria,Synechococcus,lividus,69.73026278,Celsius,0.32,phytoplankton,32868.8509242102
+MTD5049,9.91e-06,s^-1,Cyanobacteria,Synechococcus,lividus,69.00523583,Celsius,0.32,phytoplankton,44261.8809007165
+MTD5049,1.87e-05,s^-1,Cyanobacteria,Synechococcus,lividus,67.9245896,Celsius,0.32,phytoplankton,86443.3697019934
+MTD5049,2.18e-05,s^-1,Cyanobacteria,Synechococcus,lividus,65.07405314,Celsius,0.32,phytoplankton,110457.983146634
+MTD5049,2.04e-05,s^-1,Cyanobacteria,Synechococcus,lividus,62.85118272,Celsius,0.32,phytoplankton,111151.611262224
+MTD5049,1.71e-05,s^-1,Cyanobacteria,Synechococcus,lividus,59.85698649,Celsius,0.32,phytoplankton,102905.440028108
+MTD5049,1.4e-05,s^-1,Cyanobacteria,Synechococcus,lividus,56.91459364,Celsius,0.32,phytoplankton,93055.7074693167
+MTD5049,1.13e-05,s^-1,Cyanobacteria,Synechococcus,lividus,56.0204247,Celsius,0.32,phytoplankton,77440.1495171263
+MTD5049,9.91e-06,s^-1,Cyanobacteria,Synechococcus,lividus,55.01904644,Celsius,0.32,phytoplankton,70292.8888255858
+MTD5049,5.72e-06,s^-1,Cyanobacteria,Synechococcus,lividus,54.02481277,Celsius,0.32,phytoplankton,41992.1041564806
 MTD5051,2.78e-05,s^-1,Firmicutes,Sulfobacillus,sibiricus,30.2182,Celsius,0.66,bacterial decomposer,221293903733.94
 MTD5051,5.05e-05,s^-1,Firmicutes,Sulfobacillus,sibiricus,40.0228,Celsius,0.66,bacterial decomposer,182368467450.839
 MTD5051,7.82e-05,s^-1,Firmicutes,Sulfobacillus,sibiricus,44.6883,Celsius,0.66,bacterial decomposer,197223635019.954
@@ -717,40 +717,40 @@ MTD5067,2.93e-05,s^-1,Proteobacteria,Halomonas,campisalis,36.9097,Celsius,0.66,b
 MTD5067,2.89e-05,s^-1,Proteobacteria,Halomonas,campisalis,39.9009,Celsius,0.66,bacterial decomposer,105363943867.996
 MTD5067,2.44e-05,s^-1,Proteobacteria,Halomonas,campisalis,44.9534,Celsius,0.66,bacterial decomposer,60314335178.6017
 MTD5067,2.61e-06,s^-1,Proteobacteria,Halomonas,campisalis,50.1524,Celsius,0.66,bacterial decomposer,4380471046.44764
-MTD5068,5.23e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,41.9949,Celsius,0.32,photocell,59215.5929375063
-MTD5068,6.08e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,45.9489,Celsius,0.32,photocell,59487.7144288253
-MTD5068,9.79e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,49.8138,Celsius,0.32,photocell,83334.5664934985
-MTD5068,9.43e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,53.8592,Celsius,0.32,photocell,69627.3245974314
-MTD5068,7.04e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,57.8889,Celsius,0.32,photocell,45269.6330067158
-MTD5069,5.54e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,38.0061,Celsius,0.32,photocell,72953.4530640694
-MTD5069,6.97e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,41.9651,Celsius,0.32,photocell,79004.3708539777
-MTD5069,9.3e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,45.9768,Celsius,0.32,photocell,90900.1919589838
-MTD5069,1.38e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,49.9348,Celsius,0.32,photocell,116963.788108589
-MTD5069,1.45e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,53.9838,Celsius,0.32,photocell,106600.094959601
-MTD5069,1.33e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,57.8684,Celsius,0.32,photocell,85583.0306721255
-MTD5069,6.33e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,62.0882,Celsius,0.32,photocell,35368.2285140995
-MTD5070,5.63e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,37.9108,Celsius,0.32,photocell,74410.1895165921
-MTD5070,7.91e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,41.8894,Celsius,0.32,photocell,89913.4355910626
-MTD5070,1.73e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,45.8807,Celsius,0.32,photocell,169687.642358174
-MTD5070,2.71e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,49.7303,Celsius,0.32,photocell,231367.92674635
-MTD5070,2.36e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,53.7203,Celsius,0.32,photocell,175095.793931761
-MTD5070,1.07e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,57.9967,Celsius,0.32,photocell,68553.9012252332
-MTD5070,6.22e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,61.9943,Celsius,0.32,photocell,34861.641527194
-MTD5071,5.05e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,33.9502,Celsius,0.32,photocell,77853.8527310238
-MTD5071,5.96e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,37.9591,Celsius,0.32,photocell,78625.8511022559
-MTD5071,7.95e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,42.027,Celsius,0.32,photocell,89904.2713269843
-MTD5071,1.29e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,45.9382,Celsius,0.32,photocell,126264.973130046
-MTD5071,1.87e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,49.891,Celsius,0.32,photocell,158741.597681631
-MTD5071,1.81e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,53.7243,Celsius,0.32,photocell,134270.90297823
-MTD5071,1.54e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,57.7669,Celsius,0.32,photocell,99437.7079997709
-MTD5071,6.49e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,62.0368,Celsius,0.32,photocell,36323.8607424166
-MTD5072,5.21e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,33.8998,Celsius,0.32,photocell,80480.0886312467
-MTD5072,6.48e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,37.9125,Celsius,0.32,photocell,85638.8224537354
-MTD5072,9.09e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,41.9815,Celsius,0.32,photocell,102971.224978674
-MTD5072,1.42e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,45.8886,Celsius,0.32,photocell,139241.047971297
-MTD5072,1.81e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,49.8368,Celsius,0.32,photocell,153944.959159252
-MTD5072,1.06e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,53.9715,Celsius,0.32,photocell,77961.6139811073
-MTD5072,6.78e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,57.7264,Celsius,0.32,photocell,43838.5930621789
+MTD5068,5.23e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,41.9949,Celsius,0.32,phytoplankton,59215.5929375063
+MTD5068,6.08e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,45.9489,Celsius,0.32,phytoplankton,59487.7144288253
+MTD5068,9.79e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,49.8138,Celsius,0.32,phytoplankton,83334.5664934985
+MTD5068,9.43e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,53.8592,Celsius,0.32,phytoplankton,69627.3245974314
+MTD5068,7.04e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,57.8889,Celsius,0.32,phytoplankton,45269.6330067158
+MTD5069,5.54e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,38.0061,Celsius,0.32,phytoplankton,72953.4530640694
+MTD5069,6.97e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,41.9651,Celsius,0.32,phytoplankton,79004.3708539777
+MTD5069,9.3e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,45.9768,Celsius,0.32,phytoplankton,90900.1919589838
+MTD5069,1.38e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,49.9348,Celsius,0.32,phytoplankton,116963.788108589
+MTD5069,1.45e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,53.9838,Celsius,0.32,phytoplankton,106600.094959601
+MTD5069,1.33e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,57.8684,Celsius,0.32,phytoplankton,85583.0306721255
+MTD5069,6.33e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,62.0882,Celsius,0.32,phytoplankton,35368.2285140995
+MTD5070,5.63e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,37.9108,Celsius,0.32,phytoplankton,74410.1895165921
+MTD5070,7.91e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,41.8894,Celsius,0.32,phytoplankton,89913.4355910626
+MTD5070,1.73e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,45.8807,Celsius,0.32,phytoplankton,169687.642358174
+MTD5070,2.71e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,49.7303,Celsius,0.32,phytoplankton,231367.92674635
+MTD5070,2.36e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,53.7203,Celsius,0.32,phytoplankton,175095.793931761
+MTD5070,1.07e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,57.9967,Celsius,0.32,phytoplankton,68553.9012252332
+MTD5070,6.22e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,61.9943,Celsius,0.32,phytoplankton,34861.641527194
+MTD5071,5.05e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,33.9502,Celsius,0.32,phytoplankton,77853.8527310238
+MTD5071,5.96e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,37.9591,Celsius,0.32,phytoplankton,78625.8511022559
+MTD5071,7.95e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,42.027,Celsius,0.32,phytoplankton,89904.2713269843
+MTD5071,1.29e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,45.9382,Celsius,0.32,phytoplankton,126264.973130046
+MTD5071,1.87e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,49.891,Celsius,0.32,phytoplankton,158741.597681631
+MTD5071,1.81e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,53.7243,Celsius,0.32,phytoplankton,134270.90297823
+MTD5071,1.54e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,57.7669,Celsius,0.32,phytoplankton,99437.7079997709
+MTD5071,6.49e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,62.0368,Celsius,0.32,phytoplankton,36323.8607424166
+MTD5072,5.21e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,33.8998,Celsius,0.32,phytoplankton,80480.0886312467
+MTD5072,6.48e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,37.9125,Celsius,0.32,phytoplankton,85638.8224537354
+MTD5072,9.09e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,41.9815,Celsius,0.32,phytoplankton,102971.224978674
+MTD5072,1.42e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,45.8886,Celsius,0.32,phytoplankton,139241.047971297
+MTD5072,1.81e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,49.8368,Celsius,0.32,phytoplankton,153944.959159252
+MTD5072,1.06e-05,s^-1,Cyanobacteria,Mastigocladus,laminosus,53.9715,Celsius,0.32,phytoplankton,77961.6139811073
+MTD5072,6.78e-06,s^-1,Cyanobacteria,Mastigocladus,laminosus,57.7264,Celsius,0.32,phytoplankton,43838.5930621789
 MTD5084,9.13e-06,s^-1,Firmicutes,Planococcus,halocryophilus,36.46094289,Celsius,0.66,bacterial decomposer,43683555567.0428
 MTD5084,1.11e-05,s^-1,Firmicutes,Planococcus,halocryophilus,29.82797047,Celsius,0.66,bacterial decomposer,91278726766.7323
 MTD5084,1.19e-05,s^-1,Firmicutes,Planococcus,halocryophilus,24.69242944,Celsius,0.66,bacterial decomposer,151318019558.254
@@ -3051,17 +3051,17 @@ MTD5382,2.72e-05,s^-1,Firmicutes,Desulfitobacterium,dehalogenans,43.0225,Celsius
 MTD5382,4.32e-06,s^-1,Firmicutes,Desulfitobacterium,dehalogenans,44.8543,Celsius,0.66,bacterial decomposer,10759028068.3178
 MTD5382,1.9e-07,s^-1,Firmicutes,Desulfitobacterium,dehalogenans,46.0163,Celsius,0.66,bacterial decomposer,433472570.386926
 MTD5382,2e-07,s^-1,Firmicutes,Desulfitobacterium,dehalogenans,47.9031,Celsius,0.66,bacterial decomposer,396269513.849284
-MTD5384,4.09e-05,s^-1,Chlorobi,Chlorobium,tepidum,32.1625,Celsius,0.32,photocell,676801.113569086
-MTD5384,4.88e-05,s^-1,Chlorobi,Chlorobium,tepidum,34.0731,Celsius,0.32,photocell,748699.907039644
-MTD5384,5.49e-05,s^-1,Chlorobi,Chlorobium,tepidum,36.4928,Celsius,0.32,photocell,766371.117395513
-MTD5384,6.47e-05,s^-1,Chlorobi,Chlorobium,tepidum,39.9861,Celsius,0.32,photocell,790073.416188122
-MTD5384,6.84e-05,s^-1,Chlorobi,Chlorobium,tepidum,41.9371,Celsius,0.32,photocell,776120.655260987
-MTD5384,8.67e-05,s^-1,Chlorobi,Chlorobium,tepidum,44.8099,Celsius,0.32,photocell,884397.161985883
-MTD5384,9.31e-05,s^-1,Chlorobi,Chlorobium,tepidum,47.0264,Celsius,0.32,photocell,875921.04663538
-MTD5384,7.43e-05,s^-1,Chlorobi,Chlorobium,tepidum,48.0007,Celsius,0.32,photocell,674874.391503736
-MTD5384,3.86e-05,s^-1,Chlorobi,Chlorobium,tepidum,49.0689,Celsius,0.32,photocell,337422.272156709
-MTD5384,3.11e-05,s^-1,Chlorobi,Chlorobium,tepidum,50.0254,Celsius,0.32,photocell,262744.328827348
-MTD5384,1.87e-05,s^-1,Chlorobi,Chlorobium,tepidum,51.0571,Celsius,0.32,photocell,152312.111839005
+MTD5384,4.09e-05,s^-1,Chlorobi,Chlorobium,tepidum,32.1625,Celsius,0.32,phytoplankton,676801.113569086
+MTD5384,4.88e-05,s^-1,Chlorobi,Chlorobium,tepidum,34.0731,Celsius,0.32,phytoplankton,748699.907039644
+MTD5384,5.49e-05,s^-1,Chlorobi,Chlorobium,tepidum,36.4928,Celsius,0.32,phytoplankton,766371.117395513
+MTD5384,6.47e-05,s^-1,Chlorobi,Chlorobium,tepidum,39.9861,Celsius,0.32,phytoplankton,790073.416188122
+MTD5384,6.84e-05,s^-1,Chlorobi,Chlorobium,tepidum,41.9371,Celsius,0.32,phytoplankton,776120.655260987
+MTD5384,8.67e-05,s^-1,Chlorobi,Chlorobium,tepidum,44.8099,Celsius,0.32,phytoplankton,884397.161985883
+MTD5384,9.31e-05,s^-1,Chlorobi,Chlorobium,tepidum,47.0264,Celsius,0.32,phytoplankton,875921.04663538
+MTD5384,7.43e-05,s^-1,Chlorobi,Chlorobium,tepidum,48.0007,Celsius,0.32,phytoplankton,674874.391503736
+MTD5384,3.86e-05,s^-1,Chlorobi,Chlorobium,tepidum,49.0689,Celsius,0.32,phytoplankton,337422.272156709
+MTD5384,3.11e-05,s^-1,Chlorobi,Chlorobium,tepidum,50.0254,Celsius,0.32,phytoplankton,262744.328827348
+MTD5384,1.87e-05,s^-1,Chlorobi,Chlorobium,tepidum,51.0571,Celsius,0.32,phytoplankton,152312.111839005
 MTD5385,1.24e-05,s^-1,Firmicutes,Geobacillus,thermodenitrificans,44.9891,Celsius,0.66,bacterial decomposer,30568844674.0405
 MTD5385,6.31e-05,s^-1,Firmicutes,Geobacillus,thermodenitrificans,50.0544,Celsius,0.66,bacterial decomposer,106666793416.657
 MTD5385,0.00010327,s^-1,Firmicutes,Geobacillus,thermodenitrificans,55.0054,Celsius,0.66,bacterial decomposer,122096343766.834

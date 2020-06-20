@@ -4,7 +4,7 @@
 # Script 	: rateDet.R
 # Desc 		: BioTraits data handling
 # Input 	: none
-# Output 	: none
+# Output 	: `../data/gRate.csv`, `../result/stdCst.png`
 # Arg 		: 0
 # Date 		: Apr 2020
 
@@ -39,7 +39,7 @@ rAw = rAw[which(rAw$StandardisedTraitValue>0),] ## rm data recording no growth (
 
 ##### standardization constant (std-cst) calculation #####
 rAw$Ea.eV <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],.32,.66) ## activation energy of photosynthetic (0.32eV) and heterotrophic (0.65eV) lifestyle
-rAw$role <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],"photocell","bacterial decomposer")
+rAw$role <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],"phytoplankton","bacterial decomposer")
 rAw$stdConst.day <- normArrheniusEq(rAw$StandardisedTraitValue, rAw$Ea.eV, rAw$ConTemp)*60^2*24
 
 ##### boxplot std-cst #####

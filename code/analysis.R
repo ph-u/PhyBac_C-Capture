@@ -80,7 +80,7 @@ rm(a.bx)
 }
 
 ## line plots with 95% confidence interval
-xX=.1;{a.Ln = a.pt[which(a.pt$x==xX),]
+xX=.9;{a.Ln = a.pt[which(a.pt$x==xX),]
 p_tmp = ggplot()+theme_bw()+ylim(c(-9,5)) + ylab(paste0("natural log eqm values, harvest = ",xX," day^-1")) + scale_fill_manual(name="system", values = cBpT[c(4,2)])+scale_colour_manual(name="system", values = cBp[c(4,2)])+scale_linetype_manual(name="type", labels=c("total carbon", "C pool", "yield"), values = c(1,2,4))
 
 p_2 = p_tmp + xlab(colnames(a.Ln)[2]) + geom_smooth(aes(x=a.Ln[,2], y=a.Ln$value, fill=a.Ln$eqm, col=a.Ln$eqm, linetype=a.Ln$Source))

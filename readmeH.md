@@ -20,6 +20,8 @@ Julia-lang | | 1.3.1
 python | | 3.7.3
 . | SciPy | 1.2.3
 R | | 3.6.0
+. | ggplot2 | 3.3.2
+. | gridExtra | 2.3
 TeX | | TeX Live 2019
 . | LuaTeX | 1.10.0
 . | BibTeX | 0.99d

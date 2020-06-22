@@ -10,8 +10,8 @@
 
 ##### in #####
 source("func.R")
-library(ggplot2)
 library(gridExtra)
+library(ggplot2)
 ot = "../result/"
 a = read.csv("../data/anaIRL.csv", header = T)
 ## yield calculation
@@ -76,7 +76,6 @@ a.pt$logA[1:nrow(a.bx)+nrow(a.bx)] = a.bx$logC
 a.pt$Source = c(rep(colnames(a.bx)[22],nrow(a.bx)),rep(colnames(a.bx)[23],nrow(a.bx)),rep(colnames(a.bx)[24],nrow(a.bx)))
 colnames(a.pt)[24] = "value"
 a.pt$yield = a.pt$logC = NULL
-rm(a.bx)
 }
 
 ## line plots with 95% confidence interval

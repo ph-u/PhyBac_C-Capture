@@ -1,0 +1,22 @@
+g_P = max growth rate of P
+acknowledge we can't follow CO2 dynamics
+SymPy computational issue: eqm6 should have C as "-"
+future work focus more on more complex carbon balance
+
+JR
+look back at papera: upwelling / land model
+model equation from zero, CP model & limit P: P absorbing some C
+
+fine without this component
+
+SP
+graphs are almost final
+can do writing
+biofuel model, individual-based, optimal mixing
+modification of biofuel idea: carbon pool
+meaningfully extend nutrient to carbon pool
+
+EC
+nutrient deplete version
+dissolved organic carbon / DOM models
+

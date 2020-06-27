@@ -28,34 +28,35 @@ a[a==Inf] = a[a==-Inf] = NA
 xX = 1;{
         ##### carbon distribution #####
         w.total = wilcox.test(a$log3A[which(a$x==xX)], a$log4A[which(a$x==xX)])
-        w.orgCb = wilcox.test(a$log3C[which(a$x==xX)], a$log4C[which(a$x==xX)])
+        # w.orgCb = wilcox.test(a$log3C[which(a$x==xX)], a$log4C[which(a$x==xX)])
         w.yield = wilcox.test(a$yield3C[which(a$x==xX)], a$yield4C[which(a$x==xX)])
         
         png(paste0(ot,"sys_",ifelse(xX<1,"0",""),xX*10,".png"), res = 200, width = 2000, height = 700)
-        par(mfrow = c(1,3))
+        par(mfrow = c(1,2))
+        # par(mfrow = c(1,3))
         ## total carbon
         hist(a$log3A[which(a$x==xX)], breaks = seq(min(a$log3A[which(a$x==xX)], na.rm = T),max(a$log3A[which(a$x==xX)], na.rm = T),by=diff(range(a$log3A[which(a$x==xX)], na.rm = T))/100),
-             col = cBpT[4], lty=1, freq = F, xlim = range(c(a$log3A,a$log4A), na.rm = T), ylim = c(0,.5),
+             col = cBpH[4], border = F, freq = F, xlim = range(c(a$log3A,a$log4A), na.rm = T), ylim = c(0,.5),
              xlab = paste0("log TOTAL carbon, removal rate = ",xX, " day^-1"), main = "")
         hist(a$log4A[which(a$x==xX)], breaks = seq(min(a$log4A[which(a$x==xX)], na.rm = T),max(a$log4A[which(a$x==xX)], na.rm = T),by=diff(range(a$log4A[which(a$x==xX)], na.rm = T))/100),
-             col = cBpT[2], lty=1, freq = F, add=T)
+             col = cBpH[2], border = F, freq = F, add=T)
         text(x=-3, y=.4, labels = paste0("Wilcoxon test:\nW = ",signif(as.numeric(w.total$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.total$p.value),4)," (4 d.p.)"))
         legend("topright", inset=c(0,0), legend = c("P_only","P+B"), pch = rep(16,2), col = c(cBpT[4],cBpT[2]), bty="n", cex = 1.2)
         
         ## organic carbon
-        hist(a$log3C[which(a$x==xX)], breaks = seq(min(a$log3C[which(a$x==xX)], na.rm = T),max(a$log3C[which(a$x==xX)], na.rm = T),by=diff(range(a$log3C[which(a$x==xX)], na.rm = T))/100),
-             col = cBpT[4], lty=1, freq = F, xlim = range(c(a$log3C,a$log4C), na.rm = T), ylim = c(0,.5),
-             xlab = paste0("log ORGANIC carbon, removal rate = ",xX, " day^-1"), main = "")
-        hist(a$log4C[which(a$x==xX)], breaks = seq(min(a$log4C[which(a$x==xX)], na.rm = T),max(a$log4C[which(a$x==xX)], na.rm = T),by=diff(range(a$log4C[which(a$x==xX)], na.rm = T))/100),
-             col = cBpT[2], lty=1, freq = F, add=T)
-        text(x=-8, y=.4, labels = paste0("Wilcoxon test:\nW = ",signif(as.numeric(w.orgCb$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.orgCb$p.value),4)," (4 d.p.)"))
+        # hist(a$log3C[which(a$x==xX)], breaks = seq(min(a$log3C[which(a$x==xX)], na.rm = T),max(a$log3C[which(a$x==xX)], na.rm = T),by=diff(range(a$log3C[which(a$x==xX)], na.rm = T))/100),
+        #      col = cBpT[4], lty=1, freq = F, xlim = range(c(a$log3C,a$log4C), na.rm = T), ylim = c(0,.5),
+        #      xlab = paste0("log ORGANIC carbon, removal rate = ",xX, " day^-1"), main = "")
+        # hist(a$log4C[which(a$x==xX)], breaks = seq(min(a$log4C[which(a$x==xX)], na.rm = T),max(a$log4C[which(a$x==xX)], na.rm = T),by=diff(range(a$log4C[which(a$x==xX)], na.rm = T))/100),
+        #      col = cBpT[2], lty=1, freq = F, add=T)
+        # text(x=-8, y=.4, labels = paste0("Wilcoxon test:\nW = ",signif(as.numeric(w.orgCb$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.orgCb$p.value),4)," (4 d.p.)"))
         
         ## yield
         hist(a$yield3C[which(a$x==xX)], breaks = seq(min(a$yield3C[which(a$x==xX)], na.rm = T),max(a$yield3C[which(a$x==xX)], na.rm = T),by=diff(range(a$yield3C[which(a$x==xX)], na.rm = T))/100),
-             col = cBpT[4], lty=1, freq = F, xlim = range(c(a$yield3C,a$yield4C), na.rm = T), ylim = c(0,.5),
+             col = cBpH[4], border = F, freq = F, xlim = range(c(a$yield3C,a$yield4C), na.rm = T), ylim = c(0,.5),
              xlab = paste0("log yield flux, removal rate = ",xX, " day^-1"), main = "")
         hist(a$yield4C[which(a$x==xX)], breaks = seq(min(a$yield4C[which(a$x==xX)], na.rm = T),max(a$yield4C[which(a$x==xX)], na.rm = T),by=diff(range(a$yield4C[which(a$x==xX)], na.rm = T))/100),
-             col = cBpT[2], lty=1, freq = F, add=T)
+             col = cBpH[2], border = F, freq = F, add=T)
         text(x=-8, y=.4, labels = paste0("Wilcoxon test:\nW = ",signif(as.numeric(w.yield$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.yield$p.value),4)," (4 d.p.)"))
         
         dev.off()

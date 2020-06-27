@@ -10,8 +10,12 @@
 
 ##### pkg #####
 cBp <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#0072B2", "#D55E00", "#CC79A7", "#e79f00", "#9ad0f3", "#F0E442", "#999999", "#cccccc", "#6633ff", "#00FFCC", "#0066cc")
-cBpA = as.data.frame(col2rgb(cBp)/255);cBpA[4,] = .3;cBpA[4,1] = .1
-cBpT = rep(NA,length(cBp));for(i in 1:ncol(cBpA)){cBpT[i] = rgb(cBpA[1,i],cBpA[2,i],cBpA[3,i],cBpA[4,i])};rm(i,cBpA)
+cBpA = as.data.frame(col2rgb(cBp)/255)
+cBpA[4,] = .3;cBpA[4,1] = .1
+cBpT = rep(NA,length(cBp));for(i in 1:ncol(cBpA)){cBpT[i] = rgb(cBpA[1,i],cBpA[2,i],cBpA[3,i],cBpA[4,i])};rm(i)
+cBpA[4,] = .5;cBpA[4,1] = .3
+cBpH = rep(NA,length(cBp));for(i in 1:ncol(cBpA)){cBpH[i] = rgb(cBpA[1,i],cBpA[2,i],cBpA[3,i],cBpA[4,i])};rm(i)
+rm(cBpA)
 
 ##### constant #####
 k <- 8.617333262145e-5 ## Boltzmann constant (unit eV/K)

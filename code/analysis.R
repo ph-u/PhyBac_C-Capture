@@ -61,7 +61,7 @@ xX = 1;{
              xlab = paste0("log TOTAL carbon, removal rate = ",xX, " day^-1"), main = "")
         hist(a$log4A[which(a$x==xX)], breaks = seq(min(a$log4A[which(a$x==xX)], na.rm = T),max(a$log4A[which(a$x==xX)], na.rm = T),by=diff(range(a$log4A[which(a$x==xX)], na.rm = T))/100),
              col = cBpH[2], border = F, freq = F, add=T)
-        text(x=-3, y=.4, labels = paste0("Wilcoxon test:\nW = ",signif(as.numeric(w.total$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.total$p.value),4)," (4 d.p.)"))
+        text(x=-3, y=.4, labels = paste0("Wilcox test:\nW = ",signif(as.numeric(w.total$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.total$p.value),4)," (4 d.p.)"))
         legend("topright", inset=c(0,0), legend = c("P_only","P+B"), pch = rep(16,2), col = c(cBpT[4],cBpT[2]), bty="n", cex = 1.2)
         
         ## organic carbon
@@ -70,7 +70,7 @@ xX = 1;{
         #      xlab = paste0("log ORGANIC carbon, removal rate = ",xX, " day^-1"), main = "")
         # hist(a$log4C[which(a$x==xX)], breaks = seq(min(a$log4C[which(a$x==xX)], na.rm = T),max(a$log4C[which(a$x==xX)], na.rm = T),by=diff(range(a$log4C[which(a$x==xX)], na.rm = T))/100),
         #      col = cBpT[2], lty=1, freq = F, add=T)
-        # text(x=-8, y=.4, labels = paste0("Wilcoxon test:\nW = ",signif(as.numeric(w.orgCb$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.orgCb$p.value),4)," (4 d.p.)"))
+        # text(x=-8, y=.4, labels = paste0("Wilcox test:\nW = ",signif(as.numeric(w.orgCb$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.orgCb$p.value),4)," (4 d.p.)"))
         
         ## yield
         hist(a$yield3C[which(a$x==xX)], breaks = seq(min(a$yield3C[which(a$x==xX)], na.rm = T),max(a$yield3C[which(a$x==xX)], na.rm = T),by=diff(range(a$yield3C[which(a$x==xX)], na.rm = T))/100),
@@ -78,7 +78,7 @@ xX = 1;{
              xlab = paste0("log yield flux, removal rate = ",xX, " day^-1"), main = "")
         hist(a$yield4C[which(a$x==xX)], breaks = seq(min(a$yield4C[which(a$x==xX)], na.rm = T),max(a$yield4C[which(a$x==xX)], na.rm = T),by=diff(range(a$yield4C[which(a$x==xX)], na.rm = T))/100),
              col = cBpH[2], border = F, freq = F, add=T)
-        text(x=-8, y=.4, labels = paste0("Wilcoxon test:\nW = ",signif(as.numeric(w.yield$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.yield$p.value),4)," (4 d.p.)"))
+        text(x=-8, y=.4, labels = paste0("Wilcox test:\nW = ",signif(as.numeric(w.yield$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.yield$p.value),4)," (4 d.p.)"))
         
         dev.off()
 }
@@ -104,7 +104,12 @@ colnames(a.pt)[24] = "value"
 
 ## line plots with 95% confidence interval
 xX=1;{a.Ln = a.pt[which(a.pt$x==xX),]
-p_tmp = ggplot()+theme_bw()+ylim(c(-9,5)) + ylab(paste0("natural log eqm values, harvest = ",xX," day^-1")) + scale_fill_manual(name="system", values = cBpT[c(4,2)])+scale_colour_manual(name="system", values = cBp[c(4,2)])+scale_linetype_manual(name="type", labels=c("total carbon", "yield flux"), values = 1:2)
+p_tmp = ggplot()+theme_bw()+ylim(c(-9,5)) + ylab(paste0("natural log eqm values, harvest = ",xX," day^-1")) + scale_linetype_manual(name="type", labels=c("total carbon", "yield flux"), values = 1:2)
+if(xX>0){
+        p_tmp = p_tmp + scale_fill_manual(name="system", values = cBpT[c(4,2)])+scale_colour_manual(name="system", values = cBp[c(4,2)])
+}else{
+        p_tmp = p_tmp + scale_fill_manual(name="system", values = cBpT[2])+scale_colour_manual(name="system", values = cBp[2])
+}
 # p_tmp = ggplot()+theme_bw()+ylim(c(-9,5)) + ylab(paste0("natural log eqm values, harvest = ",xX," day^-1")) + scale_fill_manual(name="system", values = cBpT[c(4,2)])+scale_colour_manual(name="system", values = cBp[c(4,2)])+scale_linetype_manual(name="type", labels=c("total carbon", "C pool", "yield"), values = c(1,2,4))
 
 p_2 = p_tmp + xlab(colnames(a.Ln)[2]) + geom_smooth(aes(x=a.Ln[,2], y=a.Ln$value, fill=a.Ln$eqm, col=a.Ln$eqm, linetype=a.Ln$Source))
@@ -121,3 +126,11 @@ p_9 = p_tmp + xlab(colnames(a.Ln)[9]) + geom_smooth(aes(x=a.Ln[,9], y=a.Ln$value
         grid.arrange(p_2, p_3, p_4, p_5, p_6, p_7, p_8, p_9, nrow=2)
         dev.off()
 };rm(list=ls(pattern = "p_"));rm(xX, a.Ln)
+
+##### comparison of P+B systems removal rate: 0 vs 0.1 #####
+a.01 = a[which(a$x==0 | a$x==1),]
+w.01 = wilcox.test(a.01$yield4C[which(a.01$x==0)], a.01$yield4C[which(a.01$x==1)])
+png(paste0(ot,"yield.png"))
+boxplot(a.01$yield4C~a.01$x, xlab = "carbon removal rate (1/day)", ylab = "log yield flux", cex.axis = 1.5, cex.lab=1.5)
+text(x=1.5, y=3, labels = paste0("Wilcox test:\nW = ",signif(as.numeric(w.01$statistic),3)," (3 s.f.)\np = ",round(as.numeric(w.01$p.value),4)," (4 d.p.)"))
+dev.off()

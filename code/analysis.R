@@ -23,6 +23,27 @@ a$log4C = log(a$eqm4C);a$log4A = log(a$eqm4A)
 ## exclude meaningless result for later filtering
 a[a==Inf] = a[a==-Inf] = NA
 
+##### plot of Wilcox test summary #####
+wIl = as.data.frame(matrix(NA, nr=length(unique(a$x)), nc=5))
+colnames(wIl) = c("x",paste0(rep(c("total","yield"), each=2),c("_W","_p")))
+wIl[,1] = unique(a$x)[order(unique(a$x))]
+for(i in 1:nrow(wIl)){ ## fill in Wilcox summary statistics and p-values
+        w.t = try(wilcox.test(a$log3A[which(a$x==wIl[i,1])], a$log4A[which(a$x==wIl[i,1])]), silent = T)
+        w.y = try(wilcox.test(a$yield3C[which(a$x==wIl[i,1])], a$yield4C[which(a$x==wIl[i,1])]), silent = T)
+        ## silence error while filling in summary statistics
+        if(class(w.t)=="try-error"){wIl[i,2:3] = rep(NA,2)}else{wIl[i,2:3] = c(w.t$statistic, w.t$p.value)}
+        if(class(w.t)=="try-error"){wIl[i,4:5] = rep(NA,2)}else{wIl[i,4:5] = c(w.y$statistic, w.y$p.value)}
+};rm(i,w.t,w.y)
+for(i in c(3,5)){wIl[,i] = wIl[,i]*max(wIl[,c(2,4)], na.rm = T)};rm(i) ## scale p-value for plotting
+
+png(paste0(ot,"Wilcox.png"), width = 1000)
+par(mar=c(5.1,5.1,.1,5.1))
+matplot(wIl$x,wIl[,-1], col = cBp[rep(c(1,3), each=2)], type = "l", lwd=5, lty=rep(1:2, 2), xlab = "removal rate (1/day)", ylab="W-statistic", cex.lab = 1.5, cex.axis = 1.2)
+axis(4, at=seq(0,max(wIl[,c(2,4)], na.rm = T),by=max(wIl[,c(2,4)], na.rm = T)/10), labels = seq(0,1,.1), cex.lab=1.5)
+mtext("p-value", side = 4, line = 3, cex = 1.5)
+legend("topright", inset=c(0,0), legend = c("total carbon","yield flux"), pch = rep(16,2), col = c(cBp[1],cBp[3]), bty="n", cex = 3)
+dev.off()
+
 ##### overview plot based on harvest rate #####
 ## seq(.1,1, by=.1)
 xX = 1;{

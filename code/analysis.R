@@ -92,17 +92,20 @@ a.bx$yield4C[1:nrow(a)]=a$yield3C
 a.bx$yield3C = a.bx$log3C = a.bx$log3A = NULL
 a.bx$eqm = c(rep("P_only",nrow(a)),rep("P+B",nrow(a)))
 colnames(a.bx)[22:24] = c("yield","logC","logA")
-a.pt = rbind(a.bx,a.bx,a.bx)
+a.pt = rbind(a.bx,a.bx)
+# a.pt = rbind(a.bx,a.bx,a.bx)
 a.pt$logA[1:nrow(a.bx)] = a.bx$yield
-a.pt$logA[1:nrow(a.bx)+nrow(a.bx)] = a.bx$logC
-a.pt$Source = c(rep(colnames(a.bx)[22],nrow(a.bx)),rep(colnames(a.bx)[23],nrow(a.bx)),rep(colnames(a.bx)[24],nrow(a.bx)))
+# a.pt$logA[1:nrow(a.bx)+nrow(a.bx)] = a.bx$logC
+a.pt$Source = rep(c(colnames(a.bx)[22],colnames(a.bx)[24]), each=nrow(a.bx))
+# a.pt$Source = c(rep(colnames(a.bx)[22],nrow(a.bx)),rep(colnames(a.bx)[23],nrow(a.bx)),rep(colnames(a.bx)[24],nrow(a.bx)))
 colnames(a.pt)[24] = "value"
-a.pt$yield = a.pt$logC = NULL
+# a.pt$yield = a.pt$logC = NULL
 }
 
 ## line plots with 95% confidence interval
-xX=.9;{a.Ln = a.pt[which(a.pt$x==xX),]
-p_tmp = ggplot()+theme_bw()+ylim(c(-9,5)) + ylab(paste0("natural log eqm values, harvest = ",xX," day^-1")) + scale_fill_manual(name="system", values = cBpT[c(4,2)])+scale_colour_manual(name="system", values = cBp[c(4,2)])+scale_linetype_manual(name="type", labels=c("total carbon", "C pool", "yield"), values = c(1,2,4))
+xX=1;{a.Ln = a.pt[which(a.pt$x==xX),]
+p_tmp = ggplot()+theme_bw()+ylim(c(-9,5)) + ylab(paste0("natural log eqm values, harvest = ",xX," day^-1")) + scale_fill_manual(name="system", values = cBpT[c(4,2)])+scale_colour_manual(name="system", values = cBp[c(4,2)])+scale_linetype_manual(name="type", labels=c("total carbon", "yield flux"), values = 1:2)
+# p_tmp = ggplot()+theme_bw()+ylim(c(-9,5)) + ylab(paste0("natural log eqm values, harvest = ",xX," day^-1")) + scale_fill_manual(name="system", values = cBpT[c(4,2)])+scale_colour_manual(name="system", values = cBp[c(4,2)])+scale_linetype_manual(name="type", labels=c("total carbon", "C pool", "yield"), values = c(1,2,4))
 
 p_2 = p_tmp + xlab(colnames(a.Ln)[2]) + geom_smooth(aes(x=a.Ln[,2], y=a.Ln$value, fill=a.Ln$eqm, col=a.Ln$eqm, linetype=a.Ln$Source))
 p_3 = p_tmp + xlab(colnames(a.Ln)[3]) + geom_smooth(aes(x=a.Ln[,3], y=a.Ln$value, fill=a.Ln$eqm, col=a.Ln$eqm, linetype=a.Ln$Source))

@@ -10,5 +10,88 @@
 
 \begin{document}
 \section{Result}
-this is the result
+%this is the result
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{../result/Wilcox.png}
+    \caption[Wilcox test summary]{Line graph showing Wilcox signed rank test (W-test) result (solid line) and respective p-values (dashed line) between P-only and P+B systems on ``log total carbon" and ``log yield flux" perspectives.  {\scriptsize The graph is based on the analytical simulations of the parameter hyperspace from LHS method.  Samples were divided into categories by carbon removal rate.  W-test was carried out between eqm 3 (P-only) and 4 (P+B) comparing the ranked mean distribution differences.}}
+    \label{fig:wilcox}
+\end{figure}
+
+Fig.\ref{fig:wilcox} showed the W-test summary along the range of scanned removal rates ($x$).  No values were calculated for situations when $x=0$ because the organic carbon pool size was infinite for P-only systems (Table \ref{tab:eqm}).  Hence there was no valid comparisons using log values between P-only and P+B systems at $x=0$.  Generally increase in continuous removal decreased the carbon content and yield flux differences between P+B and P-only systems although the system differences remained statistical significant except when $x$ was around 0.3 to 0.4 day$^{-1}$.  At $x=0.4$ day$^{-1}$, the p-value was extremely high (p=0.79, 2dp).  The effects brought by the bacterial decomposer was not significant around that window of removal rates.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{../result/var_01.png}
+    \caption[95\% distribution for $x=0.1day^{-1}$]{Line graphs showing 95\% confidence interval for ``log total carbon" (solid line) and ``log yield flux" (dash line) based on respective parameter ranges when removal rate = 0.1$day^{-1}$.  {\scriptsize Simulations of $x=0.1$day$^{-1}$ category were summarised (n=1013) according to the eight biological parameters (Table \ref{varInTab}).  Most simulations from P+B systems had equilibrium total carbon contents significantly more (W=416686, p$\ll$0.01) than their P-only counterparts.  However for their  yield flux, P+B systems were significantly less (W=659181, p$\ll$0.01) than their P-only counterparts.  The dispersion for P+B systems were also smaller than that of P-only ones.}}
+    \label{fig:v01}
+\end{figure}
+
+Fig.\ref{fig:v01} was a summary of 1013 simulations under the category $x=0.1day^{-1}$.  P+B systems were significantly higher than P-only counterparts in ``total carbon" (W=416686, p$\ll$0.01) but lower in ``carbon yield flux" (W=659181, p$\ll$0.01).  The 95\% confidence intervals of P+B and P-only systems did not overlap.  In the perspective of total carbon in systems, P+B and P-only systems had the most similar result in high phytoplankton growth rates ($\gP$).  For the yield
+
+\subsection{total carbon}
+\begin{itemize}
+    \item 95\% distribution usually don't overlap between P+B \& P-only systems
+    \item highest overlap occur in $g_P$ but at lower end the difference is much larger than when viewed from other parameters' perspectives
+    \item overall distribution (left histogram) has similar peak size but still with statistical significance
+\end{itemize}
+
+\subsection{org-C / yield}
+\begin{itemize}
+    \item crossover in biological parameters are usually in lower side of parameter ranges (except $m_B$)
+    \item more values of P-only systems $>$ P+B ones
+    \item overall distribution (middle histogram) having P-only higher
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{../result/var_04.png}
+    \caption[95\% distribution for $x=0.4day^{-1}$]{Line graphs showing 95\% confidence interval for ``log total carbon" (solid line) and ``log yield flux" (dash line) based on respective parameter ranges when removal rate = 0.4$day^{-1}$.  {\scriptsize Simulations of $x=0.4$day$^{-1}$ category were summarised (n=1037) according to the eight biological parameters (Table \ref{varInTab}).  Most simulations from P+B systems had equilibrium total carbon contents significantly more (W=310009, p$\ll$0.01) than their P-only counterparts.  However for their yield flux, P+B systems were non-significantly differ (W=541356, p$\approx$0.79) from their P-only counterparts.  The dispersion for P+B systems were also smaller than that of P-only ones.}}
+    \label{fig:v04}
+\end{figure}
+
+\subsection{total carbon}
+\begin{itemize}
+    \item 95\% distribution mostly don't overlap between P+B \& P-only systems
+    \item highest overlap occur at end of $e_{PR}$ and start of $a_P$ ranges but at the opposite ends the difference is high
+    \item overall distribution (left histogram) is similar but still with statistical significance
+\end{itemize}
+
+\subsection{org-C / yield}
+\begin{itemize}
+    \item $e_P$ have P+B \& P-only systems almost overlapping each other
+    \item $e_{BR}$ have P+B \& P-only systems crossing but neither ends are having high differences compared with distributions from other parameters' perspectives
+    \item $g_B$ \& $m_B$ have P+B \& P-only systems with high difference at small values but as values increases both systems come close to each other and not showing big difference at high end of the range
+    \item overall distribution (middle histogram) having different shapes (P-only having a long low-end tail) but they're not having statistical difference
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{../result/var_10.png}
+    \caption[95\% distribution for $x=1day^{-1}$]{Line graphs showing 95\% confidence interval for ``log total carbon" (solid line) and ``log yield flux" (dash line) based on respective parameter ranges when removal rate = 1$day^{-1}$.  {\scriptsize Simulations of $x=1$day$^{-1}$ category were summarised (n=1000) according to the eight biological parameters (Table \ref{varInTab}).  Most simulations from P+B systems had equilibrium total carbon contents significantly more (W=167624, p$\ll$0.01) than their P-only counterparts.  However for their yield flux, P+B systems were significantly less (W=346104, p$\ll$0.01) than their P-only counterparts.  The dispersion for P+B systems were also smaller than that of P-only ones.}}
+    \label{fig:v10}
+\end{figure}
+
+\subsection{total carbon}
+\begin{itemize}
+    \item 95\% distribution don't overlap between P+B \& P-only systems
+    \item highest difference happen in low $g_P$ and lowest difference in low $a_P$ regions respectively
+    \item overall distribution (left histogram) has P+B distribution peaked on the right of the P-only one
+    \item due to the stability in the P+B result (small 95\% interval on each solid line and across the 8 parameters), peak density of P+B higher than that of P-only
+\end{itemize}
+
+\subsection{org-C / yield}
+\begin{itemize}
+    \item log(yield)|$_{x=1}$ = log(org-C) + log($x$) = log(org-C)
+    \item change of P parameters do not have observable effect on P+B log value (in smaller $x$ values fluctuated more)
+    \item change of B parameters gave more consistent effect across parameter ranges
+    \item most P+B values are higher than that of P-only
+    \begin{itemize}
+        \item $e_{PR}$, $g_P$, $g_B$ got (close to be) overtaken by P-only distributions
+        \item $e_P$, $e_{BR}$, $e_B$ always had their distributions higher than P-only
+        \item $a_P$, $m_B$ had P+B overtook P-only values at small parameter values
+    \end{itemize}
+    \item overall distribution (middle histogram) having P+B higher in central peak density; P-only has a wider spread in log carbon pool size
+\end{itemize}
+
 \end{document}

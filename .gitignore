@@ -9,9 +9,7 @@ p_*
 .~*
 *.xlsx
 *.pdf
-maxYield_*.csv
 *.odt#
 .ipynb_checkpoints
-discrepancy*.csv
 *.pyc
 anaIRL.csv

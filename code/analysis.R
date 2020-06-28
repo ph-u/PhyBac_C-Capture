@@ -71,7 +71,8 @@ ggplot()+theme_bw()+
               axis.title.y = element_text(hjust = .25),
               axis.text = element_text(size = 20),
               legend.text = element_text(size = 20),
-              legend.title = element_text(size = 20))
+              legend.title = element_text(size = 20),
+              legend.position = "bottom")
 dev.off()
 rm(list = ls(pattern = "st."))
 

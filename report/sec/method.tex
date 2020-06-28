@@ -21,7 +21,7 @@ The minimalist model used was composed by two players/ecological engines and thr
     \label{modelInWord}
 \end{figure}
 
-\subsection{variables and parameter hyperspace}
+\subsection{biological variables and parameter hyperspace}
 Nine parameters were used, two sets of four biological parameters for the players P and B plus one carbon harvest rate parameter.  The harvest rate was sampled under a uniform prior ranged from 0 to 1 $day^{-1}$.  Due to data limitations, time unit was ``day" and biological parameters were divided into two categories for practicality: fractions and rates.
 
 Fractions consisted of four dimensionless members, $\ePR$, $\eP$, $\eBR$ and $\eB$.  $\ePR$ and $\eBR$ were non-respired carbon fractions for P and B respectively.  $\eP$ and $\eB$ were carbon fractions incorporated into biomass for P and B respectively.
@@ -32,12 +32,11 @@ Limited by available data, $\aP$, $\eBR$, $\eB$ and $\mB$ did not contain much d
 
 \begin{table}[H]
     \centering
-    \caption[Algebra variables]{Table showing variables and corresponding ranges framing the parameter hyperspace}
+    \caption[Algebra variables]{Table showing biological variables and corresponding ranges framing the parameter hyperspace}
     \begin{tabular}{cclll}\hline
         variable & unit & description & min (2dp) & max (2dp) \\\hline
         $N'(t)$ & $\dfrac{gC}{m^3\cdot day}$ & rate of change of respective carbon pool {\tiny($N=C,P,B$)} & - & - \\
         $N$ & $\dfrac{gC}{m^3}$ & carbon density for respective pool {\tiny($N=C,P,B$)} & - & - \\
-        $x$ & $day^{-1}$ & harvest rate & 0 & 1 \\
         $\ePR$ & - & non-respired carbon fraction for P & 0.08 & 0.87 \\
         $\eP$ & - & assimilated carbon fraction for P & 0.4 & 1 \\
         $\gP$ & $day^{-1}$ & growth rate of P & 0.03 & 3.17 \\
@@ -49,6 +48,8 @@ Limited by available data, $\aP$, $\eBR$, $\eB$ and $\mB$ did not contain much d
     \hline\end{tabular}
     \label{varInTab}
 \end{table}
+
+This parameter hyperspace was scanned for different value of harvest rates (denoted by $x$, unit day$^{-1}$).  Selected values of $x$ scanned were 0 to 10 with interval =0.1 for values lower than 1 and interval =1 onward.
 
 \subsection{the model in equations}
 Using the parameters defined in Table \ref{varInTab}, linkages in Fig.\ref{modelInWord} could be summarised in Eqn.\ref{eq:ode}.
@@ -88,8 +89,8 @@ Analytical solve using SymPy (v1.0.7) in Julia-lang (v1.3.1) revealed four alter
 In Table \ref{tab:eqm}, eqm 1, 2 were biologically meaningless. Eqm 1 indicated an empty aquarium was in a stable equilibrium.  Eqm 2 had an always-negative B biomass which was impossible.  Eqm 3 indicated that the PoH model could be interpreted by PBH when initial value of B was set zero.  Eqm 4 hinted for every pair of P and B in the system there would be a maximum value of $x$ (i.e. harvest rate).  The effect of $x$ would be investigated and discussed.  Eqm 5 and 6 were mathematically meaningless because they contained no parameters.  On a contrary, evaluating eqm 3 and 4 using $x=0$ gave out more logically-sounded and interpretable solutions.  Hence the scanning and analyses were based on these two analytical solutions.
 
 \subsection{model simulation analysis}
-11 evenly-distributed values within each parameter range (Table \ref{varInTab}) were selected.  11K unique parameter value combinations were sampled using LHS technique under a uniform prior.  These combinations were analytically scanned (Table \ref{tab:eqm}).
+11 evenly-distributed values within each parameter range (Table \ref{varInTab}) were selected.  1100 unique biological parameter value combinations were sampled using LHS technique under a uniform prior.  The expected frequency of each value of each parameter was 100.  The LHS sample pool was analytically scanned for all harvest rates (Table \ref{tab:eqm}).  A positive value for a carbon pool indicated the respective pool existed at stable equilibrium.  Hence the total carbon ($C+P+B$ carbon pools) value was only considered biologically valid if all component carbon pools have a positive value.
 %% analyses
-Wilcox signed-rank test (W-test) was carried out between the natural log values of total carbon ($C+P+B$ carbon pools) and yield flux ($x\times C$).  Yields for ``no harvest" situations were set equal to the total carbon of such systems.  Total carbon and yield flux were also compared based on individual biological parameters, categorised by the carbon removal rate ($x$).
+Wilcox signed-rank test (W-test) was carried out between the natural log values of total carbon and yield flux ($x\times C$).  Yields for ``no harvest" situations were set equal to the total carbon of such systems.  Total carbon and yield flux were also compared based on individual biological parameters, categorised by the carbon removal rate ($x$).
 
 \end{document}

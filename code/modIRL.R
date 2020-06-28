@@ -85,18 +85,18 @@ x = c(seq(0,.9,by=.1),seq(1,10,by=1)) ## random rates, main point of investigati
 
 ##### result dataframe preparation #####
 cat("prepare for scan data collection\n")
-rEsult = as.data.frame(matrix(NA, nc=(9+4*2), nr=nrow(paRef)*100))
+rEsult = as.data.frame(matrix(NA, nc=(8+4*2), nr=nrow(paRef)*100))
 
 tmp=c()
 for(i in paste0("eqm",3:4)){
   tmp = c(tmp,paste0(i,c("C","P","B","A")))
 };rm(i)
-colnames(rEsult) = c("x", "ePR","eP","gP","aP", "eBR","eB","gB","mB", tmp)
+colnames(rEsult) = c("ePR","eP","gP","aP", "eBR","eB","gB","mB", tmp)
 rm(tmp)
 
 for(i in 1:ncol(paRef)){
-  while(length(unique(rEsult[,i+1]))<nrow(paRef)){ ## check each parameter has its own parameter range fully-covered
-    rEsult[,i+1] = sample(paRef[,i], nrow(rEsult), replace = T)
+  while(length(unique(rEsult[,i]))<nrow(paRef)){ ## check each parameter has its own parameter range fully-covered
+    rEsult[,i] = sample(paRef[,i], nrow(rEsult), replace = T)
   }};rm(i)
 
 ## check for duplicated entry
@@ -107,21 +107,16 @@ if(any(duplicated(rEsult))==T){
     dUp = which(duplicated(rEsult))
     for(i in dUp){
       i0 = c(sample(ncol(paRef),1),sample(nrow(paRef),1))
-      rEsult[i,i0[1]+1] = paRef[i0[1],i0[2]]
+      rEsult[i,i0[1]] = paRef[i0[1],i0[2]]
     };rm(i)
     if(any(duplicated(rEsult))==F){break}else{iTeration = iTeration +1}
   };rm(iTeration)
 }
 
 ## scan same biological parameter space on all removal rates
-i0 = nrow(rEsult)
-rE.t = rEsult
-for(i in 1:(length(x)-1)){
-  rE.t = rbind(rE.t,rEsult)
-};rm(i)
-rEsult = rE.t;rm(rE.t)
-rEsult[,1] = rep(x,each=i0) ## set harvest rate
-rm(i0)
+x = rep(x,each=nrow(rEsult)) ## set harvest rate
+rEsult = cbind(x,rEsult)
+rm(x)
 
 ##### analytical equlibria scan #####
 cat("env set-up finished, start scan\n")

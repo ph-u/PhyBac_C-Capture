@@ -23,7 +23,7 @@ a$log4C = log(a$eqm4C);a$log4A = log(a$eqm4A)
 ## exclude meaningless result for later filtering
 a[a==Inf] = a[a==-Inf] = NA
 
-##### plot of Wilcox test summary #####
+##### plot of Wilcox test summary & carbon harvest comparison #####
 wIl = as.data.frame(matrix(NA, nr=length(unique(a$x)), nc=3))
 colnames(wIl) = c("x",paste0("yield",c("_W","_p")))
 wIl[,1] = unique(a$x)[order(unique(a$x))]
@@ -33,6 +33,15 @@ for(i in 1:nrow(wIl)){ ## fill in Wilcox summary statistics and p-values
         if(class(w.y)=="try-error"){wIl[i,2:3] = rep(NA,2)}else{wIl[i,2:3] = c(w.y$statistic, w.y$p.value)}
 };rm(i,w.y)
 wIl$sig = ifelse(wIl$yield_p>.1,"NS",ifelse(wIl$yield_p<.001,"<<0.01",ifelse(wIl$yield_p<.01,"<0.01",round(wIl$yield_p,3))))
+
+## carbon harvest comparison
+a.PB = as.data.frame(matrix(NA, nr=length(unique(a$x))-1, nc=3))
+colnames(a.PB) = c("x",paste0("yieldDiff",c("_W","_p")))
+a.PB$x = wIl$x[-1]
+for(i in 1:nrow(a.PB)){
+        a.01 = wilcox.test(a$yield4C[which(a$x==0)], a$yield4C[which(a$x==a.PB[i,1])])
+        a.PB[i,-1] = c(a.01$statistic,ifelse(a.01$p.value>.1,"NS",ifelse(a.01$p.value<.001,"<<0.01",ifelse(a.01$p.value<.01,"<0.01",round(a.01$p.value,3)))))
+};rm(a.01, i)
 
 ## reformat table to adapt ggplot
 {a.t = a[,c(1:9,22:23,25,27)] ## parameters (9 cols), log yields (2 col), log total carbon (2 col)
@@ -45,24 +54,25 @@ wIl$sig = ifelse(wIl$yield_p>.1,"NS",ifelse(wIl$yield_p<.001,"<<0.01",ifelse(wIl
         rm(a.t)
 }
 ## yield comparisons
-st.0 = seq(1.7,10.7,1);st.1 = seq(2.3,11.3,1)
+st.0 = seq(1.7,10.7,1);st.1 = seq(2.3,11.3,1) ## pairwise Wilcox based on carbon harvest rate
+st.2 = seq(8.5,8.5+(nrow(a.PB)-1)*1.2,1.2) ## pairwise Wilcox within P+B systems
 png(paste0(ot,"Wilcox.png"), width = 1000)
 ggplot()+theme_bw()+
         geom_boxplot(aes(x=as.factor(a.HR$x), y=a.HR$yield, fill=as.factor(a.HR$eqm)))+
-        xlab("carbon removal rate (1/day)") + ylab("log yield flux") +
+        xlab("carbon harvest rate (1/day)") + ylab("log yield flux") +
         scale_fill_manual(name="system", labels=c("P-only", "P+B"), values = cBpT[c(4,2)])+
+        scale_y_continuous(breaks = round(seq(min(a.HR$yield, na.rm = T),max(a.HR$yield, na.rm = T),2)))+
         geom_segment(aes(x=st.0,xend=st.1,y=7,yend=7))+
         geom_text(aes(x=round(st.0), y=7.5, label=wIl$sig[which(!is.na(wIl$sig))]), size=5)+
+        geom_segment(aes(x=rep(1,length(st.1)), xend=st.1, y=st.2, yend=st.2), col="red", lty=4)+
+        geom_text(aes(x=round(st.0), y=st.2+.5, label=a.PB$yieldDiff_p), size=5, col="red")+
         theme(axis.title = element_text(size = 20),
+              axis.title.y = element_text(hjust = .25),
               axis.text = element_text(size = 20),
               legend.text = element_text(size = 20),
               legend.title = element_text(size = 20))
 dev.off()
 rm(st.0,st.1)
-
-##### comparison of P+B systems removal rate: 0 vs 0.1 #####
-a.01 = a[which(a$x==0 | a$x==1),]
-wilcox.test(a.01$yield4C[which(a.01$x==0)], a.01$yield4C[which(a.01$x==1)])
 
 ##### distribution across biological parameters #####
 ## restructure dataframe

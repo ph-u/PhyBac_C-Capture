@@ -83,7 +83,7 @@ eqm = rep(c("P-only","P+B"), 2, each=nrow(a))
 a.pt = data.frame(a,Source,value,eqm);rm(Source,value, eqm)
 
 ## line plots with 95% confidence interval
-xX=1;{a.Ln = a.pt[which(a.pt$x==xX),]
+xX=2;{a.Ln = a.pt[which(a.pt$x==xX),]
 p_tmp = ggplot()+theme_bw()+ylim(c(-9,5)) + ylab(paste0("natural log eqm values, harvest = ",xX," day^-1")) + scale_linetype_manual(name="type", labels=c("total carbon", "yield flux"), values = 1:2)
 if(xX>0){
         p_tmp = p_tmp + scale_fill_manual(name="system", values = cBpT[c(4,2)])+scale_colour_manual(name="system", values = cBp[c(4,2)])

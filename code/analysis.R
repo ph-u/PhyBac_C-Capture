@@ -18,8 +18,8 @@ a = read.csv("../data/anaIRL.csv", header = T)
 a$yield3C = log(a$eqm3C*ifelse(a$x==0,1,a$x))
 a$yield4C = log(a$eqm4C*ifelse(a$x==0,1,a$x))
 ## carbon magnitude calculation
-a$log3C = log(a$eqm3C);a$log3A = log(a$eqm3A)
-a$log4C = log(a$eqm4C);a$log4A = log(a$eqm4A)
+a$log3A = log(a$eqm3A)
+a$log4A = log(a$eqm4A)
 ## exclude meaningless result for later filtering
 a[a==Inf] = a[a==-Inf] = NA
 
@@ -44,7 +44,7 @@ for(i in 1:nrow(a.PB)){
 };rm(a.01, i)
 
 ## reformat table to adapt ggplot
-{a.t = a[,c(1:9,22:23,25,27)] ## parameters (9 cols), log yields (2 col), log total carbon (2 col)
+{a.t = a[,-c(10:17)] ## parameters (9 cols), log yields (2 col), log total carbon (2 col)
         a.HR = rbind(a.t,a.t)
         a.HR$yield4C[1:nrow(a.t)] = a.t$yield3C
         a.HR$log4A[1:nrow(a.t)] = a.t$log3A
@@ -54,25 +54,28 @@ for(i in 1:nrow(a.PB)){
         rm(a.t)
 }
 ## yield comparisons
-st.0 = seq(1.7,10.7,1);st.1 = seq(2.3,11.3,1) ## pairwise Wilcox based on carbon harvest rate
-st.2 = seq(8.5,8.5+(nrow(a.PB)-1)*1.2,1.2) ## pairwise Wilcox within P+B systems
-png(paste0(ot,"Wilcox.png"), width = 1000)
+st.ref = c(1.7,2.3,10.5)
+## pairwise Wilcox based on carbon harvest rate
+st.0 = seq(st.ref[1],st.ref[1]+length(unique(a$x))-2,1) ## line segment start coordinate
+st.1 = seq(st.ref[2],st.ref[2]+length(unique(a$x))-2,1) ## line segment end coordinate
+st.2 = seq(st.ref[3],st.ref[3]+(nrow(a.PB)-1)*1.5,1.5) ## pairwise Wilcox within P+B systems
+png(paste0(ot,"Wilcox.png"), width = 1200, height = 1000)
 ggplot()+theme_bw()+
         geom_boxplot(aes(x=as.factor(a.HR$x), y=a.HR$yield, fill=as.factor(a.HR$eqm)))+
         xlab("carbon harvest rate (1/day)") + ylab("log yield flux") +
         scale_fill_manual(name="system", labels=c("P-only", "P+B"), values = cBpT[c(4,2)])+
         scale_y_continuous(breaks = round(seq(min(a.HR$yield, na.rm = T),max(a.HR$yield, na.rm = T),2)))+
-        geom_segment(aes(x=st.0,xend=st.1,y=7,yend=7))+
-        geom_text(aes(x=round(st.0), y=7.5, label=wIl$sig[which(!is.na(wIl$sig))]), size=5)+
+        geom_segment(aes(x=st.0,xend=st.1,y=8.5,yend=8.5))+
+        geom_text(aes(x=round(st.0), y=9.5, label=wIl$sig[which(!is.na(wIl$sig))]), size=5)+
         geom_segment(aes(x=rep(1,length(st.1)), xend=st.1, y=st.2, yend=st.2), col="red", lty=4)+
-        geom_text(aes(x=round(st.0), y=st.2+.5, label=a.PB$yieldDiff_p), size=5, col="red")+
+        geom_text(aes(x=round(st.0), y=st.2+.7, label=a.PB$yieldDiff_p), size=5, col="red")+
         theme(axis.title = element_text(size = 20),
               axis.title.y = element_text(hjust = .25),
               axis.text = element_text(size = 20),
               legend.text = element_text(size = 20),
               legend.title = element_text(size = 20))
 dev.off()
-rm(st.0,st.1)
+rm(list = ls(pattern = "st."))
 
 ##### distribution across biological parameters #####
 ## restructure dataframe

@@ -8,6 +8,7 @@
 # Arg 		: 0
 # Date 		: May 2020
 
+cat("import data & function \n")
 ##### pkg, data in #####
 source("func.R") ## self-defined functions
 gRate = read.csv("../data/gRate.csv", header = T) ## standardisation constants determined by `rateDet.R` using BioTrait database
@@ -21,8 +22,8 @@ rEspR = read.csv("../data/photoResp.csv", stringsAsFactors = F) ## phytoplankton
 
 ##### rate ranges data at 23 deg-C #####
 gRate$rate.23C = ArrheniusEq(gRate$stdConst.day,gRate$Ea.eV,23) ## temperature-standardized growth rate
-gP = gRate$rate.23C[which(gRate$role=="photocell")]
-gB = gRate$rate.23C[which(gRate$role!="photocell" & gRate$rate.23C>1)]/10
+gP = gRate$rate.23C[which(gRate$role=="phytoplankton")]
+gB = gRate$rate.23C[which(gRate$role!="phytoplankton" & gRate$rate.23C>1)]/10
 ## gB = rMax*constant
 ## gB is clearance rate; "constant" is an arbitrary inverted density
 ## rMax is BioTrait data
@@ -68,39 +69,64 @@ gB = mean(gB)*(1+gB.per)
 mB = mean(mB)*(1+rAg1)
 
 ##### parameter sequences under uniform prior #####
-paRef = as.data.frame(matrix(NA, nc=9, nr=11))
-colnames(paRef) = c("x", "ePR","eP","gP","aP", "eBR","eB","gB","mB")
-paRef[,1] = seq(0,1,by=.1) ## random rates, main point of investigation
-paRef[,2] = seq(ePR[1],ePR[2], by=diff(ePR)/10)
-paRef[,3] = seq(eP[1],eP[2], by=diff(eP)/10)
-paRef[,4] = seq(gP[1],gP[2], by=diff(gP)/10)
-paRef[,5] = seq(aP[1],aP[2], by=diff(aP)/10)
-paRef[,6] = seq(eBR[1],eBR[2], by=diff(eBR)/10)
-paRef[,7] = seq(eB[1],eB[2], by=diff(eB)/10)
-paRef[,8] = seq(gB[1],gB[2], by=diff(gB)/10)
-paRef[,9] = seq(mB[1],mB[2], by=diff(mB)/10)
+cat("structure parameter ranges\n")
+paRef = as.data.frame(matrix(NA, nc=8, nr=11))
+colnames(paRef) = c("ePR","eP","gP","aP", "eBR","eB","gB","mB")
+paRef[,1] = seq(ePR[1],ePR[2], by=diff(ePR)/10)
+paRef[,2] = seq(eP[1],eP[2], by=diff(eP)/10)
+paRef[,3] = seq(gP[1],gP[2], by=diff(gP)/10)
+paRef[,4] = seq(aP[1],aP[2], by=diff(aP)/10)
+paRef[,5] = seq(eBR[1],eBR[2], by=diff(eBR)/10)
+paRef[,6] = seq(eB[1],eB[2], by=diff(eB)/10)
+paRef[,7] = seq(gB[1],gB[2], by=diff(gB)/10)
+paRef[,8] = seq(mB[1],mB[2], by=diff(mB)/10)
+xMax = floor(prod(max(paRef$ePR)^2,max(paRef$gP)^2,max(paRef$eBR),max(paRef$eB),max(paRef$gB))/prod(min(paRef$aP),min(paRef$mB))) ## max sustainable harvest rate in parameter hyperspace
+x = c(seq(0,.9,by=.1),seq(1,10,by=1)) ## random rates, main point of investigation
 
 ##### result dataframe preparation #####
-rEsult = as.data.frame(matrix(NA, nc=(9+4*3), nr=nrow(paRef)*1000))
+cat("prepare for scan data collection\n")
+rEsult = as.data.frame(matrix(NA, nc=(9+4*2), nr=nrow(paRef)*100))
 
 tmp=c()
-for(i in paste0("eqm",2:4)){
+for(i in paste0("eqm",3:4)){
   tmp = c(tmp,paste0(i,c("C","P","B","A")))
 };rm(i)
 colnames(rEsult) = c("x", "ePR","eP","gP","aP", "eBR","eB","gB","mB", tmp)
 rm(tmp)
 
-repeat{
-  for(i in 1:ncol(paRef)){while(length(unique(rEsult[,i]))<nrow(paRef)){
-    rEsult[,i] = sample(paRef[,i], nrow(rEsult), replace = T)
+for(i in 1:ncol(paRef)){
+  while(length(unique(rEsult[,i+1]))<nrow(paRef)){ ## check each parameter has its own parameter range fully-covered
+    rEsult[,i+1] = sample(paRef[,i], nrow(rEsult), replace = T)
   }};rm(i)
-  if(any(duplicated(rEsult))==F){break}
+
+## check for duplicated entry
+if(any(duplicated(rEsult))==T){
+  iTeration = 1
+  repeat{
+    cat(paste0("get biological parameter set iteration = ",iTeration,"\n"))
+    dUp = which(duplicated(rEsult))
+    for(i in dUp){
+      i0 = c(sample(ncol(paRef),1),sample(nrow(paRef),1))
+      rEsult[i,i0[1]+1] = paRef[i0[1],i0[2]]
+    };rm(i)
+    if(any(duplicated(rEsult))==F){break}else{iTeration = iTeration +1}
+  };rm(iTeration)
 }
+
+## scan same biological parameter space on all removal rates
+i0 = nrow(rEsult)
+rE.t = rEsult
+for(i in 1:(length(x)-1)){
+  rE.t = rbind(rE.t,rEsult)
+};rm(i)
+rEsult = rE.t;rm(rE.t)
+rEsult[,1] = rep(x,each=i0) ## set harvest rate
+rm(i0)
 
 ##### analytical equlibria scan #####
 cat("env set-up finished, start scan\n")
 for(i in 1:nrow(rEsult)){
-  rEsult[i,-c(1:9)] = ebcAlt(as.numeric(rEsult[i,c(1:9)]),2)[-c(1:4)]
+  rEsult[i,-c(1:9)] = ebcAlt(as.numeric(rEsult[i,c(1:9)]),2)[-c(1:8)]
   if(i%%(nrow(rEsult)/100)==0){cat(paste0(round(i/nrow(rEsult)*100,2),"% finished; current > row ",i,"\n"))}
 };rm(i)
 

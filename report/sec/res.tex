@@ -11,10 +11,12 @@
 \begin{document}
 \section{Result}
 %this is the result
-\subsection{\hI}
+
+%% text on all result -> all graphs
+\subsection{\hI} % graph stat summary
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{../result/Wilcox.png}
+    \includegraphics[width=.7\linewidth]{../result/Wilcox.png}
     \caption[Wilcox test summary]{Line graph showing Wilcox signed rank test (W-test) result (solid line) and respective p-values (dashed line) between P-only and P+B systems on ``log total carbon" and ``log yield flux" perspectives.  {\scriptsize The graph is based on the analytical simulations of the parameter hyperspace from LHS method.  Samples were divided into categories by carbon removal rate.  W-test was carried out between eqm 3 (P-only) and 4 (P+B) comparing the ranked mean distribution differences.}}
     \label{fig:wilcox}
 \end{figure}
@@ -22,10 +24,17 @@
 Fig.\ref{fig:wilcox} showed the W-test summary along the range of scanned removal rates ($x$).  No values were calculated for situations when $x=0$ because the organic carbon pool size was infinite for P-only systems (Table \ref{tab:eqm}).  Hence there was no valid comparisons using log values between P-only and P+B systems at $x=0$.  Generally increase in continuous removal decreased the carbon content and yield flux differences between P+B and P-only systems although the system differences remained statistical significant except when $x$ was around 0.3 to 0.4 day$^{-1}$.  At $x=0.4$ day$^{-1}$, the p-value was extremely high (p=0.79, 2dp).  The effects brought by the bacterial decomposer was not significant around that window of removal rates.
 
 
-\subsection{\hII}
+\subsection{\hII} %% text stat summary?
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\linewidth]{../result/yield.png}
+    \caption[continuous harvest is not important]{Boxplot showing carbon yield distribution between no harvest ($x=0$ day$^{-1}$) and maximum harvest rate in parameter range ($x=1$ day$^{-1}$) for P+B systems.  {\scriptsize This was a comparison between the natural log values of yield flux between the minimum (0 day$^{-1}$) and maximum (1 day$^{-1}$) harvest rate carbon production.  The distributions were insignificant, although high carbon removal rate systems had the whole distribution of yields higher than that of no harvest.}}
+    \label{fig:yield}
+\end{figure}
 
+[desc for yield]
 
-\subsection{\hIII}
+\subsection{\hIII} % graph stat summary
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{../result/var_10.png}

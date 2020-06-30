@@ -12,4 +12,5 @@ p_*
 *.odt#
 .ipynb_checkpoints
 *.pyc
+gRate.csv
 anaIRL.csv

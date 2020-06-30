@@ -116,14 +116,15 @@ analytical scan using real-life parameter ranges
 
 #### Features
 
+main script for project reproduction
 
 #### Suggested input
 
-	`bash project.sh`
+`bash project.sh`
 
 #### Expected Output
 
-	none; see respective scripts
+none; see respective scripts
 
 *****
 

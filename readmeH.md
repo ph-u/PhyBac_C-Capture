@@ -41,9 +41,8 @@ TeX | | TeX Live 2019
 ## Guides
 
 1. `code/`: scripts with description headers
-2. `data/`: small data files
-3. large data files are stored in Google [drive](https://drive.google.com/drive/folders/1tp2miPXis7bn-km1THC3ZaRHSRXQGCi5?usp=sharing)
-4. `result/`: important graphs
-5. `report/`: main thesis TeX script and categorized report content
+0. `data/`: small data files
+0. `result/`: important graphs
+0. `report/`: main thesis TeX script and categorized report content
 
 ## Coding scripts summary

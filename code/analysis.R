@@ -3,7 +3,7 @@
 # Author 	: PokMan HO
 # Script 	: analysis.R
 # Desc 		: modIRL.R result analyses
-# Input 	: run this script in R console; graphs can't be run via automated loops
+# Input 	: `Rscript analysis.R`
 # Output 	: plots in `result/`
 # Arg 		: 0
 # Date 		: Jun 2020
@@ -58,23 +58,26 @@ st.0 = seq(st.ref[1],st.ref[1]+length(unique(a$x))-2,1) ## line segment start co
 st.1 = seq(st.ref[2],st.ref[2]+length(unique(a$x))-2,1) ## line segment end coordinate
 st.2 = seq(st.ref[3],st.ref[3]+(nrow(a.PB)-1)*1.5,1.5) ## pairwise Wilcox within P+B systems
 png(paste0(ot,"Wilcox.png"), width = 1800, height = 1000)
-ggplot()+theme_bw()+
-        geom_boxplot(aes(x=as.factor(a.HR$x), y=a.HR$yield, fill=as.factor(a.HR$eqm)))+
-        xlab("carbon harvest rate (1/day)") + ylab("log yield flux") +
-        scale_fill_manual(name="system", labels=c("P-only", "P+B"), values = cBpT[c(4,2)])+
-        scale_y_continuous(breaks = round(seq(min(a.HR$yield[is.finite(a.HR$yield)]),max(a.HR$yield[is.finite(a.HR$yield)]),2)))+
-        geom_segment(aes(x=st.0,xend=st.1,y=8.5,yend=8.5))+
-        geom_text(aes(x=round(st.0), y=10.5, label=paste0("W = ",wIl$yield_W[-1],"\np ",wIl$sig[-1])), size=5)+
-        geom_segment(aes(x=rep(1,length(st.1)), xend=st.1, y=st.2, yend=st.2), col="red", lty=4)+
-        geom_text(aes(x=round(st.0)-.5, y=st.2+.7, label=paste0("W = ",a.PB$yieldDiff_W[which(!is.na(a.PB$yieldDiff_W))],"; p ",a.PB$yieldDiff_p)), size=5, col="red")+
-        theme(axis.title = element_text(size = 20),
-              axis.title.y = element_text(hjust = .25),
-              axis.text = element_text(size = 20),
-              legend.text = element_text(size = 20),
-              legend.title = element_text(size = 20),
-              legend.position = "bottom")
-dev.off()
+suppressWarnings(print( ## prevent huge load of known NA-related warnings and default method switch calls
+        ggplot()+theme_bw()+
+                geom_boxplot(aes(x=as.factor(a.HR$x), y=a.HR$yield, fill=as.factor(a.HR$eqm)))+
+                xlab("carbon harvest rate (1/day)") + ylab("log yield flux") +
+                scale_fill_manual(name="system", labels=c("P-only", "P+B"), values = cBpT[c(4,2)])+
+                scale_y_continuous(breaks = round(seq(min(a.HR$yield[is.finite(a.HR$yield)]),max(a.HR$yield[is.finite(a.HR$yield)]),2)))+
+                geom_segment(aes(x=st.0,xend=st.1,y=8.5,yend=8.5))+
+                geom_text(aes(x=round(st.0), y=10.5, label=paste0("W = ",wIl$yield_W[-1],"\np ",wIl$sig[-1])), size=5)+
+                geom_segment(aes(x=rep(1,length(st.1)), xend=st.1, y=st.2, yend=st.2), col="red", lty=4)+
+                geom_text(aes(x=round(st.0)-.5, y=st.2+.7, label=paste0("W = ",a.PB$yieldDiff_W[which(!is.na(a.PB$yieldDiff_W))],"; p ",a.PB$yieldDiff_p)), size=5, col="red")+
+                theme(axis.title = element_text(size = 20),
+                      axis.title.y = element_text(hjust = .25),
+                      axis.text = element_text(size = 20),
+                      legend.text = element_text(size = 20),
+                      legend.title = element_text(size = 20),
+                      legend.position = "bottom")
+))
+invisible(dev.off())
 rm(list = ls(pattern = "st."))
+cat("output Distribution comparison boxplot with Wilcox test summaries finished\n")
 
 ##### distribution across biological parameters #####
 ## restructure dataframe
@@ -103,6 +106,9 @@ p_9 = p_tmp + xlab(colnames(a.Ln)[9]) + geom_smooth(aes(x=a.Ln[,9], y=a.Ln$value
 
 };{
         png(paste0(ot,"var_",ifelse(xX<1,"0",""),xX*10,".png"), res = 100, width = 2000, height = 700)
-        grid.arrange(p_2, p_3, p_4, p_5, p_6, p_7, p_8, p_9, nrow=2)
-        dev.off()
+        suppressWarnings(suppressMessages( ## prevent huge load of known NA-related warnings and default method switch calls
+                grid.arrange(p_2, p_3, p_4, p_5, p_6, p_7, p_8, p_9, nrow=2)
+        ))
+        invisible(dev.off())
 };rm(list=ls(pattern = "p_"));rm(xX, a.Ln)
+cat("output Combined plot of specified harvest rate based on biological parameters finished\n")

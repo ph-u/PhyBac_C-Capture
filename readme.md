@@ -44,6 +44,7 @@ TeX | | TeX Live 2019
 0. `data/`: small data files
 0. `result/`: important graphs
 0. `report/`: main thesis TeX script and categorized report content
+0. the project can be reproduced by running `bash project.sh` in the `code/` directory
 
 ## Coding scripts summary
 

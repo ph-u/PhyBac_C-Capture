@@ -19,7 +19,7 @@ analogous to grasslands
 destructive harvest < continuous/constant harvest
 maximum yield, not "sustainable"
 total yield, same time frame
-itegrate for some time -> when same with x=0
+integrate for some time -> when same with x=0
 
 this graph is hypothesis sorted
 why presence of bacteria allows higher sustainable yield

@@ -85,7 +85,7 @@ x = c(seq(0,.9,by=.1),seq(1,10,by=1)) ## random rates, main point of investigati
 
 ##### result dataframe preparation #####
 cat("prepare for scan data collection\n")
-rEsult = as.data.frame(matrix(NA, nc=(8+4*2), nr=nrow(paRef)*100))
+rEsult = as.data.frame(matrix(NA, nc=(8+4*2), nr=nrow(paRef)*500))
 
 tmp=c()
 for(i in paste0("eqm",3:4)){
@@ -94,6 +94,7 @@ for(i in paste0("eqm",3:4)){
 colnames(rEsult) = c("ePR","eP","gP","aP", "eBR","eB","gB","mB", tmp)
 rm(tmp)
 
+set.seed(20192020) ## set random number generator for reproducibility
 for(i in 1:ncol(paRef)){
   while(length(unique(rEsult[,i]))<nrow(paRef)){ ## check each parameter has its own parameter range fully-covered
     rEsult[,i] = sample(paRef[,i], nrow(rEsult), replace = T)

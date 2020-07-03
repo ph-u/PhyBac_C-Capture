@@ -22,6 +22,7 @@ python | | 3.7.3
 R | | 3.6.0
 . | ggplot2 | 3.3.2
 . | gridExtra | 2.3
+. | reshape2 | 1.4.4
 TeX | | TeX Live 2019
 . | LuaTeX | 1.10.0
 . | BibTeX | 0.99d
@@ -65,22 +66,6 @@ plots in `result/`
 
 *****
 
-### func.R
-
-#### Features
-
-self-defined functions
-
-#### Suggested input
-
-`source("../code/func.R")` in R scripts
-
-#### Expected Output
-
-none
-
-*****
-
 ### func.jl
 
 #### Features
@@ -90,6 +75,22 @@ self-defined functions
 #### Suggested input
 
 `include("../code/func.jl")` in jl scripts
+
+#### Expected Output
+
+none
+
+*****
+
+### func.R
+
+#### Features
+
+self-defined functions
+
+#### Suggested input
+
+`source("../code/func.R")` in R scripts
 
 #### Expected Output
 

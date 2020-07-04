@@ -55,14 +55,11 @@ ebcAlt = function(parameter=c(0,.875,.63,.259,.001,.6,.55,1.046,.14), out=1){
   ePR = parameter[2]; eP = parameter[3]; gP = parameter[4]; aP = parameter[5]
   eBR = parameter[6]; eB = parameter[7]; gB = parameter[8]; mB = parameter[9]
   
-  rEs = as.data.frame(matrix(0,nc=4,nr=4))
-  colnames(rEs) = c("C","P","B","total")
-  tmp = c(mB/(eBR*eB*gB), 0, x/(gB*(eBR-1)))
-  rEs[2,] = c(tmp,ifelse(any(tmp<0),NA,sum(tmp)))
-  tmp = c(eP*(ePR*gP)^2/(aP*x), ePR*eP*gP/aP, 0)
-  rEs[3,] = c(tmp,ifelse(any(tmp<0),NA,sum(tmp)))
-  tmp = c(mB/(eBR*eB*gB), ePR*eP*gP/aP, (aP*mB*x - eBR*eB*gB*eP*(ePR*gP)^2)/(gB*mB*aP*(eBR-1)))
-  rEs[4,] = c(tmp,ifelse(any(tmp<0),NA,sum(tmp)))
+  rEs = as.data.frame(matrix(0,nc=3,nr=4))
+  colnames(rEs) = c("C","P","B")
+  rEs[2,] = c(mB/(eBR*eB*gB), 0, x/(gB*(eBR-1)))
+  rEs[3,] = c(eP*(ePR*gP)^2/(aP*x), ePR*eP*gP/aP, 0)
+  rEs[4,] = c(mB/(eBR*eB*gB), ePR*eP*gP/aP, (aP*mB*x - eBR*eB*gB*eP*(ePR*gP)^2)/(gB*mB*aP*(eBR-1)))
   
   if(out==1){return(rEs)}else{
     tmp = c()

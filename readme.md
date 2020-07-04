@@ -13,12 +13,9 @@ Apache-2.0
 comp-lang | packages | version
 --- | --- | ---
 bash | | 3.2.57(1)-release
-Julia-lang | | 1.3.1
-. | PyCall | 1.91.4
-. | DataFrames | 0.20.2
-. | SymPy | 1.0.7
 python | | 3.7.3
 . | SciPy | 1.2.3
+. | SymPy | 1.5.1
 R | | 3.6.0
 . | ggplot2 | 3.3.2
 . | gridExtra | 2.3
@@ -79,6 +76,35 @@ self-defined functions
 #### Expected Output
 
 none
+
+*****
+
+### func.py
+
+#### Features
+
+project model
+
+#### Suggested input
+
+`import func` in a python3 script inside `code/` directory
+
+#### Expected Output
+
+none
+
+*****
+
+### func.pyc
+
+#### Features
+
+
+#### Suggested input
+
+
+#### Expected Output
+
 
 *****
 

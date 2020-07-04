@@ -15,15 +15,15 @@ invisible(lapply(lib,library,character.only=T));rm(lib)
 ot = "../result/"
 a = read.csv("../data/anaIRL.csv", header = T)
 a.0 = a ## conserve raw data
+a = a[which(a$eqm4B>0 & is.finite(a$eqm4B)),] ## extract for positive but not crashed systems
 ## yield calculation
-a$yield3C = ifelse(is.finite(a$eqm3A),log(a$eqm3C*ifelse(a$x==0,1,a$x)),NA)
-a$yield4C = ifelse(is.finite(a$eqm4A),log(a$eqm4C*ifelse(a$x==0,1,a$x)),NA)
+a$yield3C = ifelse(a$x==0,log(a$eqm3C+a$eqm3P),log(a$x*a$eqm3C))
+a$yield4C = ifelse(a$x==0,log(a$eqm4C+a$eqm4P+a$eqm4B),log(a$x*a$eqm4C))
 ## carbon magnitude calculation
-a$log3A = log(a$eqm3A)
-a$log4A = log(a$eqm4A)
+a$log3A = log(a$eqm3C+a$eqm3P)
+a$log4A = log(a$eqm4C+a$eqm4P+a$eqm4B)
 
-a = a[which(a$eqm4B>0 & is.finite(a$eqm4B)), ## extract only P+B valid data for fair comparison
-      -c(10:17)] ## parameters (9 cols), log yields (2 col), log total carbon (2 col)
+a = a[,-c(10:15)] ## parameters (9 cols), log yields (2 col), log total carbon (2 col)
 ## check sample size is same across all valid record
 # cHeck = as.data.frame(matrix(NA,nc=5,nr=length(unique(a$x))))
 # colnames(cHeck) = c("x",paste0(rep(c("yield_","totalCarbon_"),each=2),3:4))

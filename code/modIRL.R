@@ -85,11 +85,11 @@ x = c(seq(0,.9,by=.1),seq(1,10,by=1)) ## random rates, main point of investigati
 
 ##### result dataframe preparation #####
 cat("prepare for scan data collection\n")
-rEsult = as.data.frame(matrix(NA, nc=(8+4*2), nr=nrow(paRef)*500))
+rEsult = as.data.frame(matrix(NA, nc=(8+3*2), nr=nrow(paRef)*500))
 
 tmp=c()
 for(i in paste0("eqm",3:4)){
-  tmp = c(tmp,paste0(i,c("C","P","B","A")))
+  tmp = c(tmp,paste0(i,c("C","P","B")))
 };rm(i)
 colnames(rEsult) = c("ePR","eP","gP","aP", "eBR","eB","gB","mB", tmp)
 rm(tmp)
@@ -122,7 +122,7 @@ rm(x)
 ##### analytical equlibria scan #####
 cat("env set-up finished, start scan\n")
 for(i in 1:nrow(rEsult)){
-  rEsult[i,-c(1:9)] = ebcAlt(as.numeric(rEsult[i,c(1:9)]),2)[-c(1:8)]
+  rEsult[i,-c(1:9)] = ebcAlt(as.numeric(rEsult[i,c(1:9)]),2)[-c(1:6)]
   if(i%%(nrow(rEsult)/100)==0){cat(paste0(round(i/nrow(rEsult)*100,2),"% finished; current > row ",i,"\n"))}
 };rm(i)
 

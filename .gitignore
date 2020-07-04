@@ -12,6 +12,8 @@ p_*
 *.odt#
 .ipynb_checkpoints
 *.pyc
-bib
+proposal
+reference
+sandbox
 gRate.csv
 anaIRL.csv

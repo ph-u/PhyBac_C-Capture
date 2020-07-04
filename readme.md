@@ -63,22 +63,6 @@ plots in `result/`
 
 *****
 
-### func.jl
-
-#### Features
-
-self-defined functions
-
-#### Suggested input
-
-`include("../code/func.jl")` in jl scripts
-
-#### Expected Output
-
-none
-
-*****
-
 ### func.py
 
 #### Features
@@ -92,19 +76,6 @@ project model
 #### Expected Output
 
 none
-
-*****
-
-### func.pyc
-
-#### Features
-
-
-#### Suggested input
-
-
-#### Expected Output
-
 
 *****
 

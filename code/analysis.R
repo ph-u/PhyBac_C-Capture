@@ -38,48 +38,68 @@ a.pt = melt(a, id.vars = colnames(a)[1:9])
 a.pt$Source = ifelse(a.pt$variable=="yield3C" | a.pt$variable=="yield4C", "yield","logA")
 a.pt$eqm = ifelse(a.pt$variable=="yield3C" | a.pt$variable=="log3A", "P-only","P+B")
 
-##### plot of Wilcox test summary & carbon harvest comparison #####
-wIl = as.data.frame(matrix(NA, nr=length(unique(a$x)), nc=3))
-colnames(wIl) = c("x",paste0("yield",c("_W","_p")))
+##### P+B vs P-only #####
+wIl = as.data.frame(matrix(NA, nr=length(unique(a$x)), nc=4))
+colnames(wIl) = c("x",paste0("yield",c("_W","_p")),"n")
 wIl[,1] = unique(a$x)[order(unique(a$x))]
 for(i in 1:nrow(wIl)){ ## fill in Wilcox summary statistics and p-values
-        w.y = try(wilcox.test(a$yield3C[which(a$x==wIl[i,1])], a$yield4C[which(a$x==wIl[i,1])]), silent = T)
-        ## silence error while filling in summary statistics
-        if(class(w.y)=="try-error"){wIl[i,2:3] = rep(NA,2)}else{wIl[i,2:3] = c(w.y$statistic, w.y$p.value)}
-};rm(i,w.y)
+        t = cbind(a$yield3C[which(a$x==wIl[i,1])],a$yield4C[which(a$x==wIl[i,1])])
+        t = as.data.frame(t[which(is.finite(t[,1]) & is.finite(t[,2])),])
+        if(nrow(t)>5){
+                w.y = wilcox.test(t[,1],t[,2])
+                wIl[i,2:3] = c(w.y$statistic, w.y$p.value)
+                rm(w.y)
+        }else{wIl[i,2:3] = rep(NA,2)}
+        wIl[i,4] = nrow(t)
+};rm(i,t)
 wIl$sig = ifelse(wIl$yield_p>.1,"=NS",ifelse(wIl$yield_p<.001,"<<0.01",ifelse(wIl$yield_p<.01,"<0.01",paste0("=",round(wIl$yield_p,3)))))
 
-## carbon harvest comparison
-a.PB = as.data.frame(matrix(NA, nr=length(unique(a$x))-1, nc=3))
-colnames(a.PB) = c("x",paste0("yieldDiff",c("_W","_p")))
+##### x=0 vs x!=0 #####
+a.PB = as.data.frame(matrix(NA, nr=length(unique(a$x))-1, nc=4))
+colnames(a.PB) = c("x",paste0("yieldDiff",c("_W","_p")),"n")
 a.PB$x = wIl$x[-1]
+a.wide4 = dcast(a,ePR+eP+gP+aP+eBR+eB+gB+mB~x,fun.aggregate = sum, value.var = "yield4C") ## concentrate P+B systems in harvest rate for comparisons
+a.wide4[a.wide4==0] = NA
 for(i in 1:nrow(a.PB)){
-        a.01 = wilcox.test(a$yield4C[which(a$x==0)], a$yield4C[which(a$x==a.PB[i,1])])
-        a.PB[i,-1] = c(a.01$statistic,ifelse(a.01$p.value>.1,"=NS",ifelse(a.01$p.value<.001,"<<0.01",ifelse(a.01$p.value<.01,"<0.01",paste0("=",round(a.01$p.value,3))))))
-};rm(a.01, i)
+        t = a.wide4[which(!is.na(a.wide4[,9+i])),c(1:9,9+i)]
+        a.01 = wilcox.test(t[,ncol(t)-1], t[,ncol(t)])
+        a.PB[i,-1] = c(a.01$statistic,ifelse(a.01$p.value>.1,"=NS",ifelse(a.01$p.value<.001,"<<0.01",ifelse(a.01$p.value<.01,"<0.01",paste0("=",round(a.01$p.value,3))))),nrow(t))
+        ## prepare for plot
+        t[,ncol(t)] = as.numeric(colnames(t)[ncol(t)])
+        colnames(t)[ncol(t)] = "x"
+        if(i==1){
+                p = t
+        }else{
+                p = rbind(p,t)
+        }
+};rm(a.01, i,t)
+## amend no harvest P+B data for plot
+colnames(p)[ncol(p)-1] = "value"
+p$variable = "yield4C"
+p$Source = "yield"
+p$eqm = "no harvest P+B"
+p = p[,c(10,1:8,11,9,12:ncol(p))]
 
-
-a.HR = a.pt[which(a.pt$Source=="yield"),] ## extract table for plot
-## yield comparisons
-st.ref = c(1.7,2.3,12)
-## pairwise Wilcox based on carbon harvest rate
+##### summary plot #####
+a.HR = a.pt[which(a.pt$Source=="yield" & a.pt$x>0),] ## extract table for plot
+a.HR = rbind(a.HR,p);rm(p)
+st.ref = c(0.7,1,1.3)
 st.0 = seq(st.ref[1],st.ref[1]+length(unique(a$x))-2,1) ## line segment start coordinate
-st.1 = seq(st.ref[2],st.ref[2]+length(unique(a$x))-2,1) ## line segment end coordinate
-st.2 = seq(st.ref[3],st.ref[3]+(nrow(a.PB)-1)*1.5,1.5) ## pairwise Wilcox within P+B systems
+st.1 = seq(st.ref[2],st.ref[2]+length(unique(a$x))-2,1) ## line segment mid coordinate
+st.2 = seq(st.ref[3],st.ref[3]+length(unique(a$x))-2,1) ## line segment end coordinate
 st.y = round(range(a.HR$value[is.finite(a.HR$value)])) ## set y scale
-png(paste0(ot,"Wilcox.png"), width = 1800, height = 1000)
+png(paste0(ot,"Wilcox.png"), width = 2000, height = 1000)
 suppressWarnings(print( ## prevent huge load of known NA-related warnings and default method switch calls
-        ggplot()+theme_bw()+
-                geom_boxplot(aes(x=as.factor(a.HR$x), y=a.HR$value, fill=as.factor(a.HR$eqm)))+
-                xlab("carbon harvest rate (1/day)") + ylab("log yield flux") +
-                scale_fill_manual(name="system", values = cBpT[c(4,2)])+
+        ggplot()+theme_bw()+xlab("carbon harvest rate (1/day)") + ylab("log yield flux") +
                 scale_y_continuous(breaks = seq(st.y[1],st.y[2],2))+
-                geom_segment(aes(x=st.0,xend=st.1,y=8.5,yend=8.5))+
-                geom_text(aes(x=round(st.0), y=10.5, label=paste0("W = ",wIl$yield_W[-1],"\np ",wIl$sig[-1])), size=5)+
-                geom_segment(aes(x=rep(1,length(st.1)), xend=st.1, y=st.2, yend=st.2), col="red", lty=4)+
-                geom_text(aes(x=round(st.0)-.5, y=st.2+.7, label=paste0("W = ",a.PB$yieldDiff_W[which(!is.na(a.PB$yieldDiff_W))],"; p ",a.PB$yieldDiff_p)), size=5, col="red")+
+                geom_boxplot(aes(x=as.factor(a.HR$x), y=a.HR$value, fill=as.factor(a.HR$eqm)))+
+                scale_fill_manual(name="system", values = cBpT[c(4,2,1)])+
+                geom_segment(aes(x=st.0,xend=st.1,y=max(st.y)+1,yend=max(st.y)+1))+
+                geom_text(aes(x=round(st.0), y=max(st.y)+2, label=paste0("W = ",wIl$yield_W[-1],"\np ",wIl$sig[-1],"\nn = ",wIl$n[-1])), size=5)+
+                geom_segment(aes(x=st.1,xend=st.2,y=min(st.y)-1,yend=min(st.y)-1), col="red")+
+                geom_text(aes(x=round(st.1), y=min(st.y)-2, label=paste0("W = ",a.PB$yieldDiff_W,"\np ",a.PB$yieldDiff_p,"\nn = ",a.PB$n)), size=5, col="red")+
                 theme(axis.title = element_text(size = 20),
-                      axis.title.y = element_text(hjust = .25),
+                      #axis.title.y = element_text(hjust = .25),
                       axis.text = element_text(size = 20),
                       legend.text = element_text(size = 20),
                       legend.title = element_text(size = 20),

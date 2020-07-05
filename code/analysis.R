@@ -77,7 +77,7 @@ for(i in 1:nrow(a.PB)){
 colnames(p)[ncol(p)-1] = "value"
 p$variable = "yield4C"
 p$Source = "yield"
-p$eqm = "no harvest P+B"
+p$eqm = "P+B(no harvest)"
 p = p[,c(10,1:8,11,9,12:ncol(p))]
 
 ##### summary plot #####

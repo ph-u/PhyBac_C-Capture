@@ -77,7 +77,7 @@ for(i in 1:nrow(a.PB)){
 colnames(p)[ncol(p)-1] = "value"
 p$variable = "yield4C"
 p$Source = "yield"
-p$eqm = "P+B(no harvest)"
+p$eqm = "no harvest P+B"
 p = p[,c(10,1:8,11,9,12:ncol(p))]
 
 ##### summary plot #####
@@ -93,7 +93,7 @@ suppressWarnings(print( ## prevent huge load of known NA-related warnings and de
         ggplot()+theme_bw()+xlab("carbon harvest rate (1/day)") + ylab("log yield flux") +
                 scale_y_continuous(breaks = seq(st.y[1],st.y[2],2))+
                 geom_boxplot(aes(x=as.factor(a.HR$x), y=a.HR$value, fill=as.factor(a.HR$eqm)))+
-                scale_fill_manual(name="system", values = cBpT[c(4,2,1)])+
+                scale_fill_manual(name="system", values = cBpT[c(4,2,1)], label=c("[P, no B, with harvest]", "[P, with B, with harvest]", "[P, with B, no harvest]"))+
                 geom_segment(aes(x=st.0,xend=st.1,y=max(st.y)+1,yend=max(st.y)+1))+
                 geom_text(aes(x=round(st.0), y=max(st.y)+2, label=paste0("W = ",wIl$yield_W[-1],"\np ",wIl$sig[-1],"\nn = ",wIl$n[-1])), size=5)+
                 geom_segment(aes(x=st.1,xend=st.2,y=min(st.y)-1,yend=min(st.y)-1), col="red")+

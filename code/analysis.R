@@ -164,7 +164,7 @@ rm(list = ls(pattern = "st."));rm(a.HR,wIl,a.PB)
 
 ##### distribution across biological parameters #####
 ## line plots with 95% confidence interval
-xX=2;{a.Ln = a.pt[which(a.pt$x==xX),]
+xX=10;{a.Ln = a.pt[which(a.pt$x==xX),]
 st.y = quantile(a.Ln$value[is.finite(a.Ln$value)], probs = c(.05,.95)); st.y = c(floor(st.y)[1],ceiling(st.y)[2])
 p_tmp = ggplot()+theme_bw()+ylim(st.y) + ylab(paste0("natural log eqm values, harvest = ",xX," day^-1")) + scale_linetype_manual(name="type", labels=c("total carbon", "yield flux"), values = 1:2)
 if(xX>0){

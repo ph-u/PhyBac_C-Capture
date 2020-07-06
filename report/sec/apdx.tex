@@ -37,7 +37,7 @@ Growth rate data was obtained from ``BioTrait" database\autocite{della2013therma
     \label{arrEq}
 \end{equation}
 
-which $A$ is rate standardised in data and $A_0$ is the standardisation constant with the same unit, $E_a$ is the activation energy with unit eV, $k$ is Boltzmann constant from Scipy (v1.4.1) package under unit eV/K and $T_C$ is the temperature of the organism measured from the data with unit ($^oC$).
+which $A$ is rate standardised in data and $A_0$ is the standardisation constant with the same unit, $E_a$ is the activation energy with unit eV, $k$ is Boltzmann constant from Scipy (v1.4.1) package under unit eV/K and $T_C$ is the temperature of the organism measured from the data with unit (\textsuperscript{o}C).
 
 Activation energies for phytoplanktons and bacterial decomposers are 0.32eV and 0.66eV respectively.\autocite{regaudie2012temperature}  Standardised rate unit in data was initially ``$sec^{-1}$" and the unit was re-standardised to ``$day^{-1}$" for this study (Fig.\ref{growStdVal}).
 
@@ -75,7 +75,7 @@ For $\aP$ data collected from \autocite{de2007biofixation}, they were in 30\text
 \subsection{non-respired carbon fraction for phytoplankton data wrangling}
 Data was available in the form of linear equations in \autocite{j1989respiration}.  These equations from literature was temperature-tagged with y-axis as respiration rate and x-axis as growth rate.  Hence only the equations within the considered temperature ranges were accepted.  Among the six equations matched , intercepts and slope values were collected.
 
-Using the growth rates for phytoplankton at 23$^oC$ calculated, the non-respired fraction of carbon ($n(R')$) was deduced as
+Using the growth rates for phytoplankton at 23\textsuperscript{o}C calculated, the non-respired fraction of carbon ($n(R')$) was deduced as
 
 \begin{equation}
     n(R') = 1-n(R) = 1-\dfrac{\text{intercept}+\text{slope}\cdot\gP}{\gP}

@@ -91,6 +91,6 @@ In Table \ref{tab:eqm}, eqm 1, 2 were biologically meaningless. Eqm 1 indicated 
 \subsection{model simulation analysis}
 11 evenly-distributed values within each parameter range (Table \ref{varInTab}) were selected with R(v4.0.2)\autocite{r2020r}.  5500 unique biological parameter value combinations were sampled using LHS technique under a uniform prior.  The expected frequency of each value of each parameter was 500.  The LHS sample pool was analytically scanned for all harvest rates (Table \ref{tab:eqm}).  A positive value for a carbon pool indicated the respective pool existed at stable equilibrium.  Hence the total carbon ($C+P+B$ carbon pools) value was only considered biologically valid if all component carbon pools have a positive value.
 %% analyses
-Wilcox signed-rank test (W-test) was carried out between the natural log values of total carbon and yield flux ($x\times C$).  Yields for ``no harvest" situations were set equal to the total carbon of such systems.  Total carbon and yield flux were also compared based on individual biological parameters, categorised by the carbon removal rate ($x$).
+Wilcox signed-rank test (W-test) was carried out between the natural log values of total carbon and yield flux ($x\times C$).  Yields for ``no harvest" situations were set equal to the total carbon of such systems.  Total carbon and yield flux were also compared based on individual biological parameters, categorised by the carbon removal rate ($x$).  The summary plots were done using the ggplot2 (v3.3.2) in R.
 
 \end{document}

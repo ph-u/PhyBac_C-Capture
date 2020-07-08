@@ -1,0 +1,53 @@
+math struc, parameter, biological
+
+why not parameter problem: Fig.4
+why not model structure problem: ...
+
+why do we care?
+why is this important?
+
+3rd Q -- define more
+
+too detailed
+no short-term in titles & bullet points
+overview section -- main point, longer
+subsection: questions to be tested, after introduction of the model
+
+narrative: explaining what the field is missing IN WORDS
+too many details the need ppl to look into other papers
+ppl understand with only reading intro
+
+2nd good -- LCA irrelavant
+a bit softer tone
+climate change, no "destabilisation"
+state variable -- C,P,B
+use common words
+
+Ecology, *Ecology Letters, PLOS computational biology
+
+3rd Q: not clear from title
+
+### Methods
+overview of the model: what did I do (end of intro)
+
+capital letter in title, stay away from short-form
+consistent term -- players
+long-term in start of section
+
+Fig.1: more in legend
+
+lots of parameters
+presenting the structures
+present alternative forms
+a full model with four alternatives
+
+no cite standard packages unless it is specific methodology
+right presentation method, multiple comparison error
+if continuous trend -> line
+if not continuous, no need that many box
+colour more contrasting
+
+### Discussion
+longest part, longer than strengths
+early discussion remind ppl about project
+like "aims"

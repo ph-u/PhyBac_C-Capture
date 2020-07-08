@@ -2,6 +2,7 @@
 *.tmp
 ._*
 *.sw*
+*.mp*
 nohup*
 .Rhistory
 *.log

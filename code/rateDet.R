@@ -1,4 +1,4 @@
-#!/bin/env R
+#!/usr/bin/env Rscript
 
 # Author 	: PokMan HO
 # Script 	: rateDet.R

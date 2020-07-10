@@ -63,6 +63,22 @@ plots in `result/`
 
 *****
 
+### analytical.R
+
+#### Features
+
+analytical scan using real-life parameter ranges
+
+#### Suggested input
+
+`Rscript analytical.R [min x] [max x]`
+
+#### Expected Output
+
+`data/harvest.csv`
+
+*****
+
 ### func.py
 
 #### Features
@@ -95,6 +111,22 @@ none
 
 *****
 
+### graphVariables.R
+
+#### Features
+
+self-defined objects for plots
+
+#### Suggested input
+
+`source("../code/graphVariables.R")` in R scripts
+
+#### Expected Output
+
+none
+
+*****
+
 ### modIRL.R
 
 #### Features
@@ -107,7 +139,7 @@ analytical scan using real-life parameter ranges
 
 #### Expected Output
 
-`result/anaIRL.csv`
+`data/anaIRL.csv`
 
 *****
 
@@ -140,6 +172,38 @@ BioTraits data wrangling
 #### Expected Output
 
 `data/gRate.csv`, `result/stdCst.png`
+
+*****
+
+### refine.R
+
+#### Features
+
+analytical scan using real-life parameter ranges
+
+#### Suggested input
+
+`Rscript refine.R`
+
+#### Expected Output
+
+`data/refine.txt`
+
+*****
+
+### scenario.R
+
+#### Features
+
+fix sample scenario using real-life parameter ranges
+
+#### Suggested input
+
+`Rscript scenario.R`
+
+#### Expected Output
+
+`data/scenario.csv`
 
 *****
 

@@ -1,10 +1,10 @@
-#!/bin/env R
+#!/usr/bin/env Rscript
 
 # Author 	: PokMan HO
 # Script 	: modIRL.R
 # Desc 		: analytical scan using real-life parameter ranges
 # Input 	: `Rscript modIRL.R`
-# Output 	: `result/anaIRL.csv`
+# Output 	: `data/anaIRL.csv`
 # Arg 		: 0
 # Date 		: May 2020
 

@@ -1,4 +1,4 @@
-#!/bin/env R
+#!/usr/bin/env Rscript
 
 # Author 	: PokMan HO
 # Script 	: func.R
@@ -8,17 +8,8 @@
 # Arg 		: 0
 # Date 		: Apr 2020
 
-##### pkg #####
-cBp <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#0072B2", "#D55E00", "#CC79A7", "#e79f00", "#9ad0f3", "#F0E442", "#999999", "#cccccc", "#6633ff", "#00FFCC", "#0066cc")
-cBpA = as.data.frame(col2rgb(cBp)/255)
-cBpA[4,] = .3;cBpA[4,1] = .1
-cBpT = rep(NA,length(cBp));for(i in 1:ncol(cBpA)){cBpT[i] = rgb(cBpA[1,i],cBpA[2,i],cBpA[3,i],cBpA[4,i])};rm(i)
-cBpA[4,] = .5;cBpA[4,1] = .3
-cBpH = rep(NA,length(cBp));for(i in 1:ncol(cBpA)){cBpH[i] = rgb(cBpA[1,i],cBpA[2,i],cBpA[3,i],cBpA[4,i])};rm(i)
-rm(cBpA)
-
-##### constant #####
-k <- 8.617333262145e-5 ## Boltzmann constant (unit eV/K)
+##### pkg & constant #####
+k = 8.617333262145e-5 ## Boltzmann constant (unit eV/K)
 
 ##### standardization value (Arrhenius) #####
 normArrheniusEq = function(rate, Ea, tempC){
@@ -26,8 +17,7 @@ normArrheniusEq = function(rate, Ea, tempC){
   ## rate: in any unit for rate
   ## Ea: activation energy (unit eV)
   ## tempC: temperature (unit deg-Celsius)
-  rate0 <- rate/exp(-Ea/(k*(tempC+273.15)))
-  return(rate0)
+  return(rate/exp(-Ea/(k*(tempC+273.15))))
 }
 
 ##### Arrhenius Equation #####
@@ -36,8 +26,7 @@ ArrheniusEq = function(A0, Ea, tempC){
   ## A0: in any unit for rate
   ## Ea: activation energy (unit eV)
   ## tempC: temperature (unit deg-Celsius)
-  A = A0*exp(-Ea/(k*(tempC+273.15)))
-  return(A)
+  return(A0*exp(-Ea/(k*(tempC+273.15))))
 }
 
 ##### calculate x values from given y #####
@@ -45,27 +34,28 @@ getXfromY = function(y, yInt, sLope){
   ## a function calculate relative x values from given y
   ## yInt: y intercept
   ## sLope: slope value of the linear equation
-  X = (y-yInt)/sLope
-  return(X)
+  return((y-yInt)/sLope)
 }
 
 ##### analytical model all solutions #####
-ebcAlt = function(parameter=c(0,.875,.63,.259,.001,.6,.55,1.046,.14), out=1){
+ebcAlt = function(parameter, out=1){
   x = parameter[1]
   ePR = parameter[2]; eP = parameter[3]; gP = parameter[4]; aP = parameter[5]
   eBR = parameter[6]; eB = parameter[7]; gB = parameter[8]; mB = parameter[9]
   
-  rEs = as.data.frame(matrix(0,nc=3,nr=4))
-  colnames(rEs) = c("C","P","B")
-  rEs[2,] = c(mB/(eBR*eB*gB), 0, x/(gB*(eBR-1)))
-  rEs[3,] = c(eP*(ePR*gP)^2/(aP*x), ePR*eP*gP/aP, 0)
-  rEs[4,] = c(mB/(eBR*eB*gB), ePR*eP*gP/aP, (aP*mB*x - eBR*eB*gB*eP*(ePR*gP)^2)/(gB*mB*aP*(eBR-1)))
-  
+  rEs = c(eP*(ePR*gP)^2/(aP*x), ## PoH - C
+          ePR*eP*gP/aP, ## PoH - P
+          0, ## PoH - B
+          mB/(eBR*eB*gB), ## PBH - C
+          ePR*eP*gP/aP, ## PBH - P
+          (aP*mB*x - eBR*eB*gB*eP*(ePR*gP)^2)/(gB*mB*aP*(eBR-1)) ## PBH - B
+          )
+  x = which(rEs<0 | rEs==Inf) ## search for non-reasonable density values
+  if(any(x>3)){rEs[4:6]=NA} ## set PBH solution of non-reasonable to NA if necessary
+  if(any(x<4)){rEs[1:3]=NA} ## set PoH solution of non-reasonable to NA if necessary
   if(out==1){return(rEs)}else{
-    tmp = c()
-    for(i in 1:nrow(rEs)){
-      tmp = c(tmp,as.numeric(rEs[i,]))
-    };rm(i)
-    return(tmp)
-  }
+    rEs = as.data.frame(matrix(rEs[c(1,4,2,5,3,6)], nr=2))
+    colnames(rEs) = c("C","P","B")
+    return(rEs)
+    }
 }

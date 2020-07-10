@@ -1,4 +1,4 @@
-#!/bin/env R
+#!/usr/bin/env Rscript
 
 # Author 	: PokMan HO
 # Script 	: analysis.R
@@ -9,7 +9,7 @@
 # Date 		: Jun 2020
 
 ##### in #####
-source("func.R")
+source("graphVariables.R")
 lib = c("gridExtra","ggplot2","reshape2")
 invisible(lapply(lib,library,character.only=T));rm(lib)
 ot = "../result/"
@@ -126,7 +126,7 @@ suppressWarnings(print( ## prevent huge load of known NA-related warnings and de
         ggplot()+theme_bw()+xlab("carbon harvest rate (1/day)") + ylab("log yield flux") +
                 scale_y_continuous(breaks = seq(st.y[1],st.y[2],2))+
                 geom_boxplot(aes(x=as.factor(a.HR$x), y=a.HR$value, fill=as.factor(a.HR$eqm)))+
-                scale_fill_manual(name="system", values = cBpT[c(1,4,2)], label=c("[P, with B, no harvest]", "[P, no B, with harvest]", "[P, with B, with harvest]"))+
+                scale_fill_manual(name="system", values = c(cBp[2,1],cBp[2,4],cBp[2,3]), label=c("[P, with B, no harvest]", "[P, no B, with harvest]", "[P, with B, with harvest]"))+
                 geom_segment(aes(x=st.1,xend=st.2,y=max(st.y)+1,yend=max(st.y)+1))+
                 geom_text(aes(x=round(st.1), y=max(st.y)+2, label=paste0("W = ",wIl$yield_W[-1],"\np ",wIl$sig[-1],"\nn = ",wIl$n[-1])), size=5)+
                 geom_segment(aes(x=st.0,xend=st.2,y=min(st.y)-1,yend=min(st.y)-1), col="red")+
@@ -146,7 +146,7 @@ suppressWarnings(print( ## prevent huge load of known NA-related warnings and de
         ggplot()+theme_bw()+xlab("carbon harvest rate (1/day)") + ylab("log total carbon") +
                 scale_y_continuous(breaks = seq(st.y[1],st.y[2],2))+
                 geom_boxplot(aes(x=as.factor(a.TC$x), y=a.TC$value, fill=as.factor(a.TC$eqm)))+
-                scale_fill_manual(name="system", values = cBpT[c(1,4,2)], label=c("[P, with B, no harvest]", "[P, no B, with harvest]", "[P, with B, with harvest]"))+
+                scale_fill_manual(name="system", values = c(cBp[2,1],cBp[2,4],cBp[2,3]), label=c("[P, with B, no harvest]", "[P, no B, with harvest]", "[P, with B, with harvest]"))+
                 geom_segment(aes(x=st.1,xend=st.2,y=max(st.y)+1,yend=max(st.y)+1))+
                 geom_text(aes(x=round(st.1), y=max(st.y)+2, label=paste0("W = ",a.sys$total_W,"\np ",a.sys$sig,"\nn = ",a.sys$n)), size=5)+
                 geom_segment(aes(x=st.0,xend=st.2,y=min(st.y)-1,yend=min(st.y)-1), col="red")+
@@ -168,9 +168,9 @@ xX=10;{a.Ln = a.pt[which(a.pt$x==xX),]
 st.y = quantile(a.Ln$value[is.finite(a.Ln$value)], probs = c(.05,.95)); st.y = c(floor(st.y)[1],ceiling(st.y)[2])
 p_tmp = ggplot()+theme_bw()+ylim(st.y) + ylab(paste0("natural log eqm values, harvest = ",xX," day^-1")) + scale_linetype_manual(name="type", labels=c("total carbon", "yield flux"), values = 1:2)
 if(xX>0){
-        p_tmp = p_tmp + scale_fill_manual(name="system", values = cBpT[c(4,2)])+scale_colour_manual(name="system", values = cBp[c(4,2)])
+        p_tmp = p_tmp + scale_fill_manual(name="system", values = c(cBp[2,1],cBp[2,4],cBp[2,3]))+scale_colour_manual(name="system", values = c(cBp[2,4],cBp[2,3]))
 }else{
-        p_tmp = p_tmp + scale_fill_manual(name="system", values = cBpT[2])+scale_colour_manual(name="system", values = cBp[2])
+        p_tmp = p_tmp + scale_fill_manual(name="system", values = cBpT[2,3])+scale_colour_manual(name="system", values = cBp[2,3])
 }
 
 p_2 = p_tmp + xlab(colnames(a.Ln)[2]) + geom_smooth(aes(x=a.Ln[,2], y=a.Ln$value, fill=a.Ln$eqm, col=a.Ln$eqm, linetype=a.Ln$Source)) + geom_text(aes(x=max(a[,2])-diff(range(a[,2]))*.1, y=st.y[2]-1, label="(A)"), size=10)

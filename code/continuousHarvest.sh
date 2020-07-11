@@ -28,7 +28,7 @@ counterX=1
 for i0 in `eval echo {${minX}..${maxX}..${intX}}`;do ## loop over sequence of harvest rate
     if [ $((${counterX}%10)) -eq 1 ];then
         calPass=`wc -l ../data/continuous.csv|cut -f 1 -d " "`
-        curX=`echo "${calPass}/(${samX}*${numScenario})*100"|bc`
+        curX=`echo "${counterX}/(${samX}+1)*100"|bc`
         echo -e "`date`; harvest rate value = ${i0}, ${curX}% done"
     fi
     for i1 in `eval echo {2..${numScenario}}`;do ## loop over sampled scenarios

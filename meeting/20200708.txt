@@ -51,3 +51,30 @@ colour more contrasting
 longest part, longer than strengths
 early discussion remind ppl about project
 like "aims"
+
+#########################
+My result/simulation/experiment showed... productive than the P-only system[in terms of total carnbon content but not in yield flux.]
+decrease length of each sentence
+Discussion: not summary; relating to previous work, reasons why the result is the result
+Tto C seq is sig higher
+why is the point interesting
+linking back to purposes
+we want to find this, result is this and the reason is ...
+compare system in like terms
+
+look through graphs/text only and understand the whole result
+misleading grey boxes
+1st thing to show: for what proportion of parameter space getting stability (LHS, multi-axis space to show survive or not) -> restricting all settings within the feasible -> compare P-only when B go extinct, yield higher?
+logic problem in graphics
+make grey box a flux -> simulation (close to 99% eqm); wait for a certain time; not really even waiting until eqm
+
+check inviable
+
+look at graphs, explore viable para space PBH as function of parameters
+explore destructive harvest: freq of destruction (per day/min/inf time) -> amount divided by time of development
+fairly compare amount of carbon
+
+max continuous harvest
+if harvest optimally, what will you get? max flux along the axis of harvest
+have optimin harvest rate --> property of that distribution along optimum harvest
+distinguish var of parameter can't control, what portion of parameter can control -> optimise

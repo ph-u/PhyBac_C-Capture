@@ -19,7 +19,7 @@ samX=`echo $(($3-1))` ## number of regular-interval samples within the harvest r
 
 ##### analytical scan preparation #####
 gcc stablePositions.c -o p_sP ## set up calculator
-echo -e "x,`head -n 1 ../data/scenario.csv`,c3,p3,b3,c4,p4,b4" > ../data/continuous1.csv ## initialise record file
+echo -e "x,`head -n 1 ../data/scenario.csv`,c3,p3,b3,c4,p4,b4" > ../data/continuous.csv ## initialise record file
 intX=`echo "(${maxX}-${minX})/${samX}"|bc` ## get harvest rate interval size
 numScenario=`wc -l ../data/scenario.csv|cut -f 1 -d " "` ## get number of sampled scenarios
 
@@ -27,12 +27,12 @@ numScenario=`wc -l ../data/scenario.csv|cut -f 1 -d " "` ## get number of sample
 counterX=1
 for i0 in `eval echo {${minX}..${maxX}..${intX}}`;do ## loop over sequence of harvest rate
     if [ $((${counterX}%10)) -eq 1 ];then
-        calPass=`wc -l ../data/continuous1.csv|cut -f 1 -d " "`
+        calPass=`wc -l ../data/continuous.csv|cut -f 1 -d " "`
         curX=`echo "${calPass}/(${samX}*${numScenario})*100"|bc`
         echo -e "`date`; harvest rate value = ${i0}, ${curX}% done"
     fi
     for i1 in `eval echo {2..${numScenario}}`;do ## loop over sampled scenarios
-        ./p_sP ${i0} `head -n ${i1} ../data/scenario.csv|tail -n 1|sed -e 's/,/ /g'` 1>> ../data/continuous1.csv ## scenario calculation
+        ./p_sP ${i0} `head -n ${i1} ../data/scenario.csv|tail -n 1|sed -e 's/,/ /g'` 1>> ../data/continuous.csv ## scenario calculation
     done
     counterX=`echo $((${counterX}+1))`
 done

@@ -4,7 +4,7 @@
 ## Script 		: writeREADME.sh
 ## Desc 		: readme.md generator
 ## Input 		: ```bash writeREADME.sh```
-## Output 		: `readme.md` file
+## Output 		: `readme.md`
 ## Arguements 	: 0
 ## Date 		: Nov 2019
 

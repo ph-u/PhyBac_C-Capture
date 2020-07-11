@@ -1,0 +1,41 @@
+#!/bin/bash
+
+## Author 		: PokMan Ho
+## Script 		: continuousHarvest.sh
+## Desc 		: readme.md generator
+## Input 		: ```bash continuousHarvest.sh [min x] [max x] [samples]```
+## Output 		: `data/continuous.csv`
+## Arguements 	: 2
+## Date 		: Jul 2020
+
+##### self-orientation #####
+p0=`dirname $0`
+cd ${p0}
+
+##### in #####
+minX=`echo $1` ## minimum harvest rate
+maxX=`echo $2` ## maximum harvest rate
+samX=`echo $3` ## number of regular-interval samples within the harvest rate range
+
+##### analytical scan preparation #####
+gcc stablePositions.c -o sP ## set up calculator
+echo -e "x,`head -n 1 ../data/scenario.csv`,c3,p3,b3,c4,p4,b4" > ../data/continuous1.csv ## initialise record file
+intX=`echo "(${maxX}-${minX})/${samX}"|bc` ## get harvest rate interval size
+numScenario=`wc -l ../data/scenario.csv|cut -f 1 -d " "` ## get number of sampled scenarios
+
+##### looping calculation #####
+counterX=1
+for i0 in `eval echo {${minX}..${maxX}..${intX}}`;do ## loop over sequence of harvest rate
+    if [ $((${counterX}%10)) -eq 1 ];then
+        calPass=`wc -l ../data/continuous1.csv|cut -f 1 -d " "`
+        curX=`echo "${calPass}/(${samX}*${numScenario})"|bc`
+        echo -e "`date`; harvest rate value = ${i0}, ${curX}% done"
+    fi
+    for i1 in `eval echo {2..${numScenario}}`;do ## loop over sampled scenarios
+        ./sP ${i0} `head -n ${i1} ../data/scenario.csv|tail -n 1|sed -e 's/,/ /g'` 1>> ../data/continuous1.csv ## scenario calculation
+    done
+    counterX=`echo $((${counterX}+1))`
+done
+
+rm sP
+exit

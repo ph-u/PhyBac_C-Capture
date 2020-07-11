@@ -32,9 +32,10 @@ import func as fc
 
 ##### in #####
 a = pd.read_csv("../data/scenario.csv")
+eNd = int(sys.argv[1])
 
 ##### numerical run #####
-t = np.linspace(0,int(sys.argv[1]),10)
+t = np.linspace(0,eNd,int(eNd/100))
 rEs = pd.DataFrame(columns=['x', 'ePR','eP','gP','aP', 'eBR','eB','gB','mB', 'c3','p3','b3', 'c4','p4','b4'])
 for i in range(len(a)):
     den3, infodict = itg.odeint(fc.ebc7, [1,1,0],t, full_output=True, args=(0,a.iloc[i,0],a.iloc[i,1],a.iloc[i,2],a.iloc[i,3],a.iloc[i,4],a.iloc[i,5],a.iloc[i,6],a.iloc[i,7]))

@@ -3,15 +3,15 @@
 # Author 	: PokMan HO
 # Script 	: continuousHarvest.R
 # Desc 		: continuous harvest scenarios model run (analytical calculation)
-# Input 	: `Rscript analytical.R [min x] [max x] [system number]`
-# Output 	: `data/continuous_N.csv`
-# Arg 		: 3
+# Input 	: `Rscript analytical.R [min x] [max x]`
+# Output 	: `data/continuous.csv`
+# Arg 		: 2
 # Date 		: Jul 2020
 
 ##### in #####
 aRg = as.numeric(commandArgs(T))
 source("func.R")
-x = seq(aRg[1], aRg[2], signif(diff(aRg)/10,1)) ## random rates, main point of investigation
+x = seq(aRg[1], aRg[2], signif(diff(aRg[1:2])/100,1)) ## random rates, main point of investigation
 a = read.csv("../data/scenario.csv", header = T)
 
 ##### data collection preparation #####
@@ -31,4 +31,4 @@ repeat{
 
 ##### construct result data #####
 oUt = cbind(x=rep(x,each=nrow(a)),a,rEs)
-write.csv(oUt,paste0("../data/continuous_",aRg[3],".csv"), row.names = F, quote = F)
+write.csv(oUt,"../data/continuous.csv", row.names = F, quote = F)

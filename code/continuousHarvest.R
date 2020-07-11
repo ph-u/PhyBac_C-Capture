@@ -1,11 +1,11 @@
 #!/usr/bin/env Rscript
 
 # Author 	: PokMan HO
-# Script 	: analytical.R
-# Desc 		: analytical scan using real-life parameter ranges
-# Input 	: `Rscript analytical.R [min x] [max x]`
-# Output 	: `data/harvest.csv`
-# Arg 		: 0
+# Script 	: continuousHarvest.R
+# Desc 		: continuous harvest scenarios model run (analytical calculation)
+# Input 	: `Rscript analytical.R [min x] [max x] [system number]`
+# Output 	: `data/continuous_N.csv`
+# Arg 		: 3
 # Date 		: Jul 2020
 
 ##### in #####
@@ -31,4 +31,4 @@ repeat{
 
 ##### construct result data #####
 oUt = cbind(x=rep(x,each=nrow(a)),a,rEs)
-write.csv(oUt,"../data/harvest.csv", row.names = F, quote = F)
+write.csv(oUt,paste0("../data/continuous_",aRg[3],".csv"), row.names = F, quote = F)

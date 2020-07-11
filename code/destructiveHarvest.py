@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 
 # Author 	: PokMan HO
-# Script 	: numerical.py
-# Desc 		: destructive harvest scenarios model run
-# Input 	: `python3 numerical.py`
+# Script 	: destructiveHarvest.py
+# Desc 		: destructive harvest scenarios model run (numerical integration)
+# Input 	: `python3 destructiveHarvest.py [simulated days]`
 # Output 	: `destructive.csv`
-# Arg 		: 0
+# Arg 		: 1
 # Date 		: Jul 2020
 
 """
-destructive harvest scenarios model run
+destructive harvest scenarios model run (numerical integration)
 """
 
-__appname__="numerical.py"
+__appname__="destructiveHarvest.py"
 __author__="PokMan Ho"
 __version__="0.0.1"
 __license__="none"

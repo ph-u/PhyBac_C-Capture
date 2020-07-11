@@ -10,6 +10,7 @@
 
 ##### in #####
 a = read.csv("../data/continuous.csv", header = T)
+b = read.csv("../data/continuous1.csv", header = T)
 d = read.csv("../data/destructive.csv", header = T)
 ref = read.csv("../data/scenario.csv", header = T)
 

@@ -17,7 +17,7 @@ done
 
 Rscript rateDet.R 						## temperature standardisation
 Rscript scenario.R 						## set LHS scenario samples
-python3 destructiveHarvest.py 12000 & 	## numerical yield calculation
+python3 destructiveHarvest.py 20000 & 	## numerical yield calculation
 bash continuousHarvest.sh 1 20000 200 	## analytical yield calculation
 
 bash writeREADME.sh 					## write readme for project

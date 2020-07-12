@@ -36,4 +36,3 @@ getXfromY = function(y, yInt, sLope){
   ## sLope: slope value of the linear equation
   return((y-yInt)/sLope)
 }
-

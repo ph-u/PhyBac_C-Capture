@@ -40,7 +40,7 @@ rEs = pd.DataFrame(columns=['x', 'ePR','eP','gP','aP', 'eBR','eB','gB','mB', 'c3
 for i in range(len(a)):
     den3, infodict = itg.odeint(fc.ebc7, [1,1,0],t, full_output=True, args=(0,a.iloc[i,0],a.iloc[i,1],a.iloc[i,2],a.iloc[i,3],a.iloc[i,4],a.iloc[i,5],a.iloc[i,6],a.iloc[i,7]))
     den4, infodict = itg.odeint(fc.ebc7, [1,1,1],t, full_output=True, args=(0,a.iloc[i,0],a.iloc[i,1],a.iloc[i,2],a.iloc[i,3],a.iloc[i,4],a.iloc[i,5],a.iloc[i,6],a.iloc[i,7]))
-    p = pd.DataFrame({'x':[round(lk) for lk in t], ## list(t) and rounding to int
+    p = pd.DataFrame({'t':[round(lk) for lk in t], ## list(t) and rounding to int
         'ePR':a.iloc[i,0],'eP':a.iloc[i,1],'gP':a.iloc[i,2],'aP':a.iloc[i,3], ## P bio parameters
         'eBR':a.iloc[i,4],'eB':a.iloc[i,5],'gB':a.iloc[i,6],'mB':a.iloc[i,7], ## B bio parameters
         'c3':den3[:,0],'p3':den3[:,1],'b3':den3[:,2], ## P-only system time-dependent densities

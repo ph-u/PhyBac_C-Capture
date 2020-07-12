@@ -10,7 +10,7 @@ p_*
 .~*
 *.csv
 *.xlsx
-*.pdf
+meeting/*.pdf
 *.odt#
 .ipynb_checkpoints
 *.pyc

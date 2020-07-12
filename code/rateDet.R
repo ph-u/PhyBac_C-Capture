@@ -10,6 +10,7 @@
 
 ##### pkg import #####
 source("../code/func.R")
+paper = 7
 
 ##### data import #####
 rAw = read.csv("../data/BioTraits.csv",stringsAsFactors = F) ## dimension (n*c) = 25826*155
@@ -32,14 +33,14 @@ rAw = rAw[which( ## dimension (n*c) = 3160*8
 
 ##### standardization constant (std-cst) calculation #####
 rAw$Ea.eV <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],.32,.66) ## activation energy of photosynthetic (0.32eV) and heterotrophic (0.65eV) lifestyle
-rAw$role <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],"phytoplankton","bacterial decomposer")
+rAw$role <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],"phytoplankton","bacteria")
 rAw$stdConst.day <- normArrheniusEq(rAw$StandardisedTraitValue, rAw$Ea.eV, rAw$ConTemp)*60^2*24
 
 ##### boxplot std-cst #####
-png("../result/stdCst.png", width = 700)
+pdf("../result/stdCst.pdf", width = paper, height = paper*.7)
 par(mfrow=c(1,2))
-boxplot(rAw$stdConst.day~rAw$role, xlab = "role", ylab = "Standardisation constant (1/day)")
-boxplot(rAw$stdConst.day~rAw$role, ylim=c(0,9e5), xlab = "role", ylab = "Standardisation constant (1/day)")
+boxplot(rAw$stdConst.day~rAw$role, xlab = "role", ylab = "Standardisation constant (1/day)", pch=4, cex=.7)
+boxplot(rAw$stdConst.day~rAw$role, ylim=c(0,9e5), xlab = "role", ylab = "Standardisation constant (1/day)", pch=4, cex=.7)
 text(1,4e5,"values out of bound",srt=90)
 invisible(dev.off())
 cat("output Temperature standardisation constant boxplot finished\n")

@@ -16,3 +16,12 @@ fontSize = function(graphWidth=17){
   a = graphWidth #14/433*graphWidth
   return(a)
 }
+
+extract_legend <- function(my_ggp) {
+  ## original post: https://stackoverflow.com/questions/13649473/add-a-common-legend-for-combined-ggplots
+  ## summary blogpost: https://statisticsglobe.com/add-common-legend-to-combined-ggplot2-plots-in-r/
+  step1 <- ggplot_gtable(ggplot_build(my_ggp))
+  step2 <- which(sapply(step1$grobs, function(x) x$name) == "guide-box")
+  step3 <- step1$grobs[[step2]]
+  return(step3)
+}

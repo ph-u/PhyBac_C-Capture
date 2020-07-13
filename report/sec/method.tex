@@ -5,9 +5,9 @@
 
 \subsection{The model}
 
-This system contained two biological components (i.e. phytoplankton and bacteria) and three state variables of densities (i.e. organic carbon C, phytoplankton biomass P and bacterial biomass B) under a standardised temperature range of \temp.  Both biological components received carbon from different sources but performed the same functions. Phytoplankton photosynthesized carbon dioxide from the atmosphere (an unlimited source) while bacteria consumed organic carbon from its environment.  Both phytoplankton and bacteria respired and leaked a fraction of the carbon obtained respectively and allocated the rest to its biomass; some of the biomass died and became organic carbon in the environment.  Organic carbon in the environment could either be consumed by the bacteria or harvested from the system.
+This system contained two biological components (i.e. phytoplankton and bacteria) and three state variables of densities (i.e. organic carbon [$C$], phytoplankton biomass [$P$] and bacterial biomass [$B$]) under a standardised temperature range of \temp.  Both biological components received carbon from different sources but performed the same functions. Phytoplankton photosynthesized carbon dioxide from the atmosphere (an unlimited source) while bacteria consumed organic carbon from its environment.  Both phytoplankton and bacteria respired and leaked a fraction of the carbon obtained respectively and allocated the rest to its biomass; some of the biomass died and became organic carbon in the environment.  Organic carbon in the environment could either be consumed by the bacteria or harvested from the system.
 
-Equations were listed as the rate of density (grams of carbon per metre cube) change of state variables per day.  Three state variables of densities (C for organic carbon, P for phytoplankton and B for bacteria), two sets of four biological parameters (one set for P and another set for B) and one harvest rate parameter was included in this minimal carbon cycle model.
+Equations were listed as the rate of density change of state variables (grams of carbon per metre cube per day, \dxdt).  Three state variables of densities, two sets of four biological parameters (one set for $P$ and another set for $B$) and one harvest rate parameter was included in this minimal carbon cycle model.
 
 \begin{equation}\left\{\begin{array}{rl}
     C'(t) &= \ePR(1-\eP)\cdot\gP\cdot P +\aP\cdot P^2 +(\eBR(1-\eB)-1)\cdot\gB\cdot C\cdot B +\mB\cdot B -xC\\
@@ -15,23 +15,23 @@ Equations were listed as the rate of density (grams of carbon per metre cube) ch
     B'(t) &= \eBR\cdot\eB\cdot\gB\cdot C\cdot B -\mB\cdot B
 \end{array}\right.\label{eq:PBH}\end{equation}
 
-In Eq.\ref{eq:PBH}, dCdt, dPdt and dBdt were the rate of change of densities (unit \dxdt).  ePR was the fraction of non-respired carbon for P, eP was the fraction of carbon incorporated as phytoplankton biomass, eBR was the fraction of non-respired carbon for B and eB was the fraction of carbon incorporated as bacterial biomass.  The above four unitless parameters were grouped as “fraction parameters”.  gP was the growth rate of P (\dayU), aP was the intraspecific interference of P (\denI), gB was the resource clearance rate of B  (\denI) and mB was the death rate of B (\dayU).  These four were the “rate parameters”.  x was the harvest rate (\dayU) which determined how fast the carbon in the environment got removed.  Below was the graphical version of our model.
+In Eq.\ref{eq:PBH}, $C'(t)$, $P'(t)$ and $B'(t)$ were the rate of change of densities (unit \dxdt).  $\ePR$ was the fraction of non-respired carbon for $P$, $\eP$ was the fraction of carbon incorporated as $P$ biomass, $\eBR$ was the fraction of non-respired carbon for $B$ and $\eB$ was the fraction of carbon incorporated as $B$ biomass.  The above four unitless parameters were grouped as “fraction parameters”.  $\gP$ was the growth rate of $P$ (\dayU), $\aP$ was the intraspecific interference of $P$ (\denI), $\gB$ was the resource clearance rate of $B$  (\denI) and $\mB$ was the death rate of $B$ (\dayU).  These four were the “rate parameters”.  $x$ was the harvest rate (\dayU) which determined how fast the carbon in the environment got removed.  Below was the graphical version of our model.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=.8\linewidth]{media/model.png}
-    \caption[Model visualization]{The theoretical coexistence open system of phytoplankton and bacteria.  Dashed boxes were the defined boundaries, which the large box defined the open system for matter exchange, the box contained phytoplankton resembles the cellular boundaries of phytoplankton and the box contained bacteria resembles the cellular boundaries of bacteria.  Blue arrows indicated the direction of carbon densities flow from a resource pool to another.  Text above the arrows were the biological processes represented by the arrows.  Pink boxes represented the carbon density pools defined by the state variables, which were the states of which the carbon in the system could be identified as.  White boxes represented the functional components of the biological components in the system.  Biologically the white boxes were the collection of all biochemical reactions within the whole population of organisms indicated in the text of respective boxes.}
+    \caption[Model visualization]{The theoretical coexistence open system of phytoplankton and bacteria.  Dashed boxes were the defined boundaries, which the large box defined the open system for matter exchange, the box contained phytoplankton resembles the cellular boundaries of phytoplankton and the box contained bacteria resembles the cellular boundaries of bacteria.  Blue arrows indicated the direction of carbon densities flow from a resource pool to another.  Text above the arrows were the biological processes represented by the arrows.  Pink boxes represented the carbon density pools defined by the state variables, which were the states of which the carbon in the system could be identified.  White boxes represented the functional components of the biological components in the system.  Biologically the white boxes were the collection of all biochemical reactions within the whole population of organisms indicated in the text of respective boxes.}
     \label{f:model}
 \end{figure}
 
-Eq.\ref{eq:PBH} was simulating the setting of B coexisting with P under continuous harvest (PBH).  The full-geared model had three other alternative forms:\\
+Eq.\ref{eq:PBH} was simulating the setting of $B$ coexisting with $P$ under continuous harvest (PBH).  The full-geared model had three other alternative forms:\\
 P-only with harvest (PoH);
 \begin{equation}\left\{\begin{array}{rl}
     C'(t) &= \ePR(1-\eP)\cdot\gP\cdot P +\aP\cdot P^2 -xC\\
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2
 \end{array}\right.\label{eq:PoH}\end{equation}
 
-B coexist with P without continuous harvest (PBN); and
+$B$ coexist with $P$ without continuous harvest (PBN); and
 \begin{equation}\left\{\begin{array}{rl}
     C'(t) &= \ePR(1-\eP)\cdot\gP\cdot P +\aP\cdot P^2 +(\eBR(1-\eB)-1)\cdot\gB\cdot C\cdot B +\mB\cdot B\\
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2\\
@@ -50,7 +50,7 @@ Upon rearranging the variables in the above four system alternatives by SymPy (v
     \centering
     \caption{Table of equilibria from the four variations of the proposed model (Eq.\ref{eq:PBH})}
     \begin{tabular}{cl|ccc}\hline
-        eqm & scenario & C & P & B (only if scenario contained B) \\\hline
+        eqm & scenario & $C$ & $P$ & $B$ (only if scenario contained $B$) \\\hline
         1 & PBH, PoH & 0 & 0 & 0 \\
         2 & PBH & $\dfrac{\mB}{\eBR\eB\gB}$ & 0 & $\dfrac{-x}{\gB(1-\eBR)}$ \\
         3 & PBH, PoH & $\dfrac{\eP(\ePR\gP)^2}{\aP x}$ & $\dfrac{\ePR\eP\gP}{\aP}$ & 0 \\
@@ -71,28 +71,28 @@ Not all defined parameters in our model had experimentally measured values.  Als
     \caption[Algebra variables]{Table showing biological variables and corresponding ranges framing the parameter hyperspace}
     \begin{tabular}{cclll}\hline
         variable & unit & description & min & max \\\hline
-        $N'(t)$ & $\dfrac{gC}{m^3\cdot day}$ & rate of change of respective carbon pool {\tiny($N=C,P,B$)} & - & - \\
-        $N$ & $\dfrac{gC}{m^3}$ & carbon density for respective pool {\tiny($N=C,P,B$)} & - & - \\
+        $N'(t)$ & \dxdt & rate of change of respective carbon pool {\tiny($N=C,P,B$)} & - & - \\
+        $N$ & \den & carbon density for respective pool {\tiny($N=C,P,B$)} & - & - \\
         $\ePR$ & - & non-respired carbon fraction for P & 0.08 & 0.87 \\
         $\eP$ & - & assimilated carbon fraction for P & 0.40 & 1.00 \\
-        $\gP$ & $day^{-1}$ & growth rate of P & 0.03 & 3.17 \\
-        $\aP$ & $\dfrac{m^3}{gC\cdot day}$ & intraspecific interference of P & 0.02 & 1.52 \\
+        $\gP$ & \dayU & growth rate of P & 0.03 & 3.17 \\
+        $\aP$ & \denI & intraspecific interference of P & 0.02 & 1.52 \\
         $\eBR$ & - & non-respired carbon fraction for B & 0.13 & 1.00 \\
         $\eB$ & - & assimilated carbon fraction for B & 0.07 & 0.82 \\
-        $\gB$ & $\dfrac{m^3}{gC\cdot day}$ & clearance rate of B & 0.10 & 3.50 \\
-        $\mB$ & $day^{-1}$ & death rate of B & 0.01 & 0.63 \\
+        $\gB$ & \denI & clearance rate of B & 0.10 & 3.50 \\
+        $\mB$ & \dayU & death rate of B & 0.01 & 0.63 \\
     \hline\end{tabular}
     \label{t:ranges}
 \end{table}
 
 \subsection{Scenario sampling}
-Within the parameter ranges using the uniform prior, we selected 11 values in the regular interval for each parameter using R (v4.0.2).  Next we randomly arranged the values for each parameter so that each parameter combination was unique.  This step was called a Latin Hypercube Sampling (LHS).  We repeated the LHS for 500 times to obtain a total sample size of 5500.  We also ensured each parameter combination was unique across the 5500 samples.  To ensure the study’s reproducibility, we had set the seed for random numbers to “20192020”.
+Within the parameter ranges using the uniform prior, we selected 11 values in the regular interval for each parameter using R (v4.0.2).  Next we randomly arranged the values for each parameter so that each parameter combination was unique.  This step was called a Latin Hypercube Sampling (LHS).  We repeated the LHS for 500 times to obtain a total sample size of 5500.  We also ensured each parameter combination was unique across the 5500 samples.  To ensure the study’s reproducibility, we had set the seed for random numbers to ``20192020”.
 
 \subsection{Analytical determination of continuous harvest systems}
-A series of discrete harvest rate values (1-12000 \dayU with 100 regular interval samples) were applied to scan for the yield flux in the PBH system using C (compiler gcc v7.5.0).  Then we refined the LHS scan with the same procedure mentioned above on the parameter space around the peak yield flux.  As yield flux was defined as x*C in Eq.\ref{eq:PBH}, yield flux of PoH systems were independent of harvest rate (Table \ref{t:eqm}).
+A series of discrete harvest rate values (1-12000 \dayU with 100 regular interval samples) were applied to scan for the yield flux in the PBH system using C (compiler gcc v7.5.0).  Then we refined the LHS scan with the same procedure mentioned above on the parameter space around the peak yield flux.  As yield flux was defined as $x\cdot C$ in Eq.\ref{eq:PBH}, yield flux of PoH systems were independent of harvest rate (Table \ref{t:eqm}).
 
 \subsection{Numerical Integration of destructive harvest systems}
-Feasible scenarios of the refined scan in the previous section were put into Eq.\ref{eq:PBH} and integrated using the “odeint” function of SciPy (v1.2.3) in python3.  The initial densities (gCm-3) were set as C=P=B=1 for PBN systems and C=P=1, B=0 for PoN systems.  The reason for using Eq.\ref{eq:PBH} for both systems is because Eq.\ref{eq:PBH} and Eq.\ref{eq:PBN} were equivalent when x=0 and Eq.\ref{eq:PBH} and Eq.\ref{eq:PoN} were equivalent when x=0 and B=0.  Time step was standardised to “day” as above.  All state variables (i.e. carbon densities for C, P and B) were summed at every time step divided by the number of time steps simulated in the model.  This averaged value was the equivalent of the yield flux in the analytical scan for continuous harvest.  Maximum yield for destructive harvest systems was mathematically the highest averaged system carbon content per day.
+Feasible scenarios of the refined scan in the previous section were put into Eq.\ref{eq:PBH} and integrated using the ``odeint” function of SciPy (v1.2.3) in python3.  The initial densities (\den) were set as $C=P=B=1$ for PBN systems and $C=P=1$, $B=0$ for PoN systems.  The reason for using Eq.\ref{eq:PBH} for both systems is because Eq.\ref{eq:PBH} and Eq.\ref{eq:PBN} were equivalent when x=0 and Eq.\ref{eq:PBH} and Eq.\ref{eq:PoN} were equivalent when x=0 and B=0.  Time step was standardised to ``day” as above.  All state variables (i.e. carbon densities for C, P and B) were summed at every time step divided by the number of time steps simulated in the model.  This averaged value was the equivalent of the yield flux in the analytical scan for continuous harvest.  Maximum yield for destructive harvest systems was mathematically the highest averaged system carbon content per day.
 
 \subsection{Wrangling and analysis of top cohort carbon density yield fluxes}
 Output from the analytical determination (continuous harvest systems) were carbon densities.  Hence we calculated daily yield flux by getting the product of harvest rate [x] and the organic carbon [C].  Output from the numerical integration (destructive harvest systems) was a time series of carbon densities.  Daily yield flux was calculated by the total carbon density in the system divided by the number of days (starting day is 1).  Since we would use a “wait and replace” procedure for destructive harvest systems, waiting days bore a sink cost expected to be recovered on the system replacement days.

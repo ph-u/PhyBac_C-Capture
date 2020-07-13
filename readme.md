@@ -13,10 +13,15 @@ Apache-2.0
 comp-lang | packages | version
 --- | --- | ---
 bash | | 3.2.57(1)-release
+C | gcc | 7.5.0
+. | stdio.h | .
+. | stdlib.h | .
 python | | 3.7.3
 . | SciPy | 1.2.3
 . | SymPy | 1.5.1
-R | | 3.6.0
+. | numpy | 1.19.0
+. | pandas | 1.0.5
+R | | 4.0.2
 . | ggplot2 | 3.3.2
 . | gridExtra | 2.3
 . | reshape2 | 1.4.4
@@ -63,19 +68,35 @@ plots in `result/`
 
 *****
 
-### analytical.R
+### continuousHarvest.sh
 
 #### Features
 
-analytical scan using real-life parameter ranges
+readme.md generator
 
 #### Suggested input
 
-`Rscript analytical.R [min x] [max x]`
+```bash continuousHarvest.sh [min x] [max x] [samples]```
 
 #### Expected Output
 
-`data/harvest.csv`
+`data/continuous.csv`
+
+*****
+
+### destructiveHarvest.py
+
+#### Features
+
+destructive harvest scenarios model run (numerical integration)
+
+#### Suggested input
+
+`python3 destructiveHarvest.py [simulated days]`
+
+#### Expected Output
+
+`destructive.csv`
 
 *****
 
@@ -127,22 +148,6 @@ none
 
 *****
 
-### modIRL.R
-
-#### Features
-
-analytical scan using real-life parameter ranges
-
-#### Suggested input
-
-`Rscript modIRL.R`
-
-#### Expected Output
-
-`data/anaIRL.csv`
-
-*****
-
 ### project.sh
 
 #### Features
@@ -175,22 +180,6 @@ BioTraits data wrangling
 
 *****
 
-### refine.R
-
-#### Features
-
-analytical scan using real-life parameter ranges
-
-#### Suggested input
-
-`Rscript refine.R`
-
-#### Expected Output
-
-`data/refine.txt`
-
-*****
-
 ### scenario.R
 
 #### Features
@@ -207,6 +196,22 @@ fix sample scenario using real-life parameter ranges
 
 *****
 
+### stablePositions.c
+
+#### Features
+
+calculate two alternative stabilities from a parameter scenario
+
+#### Suggested input
+
+`gcc stablePositions.c -o p_sP;./p_sP [x] [ePR] [eP] [gP] [aP] [eBR] [eB] [gB] [mB]`
+
+#### Expected Output
+
+verbose csv entry
+
+*****
+
 ### writeREADME.sh
 
 #### Features
@@ -219,6 +224,54 @@ readme.md generator
 
 #### Expected Output
 
-`readme.md` file
+`readme.md`
+
+*****
+
+### yieldPlot.R
+
+#### Features
+
+the combined plot for yield flux by each parameter
+
+#### Suggested input
+
+`Rscript yieldPlot.R`
+
+#### Expected Output
+
+none
+
+*****
+
+### yieldStats.R
+
+#### Features
+
+determination of maximum yield flux for all systems
+
+#### Suggested input
+
+`Rscript yieldStats.R`
+
+#### Expected Output
+
+none
+
+*****
+
+### yieldWrangling.R
+
+#### Features
+
+collect and wrangle all scenario simulation data
+
+#### Suggested input
+
+`source("yieldWrangling.R")` in R scripts
+
+#### Expected Output
+
+none
 
 *****

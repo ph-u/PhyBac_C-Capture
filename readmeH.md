@@ -21,7 +21,7 @@ python | | 3.7.3
 . | SymPy | 1.5.1
 . | numpy | 1.19.0
 . | pandas | 1.0.5
-R | | 3.6.0
+R | | 4.0.2
 . | ggplot2 | 3.3.2
 . | gridExtra | 2.3
 . | reshape2 | 1.4.4

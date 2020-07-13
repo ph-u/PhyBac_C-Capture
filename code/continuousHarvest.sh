@@ -2,7 +2,7 @@
 
 ## Author 		: PokMan Ho
 ## Script 		: continuousHarvest.sh
-## Desc 		: readme.md generator
+## Desc 		: continuous harvest scenarios model run (analytical calculation)
 ## Input 		: ```bash continuousHarvest.sh [min x] [max x] [samples]```
 ## Output 		: `data/continuous.csv`
 ## Arguements 	: 2

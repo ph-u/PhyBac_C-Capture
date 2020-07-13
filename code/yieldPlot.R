@@ -4,7 +4,7 @@
 # Script 	: yieldPlot.R
 # Desc 		: the combined plot for yield flux by each parameter
 # Input 	: `Rscript yieldPlot.R`
-# Output 	: none
+# Output 	: `result/yieldFlux.pdf`
 # Arg 		: 0
 # Date 		: Jul 2020
 

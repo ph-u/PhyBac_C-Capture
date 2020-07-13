@@ -72,7 +72,7 @@ plots in `result/`
 
 #### Features
 
-readme.md generator
+continuous harvest scenarios model run (analytical calculation)
 
 #### Suggested input
 
@@ -176,7 +176,7 @@ BioTraits data wrangling
 
 #### Expected Output
 
-`data/gRate.csv`, `result/stdCst.png`
+`data/gRate.csv`, `result/stdCst.pdf`
 
 *****
 
@@ -240,7 +240,7 @@ the combined plot for yield flux by each parameter
 
 #### Expected Output
 
-none
+`result/yieldFlux.pdf`
 
 *****
 

@@ -4,7 +4,7 @@
 # Script 	: rateDet.R
 # Desc 		: BioTraits data wrangling
 # Input 	: `Rscript rateDet.R`
-# Output 	: `data/gRate.csv`, `result/stdCst.png`
+# Output 	: `data/gRate.csv`, `result/stdCst.pdf`
 # Arg 		: 0
 # Date 		: Apr 2020
 

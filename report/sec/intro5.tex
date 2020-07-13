@@ -1,0 +1,48 @@
+% Author: PokMan Ho
+% Script: intro.tex
+% Desc: MRes thesis introduction section
+% Input: none
+% Output: none
+% Arguments: 0
+% Date: Jul 2020
+
+\documentclass[../thesis.tex]{subfiles} %% use packages & commands as this main file
+
+\begin{document}
+\section{Introduction}
+
+Climate destabilisation is happening.\autocite{notz2016observed,schuur2015climate}  Anthropogenic emission is affecting the environment\autocite{notz2016observed} but the society still depends on fossil fuels to power the economy.\autocite{lotfalipour2010economic}  Since economy has to be developed by using electricity,\autocite{ferguson2000electricity} how can we minimise our impacts to the globe?
+
+In the past decades, scientists and engineers have proposed numerous methods and measures to capture and sequester carbon.\autocite{farrelly2013carbon,yang2008progress}  There are three main approaches: abiotic (chemical or mechanical) capture and isolation, artificial fertilization and plantation.  From the aspect of life-cycle assessment (LCA), the only way to achieve a net negative carbon footprint is to minimize anthropogenic intervention.  Most of the methods reviewed cannot logically achieve expected effect because they fail to address carbon emitted from associated materials they use.  For example, chemicals, adsorbents and fertilizers used for carbon harvest require electricity to produce.  The use of this material can only be justified being carbon negative if electricity is produced in a (at most) carbon-neutral way under LCA.  Hence it is nearly unfeasible to use artificial non-waste materials as ingredients for carbon harvest.  One exceptional case is the cultivation of fast-growing photosynthetic organisms,\autocite{farrelly2013carbon} if they can survive without human cultivation effort.  This shines light on ecology, which building a sustainable artificial microbial ecosystem is logically feasible.
+
+Aquatic photosynthetic communities are guesstimated as powerful as terrestrial ones in carbon capture ability.\autocite{SCHLESINGER2013341}  Since aquatic phytoplanktons are small sized but fast-growing organisms, their communities can be bottled into different forms, such as panels and bulbs\autocite{evanson_2019}.  If this advantage can be better utilised, carbon footprints from cities and industries can potentially be reduced.  Given the fact that bacterial decomposers are everywhere, it is illogical to neglect their existence (and potential impacts) in an open system (i.e. materials can be exchanged between the set-up and the outside world) in open space.  With the above idea in mind, empirical approaches become too complicated because 1. many phytoplanktons are unknown, hence optimal candidates are unlikely to be identified and listed; 2. lineages of bacterial decomposers exist in a system are random and their performances are under-investigated; and 3. too many known and unknown biochemical interactions are happening simultaneously between individuals, populations and lineages in real life.  Hence a mathematical model is useful to generalise the reality and contain the system to a few defined interactions for detailed investigations.
+
+Many interactive models are built for different purposes, mainly grouped by their growth media (aquatic or terrestrial) and number of players (multi-lineages or multi-organs within an individual).  These models are specific to their respective environmental settings and nutrient limitations.  By comparing model features (Table \ref{modComp}), a new general model should be constructed.  Apart from the above phenotypical models, there are two models published, a community model based on whole genomes\autocite{harcombe2014metabolic} and a specific model for biofuel\autocite{kirthiga2014mathematical}.  These two models are too specific because they require prior knowledge and data regarding to the microbes of interest.  Hence this new ordinary differential equation (ODE) model is aimed at visualising a minimal system as a whole, which accommodates known and unknown microbes as long as they fit into either the phytoplankton (P) or bacterial decomposer (B) categories.
+
+Features of this model/system are fitted between the previous two known clusters of models (i.e. aquatic nutrient and terrestrial carbon-based).  It is a three-part system modeling carbon density from start to equilibrium.  The open system is modeled under the research idea ``Would carbon harvest yield be benefited from adding bacteria into phytoplankton cultures?"  Under this motivation, three exploratory questions are proposed:
+
+\begin{itemize}
+    \item \textbf{
+    Do P+B and P-only systems have similar continuous harvest at biomass equilibria?
+    }
+\end{itemize}
+
+Continuous harvest is the amount of organic carbon that can be kept extracted out without damaging the system function in the long run.  Bacteria is known to have diverse industrial functions, such as pollution treatments\autocite{dash2013marine,naik2013lead}, therapeutics production\autocite{huang2012industrial} and electricity generation.\autocite{songera2012electricity}.  However external carbon input is needed.  On the other hand, phytoplankton pure cultures are mainly used for pollution control\autocite{evanson_2019} in industrial scale.  If we combine these two components together, we can expect a system serving both carbon harvest and the designated bacterial function.  But switching carbon sources for bacteria in these industries would be beneficial if the carbon harvest can be part of their campaigns.
+
+\begin{itemize}
+    \item \textbf{
+    Is the yield/total carbon of destructive harvest higher than continuous harvest in P+B systems?
+    } And
+\end{itemize}
+
+Destructive harvest is the replacement of the P+B system when equilibrium has been established.  For example, a semi-continuous growth media replacement stimulates the production of bacterial cellulose.\autocite{aytekin2016statistical}  On a contrary, regular harvest in microbial systems (i.e. continuous harvest) can maintain a high output throughout its service period.  Continuous harvest has a higher yield when the maximum sustainable yield (i.e. the largest possible continuous harvest) is high while destructive harvest is beneficial when the system's recovery is fast.  As an analogy, grasslands are destructive harvest systems due to fire cycles.  When compare with forests, the carbon capture ability of grasslands may be more reliable\autocite{dass2018grasslands} because growth rates (i.e. biomass accumulation) is high in order to win over competitors.  With this idea, the carbon cycle in the P+B system can potentially be sped up by taking out the system medium to conserve this momentum of growth.
+
+\begin{itemize}
+    \item \textbf{
+    How dependent is continuous harvest on P and/or B biological features?
+    }
+\end{itemize}
+
+Industrial applications of phytoplanktons and bacteria often involve growth environment optimisations.\autocite{dash2013marine,naik2013lead,huang2012industrial,evanson_2019}  The reason behind the optimisation is to maximise the productivity.  However the choice of recombinant organisms is commonly based on the how deep we know about the organism in publications.\autocite{huang2012industrial}  In other words, better candidates might exist but still under the radar.  Through a simple model, we aim to choose the carbon harvest as a model situation to understand the necessity of searching and/or constructing better candidates for designated services.  A better candidate at service can potentially have higher productivity while consuming less resources, hence being cost efficient.
+
+\end{document}

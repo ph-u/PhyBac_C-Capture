@@ -13,7 +13,7 @@ Apache-2.0
 comp-lang | packages | version
 --- | --- | ---
 bash | | 3.2.57(1)-release
-C | | .
+C | gcc | 7.5.0
 . | stdio.h | .
 . | stdlib.h | .
 python | | 3.7.3

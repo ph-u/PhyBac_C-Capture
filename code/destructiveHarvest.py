@@ -4,7 +4,7 @@
 # Script 	: destructiveHarvest.py
 # Desc 		: destructive harvest scenarios model run (numerical integration)
 # Input 	: `python3 destructiveHarvest.py [simulated days]`
-# Output 	: `destructive.csv`
+# Output 	: `data/destructive.csv`
 # Arg 		: 1
 # Date 		: Jul 2020
 

@@ -3,7 +3,7 @@
 # Author 	: PokMan HO
 # Script 	: yieldWrangling.R
 # Desc 		: collect and wrangle all scenario simulation data
-# Input 	: `source("yieldWrangling.R")` in R scripts
+# Input 	: `source("../code/yieldWrangling.R")` in R scripts
 # Output 	: none
 # Arg 		: 0
 # Date 		: Jul 2020

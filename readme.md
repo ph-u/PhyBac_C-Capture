@@ -96,7 +96,7 @@ destructive harvest scenarios model run (numerical integration)
 
 #### Expected Output
 
-`destructive.csv`
+`data/destructive.csv`
 
 *****
 
@@ -268,7 +268,7 @@ collect and wrangle all scenario simulation data
 
 #### Suggested input
 
-`source("yieldWrangling.R")` in R scripts
+`source("../code/yieldWrangling.R")` in R scripts
 
 #### Expected Output
 

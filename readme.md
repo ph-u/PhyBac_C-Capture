@@ -1,6 +1,6 @@
 ![alt text](http://www.imperial.ac.uk/ImageCropToolT4/imageTool/uploaded-images/Blue-on-white--tojpeg_1495792235526_x1.jpg)
 
-# Carbon harvest maximised by a theoretical phytoplankton and bacteria system (2019-20 ICL CMEE MRes)
+# Carbon harvest maximised by a theoretical phytoplankton and bacteria system
 
 This repository is the collection of scripts, programs and report(s) for the thesis project as a partial fulfillment of graduation requirement for the course.
 
@@ -24,7 +24,6 @@ python | | 3.7.3
 R | | 4.0.2
 . | ggplot2 | 3.3.2
 . | gridExtra | 2.3
-. | reshape2 | 1.4.4
 TeX | | TeX Live 2019
 . | LuaTeX | 1.10.0
 . | BibTeX | 0.99d
@@ -51,22 +50,6 @@ TeX | | TeX Live 2019
 
 ## Coding scripts summary
 
-
-### analysis.R
-
-#### Features
-
-modIRL.R result analyses
-
-#### Suggested input
-
-`Rscript analysis.R`
-
-#### Expected Output
-
-plots in `result/`
-
-*****
 
 ### continuousHarvest.sh
 
@@ -100,22 +83,6 @@ destructive harvest scenarios model run (numerical integration)
 
 *****
 
-### func.py
-
-#### Features
-
-project model
-
-#### Suggested input
-
-`import func` in a python3 script inside `code/` directory
-
-#### Expected Output
-
-none
-
-*****
-
 ### func.R
 
 #### Features
@@ -125,6 +92,22 @@ self-defined functions
 #### Suggested input
 
 `source("../code/func.R")` in R scripts
+
+#### Expected Output
+
+none
+
+*****
+
+### func.py
+
+#### Features
+
+project model
+
+#### Suggested input
+
+`import func` in a python3 script inside `code/` directory
 
 #### Expected Output
 

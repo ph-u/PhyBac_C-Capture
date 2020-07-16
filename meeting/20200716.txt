@@ -26,7 +26,7 @@ next:
 9. motivation: clear that there's hardly any work on this issue
 
 ##### lab meeting #####
-umpiness
+bumpiness
 starting off with huge load of carbon
 pre-treat sewage before feeding into the system
 

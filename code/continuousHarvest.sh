@@ -29,7 +29,7 @@ for i0 in `eval echo {${minX}..${maxX}..${intX}}`;do ## loop over sequence of ha
     if [ $((${counterX}%10)) -eq 1 ];then
         calPass=`wc -l ../data/continuous.csv|cut -f 1 -d " "`
         curX=`echo "${counterX}/(${samX}+1)*100"|bc -l|cut -f 1 -d "."`
-        echo -e "`date`; harvest rate value = ${i0}, ${curX}% done"
+        echo -e "continuous: harvest rate = ${i0}, ${curX}% done; `date`"
     fi
     for i1 in `eval echo {2..${numScenario}}`;do ## loop over sampled scenarios
         ./p_sP ${i0} `head -n ${i1} ../data/scenario.csv|tail -n 1|sed -e 's/,/ /g'` 1>> ../data/continuous.csv ## scenario calculation

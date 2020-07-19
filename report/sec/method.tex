@@ -24,22 +24,22 @@ In Eq.\ref{eq:PBH}, $C'(t)$, $P'(t)$ and $B'(t)$ were the rate of change of dens
     \label{f:model}
 \end{figure}
 
-Eq.\ref{eq:PBH} was simulating the setting of $B$ coexisting with $P$ under continuous harvest (PBH).  The full-geared model had three other alternative forms:
+Eq.\ref{eq:PBH} was simulating the setting of $B$ coexisting with $P$ under continuous harvest (\PBH).  The full-geared model had three other alternative forms:
 
-P-only with harvest (PoH);
+P-only with harvest (\PoH);
 \begin{equation}\left\{\begin{array}{rl}
     C'(t) &= \ePR(1-\eP)\cdot\gP\cdot P +\aP\cdot P^2 -xC\\
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2
 \end{array}\right.\label{eq:PoH}\end{equation}
 
-$B$ coexist with $P$ without continuous harvest (PBN); and
+$B$ coexist with $P$ without continuous harvest (\PBN); and
 \begin{equation}\left\{\begin{array}{rl}
     C'(t) &= \ePR(1-\eP)\cdot\gP\cdot P +\aP\cdot P^2 +(\eBR(1-\eB)-1)\cdot\gB\cdot C\cdot B +\mB\cdot B\\
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2\\
     B'(t) &= \eBR\cdot\eB\cdot\gB\cdot C\cdot B -\mB\cdot B
 \end{array}\right.\label{eq:PBN}\end{equation}
 
-P-only without continuous harvest (PoN).
+P-only without continuous harvest (\PoN).
 \begin{equation}\left\{\begin{array}{rl}
     C'(t) &= \ePR(1-\eP)\cdot\gP\cdot P +\aP\cdot P^2\\
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2
@@ -52,17 +52,17 @@ Upon rearranging the variables in the above four system alternatives by SymPy (v
     \caption{Table of equilibria from the four variations of the proposed model (Eq.\ref{eq:PBH})}
     \begin{tabular}{cl|ccc}\hline
         equilibrium & scenario & $C$ & $P$ & $B$ (only if scenario contained $B$) \\\hline
-        1 & PBH, PoH & 0 & 0 & 0 \\
-        2 & PBH & $\dfrac{\mB}{\eBR\eB\gB}$ & 0 & $\dfrac{-x}{\gB(1-\eBR)}$ \\
-        3 & PBH, PoH & $\dfrac{\eP(\ePR\gP)^2}{\aP x}$ & $\dfrac{\ePR\eP\gP}{\aP}$ & 0 \\
-        4 & PBH & $\dfrac{\mB}{\eBR\eB\gB}$ & $\dfrac{\ePR\eP\gP}{\aP}$ & $\dfrac{(\ePR\gP)^2\eBR\eB\gB-\aP\mB x}{(1-\eBR)\aP\gB\mB}$ \\
-        5 & PBN & C & 0 & 0 \\
-        6 & PoN & - & P & - \\\hline
+        1 & \PBH, \PoH & 0 & 0 & 0 \\
+        2 & \PBH & $\dfrac{\mB}{\eBR\eB\gB}$ & 0 & $\dfrac{-x}{\gB(1-\eBR)}$ \\
+        3 & \PBH, \PoH & $\dfrac{\eP(\ePR\gP)^2}{\aP x}$ & $\dfrac{\ePR\eP\gP}{\aP}$ & 0 \\
+        4 & \PBH & $\dfrac{\mB}{\eBR\eB\gB}$ & $\dfrac{\ePR\eP\gP}{\aP}$ & $\dfrac{(\ePR\gP)^2\eBR\eB\gB-\aP\mB x}{(1-\eBR)\aP\gB\mB}$ \\
+        5 & \PBN & C & 0 & 0 \\
+        6 & \PoN & - & P & - \\\hline
     \end{tabular}
     \label{t:eqm}
 \end{table}
 
-Among all the possible states, only defined positive states were biologically possible because densities cannot be negative.  Equilibrium 5 and 6 were not defined; equilibrium 1 contained no biological meaning and equilibrium 2 was not biologically possible.  Hence we only had equilibrium 3 and 4 left, which resembled the setting of PoH and PBH respectively.
+Among all the possible states, only defined positive states were biologically possible because densities cannot be negative.  Equilibrium 5 and 6 were not defined; equilibrium 1 contained no biological meaning and equilibrium 2 was not biologically possible.  Hence we only had equilibrium 3 and 4 left, which resembled the setting of \PoH\ and \PBH respectively.
 
 \subsection{Parameter space}
 Not all defined parameters in our model had experimentally measured values.  Also, there was not a single species with published measurements on every biological parameter we defined.  Luckily there was at least one available value for each biological parameter in our model.  Hence in this study, we used a percentage range of known parameters to narrow down the unknown ranges of biological parameters with limited data and uniform prior to set sampling points within the parameter ranges of each biological parameters.  Ranges of each biological parameter was listed below and details of how we determined each biological parameter range was in the appendix.
@@ -87,17 +87,14 @@ Not all defined parameters in our model had experimentally measured values.  Als
 \end{table}
 
 \subsection{Scenario sampling}
-Within the parameter ranges using the uniform prior, we selected 11 values in the regular interval for each parameter using R (v4.0.2).  Next we randomly arranged the values for each parameter so that each parameter combination was unique.  This step was called a Latin Hypercube Sampling (LHS).  We repeated the LHS for 500 times to obtain a total sample size of 5500.  We also ensured each parameter combination was unique across the 5500 samples.  To ensure the study’s reproducibility, we had set the seed for random numbers to ``20192020”.
+Within the parameter ranges using the uniform prior, we selected 11 values in the regular interval for each parameter using R (v4.0.2).  Next we randomly arranged the values for each parameter so that each parameter combination was unique.  This step was called a Latin Hypercube Sampling (LHS).  To ensure the study’s reproducibility, we had set the seed for random numbers to ``20192020”.  Then we expanded the LHS to 500 unique sets of parameter combinations and applied 200 harvest rates (for continuous harvest systems) or intervals (for destructive harvest systems) of regular interval ranged from 1 to 19901 \dayU.  The total number of scenarios was hence 1.1 million ($11\times500\times200$).
 
-\subsection{Analytical determination of continuous harvest systems}
-A series of discrete harvest rate values (1-12000 \dayU with 100 regular interval samples) were applied to scan for the yield flux in the PBH system using C (compiler gcc v7.5.0).  Then we refined the LHS scan with the same procedure mentioned above on the parameter space around the peak yield flux.  As yield flux was defined as $x\cdot C$ in Eq.\ref{eq:PBH}, yield flux of PoH systems were independent of harvest rate (Table \ref{t:eqm}).
+\subsection{Model experiment}
+C (compiler gcc v7.5.0) was used for analytical calculations on continuous harvest systems (equilibrium 3\&4 in Table \ref{t:eqm}).  Yield flux was defined by $x\cdot C$ in Eq.\ref{eq:PBH}, and hence the calculation showed \PoH\ systems were independent of harvest rate (Table \ref{t:eqm}).
 
-\subsection{Numerical Integration of destructive harvest systems}
-Feasible scenarios of the refined scan in the previous section were put into Eq.\ref{eq:PBH} and integrated using the ``odeint” function of SciPy (v1.2.3) in python3.  The initial densities (\den) were set as $C=P=B=1$ for PBN systems and $C=P=1$, $B=0$ for PoN systems.  The reason for using Eq.\ref{eq:PBH} for both systems is because Eq.\ref{eq:PBH} and Eq.\ref{eq:PBN} were equivalent when $x=0$ and Eq.\ref{eq:PBH} and Eq.\ref{eq:PoN} were equivalent when $x=0$ and $B=0$.  Time step was standardised to ``day” as above.  All state variables (i.e. carbon densities for $C$, $P$ and $B$) were summed at every time step divided by the number of time steps simulated in the model.  This averaged value was the equivalent of the yield flux in the analytical scan for continuous harvest.  Maximum yield for destructive harvest systems was mathematically the highest averaged system carbon content per day.
+Python3 SciPy (v1.2.3) package ``odeint" function was chosen for numerical integrations on the destructive harvest systems (Eq.\ref{eq:PBN}\&\ref{eq:PoN}).  We used Eq.\ref{eq:PBH} by tweaking harvest rate parameter and initial densities because destructive harvest systems were variations from \ref{eq:PBH}.  Hence by setting $x=0$, we ran \PBN\ systems by initial densities of $C=P=B=1$ \den\ and \PoN\ systems by $C=P=1$ and $B=0$ \den.  We defined the daily yield flux as the average yield difference in each ``wait and replace" cycle.  Hence it was calculated as $\dfrac{[\text{total carbon on harvest day}]-[\text{total carbon on initial day}]}{[\text{day passed}]}$ with initial day equal to day 1.
 
-\subsection{Wrangling and analysis of top cohort carbon density yield fluxes}
-Output from the analytical determination (continuous harvest systems) were carbon densities.  Hence we calculated daily yield flux by getting the product of harvest rate $x$ and the organic carbon $C$.  Output from the numerical integration (destructive harvest systems) was a time series of carbon densities.  Daily yield flux was calculated by the total carbon density in the system divided by the number of days (starting day is 1).  Since we would use a “wait and replace” procedure for destructive harvest systems, waiting days bore a sink cost expected to be recovered on the system replacement days.
-
-Top 10\% yield flux of each system (PBH, PoH, PBN, PoN) was extracted and the maximum yield flux for each system was determined.  We plotted them with 95\% confidence intervals and performed a pairwise Wilcox signed rank test (in R) with bonferroni p-value adjustment and no paired situations to check on their difference in medians.
+\subsection{Analysis of carbon density yield fluxes}
+We performed pairwise Wilcox signed rank tests on all necessary occasions (in R) with bonferroni p-value adjustment and no paired situations to check on their difference in medians.  Since harvest rates and harvest intervals were the same in units but different in logic, we selected three harvest values differed in magnitude (101, 1001, 10001) to compare the two harvest systems (\PBH\ vs \PoH\ and \PBN\ vs \PoN).  We also observed influence of each biological parameter by plotting yield fluxes from all four systems separately against each of them.
 
 \end{document}

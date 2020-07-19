@@ -47,11 +47,11 @@ for(i in 2:9){
     t[i0,-1] = t1
   }
   colnames(t) = colnames(yield)[c(i,10:13)]
-  matplot(t[,1],log(t[,-1]+1), xlab = paste(axTitle[i],"(",colnames(t)[1],")"), ylab = paste0("top ",pbs,"% log yield"),type = "l", lwd = 1, lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2))
-  matplot(ydMx[,i],ydMx[,10:13]/max(ydMx[,10:13], na.rm = T)*log(max(t[,-1])+1), pch=rep(3:4,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), add=T)
-  axis(side = 4, at=seq(0,log(max(t[,-1])+1),log(max(t[,-1])+1)/6), labels = round(seq(0,round(max(ydMx[,10:13], na.rm = T)), max(ydMx[,10:13], na.rm = T)/6)))
+  matplot(t[,1],t[,-1], xlab = paste(axTitle[i],"(",colnames(t)[1],")"), ylab = paste0("top ",pbs,"% yield"),type = "l", lwd = 1, lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2))
+  matplot(ydMx[,i],ydMx[,10:13]/max(ydMx[,10:13], na.rm = T)*max(t[,-1]), pch=rep(3:4,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), add=T)
+  axis(side = 4, at=seq(0,max(t[,-1]),max(t[,-1])/6), labels = round(seq(0,round(max(ydMx[,10:13], na.rm = T)), max(ydMx[,10:13], na.rm = T)/6)))
   mtext("max yield",side=4,line=4, padj = -1.7, cex = 1)
-  text(max(t[,1]),log(max(t[,-1])+1)*.4,LETTERS[i-1], cex = 2)
+  text(max(t[,1]),max(t[,-1])*.4,LETTERS[i-1], cex = 2)
 };rm(i,i0,i1,t0)
 legend("bottomleft", inset=c(-.2,-.55), ncol = 4, bty = "n", legend = sYs,pch = rep(3:4,each=2), lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2))
 invisible(dev.off())
@@ -60,10 +60,18 @@ invisible(dev.off())
 yd = yield[which(yield$x %in% selRange),-c(10:11)]
 yd = melt(yd, id.vars = colnames(yd)[1:9], measure.vars = colnames(yd)[-c(1:9)])
 # pairwise.wilcox.test(yd$value,interaction(yd$variable,yd$x), p.adjust.method = "bonferroni", paired = F)
+# for(i0 in unique(yd$x)){for(i1 in unique(yd$variable)){
+#   cat(paste(i1,",",i0,",",length(yd$value[which(yd$x==i0 & yd$variable==i1)]),"\n"))
+#   print(summary(yd$value[which(yd$x==i0 & yd$variable==i1)]))
+# }};rm(i0,i1)
 
 yd0 = yield[which(yield$x %in% selRange),-c(12:13)]
 yd0 = melt(yd0, id.vars = colnames(yd0)[1:9], measure.vars = colnames(yd0)[-c(1:9)])
 # pairwise.wilcox.test(yd0$value,interaction(yd0$variable,yd0$x), p.adjust.method = "bonferroni", paired = F)
+# for(i0 in unique(yd0$x)){for(i1 in unique(yd0$variable)){
+#   cat(paste(i1,",",i0,",",length(yd0$value[which(yd0$x==i0 & yd0$variable==i1)]),"\n"))
+#   print(summary(yd0$value[which(yd0$x==i0 & yd0$variable==i1)]))
+# }};rm(i0,i1)
 
 pdf(paste0(ot,"Harvest.pdf"), width = paper*1.5, height = paper*.7)
 par(mfrow=c(1,2),mar=c(5, 4, 1, .2), xpd=T)

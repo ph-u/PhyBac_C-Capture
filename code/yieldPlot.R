@@ -10,7 +10,7 @@
 
 ##### argument #####
 paper = 7 ## graph reference width
-pbs=.2 ## top percentage boundary
+pbs=50 ## top percentage boundary
 sYs = c("PoH","PBH","PoN","PBN") ## system settings
 selRange = c(101,1001,10001) ## harvest rate/interval selection
 
@@ -34,7 +34,7 @@ for(i in 10:ncol(ydMx)){ ## filter only maximum for each system
 axTitle = c("harvest rate", "non-respirable\ncarbon fraction for P","carbon fraction allocated\ninto biomass for P","P growth rate","P intraspecific interference", "non-respirable\ncarbon fraction for B","carbon fraction allocated\ninto biomass for B","B resource clearance rate","B death rate")
 
 pdf(paste0(ot,"yieldFlux.pdf"), width = paper, height = paper*1.2)
-par(mfrow=c(4,2),mar=c(5, 4, 1, .2), xpd=T)
+par(mfrow=c(4,2),mar=c(5, 4, 1, 4), xpd=T, cex.lab=1.2, cex.axis=1.2)
 for(i in 2:9){
   t = as.data.frame(matrix(NA,nr = length(unique(yield[,i])), nc=5))
   t[,1] = unique(yield[,i])[order(unique(yield[,i]))]
@@ -47,9 +47,11 @@ for(i in 2:9){
     t[i0,-1] = t1
   }
   colnames(t) = colnames(yield)[c(i,10:13)]
-  matplot(t[,1],t[,-1], xlab = paste(axTitle[i],"(",colnames(t)[1],")"), ylab = paste0("top ",pbs,"% yield"),type = "l", lwd = 1, lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), ylim = c(0,max(ydMx[,-c(1:9)], na.rm = T)))
-  matplot(ydMx[,i],ydMx[,10:13], pch=rep(3:4,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), add=T)
-  text(max(t[,1]),max(ydMx[,10:13],na.rm = T)*.4,LETTERS[i-1], cex = 2)
+  matplot(t[,1],log(t[,-1]+1), xlab = paste(axTitle[i],"(",colnames(t)[1],")"), ylab = paste0("top ",pbs,"% log yield"),type = "l", lwd = 1, lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2))
+  matplot(ydMx[,i],ydMx[,10:13]/max(ydMx[,10:13], na.rm = T)*log(max(t[,-1])+1), pch=rep(3:4,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), add=T)
+  axis(side = 4, at=seq(0,log(max(t[,-1])+1),log(max(t[,-1])+1)/6), labels = round(seq(0,round(max(ydMx[,10:13], na.rm = T)), max(ydMx[,10:13], na.rm = T)/6)))
+  mtext("max yield",side=4,line=4, padj = -1.7, cex = 1)
+  text(max(t[,1]),log(max(t[,-1])+1)*.4,LETTERS[i-1], cex = 2)
 };rm(i,i0,i1,t0)
 legend("bottomleft", inset=c(-.2,-.55), ncol = 4, bty = "n", legend = sYs,pch = rep(3:4,each=2), lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2))
 invisible(dev.off())

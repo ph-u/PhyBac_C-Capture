@@ -30,6 +30,13 @@ for(i in 10:ncol(ydMx)){ ## filter only maximum for each system
   ydMx[,i] = ifelse(ydMx[,i]==max(ydMx[,i],na.rm = T),ydMx[,i],NA)
 };rm(i)
 
+##### count unfavourable/unfeasible systems #####
+  # for(i in 10:ncol(yield)){
+  #   i01 = sum(yield[,i]<=0)
+  #   i02 = length(yield[,i])
+  #   cat(paste(colnames(yield)[i],i01,i02,i02-i01,round((1-i01/i02)*100,4),"%\n"))
+  # };rm(i,i01,i02)
+
 ##### plot yield by parameter #####
 axTitle = c("harvest rate", "non-respirable\ncarbon fraction for P","carbon fraction allocated\ninto biomass for P","P growth rate","P intraspecific interference", "non-respirable\ncarbon fraction for B","carbon fraction allocated\ninto biomass for B","B resource clearance rate","B death rate")
 

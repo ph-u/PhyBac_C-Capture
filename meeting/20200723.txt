@@ -10,3 +10,4 @@ Fig.2B time strange
 Fig.2A
 no. of days
 include graph of population growing
+

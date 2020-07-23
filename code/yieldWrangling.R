@@ -18,6 +18,7 @@ for(i in 13:ncol(a)){
   a[,i] = ifelse(a$b4>0 & is.finite(a$b4),a[,i],0)
   d[,i] = ifelse(d$b4>0 & is.finite(d$b4),d[,i],0)
 };rm(i)
+rawd = d
 
 ##### rearrange overall dataframe #####
 a$PoH = a$x*a$c3 ## yield in PoH systems

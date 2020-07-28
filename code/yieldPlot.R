@@ -12,7 +12,8 @@
 paper = 7 ## graph reference width
 pbs=50 ## top percentage boundary
 sYs = c("PoH","PBH","PoN","PBN") ## system settings
-selRange = c(100,1000,10000) ## harvest rate/interval selection
+selRange = c(100,1000,10000) ## harvest rate selection
+selInter = c(.5,5,50) ## harvest interval selection
 
 ##### in #####
 source("graphVariables.R")
@@ -64,7 +65,7 @@ legend("bottomleft", inset=c(-.2,-.55), ncol = 4, bty = "n", legend = sYs,pch = 
 invisible(dev.off())
 
 ##### yield difference under different settings #####
-yd = yield[which(yield$x %in% (selRange+1)),-c(10:11)]
+yd = L[which(L$x %in% (selInter+1)),-c(12:13)]
 yd = melt(yd, id.vars = colnames(yd)[1:9], measure.vars = colnames(yd)[-c(1:9)])
 # pairwise.wilcox.test(yd$value,interaction(yd$variable,yd$x), p.adjust.method = "bonferroni", paired = F)
 # for(i0 in unique(yd$x)){for(i1 in unique(yd$variable)){
@@ -72,7 +73,7 @@ yd = melt(yd, id.vars = colnames(yd)[1:9], measure.vars = colnames(yd)[-c(1:9)])
 #   print(summary(yd$value[which(yd$x==i0 & yd$variable==i1)]))
 # }};rm(i0,i1)
 
-yd0 = yield[which(yield$x %in% (selRange+1)),-c(12:13)]
+yd0 = yield[which(yield$x %in% (selRange+1)),-c(10:11)]
 yd0 = melt(yd0, id.vars = colnames(yd0)[1:9], measure.vars = colnames(yd0)[-c(1:9)])
 # pairwise.wilcox.test(yd0$value,interaction(yd0$variable,yd0$x), p.adjust.method = "bonferroni", paired = F)
 # for(i0 in unique(yd0$x)){for(i1 in unique(yd0$variable)){
@@ -83,11 +84,11 @@ yd0 = melt(yd0, id.vars = colnames(yd0)[1:9], measure.vars = colnames(yd0)[-c(1:
 pdf(paste0(ot,"Harvest.pdf"), width = paper*1.5, height = paper*.7)
 par(mfrow=c(1,2),mar=c(5, 4, 1, .2), xpd=T)
 
-boxplot(log(yd$value+1)~interaction(yd$variable,yd$x), pch=3, cex=.3, xlab = "System\nHarvest interval (day)", ylab = "ln(yield+1)", xaxt="n")
-axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[3:4],"\n",rep(selRange, each=2)), padj = .3)
+boxplot(log(yd$value+1)~interaction(yd$variable,yd$x), pch=3, cex=.3, xlab = "System\nHarvest interval ( T )", ylab = "ln(yield+1)", xaxt="n", main = "Destructive Harvest")
+axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[3:4],"\n",rep(selInter, each=2)), padj = .3)
 text(length(unique(interaction(yd$variable,yd$x)))+.3,max(log(yd$value+1),na.rm = T)*.4,LETTERS[1], cex = 2)
 
-boxplot(log(yd0$value+1)~interaction(yd0$variable,yd0$x), pch=3, cex=.3, xlab = "System\nHarvest rate (1/day)", ylab = "ln(yield+1)", xaxt="n")
+boxplot(log(yd0$value+1)~interaction(yd0$variable,yd0$x), pch=3, cex=.3, xlab = "System\nHarvest rate ( x )", ylab = "ln(yield+1)", xaxt="n", main = "Continuous Harvest")
 axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[1:2],"\n",rep(selRange, each=2)), padj = .3)
 text(length(unique(interaction(yd0$variable,yd0$x)))+.3,max(log(yd0$value+1),na.rm = T)*.4,LETTERS[2], cex = 2)
 
@@ -96,17 +97,23 @@ invisible(dev.off())
 cat("Carbon distribution plots finished\n")
 
 ##### carbon density plot on destructive systems #####
-yLIM = 2
 ref = read.csv("../data/scenario.csv", header = T)
 tmp = rawd
-for(i in 2:9){tmp = tmp[which(round(tmp[,i],4)==round(ref[1,i-1],4)),]};rm(i)
+tmq = rawL
+for(i in 2:9){
+  tmp = tmp[which(round(tmp[,i],4)==round(ref[1,i-1],4)),]
+  tmq = tmq[which(round(tmq[,i],4)==round(ref[1,i-1],4)),]
+};rm(i)
 pdf(paste0(ot,"Sample.pdf"), width = paper*1.5, height = paper*.7)
 par(mfrow = c(1,2),mar=c(7, 4, 1, 1), xpd=T)
 
-matplot(tmp$x-1, tmp[,10:15], type = "l", xlab = "number of days", ylab = "carbon in system", cex = .5, pch = 1:3, col = rep(c(cBp[1,4],cBp[1,3]), each=3))
-text(max(tmp$x-1),max(tmp$c3)*.4,LETTERS[1], cex = 2)
-matplot(tmp$x-1, tmp[,10:15], type = "l", xlab = "number of days", ylab = "carbon in system", cex = .5, pch = 1:3, col = rep(c(cBp[1,4],cBp[1,3]), each=3), ylim = c(0,yLIM))
-text(max(tmp$x-1),yLIM*.4,LETTERS[2], cex = 2)
+lIm = c(50,10)
+matplot(tmq$x, tmq[,10:15], type = "l", xlab = "number of days", ylab = "carbon density", cex = .5, pch = 1:3, col = rep(c(cBp[1,4],cBp[1,3]), each=3), xlim = c(0,lIm[1]), ylim = c(0,lIm[2]))
+text(lIm[1],lIm[2]*.4,LETTERS[1], cex = 2)
+
+matplot(tmp$x-1, tmp[,10:15], type = "l", xlab = "number of days", ylab = "carbon density", cex = .5, pch = 1:3, col = rep(c(cBp[1,4],cBp[1,3]), each=3))
+text(max(tmp$x-1),max(tmp$c3)*.4,LETTERS[2], cex = 2)
+
 legend("bottomleft", inset=c(-.2,-.4), ncol = 4, bty = "n", legend = paste0(rep(sYs[3:4],each=3),"-",c("C","P","B")), lty = 1:3, lwd = 3, col = rep(c(cBp[1,4],cBp[1,3]), each=3))
 
 invisible(dev.off())

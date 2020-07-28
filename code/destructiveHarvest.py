@@ -32,12 +32,17 @@ import func as fc
 
 ##### in #####
 a = pd.read_csv("../data/scenario.csv")
-eNd = int(sys.argv[1])
-rEg = int(sys.argv[2])
+if sys.argv[1] == "Log":
+    t = sorted(list(set([round(i*10**(j-1),1) for i in range(10) for j in range(3)])))
+    tAil = sys.argv[1]
+else:
+    eNd = int(sys.argv[1])
+    rEg = int(sys.argv[2])
+    t = [rEg*i for i in range(int(eNd/rEg))]
+    tAil = "Lin"
 
 ##### numerical run #####
 #t = np.linspace(0,eNd,int(eNd/100))
-t = [rEg*i for i in range(int(eNd/rEg))]
 rEs = pd.DataFrame(columns=['x', 'ePR','eP','gP','aP', 'eBR','eB','gB','mB', 'c3','p3','b3', 'c4','p4','b4'])
 for i in range(len(a)):
     den3, infodict = itg.odeint(fc.ebc7, [1,1,0],t, full_output=True, args=(0,a.iloc[i,0],a.iloc[i,1],a.iloc[i,2],a.iloc[i,3],a.iloc[i,4],a.iloc[i,5],a.iloc[i,6],a.iloc[i,7]))
@@ -51,4 +56,4 @@ for i in range(len(a)):
     if i%1000==0: print('destructive:',str(i),'out of',str(len(a)),':',str(round(i/len(a)*100)),'% done')
 
 ##### data export #####
-rEs.to_csv("../data/destructive.csv", index=False)
+rEs.to_csv("../data/destructive_"+str(tAil)+".csv", index=False)

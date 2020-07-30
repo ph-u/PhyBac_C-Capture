@@ -10,10 +10,10 @@ p_*
 .~*
 *.csv
 *.xlsx
-meeting/*.pdf
 *.odt#
 .ipynb_checkpoints
 *.pyc
+meeting
 proposal
 reference
 sandbox

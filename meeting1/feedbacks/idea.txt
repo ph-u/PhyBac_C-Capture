@@ -1,0 +1,4 @@
+env Tk
+rate of heat loss
+net electricity gain
+net C-footprint from using mains initially

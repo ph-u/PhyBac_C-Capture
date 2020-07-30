@@ -1,0 +1,13 @@
+pandoc: pdf to doc
+
+Fig2: no continuous harvest; carbon yield without harvesting; name some things about the graph; Note that...; confidence interval; 0-20 days; phy one graph & PBN one; carbon pools in diff axis (comparison of systems / pools?)
+interesting to discuss dropped initial
+
+Fig3: coloured graph; units needed?; take highest yield harvest rate
+
+negative yield should be separately shown
+
+yield/days vs days
+yield/days vs x
+
+consistent throughout the thesis

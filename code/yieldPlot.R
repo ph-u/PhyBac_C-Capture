@@ -10,8 +10,6 @@
 
 ##### argument #####
 paper = 7 ## graph reference width
-pbs=50 ## top percentage boundary
-sYs = c("PoH","PBH","PoN","PBN") ## system settings
 selRange = c(100,1000,10000) ## harvest rate selection
 selInter = c(.5,5,50) ## harvest interval selection
 
@@ -20,6 +18,7 @@ source("graphVariables.R")
 source("yieldWrangling.R")
 library(reshape2)
 ot = "../result/"
+sYs = colnames(yield)[10:13] ## system settings
 
 ##### get maximum on each system setting #####
 ydMx = as.data.frame(matrix(NA,nr=0,nc=ncol(yield)))
@@ -39,33 +38,74 @@ for(i in 10:ncol(ydMx)){ ## filter only maximum for each system
 # };rm(i,i01,i02)
 
 ##### plot yield by parameter #####
-axTitle = c("harvest rate", "non-respirable\ncarbon fraction for P","carbon fraction allocated\ninto biomass for P","P growth rate","P intraspecific interference", "non-respirable\ncarbon fraction for B","carbon fraction allocated\ninto biomass for B","B resource clearance rate","B death rate")
+axTitle = c(
+  bquote("Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ "," ~ day^-1 ~ ")"),
+  bquote("Fraction of C stayed in" ~ italic(P) ~ "(" ~ italic(e[PR]) ~ ", no unit )"),
+  bquote("Fraction of C as biomass in" ~ italic(P) ~ "(" ~ italic(e[P]) ~ ", no unit )"),
+  bquote(italic(P) ~ "growth rate" ~ "(" ~ italic(g[P]) ~ "," ~ day^-1 ~ ")"),
+  bquote(italic(P) ~ "intraspecific interference" ~ "(" ~ italic(a[P]) ~ "," ~ m^3*gC^-1*day^-1 ~ ")"),
+  bquote("Fraction of C stayed in" ~ italic(B) ~ "(" ~ italic(e[BR]) ~ ", no unit )"),
+  bquote("Fraction of C as biomass in" ~ italic(B) ~ "(" ~ italic(e[B]) ~ ", no unit )"),
+  bquote(italic(B) ~ "resource clearance rate" ~ "(" ~ italic(g[B]) ~ "," ~ m^3*gC^-1*day^-1 ~ ")"),
+  bquote(italic(B) ~ "death rate" ~ "(" ~ italic(m[B]) ~ "," ~ day^-1 ~ ")"),
+  bquote(Harvest ~ interval ~ "(" ~ italic(T) ~ "," ~ day ~ ")" ),
+  expression("yield ( gCm"^"-3"*"day"^"-1"*")")
+)
 
+## get top harvest rate data sets
+yD = yield[which(yield$x %in% ydMx$x),]
+for(i in 1:nrow(ydMx)){
+  yD[which(yD$x==ydMx$x[i]),which(is.na(ydMx[i,]))] = NA
+};rm(i)
+
+## plot
 pdf(paste0(ot,"yieldFlux.pdf"), width = paper, height = paper*1.2)
 par(mfrow=c(4,2),mar=c(5, 4, 1, 4), xpd=T, cex.lab=1.2, cex.axis=1.2)
 for(i in 2:9){
+  yMAX = 0 ## set ylim
   t = as.data.frame(matrix(NA,nr = length(unique(yield[,i])), nc=5))
-  t[,1] = unique(yield[,i])[order(unique(yield[,i]))]
+  # ci = as.data.frame(matrix(NA,nr = length(unique(yield[,i])), nc=9))
+  # ci[,1] = 
+  t[,1] = unique(yD[,i])[order(unique(yD[,i]))]
   for(i0 in 1:nrow(t)){
-    t0 = yield[which(yield[,i]==t[i0,1]),]
-    t1 = rep(NA,4)
-    for(i1 in 1:length(t1)){
-      t1[i1] = quantile(t0[,9+i1], probs = (100-pbs)/100)
+    t0 = yD[which(yD[,i]==t[i0,1]),]
+    t1 = as.data.frame(matrix(NA,nr = 4, nc=3))
+    for(i1 in 1:nrow(t1)){
+      t1[i1,] = quantile(t0[,9+i1], probs = c(.05,.5,.95), na.rm = T)
     }
-    t[i0,-1] = t1
+    #if(max(t1, na.rm = T)>yMAX){yMAX = max(t1, na.rm = T)} ## ensure graph y-axis large enough (95%CI)
+    t[i0,-1] = t1[,2]
+    # ci[i0,-1] = c(t1[,1],t1[,3])
   }
-  colnames(t) = colnames(yield)[c(i,10:13)]
-  matplot(t[,1],t[,-1], xlab = paste(axTitle[i],"(",colnames(t)[1],")"), ylab = paste0("top ",pbs,"% yield"),type = "l", lwd = 1, lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2))
-  matplot(ydMx[,i],ydMx[,10:13]/max(ydMx[,10:13], na.rm = T)*max(t[,-1]), pch=rep(3:4,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), add=T)
-  axis(side = 4, at=seq(0,max(t[,-1]),max(t[,-1])/6), labels = round(seq(0,round(max(ydMx[,10:13], na.rm = T)), max(ydMx[,10:13], na.rm = T)/6)))
-  mtext("max yield",side=4,line=4, padj = -1.7, cex = 1)
-  text(max(t[,1]),max(t[,-1])*.4,LETTERS[i-1], cex = 2)
-};rm(i,i0,i1,t0)
+  # ciL = ci[,1:5] ## extract lower 95% confidence interval boundary
+  # ciH = as.data.frame(t(rev(as.data.frame(t(as.matrix(ci[,c(1,6:9)])))))) ## flip higher 95% confidence interval boundary dataframe for polygon plotting
+  # colnames(ciL) = colnames(ciH) = 
+  colnames(t) = colnames(yD)[c(i,10:13)]
+  # ci = rbind(ciL, ciH)
+  if(max(t[,-1], na.rm = T)>yMAX){yMAX = max(t[,-1], na.rm = T)} ## ensure graph y-axis large enough (median)
+  
+  matplot(t[,1],t[,-1], xlab = axTitle[i], ylab = "",type = "l", lwd = 1, lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), ylim = c(0,yMAX)) ## median yield trend lines
+  
+  # for(i0 in 2:ncol(ci)){
+  #   i1 = ifelse(i0%%2==0,cBp[2,4],cBp[2,3])
+  #   i2 = ifelse(i0<4,1,2)
+  #   try(polygon(ci[,1],ci[,i0],col = i1, border = i1, lty = i2), silent = T) ## try plotting confidence intervals if not an absolute flat distribution
+  # }
+  
+  matplot(ydMx[,i],ydMx[,10:13]/max(ydMx[,10:13], na.rm = T)*yMAX, pch=rep(3:4,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), add=T) ## max yield points
+  axis(side = 4, at=seq(0,yMAX,yMAX/6), labels = round(seq(0,round(max(ydMx[,10:13], na.rm = T)), max(ydMx[,10:13], na.rm = T)/6)))
+  if(i%%2==0){
+    mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
+  }else{
+    mtext("max yield",side=4,line=4, padj = -1.7, cex = 1)
+  }
+  text(max(t[,1]),yMAX*.4,LETTERS[i-1], cex = 2)
+};rm(i,i0,i1,t0)#;rm(ciL,ciH,ci)
 legend("bottomleft", inset=c(-.2,-.55), ncol = 4, bty = "n", legend = sYs,pch = rep(3:4,each=2), lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2))
 invisible(dev.off())
 
 ##### yield difference under different settings #####
-yd = L[which(L$x %in% (selInter+1)),-c(12:13)]
+yd = yield[which(yield$x %in% (selInter+1)),-c(12:13)]
 yd = melt(yd, id.vars = colnames(yd)[1:9], measure.vars = colnames(yd)[-c(1:9)])
 # pairwise.wilcox.test(yd$value,interaction(yd$variable,yd$x), p.adjust.method = "bonferroni", paired = F)
 # for(i0 in unique(yd$x)){for(i1 in unique(yd$variable)){
@@ -84,36 +124,89 @@ yd0 = melt(yd0, id.vars = colnames(yd0)[1:9], measure.vars = colnames(yd0)[-c(1:
 pdf(paste0(ot,"Harvest.pdf"), width = paper*1.5, height = paper*.7)
 par(mfrow=c(1,2),mar=c(5, 4, 1, .2), xpd=T)
 
-boxplot(log(yd$value+1)~interaction(yd$variable,yd$x), pch=3, cex=.3, xlab = "System\nHarvest interval ( T )", ylab = "ln(yield+1)", xaxt="n", main = "Destructive Harvest")
+boxplot(log(yd$value+1)~interaction(yd$variable,yd$x), pch=3, cex=.3, xlab = axTitle[10], ylab = "ln(yield+1)", xaxt="n", main = "Destructive Harvest", col=c(cBp[1,4],cBp[1,3]), ylim=c(-1,6))
 axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[3:4],"\n",rep(selInter, each=2)), padj = .3)
-text(length(unique(interaction(yd$variable,yd$x)))+.3,max(log(yd$value+1),na.rm = T)*.4,LETTERS[1], cex = 2)
+text(length(unique(interaction(yd$variable,yd$x)))+.3,2,LETTERS[1], cex = 2)
 
-boxplot(log(yd0$value+1)~interaction(yd0$variable,yd0$x), pch=3, cex=.3, xlab = "System\nHarvest rate ( x )", ylab = "ln(yield+1)", xaxt="n", main = "Continuous Harvest")
+boxplot(log(yd0$value+1)~interaction(yd0$variable,yd0$x), pch=3, cex=.3, xlab = axTitle[1], ylab = "ln(yield+1)", xaxt="n", main = "Continuous Harvest", col=c(cBp[1,4],cBp[1,3]), ylim=c(-1,6))
 axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[1:2],"\n",rep(selRange, each=2)), padj = .3)
-text(length(unique(interaction(yd0$variable,yd0$x)))+.3,max(log(yd0$value+1),na.rm = T)*.4,LETTERS[2], cex = 2)
+text(length(unique(interaction(yd0$variable,yd0$x)))+.3,2,LETTERS[2], cex = 2)
 
+legend("bottomleft", inset=c(-.2,-.28), ncol = 2, bty = "n", legend = c("phytoplankton only", "coexistence"), lwd = 3, col = c(cBp[1,4],cBp[1,3]))
+invisible(dev.off())
+
+##### carbon density plot on destructive systems #####
+dEst = as.data.frame(matrix(NA, nr=length(unique(rawL$x)), nc=(ncol(rawL)-10)*3+1))
+dEst[,1] = unique(rawL$x)[order(unique(rawL$x))]
+colnames(dEst) = c("t",paste0(rep(c("c","p"),each=3),rep(3:4,each=6),".",c("L","M","H")),paste0("b4.",c("L","M","H")))
+
+## extract 95% interval across all forward-timed simulations
+for(i in 1:nrow(dEst)){ ## loop over all simulated log-spaced time
+  t = c()
+  for(i0 in 10:15){if(i0!=12){ ## loop over all carbon pool except PoN bacteria because unrelated
+    t = c(t,quantile(rawL[which(rawL$x==dEst$t[i]),i0], probs = c(.05,.5,.95))) ## get 95% confidence interval for each carbon pool
+  }}
+  dEst[i,-1] = t
+};rm(i,i0,t)
+lIm = c(20,10) ## set x,y axis limit
+dEst = dEst[which(dEst$t<=lIm[1]),]
+
+pdf(paste0(ot,"Sample.pdf"), width = paper*1.5, height = paper*.7)
+par(mfrow = c(1,3),mar=c(7, 5, 1, 1), xpd=T)
+aX = c( ## set the y-axis label for each subplot
+  bquote(italic(C) ~ "density (" ~ gC*m^-3 ~ ")"),
+  bquote(italic(P) ~ "density (" ~ gC*m^-3 ~ ")"),
+  bquote(italic(B) ~ "density (" ~ gC*m^-3 ~ ")")
+)
+
+## plot
+for(i in 1:3){
+  if(i<3){
+    matplot(dEst$t,cbind(dEst[,3*i],dEst[,3*i+3]), type = "l", yaxt="n", xlab = "number of days", lty = 1, ylab = aX[i], cex = .5, col = c(cBp[1,4],cBp[1,3]), xlim = c(0,lIm[1]), ylim = c(0,lIm[2]), lwd = 2)
+    # polygon(c(dEst$t,rev(dEst$t)),c(dEst[,3*i-1],rev(dEst[,3*i+1])), col = cBp[2,4], border = NA)
+    # polygon(c(dEst$t,rev(dEst$t)),c(dEst[,3*i+2],rev(dEst[,3*i+4])), col = cBp[2,3], border = NA)
+    if(i==2){
+      legend("bottom", inset=c(0,-.2), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,4],cBp[1,3]))
+    }
+  }else{
+    plot(dEst$t,dEst$b4.M, type = "l", yaxt="n", xlab = "number of days", lty = 1, ylab = aX[3], cex = .5, col = cBp[1,3], xlim = c(0,lIm[1]), ylim = c(0,lIm[2]), lwd = 2)
+    # polygon(c(dEst$t,rev(dEst$t)),c(dEst[,ncol(dEst)-2],rev(dEst[,ncol(dEst)])), col = cBp[2,3], border = NA)
+  }
+  axis(side = 2, at=seq(0,lIm[2],lIm[2]/10), labels = 0:lIm[2])
+  text(lIm[1],lIm[2]*.4,LETTERS[i], cex = 2)
+};rm(i)
+
+invisible(dev.off())
+
+##### daily yield against harvest interval/rate #####
+dAily = as.data.frame(matrix(NA,nr=length(unique(yield$x)),nc=5))
+colnames(dAily) = colnames(yield)[-c(2:9)]
+dAily[,1] = unique(yield$x)[order(unique(yield$x))]-1
+for(i in 1:nrow(dAily)){ ## get daily yield medians
+  t = yield[which(yield$x==(dAily$x[i]+1)),10:13]
+  for(i0 in 1:ncol(t)){
+    dAily[i,i0+1] = quantile(t[,i0], probs = .5, na.rm = T)
+  }
+};rm(i,t,i0)
+yMAX = round(max(dAily[,-1], na.rm = T),1)
+
+## plot
+pdf(paste0(ot,"DailyYield.pdf"), width = paper*1.5, height = paper*.7)
+par(mfrow=c(1,2),mar=c(5, 4, 1, .2), xpd=T)
+for(i in c(2,4)){
+  if(i==2){
+    xX = bquote("log Harvest interval" ~ "(" ~ italic(T) ~ ")" )
+    mAin = "Destructive"
+  }else{
+    xX = bquote("log Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ ")")
+    mAin = "Continuous"
+  }
+  matplot(log(dAily$x+1),cbind(dAily[,i],dAily[,i+1]), yaxt="n", type = "l", xlab = xX, lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main=paste(mAin,"Harvest"), ylim = c(0,yMAX))
+  axis(side = 2, at=seq(0,yMAX,yMAX/8), labels = seq(0,yMAX,yMAX/8))
+  mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
+  text(max(log(dAily$x+1)),yMAX*.4,LETTERS[i/2], cex = 2)
+};rm(i,xX,mAin)
+legend("bottomleft", inset=c(-.2,-.28), ncol = 2, bty = "n", legend = c("phytoplankton only", "coexistence"), lwd = 3, col = c(cBp[1,4],cBp[1,3]))
 invisible(dev.off())
 
 cat("Carbon distribution plots finished\n")
-
-##### carbon density plot on destructive systems #####
-ref = read.csv("../data/scenario.csv", header = T)
-tmp = rawd
-tmq = rawL
-for(i in 2:9){
-  tmp = tmp[which(round(tmp[,i],4)==round(ref[1,i-1],4)),]
-  tmq = tmq[which(round(tmq[,i],4)==round(ref[1,i-1],4)),]
-};rm(i)
-pdf(paste0(ot,"Sample.pdf"), width = paper*1.5, height = paper*.7)
-par(mfrow = c(1,2),mar=c(7, 4, 1, 1), xpd=T)
-
-lIm = c(50,10)
-matplot(tmq$x, tmq[,10:15], type = "l", xlab = "number of days", ylab = "carbon density", cex = .5, pch = 1:3, col = rep(c(cBp[1,4],cBp[1,3]), each=3), xlim = c(0,lIm[1]), ylim = c(0,lIm[2]))
-text(lIm[1],lIm[2]*.4,LETTERS[1], cex = 2)
-
-matplot(tmp$x-1, tmp[,10:15], type = "l", xlab = "number of days", ylab = "carbon density", cex = .5, pch = 1:3, col = rep(c(cBp[1,4],cBp[1,3]), each=3))
-text(max(tmp$x-1),max(tmp$c3)*.4,LETTERS[2], cex = 2)
-
-legend("bottomleft", inset=c(-.2,-.4), ncol = 4, bty = "n", legend = paste0(rep(sYs[3:4],each=3),"-",c("C","P","B")), lty = 1:3, lwd = 3, col = rep(c(cBp[1,4],cBp[1,3]), each=3))
-
-invisible(dev.off())

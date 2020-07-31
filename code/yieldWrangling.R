@@ -20,11 +20,10 @@ for(i in 13:ncol(a)){
   d[,i] = ifelse(d$b4>0 & is.finite(d$b4),d[,i],0)
   L[,i] = ifelse(L$b4>0 & is.finite(L$b4),L[,i],0)
 };rm(i)
-rawd = d
 rawL = L
 rawL$x = rawL$x-1
 
-##### rearrange overall dataframe #####
+##### daily yield #####
 a$PoH = a$x*a$c3 ## yield in PoH systems
 a$PBH = a$x*a$c4 ## yield in PBH systems
 d$PoN = (d$c3+d$p3+d$b3-(d$c3[1]+d$p3[1]+d$b3[1]))/d$x ## yield in PoN systems
@@ -38,5 +37,6 @@ for(i in 2:9){ ## bit-wise number handling in python and C cause record slight d
   L[,i] = round(L[,i],4)
 };rm(i)
 yield = merge(a,d,by=intersect(names(a),names(d)), all = T)
-rm(a,d)
+yield = merge(yield,L,by=intersect(names(yield),names(L)), all = T)
+rm(a,d,L)
 cat("data is ready\n")

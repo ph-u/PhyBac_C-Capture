@@ -195,10 +195,10 @@ pdf(paste0(ot,"DailyYield.pdf"), width = paper*1.5, height = paper*.7)
 par(mfrow=c(1,2),mar=c(5, 4, 1, .2), xpd=T)
 for(i in c(2,4)){
   if(i==2){
-    xX = bquote("log Harvest interval" ~ "(" ~ italic(T) ~ ")" )
+    xX = bquote("ln Harvest interval" ~ "(" ~ italic(T) ~ ")" )
     mAin = "Destructive"
   }else{
-    xX = bquote("log Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ ")")
+    xX = bquote("ln Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ ")")
     mAin = "Continuous"
   }
   matplot(log(dAily$x+1),cbind(dAily[,i],dAily[,i+1]), yaxt="n", type = "l", xlab = xX, lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main=paste(mAin,"Harvest"), ylim = c(0,yMAX))

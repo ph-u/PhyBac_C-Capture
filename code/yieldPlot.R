@@ -162,17 +162,17 @@ aX = c( ## set the y-axis label for each subplot
 ## plot
 for(i in 1:3){
   if(i<3){
-    matplot(dEst$t,cbind(dEst[,3*i],dEst[,3*i+3]), type = "l", yaxt="n", xlab = "number of days", lty = 1, ylab = aX[i], cex = .5, col = c(cBp[1,4],cBp[1,3]), xlim = c(0,lIm[1]), ylim = c(0,lIm[2]), lwd = 2)
+    matplot(dEst$t,cbind(dEst[,3*i],dEst[,3*i+3]), type = "l", yaxt="n", xlab = "number of days", lty = 1, ylab = aX[i], cex = .5, col = c(cBp[1,4],cBp[1,3]), xlim = c(0,lIm[1]), ylim = c(0,lIm[2]), lwd = 2, cex.axis=1.5, cex.lab=1.5)
     # polygon(c(dEst$t,rev(dEst$t)),c(dEst[,3*i-1],rev(dEst[,3*i+1])), col = cBp[2,4], border = NA)
     # polygon(c(dEst$t,rev(dEst$t)),c(dEst[,3*i+2],rev(dEst[,3*i+4])), col = cBp[2,3], border = NA)
     if(i==2){
-      legend("bottom", inset=c(0,-.2), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,4],cBp[1,3]))
+      legend("bottom", inset=c(0,-.2), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,4],cBp[1,3]), cex = 1.2)
     }
   }else{
-    plot(dEst$t,dEst$b4.M, type = "l", yaxt="n", xlab = "number of days", lty = 1, ylab = aX[3], cex = .5, col = cBp[1,3], xlim = c(0,lIm[1]), ylim = c(0,lIm[2]), lwd = 2)
+    plot(dEst$t,dEst$b4.M, type = "l", yaxt="n", xlab = "number of days", lty = 1, ylab = aX[3], cex = .5, col = cBp[1,3], xlim = c(0,lIm[1]), ylim = c(0,lIm[2]), lwd = 2, cex.axis=1.5, cex.lab=1.5)
     # polygon(c(dEst$t,rev(dEst$t)),c(dEst[,ncol(dEst)-2],rev(dEst[,ncol(dEst)])), col = cBp[2,3], border = NA)
   }
-  axis(side = 2, at=seq(0,lIm[2],lIm[2]/10), labels = 0:lIm[2])
+  axis(side = 2, at=seq(0,lIm[2],lIm[2]/10), labels = 0:lIm[2], cex.axis=1.5)
   text(lIm[1],lIm[2]*.4,LETTERS[i], cex = 2)
 };rm(i)
 

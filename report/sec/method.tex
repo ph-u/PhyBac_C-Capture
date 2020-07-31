@@ -87,14 +87,23 @@ Not all defined parameters in our model had experimentally measured values.  Als
 \end{table}
 
 \subsection{Scenario sampling}
-Within the parameter ranges using the uniform prior, we selected 11 values in the regular interval for each parameter using R (v4.0.2).  Next we randomly arranged the values for each parameter so that each parameter combination was unique.  This step was called a Latin Hypercube Sampling (LHS).  To ensure the study’s reproducibility, we had set the seed for random numbers to ``20192020”.  Then we expanded the LHS to 500 unique sets of parameter combinations and applied 200 harvest rates (for continuous harvest systems, $x$) or intervals (for destructive harvest systems, $T$) of regular interval ranged from 1 to 19901 \dayU.  The total number of scenarios was hence 1.1 million ($11\times500\times200$).
+Within the parameter ranges using the uniform prior, we selected 11 values in the regular interval for each parameter using R (v4.0.2).  Next we randomly arranged the values for each parameter so that each parameter combination was unique.  This step was called a Latin Hypercube Sampling (LHS).  To ensure the study’s reproducibility, we had set the seed for random numbers to ``20192020”.  Then we expanded the LHS to 500 unique sets of parameter combinations and applied 200 harvest rates (for continuous harvest systems, $x$) of regular interval ranged from 1 to 19901 \dayU.  Harvest intervals (for destructive harvest systems, $T$, unit: day) was defined as
+\begin{equation}
+    T = x-1
+    \label{eq:TvsX}
+\end{equation}
+The number of scenarios for each system was hence 1.1 million ($11\times500\times200$).  Log-spaced time ($T$ = 0-100) was also added to destructive systems investigating system behaviour propagating towards stability.
 
 \subsection{Model experiment}
 C (compiler gcc v7.5.0) was used for analytical calculations on continuous harvest systems (equilibrium 3\&4 in Table \ref{t:eqm}).  Yield flux was defined by $x\cdot C$ in Eq.\ref{eq:PBH}, and hence the calculation showed \PoH\ systems were independent of harvest rate (Table \ref{t:eqm}).
 
-Python3 SciPy (v1.2.3) package ``odeint" function was chosen for numerical integrations on the destructive harvest systems (Eq.\ref{eq:PBN}\&\ref{eq:PoN}).  We used Eq.\ref{eq:PBH} by tweaking harvest rate parameter and initial densities because destructive harvest systems were variations from Eq.\ref{eq:PBH}.  Hence by setting $x=0$, we ran \PBN\ systems by initial densities of $C=P=B=1$ \den\ and \PoN\ systems by $C=P=1$ and $B=0$ \den.  We defined the daily yield flux as the average yield difference in each ``wait and replace" cycle.  Hence it was calculated as $\dfrac{[\text{total carbon on harvest day}]-[\text{total carbon on initial day}]}{[\text{day passed}]}$ with initial day equal to day 1.
+Python3 SciPy (v1.2.3) package ``odeint" function was chosen for numerical integrations on the destructive harvest systems (Eq.\ref{eq:PBN}\&\ref{eq:PoN}).  We used Eq.\ref{eq:PBH} by tweaking harvest rate parameter and initial densities because destructive harvest systems were variations from Eq.\ref{eq:PBH}.  Hence by setting $x=0$, we ran \PBN\ systems by initial densities of $C=P=B=1$ \den\ and \PoN\ systems by $C=P=1$ and $B=0$ \den.  We defined the daily yield flux as the average yield difference in each ``wait and replace" cycle.  Hence it was calculated using the equation below with the time definition in Eq.\ref{eq:TvsX}:
+\begin{equation}
+    \text{average yield} = \dfrac{[\text{total carbon}]|_{T}-[\text{total carbon}]|_{T=0}}{T}
+    \label{eq:avgYd}
+\end{equation}
 
 \subsection{Analysis of carbon density yield fluxes}
-We performed pairwise Wilcox signed rank tests on all necessary occasions (in R) with bonferroni p-value adjustment and no paired situations to check on their difference in medians.  Since harvest rates and harvest intervals were the same in units but different in logic, we selected three harvest values differed in magnitude to compare the two harvest systems (\PBH\ vs \PoH\ and \PBN\ vs \PoN).  We also observed influence of each biological parameter by plotting yield fluxes from all four systems separately against each of them.
+We performed pairwise Wilcox signed rank tests on all necessary occasions (in R) with bonferroni p-value adjustment and no paired situations to check on their difference in medians.  Since harvest rates and harvest intervals were similar in logic but different in units, we separately selected three harvest values differed in magnitude to compare the two harvest systems (\PBH\ vs \PoH\ and \PBN\ vs \PoN).  We also observed influence of each biological parameter by plotting yield fluxes from all four systems separately against each of them.
 
 \end{document}

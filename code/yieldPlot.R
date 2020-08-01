@@ -40,14 +40,14 @@ for(i in 10:ncol(ydMx)){ ## filter only maximum for each system
 ##### plot yield by parameter #####
 axTitle = c(
   bquote("Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ "," ~ day^-1 ~ ")"),
-  bquote("Fraction of C stayed in" ~ italic(P) ~ "(" ~ italic(e[PR]) ~ ", no unit )"),
-  bquote("Fraction of C as biomass in" ~ italic(P) ~ "(" ~ italic(e[P]) ~ ", no unit )"),
-  bquote(italic(P) ~ "growth rate" ~ "(" ~ italic(g[P]) ~ "," ~ day^-1 ~ ")"),
-  bquote(italic(P) ~ "intraspecific interference" ~ "(" ~ italic(a[P]) ~ "," ~ m^3*gC^-1*day^-1 ~ ")"),
-  bquote("Fraction of C stayed in" ~ italic(B) ~ "(" ~ italic(e[BR]) ~ ", no unit )"),
-  bquote("Fraction of C as biomass in" ~ italic(B) ~ "(" ~ italic(e[B]) ~ ", no unit )"),
-  bquote(italic(B) ~ "resource clearance rate" ~ "(" ~ italic(g[B]) ~ "," ~ m^3*gC^-1*day^-1 ~ ")"),
-  bquote(italic(B) ~ "death rate" ~ "(" ~ italic(m[B]) ~ "," ~ day^-1 ~ ")"),
+  bquote(italic(e[PR]) ~ "[ no unit ]"),
+  bquote(italic(e[P]) ~ "[ no unit ]"),
+  bquote(italic(g[P]) ~ "(" ~ day^-1 ~ ")"),
+  bquote(italic(a[P]) ~ "(" ~ m^3*gC^-1*day^-1 ~ ")"),
+  bquote(italic(e[BR]) ~ "( no unit )"),
+  bquote(italic(e[B]) ~ "( no unit )"),
+  bquote(italic(g[B]) ~ "(" ~ m^3*gC^-1*day^-1 ~ ")"),
+  bquote(italic(m[B]) ~ "(" ~ day^-1 ~ ")"),
   bquote(Harvest ~ interval ~ "(" ~ italic(T) ~ "," ~ day ~ ")" ),
   expression("yield ( gCm"^"-3"*"day"^"-1"*")")
 )

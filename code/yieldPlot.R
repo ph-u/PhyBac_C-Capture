@@ -72,6 +72,7 @@ for(i in 2:9){
     t1 = as.data.frame(matrix(NA,nr = 4, nc=3))
     for(i1 in 1:nrow(t1)){
       t1[i1,] = quantile(t0[,9+i1], probs = c(.05,.5,.95), na.rm = T)
+      # t1[i1,] = log(quantile(t0[,9+i1], probs = c(.05,.5,.95), na.rm = T)+1) ## natural log 95%CI
     }
     #if(max(t1, na.rm = T)>yMAX){yMAX = max(t1, na.rm = T)} ## ensure graph y-axis large enough (95%CI)
     t[i0,-1] = t1[,2]

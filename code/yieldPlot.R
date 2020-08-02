@@ -40,8 +40,8 @@ for(i in 10:ncol(ydMx)){ ## filter only maximum for each system
 ##### plot yield by parameter #####
 axTitle = c(
   bquote("Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ "," ~ day^-1 ~ ")"),
-  bquote(italic(e[PR]) ~ "[ no unit ]"),
-  bquote(italic(e[P]) ~ "[ no unit ]"),
+  bquote(italic(e[PR]) ~ "( no unit )"),
+  bquote(italic(e[P]) ~ "( no unit )"),
   bquote(italic(g[P]) ~ "(" ~ day^-1 ~ ")"),
   bquote(italic(a[P]) ~ "(" ~ m^3*gC^-1*day^-1 ~ ")"),
   bquote(italic(e[BR]) ~ "( no unit )"),

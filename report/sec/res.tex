@@ -4,9 +4,9 @@
 \section{Result}
 Numerical simulation showed stability in biomass densities on destructive harvest systems for both \PoN\ and \PBN\ (Fig.\ref{f:destCarbon}).  After an initial boost of organic carbon accumulation (Fig.\ref{f:destCarbon}A), \phy-only systems had linear accumulation of organic carbon but \pbs\ had its level slightly dropped to a stable level and perpetuated.  The difference in carbon accumulation trend led to non-significant different between \PoN\ systems only after a few days of system establishment (Fig.\ref{f:ydDaily}A \& \ref{f:ydByHarv}A).  We did not observe this pattern in \pbs.
 
-Pairwise Wilcox test showed statistical significance for all four systems (\PBH, \PoH, \PBN\ \& \PoN).  Yet in Fig.\ref{f:ydByPara} the pair of \phy-only systems were largely overlapping and the overlap was also observed for the \pbs s.  Hence we concluded that biological significance was only between \phy-only and \pbs s but not across harvest terms within each pair.
+Pairwise Wilcox test showed statistical significance for all four systems (\PBH, \PoH, \PBN\ \& \PoN).  Yet the pair of \phy-only systems were largely overlapping and the overlap (Fig.\ref{f:harvPo}).  Hence we used \PoN\ systems to represent all \phy-only systems in the following discussions.
 
-Biological parameters for \phy\ (Fig.\ref{f:ydByPara}A-D) had stable influence over \phy-only systems (\PoH\ \& \PoN) in the view of the median.  No parameters had influence on median values for \pbs s (\PBH\ \& \PBN\ in Fig.\ref{f:ydByPara}A-H).  As for \phy\ biological parameters, only intraspecific interference ($\aP$) had a decreasing effect in a decreasing rate.  Hence density-insensitive \phy\ death rate had much higher productivity than others; maximum yield for all four systems concentrated at the minimal value for this parameter range.  The other three \phy\ parameters (i.e. non-respirable carbon fraction for \phy\ $\ePR$, carbon fraction allocated into biomass for \phy\ $\eP$ and \phy\ growth rate $\gP$) had a stable positive influence on median of \phy-only systems yield fluxes.  Although pairwise Wilcox test showed significance (p $\ll$ 0.01) between \PoH\ and \PoN, the difference may not be biological significant.  The set of four parameters had no observational effect on \pbs s.  The reason was because most of the raw yield from simulations were zeros.  Details were listed later in this section.
+Biological parameters for \phy\ (Fig.\ref{f:bacEffect}A-D) had unidirectional influence over \phy-only systems.  No parameters had influence on median values for \pbs s (\PBH\ \& \PBN\ in Fig.\ref{f:ydByPara}A-H).  As for \phy\ biological parameters, only intraspecific interference ($\aP$) had a decreasing effect in a decreasing rate.  Hence density-insensitive \phy\ death rate had much higher productivity than others; maximum yield for all four systems concentrated at the minimal value for this parameter range.  The other three \phy\ parameters (i.e. non-respirable carbon fraction for \phy\ $\ePR$, carbon fraction allocated into biomass for \phy\ $\eP$ and \phy\ growth rate $\gP$) had a stable positive influence on median of \phy-only systems yield fluxes.  Although pairwise Wilcox test showed significance (p $\ll$ 0.01) between \PoH\ and \PoN, the difference may not be biological significant.  The set of four parameters had no observational effect on \pbs s.  The reason was because most of the raw yield from simulations were zeros.  Details were listed later in this section.
 
 Biological parameters for \bac\ (Fig.\ref{f:ydByPara}E-H) had no observable influence over all systems.  Since these four parameters had no mathematical effect on \phy-only systems (equilibrium 3 in Table \ref{t:eqm}), fluctuations from \phy-only systems in Fig.\ref{f:ydByPara}E-H was due to LHS sampling effect.  Yet, it also had no observational effect on \pbs s, probably because of the large number of zero yield scenarios.
 
@@ -37,9 +37,23 @@ Among the four system sets within the LHS scenarios (1.1 million), feasible (for
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{result/yieldFlux.pdf}
-    \caption[Yield flux median in biological parameter space]{Median yield flux (primary axis) and the maximum yield scenario (secondary axis) along respective parameter ranges under a standardised temperature range of \temp.  Full description of variables were in Table \ref{t:ranges}.  Each median trend had an LHS sample size of 5500.  Pairwise Wilcox test showed significance (p $\ll$ 0.01) between all systems.  Note that trends between \phy-only and \pbs s had different responses while harvest modes only caused small deviation in median yields.  Also note that in all plots, y-axis range for primary axis was much smaller than the secondary axis.  There were many outliers regardless of the parameter under consideration (Fig.\ref{f:ydByHarv}).}
-    \label{f:ydByPara}
+    \includegraphics[width=\linewidth]{result/bacEff.pdf}
+    \caption[]{Caption}
+    \label{f:bacEffect}
 \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{result/harvB.pdf}
+    \caption[]{Caption}
+    \label{f:harvPB}
+\end{figure}
+
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=\linewidth]{result/yieldFlux.pdf}
+%    \caption[Yield flux median in biological parameter space]{Median yield flux (primary axis) and the maximum yield scenario (secondary axis) along respective parameter ranges under a standardised temperature range of \temp.  Full description of variables were in Table \ref{t:ranges}.  Each median trend had an LHS sample size of 5500.  Pairwise Wilcox test showed significance (p $\ll$ 0.01) between all systems.  Note that trends between \phy-only and \pbs s had different responses while harvest modes only caused small deviation in median yields.  Also note that in all plots, y-axis range for primary axis was much smaller than the secondary axis.  There were many outliers regardless of the parameter under consideration (Fig.\ref{f:ydByHarv}).}
+%    \label{f:ydByPara}
+%\end{figure}
 
 \end{document}

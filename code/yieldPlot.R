@@ -77,7 +77,7 @@ for(p0 in 1:3){
     boxplot(yDp$value~interaction(yDp$variable,yDp[,i]), pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", col=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
     axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,2])[order(unique(yDp[,2]))],2), hadj = .79, las=2)
     mtext(axTitle[i], side = 1, padj = 2.5, adj=.7)
-    text(max(yDp[,i]),max(yDp$value)*.4,LETTERS[i-1], cex = 2)
+    text(length(unique(interaction(yDp$variable,yDp[,i])))+.7,max(yDp$value, na.rm = T)*.4,LETTERS[i-1], cex = 2)
   };rm(i)
   legend("bottomleft", inset=c(-.2,-.5), ncol = 2, bty = "n", legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
   invisible(dev.off())

@@ -98,10 +98,9 @@ if(any(duplicated(rEsult))==T){
   repeat{
     cat(paste0("get biological parameter set iteration = ",iTeration,"\n"))
     dUp = which(duplicated(rEsult))
-    for(i in dUp){
-      i0 = c(sample(ncol(paRef),1),sample(nrow(paRef),1))
-      rEsult[i,i0[1]] = paRef[i0[1],i0[2]]
-    };rm(i)
+    for(i in dUp){for(i1 in 1:ncol(rEsult)){
+      rEsult[i,i1] = paRef[sample(nrow(paRef),1),i1]
+    }};rm(i,i1)
     if(any(duplicated(rEsult))==F){break}else{iTeration = iTeration +1}
   };rm(iTeration)
 }

@@ -83,22 +83,6 @@ destructive harvest scenarios model run (numerical integration)
 
 *****
 
-### func.R
-
-#### Features
-
-self-defined functions
-
-#### Suggested input
-
-`source("../code/func.R")` in R scripts
-
-#### Expected Output
-
-none
-
-*****
-
 ### func.py
 
 #### Features
@@ -108,6 +92,22 @@ project model
 #### Suggested input
 
 `import func` in a python3 script inside `code/` directory
+
+#### Expected Output
+
+none
+
+*****
+
+### func.R
+
+#### Features
+
+self-defined functions
+
+#### Suggested input
+
+`source("../code/func.R")` in R scripts
 
 #### Expected Output
 
@@ -224,22 +224,6 @@ the combined plot for yield flux by each parameter
 #### Expected Output
 
 `result/yieldFlux.pdf`
-
-*****
-
-### yieldStats.R
-
-#### Features
-
-determination of maximum yield flux for all systems
-
-#### Suggested input
-
-`Rscript yieldStats.R`
-
-#### Expected Output
-
-none
 
 *****
 

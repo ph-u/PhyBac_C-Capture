@@ -59,51 +59,75 @@ for(i in 1:nrow(ydMx)){
 };rm(i)
 
 ## plot
-pdf(paste0(ot,"yieldFlux.pdf"), width = paper, height = paper*1.2)
-par(mfrow=c(4,2),mar=c(5, 4, 1, 4), xpd=T, cex.lab=1.2, cex.axis=1.2)
-for(i in 2:9){
-  yMAX = 0 ## set ylim
-  t = as.data.frame(matrix(NA,nr = length(unique(yield[,i])), nc=5))
-  # ci = as.data.frame(matrix(NA,nr = length(unique(yield[,i])), nc=9))
-  # ci[,1] = 
-  t[,1] = unique(yD[,i])[order(unique(yD[,i]))]
-  for(i0 in 1:nrow(t)){
-    t0 = yD[which(yD[,i]==t[i0,1]),]
-    t1 = as.data.frame(matrix(NA,nr = 4, nc=3))
-    for(i1 in 1:nrow(t1)){
-      t1[i1,] = quantile(t0[,9+i1], probs = c(.05,.5,.95), na.rm = T)
-      # t1[i1,] = log(quantile(t0[,9+i1], probs = c(.05,.5,.95), na.rm = T)+1) ## natural log 95%CI
-    }
-    #if(max(t1, na.rm = T)>yMAX){yMAX = max(t1, na.rm = T)} ## ensure graph y-axis large enough (95%CI)
-    t[i0,-1] = t1[,2]
-    # ci[i0,-1] = c(t1[,1],t1[,3])
+for(p0 in 1:3){
+  if(p0 == 1){ ## with / without bateria
+    nAm = c("bacEff", 12,13, 1,1, 4,3)
+  }else if(p0 == 2){ ## destructive / continuous harvest for coexistence systems
+    nAm = c("harvB", 10,12, 1,2, 3,3)
+  }else{ ## destructive / continuous harvest for phytoplankton-only systems
+    nAm = c("harvP", 11,13, 1,2, 4,4)
   }
-  # ciL = ci[,1:5] ## extract lower 95% confidence interval boundary
-  # ciH = as.data.frame(t(rev(as.data.frame(t(as.matrix(ci[,c(1,6:9)])))))) ## flip higher 95% confidence interval boundary dataframe for polygon plotting
-  # colnames(ciL) = colnames(ciH) = 
-  colnames(t) = colnames(yD)[c(i,10:13)]
-  # ci = rbind(ciL, ciH)
-  if(max(t[,-1], na.rm = T)>yMAX){yMAX = max(t[,-1], na.rm = T)} ## ensure graph y-axis large enough (median)
+  pdf(paste0(ot,nAm[1],".pdf"), width = paper, height = paper*1.2)
+  par(mfrow=c(4,2),mar=c(5, 4, 1, 4), xpd=T, cex.lab=1.2, cex.axis=1.2)
   
-  matplot(t[,1],t[,-1], xlab = axTitle[i], ylab = "",type = "l", lwd = 1, lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), ylim = c(0,yMAX)) ## median yield trend lines
-  
-  # for(i0 in 2:ncol(ci)){
-  #   i1 = ifelse(i0%%2==0,cBp[2,4],cBp[2,3])
-  #   i2 = ifelse(i0<4,1,2)
-  #   try(polygon(ci[,1],ci[,i0],col = i1, border = i1, lty = i2), silent = T) ## try plotting confidence intervals if not an absolute flat distribution
-  # }
-  
-  matplot(ydMx[,i],ydMx[,10:13]/max(ydMx[,10:13], na.rm = T)*yMAX, pch=rep(3:4,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), add=T) ## max yield points
-  axis(side = 4, at=seq(0,yMAX,yMAX/6), labels = round(seq(0,round(max(ydMx[,10:13], na.rm = T)), max(ydMx[,10:13], na.rm = T)/6)))
-  if(i%%2==0){
-    mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
-  }else{
-    mtext("max yield",side=4,line=4, padj = -1.7, cex = 1)
-  }
-  text(max(t[,1]),yMAX*.4,LETTERS[i-1], cex = 2)
-};rm(i,i0,i1,t0)#;rm(ciL,ciH,ci)
-legend("bottomleft", inset=c(-.2,-.55), ncol = 4, bty = "n", legend = sYs,pch = rep(3:4,each=2), lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2))
-invisible(dev.off())
+  yDp = yD[,-as.numeric(nAm[2:3])]
+  yDp = melt(yDp, id.vars = colnames(yDp)[1:9], measure.vars = colnames(yDp)[-c(1:9)])
+  yDp$value = log(yDp$value+1)
+  for(i in 2:9){
+    boxplot(yDp$value~interaction(yDp$variable,yDp[,i]), pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", col=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
+    axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,2])[order(unique(yDp[,2]))],2), hadj = .79, las=2)
+    mtext(axTitle[i], side = 1, padj = 2.5, adj=.7)
+    text(max(yDp[,i]),max(yDp$value)*.4,LETTERS[i-1], cex = 2)
+  };rm(i)
+  legend("bottomleft", inset=c(-.2,-.5), ncol = 2, bty = "n", legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
+  invisible(dev.off())
+};rm(p0,nAm,yDp)
+
+# pdf(paste0(ot,"yieldFlux.pdf"), width = paper, height = paper*1.2)
+# par(mfrow=c(4,2),mar=c(5, 4, 1, 4), xpd=T, cex.lab=1.2, cex.axis=1.2)
+# for(i in 2:9){
+#   yMAX = 0 ## set ylim
+#   t = as.data.frame(matrix(NA,nr = length(unique(yield[,i])), nc=5))
+#   # ci = as.data.frame(matrix(NA,nr = length(unique(yield[,i])), nc=9))
+#   # ci[,1] = 
+#   t[,1] = unique(yD[,i])[order(unique(yD[,i]))]
+#   for(i0 in 1:nrow(t)){
+#     t0 = yD[which(yD[,i]==t[i0,1]),]
+#     t1 = as.data.frame(matrix(NA,nr = 4, nc=3))
+#     for(i1 in 1:nrow(t1)){
+#       t1[i1,] = quantile(t0[,9+i1], probs = c(.05,.5,.95), na.rm = T)
+#       # t1[i1,] = log(quantile(t0[,9+i1], probs = c(.05,.5,.95), na.rm = T)+1) ## natural log 95%CI
+#     }
+#     #if(max(t1, na.rm = T)>yMAX){yMAX = max(t1, na.rm = T)} ## ensure graph y-axis large enough (95%CI)
+#     t[i0,-1] = t1[,2]
+#     # ci[i0,-1] = c(t1[,1],t1[,3])
+#   }
+#   # ciL = ci[,1:5] ## extract lower 95% confidence interval boundary
+#   # ciH = as.data.frame(t(rev(as.data.frame(t(as.matrix(ci[,c(1,6:9)])))))) ## flip higher 95% confidence interval boundary dataframe for polygon plotting
+#   # colnames(ciL) = colnames(ciH) = 
+#   colnames(t) = colnames(yD)[c(i,10:13)]
+#   # ci = rbind(ciL, ciH)
+#   if(max(t[,-1], na.rm = T)>yMAX){yMAX = max(t[,-1], na.rm = T)} ## ensure graph y-axis large enough (median)
+#   
+#   matplot(t[,1],t[,-1], xlab = axTitle[i], ylab = "",type = "l", lwd = 1, lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), ylim = c(0,yMAX)) ## median yield trend lines
+#   
+#   # for(i0 in 2:ncol(ci)){
+#   #   i1 = ifelse(i0%%2==0,cBp[2,4],cBp[2,3])
+#   #   i2 = ifelse(i0<4,1,2)
+#   #   try(polygon(ci[,1],ci[,i0],col = i1, border = i1, lty = i2), silent = T) ## try plotting confidence intervals if not an absolute flat distribution
+#   # }
+#   
+#   matplot(ydMx[,i],ydMx[,10:13]/max(ydMx[,10:13], na.rm = T)*yMAX, pch=rep(3:4,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), add=T) ## max yield points
+#   axis(side = 4, at=seq(0,yMAX,yMAX/6), labels = round(seq(0,round(max(ydMx[,10:13], na.rm = T)), max(ydMx[,10:13], na.rm = T)/6)))
+#   if(i%%2==0){
+#     mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
+#   }else{
+#     mtext("max yield",side=4,line=4, padj = -1.7, cex = 1)
+#   }
+#   text(max(t[,1]),yMAX*.4,LETTERS[i-1], cex = 2)
+# };rm(i,i0,i1,t0)#;rm(ciL,ciH,ci)
+# legend("bottomleft", inset=c(-.2,-.55), ncol = 4, bty = "n", legend = sYs,pch = rep(3:4,each=2), lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2))
+# invisible(dev.off())
 
 ##### yield difference under different settings #####
 yd = yield[which(yield$x %in% (selInter+1)),-c(12:13)]

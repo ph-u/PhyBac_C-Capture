@@ -1,0 +1,83 @@
+no max points
+no showing dotted lines -> apdx; say similar/basically 0 in text
+2 sets
+point with error bars; medians in another graph
+
+P vs PB; N vs H for B
+N vs H for P in apdx
+contour plot for several related parameters (X)
+
+##### 20200804 #####
+
+Modelling the feasibility of carbon harvest from a phytoplankton and bacteria system
+
+## Abstract
+"spoil"? -> paper
+Bacteria are diverse group: problem and solution in different applications
+too sudden: what's the problem & still a problem --> what I'm going to do
+X: want to (sounds weak)  Here I investigate the effect of ...
+"external harvest" --> every part appeal to noob reader
+effect of adding bacteria a system & harvesting carbon from that system.
+split up points, shorter & eplicit
+
+X: aim
+Here we look at how ... influ the yield of carbon from the system.
+
+X: minimal -- undermining
+ODE: too technical in abstract -> new model
+carbon flow and harv
+
+X: general model
+investigate the possibility that crbon yield can be improved by coexistence between phy & bac as compared to pure phy
+Note that what has been done
+Previous work... study phy as their own for... However, such systems have ... problems --> what we're do to fix that
+
+C yield varies substantially bio features of bac in these systems -> bac should be chosen along those lines
+X: More investigations, On the other hand
+not interesting: null
+
+only talk about our own hypothesis
+?1: little comtrol: destructive superior
+?2: control biology: continuous superior
+
+same logic flow in abstract, introduction, discussion
+introduction: bg of previous work
+cite closest papers with common element; novel combination of those things
+
+say questions explicitly
+X: simplicity & flexibility
+
+just say results & points
+
+## intro
+X: the
+have spread towards ... and
+major contributors to ...
+currently need fossil ...
+hurting -> damaging
+? into statement
+exploit possiblte avenue to solve ... (set up position of reader; seeing why project is important)
+
+Make the thing as subject, not people
+releasing
+split proposals into several points
+There is a danger of... such as A, B, C
+
+Make things subject =/= passive voice (not good)
+
+cover too much ground, give some details
+details best set up what project is about
+expand "feasibility" -> Here I'm investigating the feasibility problem
+
+remove some points that don't set up my project
+deep and lead into the project, X superficial
+It is essential to perform ... which estimating ...
+LCA in discussion: how one needed & factors needed to be considered
+
+amount of carbon ...
+fast growth rate
+system fluid-based can be a flexible size and shape
+Phy carbon capture can be an ideal case but that suffers a problem, which...
+One aim of this project is... effects of bac on these systems (shown and quantify that, and some bacteria can even enhance the system)
+move bac points lower down
+hint bac has potential positive effect, cite wastewater treatment (say they're not being used together)

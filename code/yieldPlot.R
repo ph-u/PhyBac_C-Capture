@@ -69,7 +69,7 @@ for(p0 in 1:3){
   }
   for(p1 in 1:as.numeric(nAm[8])){
     pdf(paste0(ot,nAm[1],ifelse(as.numeric(nAm[8])==1,"",p1),".pdf"), width = paper, height = paper*1.2*ifelse(as.numeric(nAm[8])==1,1,.5))
-    par(mfrow=c(ifelse(as.numeric(nAm[8])==1,4,2),2),mar=c(5, 4, 1, 4), xpd=T, cex.lab=1.2, cex.axis=1.2)
+    par(mfrow=c(ifelse(as.numeric(nAm[8])==1,4,2),2),mar=c(5, 4, 1, 4), xpd=F, cex.lab=1.2, cex.axis=1.2)
     
     yDp = yD[,-as.numeric(nAm[2:3])]
     yDp = melt(yDp, id.vars = colnames(yDp)[1:9], measure.vars = colnames(yDp)[-c(1:9)])
@@ -78,13 +78,13 @@ for(p0 in 1:3){
     if(as.numeric(nAm[8])==1){tMp = c(2,9)}else if(p1==1){tMp = c(2,5)}else{tMp = c(6,9)}
     for(i in tMp[1]:tMp[2]){
       yMAX = round(max(yDp$value, na.rm = T))
-      yMAX = ifelse(nAm[1]=="bacEff",ifelse(i>5,1,yMAX),ifelse(nAm[1]=="harvP",yMAX,1))
+      yMAX = ifelse(nAm[1]=="bacEff",ifelse(i>5,1.5,yMAX),ifelse(nAm[1]=="harvP",yMAX,1.5))
       boxplot(yDp$value ~ yDp$variable + yDp[,i], pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", border=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), col=c(cBp[2,as.numeric(nAm[6])],cBp[2,as.numeric(nAm[7])]), ylim=c(0,yMAX), notch=T)
       axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,2])[order(unique(yDp[,2]))],2), hadj = .79, las=2)
       mtext(axTitle[i], side = 1, padj = 2.5+ifelse(as.numeric(nAm[8])==1,0,.2), adj=.7)
-      text(length(unique(interaction(yDp$variable,yDp[,i])))+1,yMAX*.4,LETTERS[i-1], cex = 2)
+      text(length(unique(interaction(yDp$variable,yDp[,i])))+.5,yMAX*.4,LETTERS[i-1], cex = 1)
     };rm(i)
-    legend("bottomleft", inset=c(-.2,-.5+ifelse(as.numeric(nAm[8])==1,0,-.3)), ncol = 2, bty = "n", legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
+    legend("topright", ncol = 2, bg=rgb(1,1,1,.7), legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
     invisible(dev.off())
   }};rm(p0,nAm,yDp,p1,tMp)
 

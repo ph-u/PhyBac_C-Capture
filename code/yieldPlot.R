@@ -61,73 +61,32 @@ for(i in 1:nrow(ydMx)){
 ## plot
 for(p0 in 1:3){
   if(p0 == 1){ ## with / without bateria
-    nAm = c("bacEff", 12,13, 1,1, 4,3)
+    nAm = c("bacEff", 12,13, 1,1, 4,3, 2)
   }else if(p0 == 2){ ## destructive / continuous harvest for coexistence systems
-    nAm = c("harvB", 10,12, 1,2, 3,3)
+    nAm = c("harvB", 10,12, 1,2, 3,3, 1)
   }else{ ## destructive / continuous harvest for phytoplankton-only systems
-    nAm = c("harvP", 11,13, 1,2, 4,4)
+    nAm = c("harvP", 11,13, 1,2, 4,4, 1)
   }
-  pdf(paste0(ot,nAm[1],".pdf"), width = paper, height = paper*1.2)
-  par(mfrow=c(4,2),mar=c(5, 4, 1, 4), xpd=T, cex.lab=1.2, cex.axis=1.2)
-  
-  yDp = yD[,-as.numeric(nAm[2:3])]
-  yDp = melt(yDp, id.vars = colnames(yDp)[1:9], measure.vars = colnames(yDp)[-c(1:9)])
-  yDp$value = log(yDp$value+1)
-  for(i in 2:9){
-    boxplot(yDp$value~interaction(yDp$variable,yDp[,i]), pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", col=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
-    axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,2])[order(unique(yDp[,2]))],2), hadj = .79, las=2)
-    mtext(axTitle[i], side = 1, padj = 2.5, adj=.7)
-    text(length(unique(interaction(yDp$variable,yDp[,i])))+.7,max(yDp$value, na.rm = T)*.4,LETTERS[i-1], cex = 2)
-  };rm(i)
-  legend("bottomleft", inset=c(-.2,-.5), ncol = 2, bty = "n", legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
-  invisible(dev.off())
-};rm(p0,nAm,yDp)
-
-# pdf(paste0(ot,"yieldFlux.pdf"), width = paper, height = paper*1.2)
-# par(mfrow=c(4,2),mar=c(5, 4, 1, 4), xpd=T, cex.lab=1.2, cex.axis=1.2)
-# for(i in 2:9){
-#   yMAX = 0 ## set ylim
-#   t = as.data.frame(matrix(NA,nr = length(unique(yield[,i])), nc=5))
-#   # ci = as.data.frame(matrix(NA,nr = length(unique(yield[,i])), nc=9))
-#   # ci[,1] = 
-#   t[,1] = unique(yD[,i])[order(unique(yD[,i]))]
-#   for(i0 in 1:nrow(t)){
-#     t0 = yD[which(yD[,i]==t[i0,1]),]
-#     t1 = as.data.frame(matrix(NA,nr = 4, nc=3))
-#     for(i1 in 1:nrow(t1)){
-#       t1[i1,] = quantile(t0[,9+i1], probs = c(.05,.5,.95), na.rm = T)
-#       # t1[i1,] = log(quantile(t0[,9+i1], probs = c(.05,.5,.95), na.rm = T)+1) ## natural log 95%CI
-#     }
-#     #if(max(t1, na.rm = T)>yMAX){yMAX = max(t1, na.rm = T)} ## ensure graph y-axis large enough (95%CI)
-#     t[i0,-1] = t1[,2]
-#     # ci[i0,-1] = c(t1[,1],t1[,3])
-#   }
-#   # ciL = ci[,1:5] ## extract lower 95% confidence interval boundary
-#   # ciH = as.data.frame(t(rev(as.data.frame(t(as.matrix(ci[,c(1,6:9)])))))) ## flip higher 95% confidence interval boundary dataframe for polygon plotting
-#   # colnames(ciL) = colnames(ciH) = 
-#   colnames(t) = colnames(yD)[c(i,10:13)]
-#   # ci = rbind(ciL, ciH)
-#   if(max(t[,-1], na.rm = T)>yMAX){yMAX = max(t[,-1], na.rm = T)} ## ensure graph y-axis large enough (median)
-#   
-#   matplot(t[,1],t[,-1], xlab = axTitle[i], ylab = "",type = "l", lwd = 1, lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), ylim = c(0,yMAX)) ## median yield trend lines
-#   
-#   # for(i0 in 2:ncol(ci)){
-#   #   i1 = ifelse(i0%%2==0,cBp[2,4],cBp[2,3])
-#   #   i2 = ifelse(i0<4,1,2)
-#   #   try(polygon(ci[,1],ci[,i0],col = i1, border = i1, lty = i2), silent = T) ## try plotting confidence intervals if not an absolute flat distribution
-#   # }
-#   
-#   matplot(ydMx[,i],ydMx[,10:13]/max(ydMx[,10:13], na.rm = T)*yMAX, pch=rep(3:4,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2), add=T) ## max yield points
-#   axis(side = 4, at=seq(0,yMAX,yMAX/6), labels = round(seq(0,round(max(ydMx[,10:13], na.rm = T)), max(ydMx[,10:13], na.rm = T)/6)))
-#   if(i%%2==0){
-#     mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
-#   }else{
-#     mtext("max yield",side=4,line=4, padj = -1.7, cex = 1)
-#   }
-#   text(max(t[,1]),yMAX*.4,LETTERS[i-1], cex = 2)
-# };rm(i,i0,i1,t0)#;rm(ciL,ciH,ci)
-# legend("bottomleft", inset=c(-.2,-.55), ncol = 4, bty = "n", legend = sYs,pch = rep(3:4,each=2), lty = rep(1:2,each=2), col = rep(c(cBp[1,4],cBp[1,3]),2))
-# invisible(dev.off())
+  for(p1 in 1:as.numeric(nAm[8])){
+    pdf(paste0(ot,nAm[1],ifelse(as.numeric(nAm[8])==1,"",p1),".pdf"), width = paper, height = paper*1.2*ifelse(as.numeric(nAm[8])==1,1,.7))
+    par(mfrow=c(ifelse(as.numeric(nAm[8])==1,4,2),2),mar=c(5, 4, 1, 4), xpd=T, cex.lab=1.2, cex.axis=1.2)
+    
+    yDp = yD[,-as.numeric(nAm[2:3])]
+    yDp = melt(yDp, id.vars = colnames(yDp)[1:9], measure.vars = colnames(yDp)[-c(1:9)])
+    yDp$value = log(yDp$value+1)
+    
+    if(as.numeric(nAm[8])==1){tMp = c(2,9)}else if(p1==1){tMp = c(2,5)}else{tMp = c(6,9)}
+    for(i in tMp[1]:tMp[2]){
+      yMAX = round(max(yDp$value, na.rm = T))
+      yMAX = ifelse(nAm[1]=="bacEff",ifelse(i>5,1,yMAX),ifelse(nAm[1]=="harvP",yMAX,1))
+      boxplot(yDp$value ~ yDp$variable + yDp[,i], pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", border=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), col=c(cBp[2,as.numeric(nAm[6])],cBp[2,as.numeric(nAm[7])]), ylim=c(0,yMAX), notch=T)
+      axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,2])[order(unique(yDp[,2]))],2), hadj = .79, las=2)
+      mtext(axTitle[i], side = 1, padj = 2.5+ifelse(as.numeric(nAm[8])==1,0,.2), adj=.7)
+      text(length(unique(interaction(yDp$variable,yDp[,i])))+1,yMAX*.4,LETTERS[i-1], cex = 2)
+    };rm(i)
+    legend("bottomleft", inset=c(-.2,-.5+ifelse(as.numeric(nAm[8])==1,0,.05)), ncol = 2, bty = "n", legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
+    invisible(dev.off())
+  }};rm(p0,nAm,yDp,p1,tMp)
 
 ##### yield difference under different settings #####
 yd = yield[which(yield$x %in% (selInter+1)),-c(12:13)]
@@ -149,11 +108,11 @@ yd0 = melt(yd0, id.vars = colnames(yd0)[1:9], measure.vars = colnames(yd0)[-c(1:
 pdf(paste0(ot,"Harvest.pdf"), width = paper*1.5, height = paper*.7)
 par(mfrow=c(1,2),mar=c(5, 4, 1, .2), xpd=T)
 
-boxplot(log(yd$value+1)~interaction(yd$variable,yd$x), pch=3, cex=.3, xlab = axTitle[10], ylab = "ln(yield+1)", xaxt="n", main = "Destructive Harvest", col=c(cBp[1,4],cBp[1,3]), ylim=c(-1,6))
+boxplot(log(yd$value+1)~interaction(yd$variable,yd$x), pch=3, cex=.3, xlab = axTitle[10], ylab = "ln(yield+1)", xaxt="n", main = "Destructive Harvest", border=c(cBp[1,4],cBp[1,3]), col=c(cBp[2,4],cBp[2,3]), ylim=c(-1,6))
 axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[3:4],"\n",rep(selInter, each=2)), padj = .3)
 text(length(unique(interaction(yd$variable,yd$x)))+.3,2,LETTERS[1], cex = 2)
 
-boxplot(log(yd0$value+1)~interaction(yd0$variable,yd0$x), pch=3, cex=.3, xlab = axTitle[1], ylab = "ln(yield+1)", xaxt="n", main = "Continuous Harvest", col=c(cBp[1,4],cBp[1,3]), ylim=c(-1,6))
+boxplot(log(yd0$value+1)~interaction(yd0$variable,yd0$x), pch=3, cex=.3, xlab = axTitle[1], ylab = "ln(yield+1)", xaxt="n", main = "Continuous Harvest", border=c(cBp[1,4],cBp[1,3]), col=c(cBp[2,4],cBp[2,3]), ylim=c(-1,6))
 axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[1:2],"\n",rep(selRange, each=2)), padj = .3)
 text(length(unique(interaction(yd0$variable,yd0$x)))+.3,2,LETTERS[2], cex = 2)
 
@@ -173,7 +132,7 @@ for(i in 1:nrow(dEst)){ ## loop over all simulated log-spaced time
   }}
   dEst[i,-1] = t
 };rm(i,i0,t)
-lIm = c(20,10) ## set x,y axis limit
+lIm = 20 ## set x axis limit
 dEst = dEst[which(dEst$t<=lIm[1]),]
 
 pdf(paste0(ot,"Sample.pdf"), width = paper*1.5, height = paper*.7)
@@ -187,18 +146,14 @@ aX = c( ## set the y-axis label for each subplot
 ## plot
 for(i in 1:3){
   if(i<3){
-    matplot(dEst$t,cbind(dEst[,3*i],dEst[,3*i+3]), type = "l", yaxt="n", xlab = "number of days", lty = 1, ylab = aX[i], cex = .5, col = c(cBp[1,4],cBp[1,3]), xlim = c(0,lIm[1]), ylim = c(0,lIm[2]), lwd = 2, cex.axis=1.5, cex.lab=1.5)
-    # polygon(c(dEst$t,rev(dEst$t)),c(dEst[,3*i-1],rev(dEst[,3*i+1])), col = cBp[2,4], border = NA)
-    # polygon(c(dEst$t,rev(dEst$t)),c(dEst[,3*i+2],rev(dEst[,3*i+4])), col = cBp[2,3], border = NA)
+    matplot(dEst$t,cbind(dEst[,3*i],dEst[,3*i+3]), type = "l", xlab = "number of days", lty = 1, ylab = aX[i], cex = .5, col = c(cBp[1,4],cBp[1,3]), xlim = c(0,lIm), lwd = 2, cex.axis=1.5, cex.lab=1.5)
     if(i==2){
       legend("bottom", inset=c(0,-.2), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,4],cBp[1,3]), cex = 1.2)
     }
   }else{
-    plot(dEst$t,dEst$b4.M, type = "l", yaxt="n", xlab = "number of days", lty = 1, ylab = aX[3], cex = .5, col = cBp[1,3], xlim = c(0,lIm[1]), ylim = c(0,lIm[2]), lwd = 2, cex.axis=1.5, cex.lab=1.5)
-    # polygon(c(dEst$t,rev(dEst$t)),c(dEst[,ncol(dEst)-2],rev(dEst[,ncol(dEst)])), col = cBp[2,3], border = NA)
+    plot(dEst$t,dEst$b4.M, type = "l", xlab = "number of days", lty = 1, ylab = aX[3], cex = .5, col = cBp[1,3], xlim = c(0,lIm), lwd = 2, cex.axis=1.5, cex.lab=1.5)
   }
-  axis(side = 2, at=seq(0,lIm[2],lIm[2]/10), labels = 0:lIm[2], cex.axis=1.5)
-  text(lIm[1],lIm[2]*.4,LETTERS[i], cex = 2)
+  text(lIm,max(c(dEst[,3*i],dEst[,3*i+3]), na.rm = T)*.4,LETTERS[i], cex = 2)
 };rm(i)
 
 invisible(dev.off())
@@ -220,17 +175,19 @@ pdf(paste0(ot,"DailyYield.pdf"), width = paper*1.5, height = paper*.7)
 par(mfrow=c(1,2),mar=c(5, 4, 1, .2), xpd=T)
 for(i in c(2,4)){
   if(i==2){
-    xX = bquote("ln Harvest interval" ~ "(" ~ italic(T) ~ ")" )
+    xX = bquote("ln Harvest interval" ~ "(" ~ italic(T) ~ "," ~ day ~ ")" )
     mAin = "Destructive"
   }else{
-    xX = bquote("ln Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ ")")
+    xX = bquote("ln Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ "," ~ day^-1 ~ ")")
     mAin = "Continuous"
   }
-  matplot(log(dAily$x+1),cbind(dAily[,i],dAily[,i+1]), yaxt="n", type = "l", xlab = xX, lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main=paste(mAin,"Harvest"), ylim = c(0,yMAX))
+  dA = cbind(log(dAily$x+1),dAily[,i],dAily[,i+1])
+  dA = dA[which(!is.na(dA[,3])),]
+  matplot(dA[,1],dA[,-1], yaxt="n", type = "l", xlab = xX, lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main=paste(mAin,"Harvest"), ylim = c(0,yMAX))
   axis(side = 2, at=seq(0,yMAX,yMAX/8), labels = seq(0,yMAX,yMAX/8))
   mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
   text(max(log(dAily$x+1)),yMAX*.4,LETTERS[i/2], cex = 2)
-};rm(i,xX,mAin)
+};rm(i,xX,mAin,dA)
 legend("bottomleft", inset=c(-.2,-.28), ncol = 2, bty = "n", legend = c("phytoplankton only", "coexistence"), lwd = 3, col = c(cBp[1,4],cBp[1,3]))
 invisible(dev.off())
 

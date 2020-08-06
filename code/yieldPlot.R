@@ -68,7 +68,7 @@ for(p0 in 1:3){
     nAm = c("harvP", 11,13, 1,2, 4,4, 1)
   }
   for(p1 in 1:as.numeric(nAm[8])){
-    pdf(paste0(ot,nAm[1],ifelse(as.numeric(nAm[8])==1,"",p1),".pdf"), width = paper, height = paper*1.2*ifelse(as.numeric(nAm[8])==1,1,.7))
+    pdf(paste0(ot,nAm[1],ifelse(as.numeric(nAm[8])==1,"",p1),".pdf"), width = paper, height = paper*1.2*ifelse(as.numeric(nAm[8])==1,1,.5))
     par(mfrow=c(ifelse(as.numeric(nAm[8])==1,4,2),2),mar=c(5, 4, 1, 4), xpd=T, cex.lab=1.2, cex.axis=1.2)
     
     yDp = yD[,-as.numeric(nAm[2:3])]
@@ -84,7 +84,7 @@ for(p0 in 1:3){
       mtext(axTitle[i], side = 1, padj = 2.5+ifelse(as.numeric(nAm[8])==1,0,.2), adj=.7)
       text(length(unique(interaction(yDp$variable,yDp[,i])))+1,yMAX*.4,LETTERS[i-1], cex = 2)
     };rm(i)
-    legend("bottomleft", inset=c(-.2,-.5+ifelse(as.numeric(nAm[8])==1,0,.05)), ncol = 2, bty = "n", legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
+    legend("bottomleft", inset=c(-.2,-.5+ifelse(as.numeric(nAm[8])==1,0,-.3)), ncol = 2, bty = "n", legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
     invisible(dev.off())
   }};rm(p0,nAm,yDp,p1,tMp)
 

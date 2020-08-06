@@ -82,9 +82,9 @@ for(p0 in 1:3){
       boxplot(yDp$value ~ yDp$variable + yDp[,i], pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", border=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), col=c(cBp[2,as.numeric(nAm[6])],cBp[2,as.numeric(nAm[7])]), ylim=c(0,yMAX), notch=T)
       axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,2])[order(unique(yDp[,2]))],2), hadj = .79, las=2)
       mtext(axTitle[i], side = 1, padj = 2.5+ifelse(as.numeric(nAm[8])==1,0,.2), adj=.7)
-      text(length(unique(interaction(yDp$variable,yDp[,i])))+.5,yMAX*.4,LETTERS[i-1], cex = 1)
+      text(length(unique(interaction(yDp$variable,yDp[,i]))),yMAX*.4,LETTERS[i-1], cex = 2)
     };rm(i)
-    legend("topright", ncol = 2, bg=rgb(1,1,1,.7), legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]))
+    legend("topright", ncol = 2, bg=rgb(1,1,1,.7), legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), box.col = rgb(1,1,1,1))
     invisible(dev.off())
   }};rm(p0,nAm,yDp,p1,tMp)
 

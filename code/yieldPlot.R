@@ -150,10 +150,11 @@ for(i in 1:3){
     if(i==2){
       legend("bottom", inset=c(0,-.2), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,4],cBp[1,3]), cex = 1.2)
     }
+    text(lIm,min(c(dEst[,3*i],dEst[,3*i+3]), na.rm = T)+diff(range(c(dEst[,3*i],dEst[,3*i+3]), na.rm = T))*.5,LETTERS[i], cex = 2)
   }else{
     plot(dEst$t,dEst$b4.M, type = "l", xlab = "number of days", lty = 1, ylab = aX[3], cex = .5, col = cBp[1,3], xlim = c(0,lIm), lwd = 2, cex.axis=1.5, cex.lab=1.5)
+    text(lIm,min(dEst$b4.M, na.rm = T)+diff(range(dEst$b4.M, na.rm = T))*.5,LETTERS[i], cex = 2)
   }
-  text(lIm,max(c(dEst[,3*i],dEst[,3*i+3]), na.rm = T)*.4,LETTERS[i], cex = 2)
 };rm(i)
 
 invisible(dev.off())

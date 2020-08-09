@@ -106,16 +106,16 @@ for(p0 in 1:3){
 yd = yield[which(yield$x %in% (selInter+1)),-c(12:13)]
 yd = melt(yd, id.vars = colnames(yd)[1:9], measure.vars = colnames(yd)[-c(1:9)])
 # pairwise.wilcox.test(yd$value,interaction(yd$variable,yd$x), p.adjust.method = "bonferroni", paired = F)
-# for(i0 in unique(yd$x)){for(i1 in unique(yd$variable)){
-#   cat(paste(i1,",",i0,",",length(yd$value[which(yd$x==i0 & yd$variable==i1)]),"\n"))
-#   print(summary(yd$value[which(yd$x==i0 & yd$variable==i1)]))
-# }};rm(i0,i1)
+for(i0 in unique(yd$x)){for(i1 in unique(yd$variable)){
+  cat(paste(i1,",",i0,",",sum(!is.na(yd$value[which(yd$x==i0 & yd$variable==i1)])),",",length(yd$value[which(yd$x==i0 & yd$variable==i1)]),"\n"))
+  print(summary(yd$value[which(yd$x==i0 & yd$variable==i1)]))
+}};rm(i0,i1)
 
 yd0 = yield[which(yield$x %in% (selRange+1)),-c(10:11)]
 yd0 = melt(yd0, id.vars = colnames(yd0)[1:9], measure.vars = colnames(yd0)[-c(1:9)])
 # pairwise.wilcox.test(yd0$value,interaction(yd0$variable,yd0$x), p.adjust.method = "bonferroni", paired = F)
 # for(i0 in unique(yd0$x)){for(i1 in unique(yd0$variable)){
-#   cat(paste(i1,",",i0,",",length(yd0$value[which(yd0$x==i0 & yd0$variable==i1)]),"\n"))
+#   cat(paste(i1,",",i0,",",sum(!is.na(yd0$value[which(yd0$x==i0 & yd0$variable==i1)])),",",length(yd0$value[which(yd0$x==i0 & yd0$variable==i1)]),"\n"))
 #   print(summary(yd0$value[which(yd0$x==i0 & yd0$variable==i1)]))
 # }};rm(i0,i1)
 

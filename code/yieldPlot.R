@@ -142,12 +142,12 @@ colnames(dEst) = c("t",paste0(rep(c("c","p"),each=3),rep(3:4,each=6),".",c("L","
 for(i in 1:nrow(dEst)){ ## loop over all simulated log-spaced time
   t = c()
   for(i0 in 10:15){if(i0!=12){ ## loop over all carbon pool except PoN bacteria because unrelated
-    t = c(t,quantile(rawL[which(rawL$x==dEst$t[i]),i0], probs = c(.05,.5,.95))) ## get 95% confidence interval for each carbon pool
+    t = c(t,quantile(rawL[which(rawL$x==dEst$t[i]),i0], probs = c(.05,.5,.95), na.rm = T)) ## get 95% confidence interval for each carbon pool
   }}
   dEst[i,-1] = t
 };rm(i,i0,t)
 lIm = 20 ## set x axis limit
-dEst = dEst[which(dEst$t<=lIm[1]),]
+dEst = dEst[which(dEst$t<=lIm),]
 
 pdf(paste0(ot,"Sample.pdf"), width = paper*1.5, height = paper*.7)
 par(mfrow = c(1,3),mar=c(7, 5, 1, 1), xpd=T)
@@ -183,7 +183,6 @@ for(i in 1:nrow(dAily)){ ## get daily yield medians
     dAily[i,i0+1] = quantile(t[,i0], probs = .5, na.rm = T)
   }
 };rm(i,t,i0)
-yMAX = round(max(dAily[,-1], na.rm = T),1)
 
 ## plot
 pdf(paste0(ot,"DailyYield.pdf"), width = paper*1.5, height = paper*.7)

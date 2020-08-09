@@ -16,9 +16,9 @@ cat("data input finished\n")
 
 ##### NA unfeasible PBX system results #####
 for(i in 13:ncol(a)){
-  a[,i] = ifelse(a$b4>0 & is.finite(a$b4),a[,i],0)
-  d[,i] = ifelse(d$b4>0 & is.finite(d$b4),d[,i],0)
-  L[,i] = ifelse(L$b4>0 & is.finite(L$b4),L[,i],0)
+  a[,i] = ifelse(a$b4>=0 & is.finite(a$b4),a[,i],NA)
+  d[,i] = ifelse(d$b4>=0 & is.finite(d$b4),d[,i],NA)
+  L[,i] = ifelse(L$b4>=0 & is.finite(L$b4),L[,i],NA)
 };rm(i)
 rawL = L
 rawL$x = rawL$x-1

@@ -30,13 +30,6 @@ for(i in 10:ncol(ydMx)){ ## filter only maximum for each system
   ydMx[,i] = ifelse(ydMx[,i]==max(ydMx[,i],na.rm = T),ydMx[,i],NA)
 };rm(i)
 
-##### count unfavourable/unfeasible systems #####
-# for(i in 10:ncol(yield)){
-#   i01 = sum(yield[,i]<=0)
-#   i02 = length(yield[,i])
-#   cat(paste(colnames(yield)[i],i01,i02,i02-i01,round((1-i01/i02)*100,4),"%\n"))
-# };rm(i,i01,i02)
-
 ##### plot yield by parameter #####
 axTitle = c(
   bquote("Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ "," ~ day^-1 ~ ")"),
@@ -52,13 +45,24 @@ axTitle = c(
   expression("yield ( gCm"^"-3"*"day"^"-1"*")")
 )
 
-## get top harvest rate data sets
+##### get top harvest rate data sets #####
 yD = yield[which(yield$x %in% ydMx$x),]
 for(i in 1:nrow(ydMx)){
   yD[which(yD$x==ydMx$x[i]),which(is.na(ydMx[i,]))] = NA
 };rm(i)
+# yDwil = melt(yD, id.vars = colnames(yD)[1:9], measure.vars = colnames(yD)[-c(1:9)])
+# yDwil = yDwil[which(!is.na(yDwil$value)),]
+# pairwise.wilcox.test(yDwil$value, yDwil$variable, p.adjust.method = "bonferroni", paired = F)
 
-## plot
+## count unfavourable/unfeasible systems
+# for(i in 10:ncol(yD)){
+#   i0 = sum(!is.na(yD[,i]), na.rm = T)
+#   i1 = nrow(yD)/(ncol(yD)-9)
+#   cat(paste(colnames(yD)[i],": valid =",i0,"; total =",i1,";",round(i0/i1*100,4),"%; x =",yD[which(yD[,i]==max(yD[,i], na.rm = T)),1],"\n"))
+#   print(summary(yD[,i]))
+# };rm(i,i0,i1)
+
+## plot yield across parameter ranges
 for(p0 in 1:3){
   if(p0 == 1){ ## with / without bateria
     nAm = c("bacEff", 12,13, 1,1, 4,3, 2)
@@ -78,8 +82,8 @@ for(p0 in 1:3){
     if(as.numeric(nAm[8])==1){tMp = c(2,9)}else if(p1==1){tMp = c(2,5)}else{tMp = c(6,9)}
     for(i in tMp[1]:tMp[2]){
       yMAX = round(max(yDp$value, na.rm = T))
-      yMAX = ifelse(nAm[1]=="bacEff",ifelse(i>5,1.5,yMAX),ifelse(nAm[1]=="harvP",yMAX,1.5))
-      boxplot(yDp$value ~ yDp$variable + yDp[,i], pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", border=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), col=c(cBp[2,as.numeric(nAm[6])],cBp[2,as.numeric(nAm[7])]), ylim=c(0,yMAX), notch=T)
+      yMAX = ifelse(nAm[1]=="bacEff" & i>5,1.5,yMAX)
+      boxplot(yDp$value ~ yDp$variable + yDp[,i], pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", border=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), col=c(cBp[2,as.numeric(nAm[6])],cBp[2,as.numeric(nAm[7])]), ylim=c(0,yMAX))#, notch=T)
       axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,2])[order(unique(yDp[,2]))],2), hadj = .79, las=2)
       mtext(axTitle[i], side = 1, padj = 2.5+ifelse(as.numeric(nAm[8])==1,0,.2), adj=.7)
       text(length(unique(interaction(yDp$variable,yDp[,i]))),yMAX*.4,LETTERS[i-1], cex = 2)
@@ -87,6 +91,16 @@ for(p0 in 1:3){
     legend("topright", ncol = 2, bg=rgb(1,1,1,.7), legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), box.col = rgb(1,1,1,1))
     invisible(dev.off())
   }};rm(p0,nAm,yDp,p1,tMp)
+
+## parameter range significance
+# for(j in 10:ncol(yD)){
+#   pp = yD[which(!is.na(yD[,j])),]
+#   cat(paste0(colnames(pp)[j],"\n"))
+#   for(i in 2:9){
+#     cat(paste0(colnames(pp)[i],"\n"))
+#     p0 = range(pp[,i])
+#     print(wilcox.test(pp[which(pp[,i]==p0[1]),j],pp[which(pp[,i]==p0[2]),j]))
+#   };cat("\n")};rm(i,j,pp,p0)
 
 ##### yield difference under different settings #####
 yd = yield[which(yield$x %in% (selInter+1)),-c(12:13)]
@@ -184,10 +198,9 @@ for(i in c(2,4)){
   }
   dA = cbind(log(dAily$x+1),dAily[,i],dAily[,i+1])
   dA = dA[which(!is.na(dA[,3])),]
-  matplot(dA[,1],dA[,-1], yaxt="n", type = "l", xlab = xX, lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main=paste(mAin,"Harvest"), ylim = c(0,yMAX))
-  axis(side = 2, at=seq(0,yMAX,yMAX/8), labels = seq(0,yMAX,yMAX/8))
+  matplot(dA[,1],dA[,-1], type = "l", xlab = xX, lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main=paste(mAin,"Harvest"), xlim = c(0,max(log(dAily$x+1))))
   mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
-  text(max(log(dAily$x+1)),yMAX*.4,LETTERS[i/2], cex = 2)
+  text(max(log(dAily$x+1)),max(dA[,-1],na.rm = T)*.4,LETTERS[i/2], cex = 2)
 };rm(i,xX,mAin,dA)
 legend("bottomleft", inset=c(-.2,-.28), ncol = 2, bty = "n", legend = c("phytoplankton only", "coexistence"), lwd = 3, col = c(cBp[1,4],cBp[1,3]))
 invisible(dev.off())

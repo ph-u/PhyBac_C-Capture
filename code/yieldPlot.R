@@ -65,9 +65,9 @@ for(i in 1:nrow(ydMx)){
 ## plot yield across parameter ranges
 for(p0 in 1:3){
   if(p0 == 1){ ## with / without bateria
-    nAm = c("bacEff", 12,13, 1,1, 4,3, 2)
+    nAm = c("bacEff", 12,13, 1,1, 4,1, 2)
   }else if(p0 == 2){ ## destructive / continuous harvest for coexistence systems
-    nAm = c("harvB", 10,12, 1,2, 3,3, 1)
+    nAm = c("harvB", 10,12, 1,1, 1,3, 1)
   }else{ ## destructive / continuous harvest for phytoplankton-only systems
     nAm = c("harvP", 11,13, 1,2, 4,4, 1)
   }
@@ -86,7 +86,7 @@ for(p0 in 1:3){
       boxplot(yDp$value ~ yDp$variable + yDp[,i], pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", border=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), col=c(cBp[2,as.numeric(nAm[6])],cBp[2,as.numeric(nAm[7])]), ylim=c(0,yMAX))#, notch=T)
       axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,2])[order(unique(yDp[,2]))],2), hadj = .79, las=2)
       mtext(axTitle[i], side = 1, padj = 2.5+ifelse(as.numeric(nAm[8])==1,0,.2), adj=.7)
-      text(length(unique(interaction(yDp$variable,yDp[,i]))),yMAX*.4,LETTERS[i-1], cex = 2)
+      text(1,yMAX*.95,LETTERS[i-1], cex = 2)
     };rm(i)
     legend("topright", ncol = 2, bg=rgb(1,1,1,.7), legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), box.col = rgb(1,1,1,1))
     invisible(dev.off())
@@ -106,10 +106,10 @@ for(p0 in 1:3){
 yd = yield[which(yield$x %in% (selInter+1)),-c(12:13)]
 yd = melt(yd, id.vars = colnames(yd)[1:9], measure.vars = colnames(yd)[-c(1:9)])
 # pairwise.wilcox.test(yd$value,interaction(yd$variable,yd$x), p.adjust.method = "bonferroni", paired = F)
-for(i0 in unique(yd$x)){for(i1 in unique(yd$variable)){
-  cat(paste(i1,",",i0,",",sum(!is.na(yd$value[which(yd$x==i0 & yd$variable==i1)])),",",length(yd$value[which(yd$x==i0 & yd$variable==i1)]),"\n"))
-  print(summary(yd$value[which(yd$x==i0 & yd$variable==i1)]))
-}};rm(i0,i1)
+# for(i0 in unique(yd$x)){for(i1 in unique(yd$variable)){
+#   cat(paste(i1,",",i0,",",sum(!is.na(yd$value[which(yd$x==i0 & yd$variable==i1)])),",",length(yd$value[which(yd$x==i0 & yd$variable==i1)]),"\n"))
+#   print(summary(yd$value[which(yd$x==i0 & yd$variable==i1)]))
+# }};rm(i0,i1)
 
 yd0 = yield[which(yield$x %in% (selRange+1)),-c(10:11)]
 yd0 = melt(yd0, id.vars = colnames(yd0)[1:9], measure.vars = colnames(yd0)[-c(1:9)])
@@ -119,18 +119,26 @@ yd0 = melt(yd0, id.vars = colnames(yd0)[1:9], measure.vars = colnames(yd0)[-c(1:
 #   print(summary(yd0$value[which(yd0$x==i0 & yd0$variable==i1)]))
 # }};rm(i0,i1)
 
-pdf(paste0(ot,"Harvest.pdf"), width = paper*1.5, height = paper*.7)
-par(mfrow=c(1,2),mar=c(5, 4, 1, .2), xpd=T)
+yd1 = yield0[which(yield0$x %in% (selRange+1)),-c(10:11)]
+yd1 = melt(yd1, id.vars = colnames(yd1)[1:9], measure.vars = colnames(yd1)[-c(1:9)])
 
-boxplot(log(yd$value+1)~interaction(yd$variable,yd$x), pch=3, cex=.3, xlab = axTitle[10], ylab = "ln(yield+1)", xaxt="n", main = "Destructive Harvest", border=c(cBp[1,4],cBp[1,3]), col=c(cBp[2,4],cBp[2,3]), ylim=c(-1,6))
-axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[3:4],"\n",rep(selInter, each=2)), padj = .3)
+pdf(paste0(ot,"Harvest.pdf"), width = paper*1.5, height = paper*.7)
+par(mfrow=c(1,3),mar=c(5, 4, 2.5, .2), xpd=T)
+
+boxplot(log(yd$value+1)~interaction(yd$variable,yd$x), pch=3, cex=.3, xlab = axTitle[10], ylab = "ln(yield+1)", xaxt="n", main = "Destructive Harvest", border=c(cBp[1,4],cBp[1,1]), col=c(cBp[2,4],cBp[2,1]), ylim=c(-1,6))
+axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[1:2],"\n",rep(selInter, each=2)), padj = .3)
 text(length(unique(interaction(yd$variable,yd$x)))+.3,2,LETTERS[1], cex = 2)
 
-boxplot(log(yd0$value+1)~interaction(yd0$variable,yd0$x), pch=3, cex=.3, xlab = axTitle[1], ylab = "ln(yield+1)", xaxt="n", main = "Continuous Harvest", border=c(cBp[1,4],cBp[1,3]), col=c(cBp[2,4],cBp[2,3]), ylim=c(-1,6))
-axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[1:2],"\n",rep(selRange, each=2)), padj = .3)
+boxplot(log(yd0$value+1)~interaction(yd0$variable,yd0$x), pch=3, cex=.3, xlab = axTitle[1], ylab = "ln(yield+1)", xaxt="n", main = "Continuous Harvest\nunfeasible scenario=NA", border=c(cBp[1,4],cBp[1,3]), col=c(cBp[2,4],cBp[2,3]), ylim=c(-1,6))
+axis(side = 1, at=1:length(unique(interaction(yd0$variable,yd0$x))), labels = paste0(sYs[3:4],"\n",rep(selRange, each=2)), padj = .3)
 text(length(unique(interaction(yd0$variable,yd0$x)))+.3,2,LETTERS[2], cex = 2)
 
-legend("bottomleft", inset=c(-.2,-.28), ncol = 2, bty = "n", legend = c("phytoplankton only", "coexistence"), lwd = 3, col = c(cBp[1,4],cBp[1,3]))
+legend("bottomleft", inset=c(0,-.18), ncol = 3, bty = "n", legend = c(paste0(sYs[1],"/",sYs[3]), sYs[2],sYs[4]), lwd = 3, col = c(cBp[1,4],cBp[1,1],cBp[1,3]))
+
+boxplot(log(yd1$value+1)~interaction(yd1$variable,yd1$x), pch=3, cex=.3, xlab = axTitle[1], ylab = "ln(yield+1)", xaxt="n", main = "Continuous Harvest\nunfeasible scenario=0", border=c(cBp[1,4],cBp[1,3]), col=c(cBp[2,4],cBp[2,3]), ylim=c(-1,6))
+axis(side = 1, at=1:length(unique(interaction(yd1$variable,yd1$x))), labels = paste0(sYs[3:4],"\n",rep(selRange, each=2)), padj = .3)
+text(length(unique(interaction(yd1$variable,yd1$x)))+.3,2,LETTERS[3], cex = 2)
+
 invisible(dev.off())
 
 ##### carbon density plot on destructive systems #####
@@ -177,31 +185,44 @@ invisible(dev.off())
 dAily = as.data.frame(matrix(NA,nr=length(unique(yield$x)),nc=5))
 colnames(dAily) = colnames(yield)[-c(2:9)]
 dAily[,1] = unique(yield$x)[order(unique(yield$x))]-1
+
+dAily0 = as.data.frame(matrix(NA,nr=length(unique(yield0$x)),nc=5))
+colnames(dAily0) = colnames(yield0)[-c(2:9)]
+dAily0[,1] = unique(yield0$x)[order(unique(yield0$x))]-1
+
 for(i in 1:nrow(dAily)){ ## get daily yield medians
   t = yield[which(yield$x==(dAily$x[i]+1)),10:13]
+  t0 = yield0[which(yield0$x==(dAily0$x[i]+1)),10:13]
   for(i0 in 1:ncol(t)){
     dAily[i,i0+1] = quantile(t[,i0], probs = .5, na.rm = T)
+    dAily0[i,i0+1] = quantile(t0[,i0], probs = .5, na.rm = T)
   }
-};rm(i,t,i0)
+};rm(i,t,i0,t0)
 
 ## plot
 pdf(paste0(ot,"DailyYield.pdf"), width = paper*1.5, height = paper*.7)
-par(mfrow=c(1,2),mar=c(5, 4, 1, .2), xpd=T)
-for(i in c(2,4)){
-  if(i==2){
-    xX = bquote("ln Harvest interval" ~ "(" ~ italic(T) ~ "," ~ day ~ ")" )
-    mAin = "Destructive"
-  }else{
-    xX = bquote("ln Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ "," ~ day^-1 ~ ")")
-    mAin = "Continuous"
-  }
-  dA = cbind(log(dAily$x+1),dAily[,i],dAily[,i+1])
-  dA = dA[which(!is.na(dA[,3])),]
-  matplot(dA[,1],dA[,-1], type = "l", xlab = xX, lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main=paste(mAin,"Harvest"), xlim = c(0,max(log(dAily$x+1))))
-  mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
-  text(max(log(dAily$x+1)),max(dA[,-1],na.rm = T)*.4,LETTERS[i/2], cex = 2)
-};rm(i,xX,mAin,dA)
-legend("bottomleft", inset=c(-.2,-.28), ncol = 2, bty = "n", legend = c("phytoplankton only", "coexistence"), lwd = 3, col = c(cBp[1,4],cBp[1,3]))
+par(mfrow=c(1,3),mar=c(5, 4, 2.5, .2), xpd=T)
+
+dA = cbind(log(dAily$x+1),dAily[,2],dAily[,3])
+dA = dA[which(!is.na(dA[,3])),]
+matplot(dA[,1],dA[,-1], type = "l", xlab = bquote("ln Harvest interval" ~ "(" ~ italic(T) ~ "," ~ day ~ ")" ), lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,1]), lwd = 2, main="Destructive Harvest", xlim = c(0,max(log(dAily$x+1))))
+mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
+text(max(log(dAily$x+1)),max(dA[,-1],na.rm = T)*.4,LETTERS[1], cex = 2)
+
+dA = cbind(log(dAily$x+1),dAily[,4],dAily[,5])
+dA = dA[which(!is.na(dA[,3])),]
+matplot(dA[,1],log(dA[,-1]+1), type = "l", xlab = bquote("ln Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ "," ~ day^-1 ~ ")"), lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main="Continuous Harvest\nunfeasible scenario=NA", xlim = c(0,max(log(dAily$x+1))))
+mtext("log(yield+1)",side=2,line=2, padj = -.1, cex = 1)
+text(max(log(dAily$x+1)),max(log(dA[,-1]+1),na.rm = T)*.4,LETTERS[2], cex = 2)
+
+legend("bottomleft", inset=c(0,-.18), ncol = 3, bty = "n", legend = c(paste0(sYs[1],"/",sYs[3]), sYs[2],sYs[4]), lwd = 3, col = c(cBp[1,4],cBp[1,1],cBp[1,3]))
+
+dA = cbind(log(dAily0$x+1),dAily0[,4],dAily0[,5])
+dA = dA[which(!is.na(dA[,3])),]
+matplot(dA[,1],dA[,-1], type = "l", xlab = bquote("ln Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ "," ~ day^-1 ~ ")"), lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main="Continuous Harvest\nunfeasible scenario=0", xlim = c(0,max(log(dAily$x+1))))
+mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
+text(max(log(dAily$x+1)),max(dA[,-1],na.rm = T)*.4,LETTERS[3], cex = 2)
+
 invisible(dev.off())
 
 cat("Carbon distribution plots finished\n")

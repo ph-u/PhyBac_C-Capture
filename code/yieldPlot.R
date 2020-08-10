@@ -168,13 +168,13 @@ aX = c( ## set the y-axis label for each subplot
 ## plot
 for(i in 1:3){
   if(i<3){
-    matplot(dEst$t,cbind(dEst[,3*i],dEst[,3*i+3]), type = "l", xlab = "number of days", lty = 1, ylab = aX[i], cex = .5, col = c(cBp[1,4],cBp[1,3]), xlim = c(0,lIm), lwd = 2, cex.axis=1.5, cex.lab=1.5)
+    matplot(dEst$t,cbind(dEst[,3*i],dEst[,3*i+3]), type = "l", xlab = "number of days", lty = 1, ylab = aX[i], cex = .5, col = c(cBp[1,4],cBp[1,1]), xlim = c(0,lIm), lwd = 2, cex.axis=1.5, cex.lab=1.5)
     if(i==2){
-      legend("bottom", inset=c(0,-.2), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,4],cBp[1,3]), cex = 1.2)
+      legend("bottom", inset=c(0,-.2), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,4],cBp[1,1]), cex = 1.2)
     }
     text(max(dEst$t)*.1,min(c(dEst[,3*i],dEst[,3*i+3]), na.rm = T)+diff(range(c(dEst[,3*i],dEst[,3*i+3])*.97, na.rm = T)),LETTERS[i], cex = 2)
   }else{
-    plot(dEst$t,dEst$b4.M, type = "l", xlab = "number of days", lty = 1, ylab = aX[3], cex = .5, col = cBp[1,3], xlim = c(0,lIm), lwd = 2, cex.axis=1.5, cex.lab=1.5)
+    plot(dEst$t,dEst$b4.M, type = "l", xlab = "number of days", lty = 1, ylab = aX[3], cex = .5, col = cBp[1,1], xlim = c(0,lIm), lwd = 2, cex.axis=1.5, cex.lab=1.5)
     text(max(dEst$t)*.1,min(dEst$b4.M, na.rm = T)+diff(range(dEst$b4.M, na.rm = T))*.97,LETTERS[i], cex = 2)
   }
 };rm(i)

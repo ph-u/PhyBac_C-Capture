@@ -45,13 +45,13 @@ Destructive harvest \phy-only system (\PoN).
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2
 \end{array}\right.\label{eq:PoN}\end{equation}
 
-Six algebraic stable system states were found by symbolic solving using SymPy (v1.5.1) in python3 (v3.7.3) (Table \ref{t:eqm}).  Equilibria 3 \& 4 were the only biologically-meaningful defined stable positions.  Defined solutions only contained parameters (not equilibria 5 \& 6) and biologically-meaningful solutions were positive densities (not equilibria 1 \& 2).  Hence equilibrium 3 \& 4 represented \PoH\ and \PBH\ respectively.
+Six algebraic stable system states were found by symbolic solving using SymPy (v1.5.1) in python3 (v3.7.3) (Table \ref{t:eqm}).  Equilibria 3 \& 4 were the only biologically-meaningful defined stable positions.  Defined solutions only contained parameters (not equilibria 5 \& 6) and biologically-meaningful solutions were non-negative densities (not equilibrium 2).  Hence equilibrium 3 \& 4 represented \PoH\ and \PBH\ respectively; equilibrium 1 was an alternative stable position for both systems.
 
 \begin{table}[H]
     \centering
     \caption{Table of equilibria from the four variations of the proposed model (Eq.\ref{eq:PBH})}
     \begin{tabular}{cl|ccc}\hline
-        equilibrium & scenario & $C$ & $P$ & $B$ (\PBH \& \PBN\ only) \\\hline
+        equilibrium & scenario & $C$ & $P$ & $B$ (\PBH\ \& \PBN\ only) \\\hline
         1 & \PBH, \PoH & 0 & 0 & 0 \\
         2 & \PBH & $\dfrac{\mB}{\eBR\eB\gB}$ & 0 & $\dfrac{-x}{\gB(1-\eBR)}$ \\
         3 & \PBH, \PoH & $\dfrac{\eP(\ePR\gP)^2}{\aP x}$ & $\dfrac{\ePR\eP\gP}{\aP}$ & 0 \\

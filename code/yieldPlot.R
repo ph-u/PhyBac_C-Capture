@@ -83,10 +83,10 @@ for(p0 in 1:3){
     for(i in tMp[1]:tMp[2]){
       yMAX = round(max(yDp$value, na.rm = T))
       yMAX = ifelse(nAm[1]=="bacEff" & i>5,1.5,yMAX)
-      boxplot(yDp$value ~ yDp$variable + yDp[,i], pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", border=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), col=c(cBp[2,as.numeric(nAm[6])],cBp[2,as.numeric(nAm[7])]), ylim=c(0,yMAX))#, notch=T)
+      boxplot(yDp$value ~ yDp$variable + yDp[,i], pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "ln(yield+1)", xaxt="n", border=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), col=c(cBp[2,as.numeric(nAm[6])],cBp[2,as.numeric(nAm[7])]), ylim=c(0,yMAX))
       axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,2])[order(unique(yDp[,2]))],2), hadj = .79, las=2)
       mtext(axTitle[i], side = 1, padj = 2.5+ifelse(as.numeric(nAm[8])==1,0,.2), adj=.7)
-      text(1,yMAX*.95,LETTERS[i-1], cex = 2)
+      text(1,yMAX*.92,LETTERS[i-1], cex = 2)
     };rm(i)
     legend("topright", ncol = 2, bg=rgb(1,1,1,.7), legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), box.col = rgb(1,1,1,1))
     invisible(dev.off())
@@ -127,17 +127,17 @@ par(mfrow=c(1,3),mar=c(5, 4, 2.5, .2), xpd=T)
 
 boxplot(log(yd$value+1)~interaction(yd$variable,yd$x), pch=3, cex=.3, xlab = axTitle[10], ylab = "ln(yield+1)", xaxt="n", main = "Destructive Harvest", border=c(cBp[1,4],cBp[1,1]), col=c(cBp[2,4],cBp[2,1]), ylim=c(-1,6))
 axis(side = 1, at=1:length(unique(interaction(yd$variable,yd$x))), labels = paste0(sYs[1:2],"\n",rep(selInter, each=2)), padj = .3)
-text(length(unique(interaction(yd$variable,yd$x)))+.3,2,LETTERS[1], cex = 2)
+text(.7,6,LETTERS[1], cex = 2)
 
 boxplot(log(yd0$value+1)~interaction(yd0$variable,yd0$x), pch=3, cex=.3, xlab = axTitle[1], ylab = "ln(yield+1)", xaxt="n", main = "Continuous Harvest\nunfeasible scenario=NA", border=c(cBp[1,4],cBp[1,3]), col=c(cBp[2,4],cBp[2,3]), ylim=c(-1,6))
 axis(side = 1, at=1:length(unique(interaction(yd0$variable,yd0$x))), labels = paste0(sYs[3:4],"\n",rep(selRange, each=2)), padj = .3)
-text(length(unique(interaction(yd0$variable,yd0$x)))+.3,2,LETTERS[2], cex = 2)
+text(.7,6,LETTERS[2], cex = 2)
 
 legend("bottomleft", inset=c(0,-.18), ncol = 3, bty = "n", legend = c(paste0(sYs[1],"/",sYs[3]), sYs[2],sYs[4]), lwd = 3, col = c(cBp[1,4],cBp[1,1],cBp[1,3]))
 
 boxplot(log(yd1$value+1)~interaction(yd1$variable,yd1$x), pch=3, cex=.3, xlab = axTitle[1], ylab = "ln(yield+1)", xaxt="n", main = "Continuous Harvest\nunfeasible scenario=0", border=c(cBp[1,4],cBp[1,3]), col=c(cBp[2,4],cBp[2,3]), ylim=c(-1,6))
 axis(side = 1, at=1:length(unique(interaction(yd1$variable,yd1$x))), labels = paste0(sYs[3:4],"\n",rep(selRange, each=2)), padj = .3)
-text(length(unique(interaction(yd1$variable,yd1$x)))+.3,2,LETTERS[3], cex = 2)
+text(.7,6,LETTERS[3], cex = 2)
 
 invisible(dev.off())
 
@@ -172,10 +172,10 @@ for(i in 1:3){
     if(i==2){
       legend("bottom", inset=c(0,-.2), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,4],cBp[1,3]), cex = 1.2)
     }
-    text(lIm,min(c(dEst[,3*i],dEst[,3*i+3]), na.rm = T)+diff(range(c(dEst[,3*i],dEst[,3*i+3]), na.rm = T))*.5,LETTERS[i], cex = 2)
+    text(max(dEst$t)*.1,min(c(dEst[,3*i],dEst[,3*i+3]), na.rm = T)+diff(range(c(dEst[,3*i],dEst[,3*i+3])*.97, na.rm = T)),LETTERS[i], cex = 2)
   }else{
     plot(dEst$t,dEst$b4.M, type = "l", xlab = "number of days", lty = 1, ylab = aX[3], cex = .5, col = cBp[1,3], xlim = c(0,lIm), lwd = 2, cex.axis=1.5, cex.lab=1.5)
-    text(lIm,min(dEst$b4.M, na.rm = T)+diff(range(dEst$b4.M, na.rm = T))*.5,LETTERS[i], cex = 2)
+    text(max(dEst$t)*.1,min(dEst$b4.M, na.rm = T)+diff(range(dEst$b4.M, na.rm = T))*.97,LETTERS[i], cex = 2)
   }
 };rm(i)
 
@@ -207,13 +207,13 @@ dA = cbind(log(dAily$x+1),dAily[,2],dAily[,3])
 dA = dA[which(!is.na(dA[,3])),]
 matplot(dA[,1],dA[,-1], type = "l", xlab = bquote("ln Harvest interval" ~ "(" ~ italic(T) ~ "," ~ day ~ ")" ), lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,1]), lwd = 2, main="Destructive Harvest", xlim = c(0,max(log(dAily$x+1))))
 mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
-text(max(log(dAily$x+1)),max(dA[,-1],na.rm = T)*.4,LETTERS[1], cex = 2)
+text(0,max(dA[,-1],na.rm = T)*.9,LETTERS[1], cex = 2)
 
 dA = cbind(log(dAily$x+1),dAily[,4],dAily[,5])
 dA = dA[which(!is.na(dA[,3])),]
 matplot(dA[,1],log(dA[,-1]+1), type = "l", xlab = bquote("ln Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ "," ~ day^-1 ~ ")"), lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main="Continuous Harvest\nunfeasible scenario=NA", xlim = c(0,max(log(dAily$x+1))))
 mtext("log(yield+1)",side=2,line=2, padj = -.1, cex = 1)
-text(max(log(dAily$x+1)),max(log(dA[,-1]+1),na.rm = T)*.4,LETTERS[2], cex = 2)
+text(0,max(log(dA[,-1]+1),na.rm = T)*.9,LETTERS[2], cex = 2)
 
 legend("bottomleft", inset=c(0,-.18), ncol = 3, bty = "n", legend = c(paste0(sYs[1],"/",sYs[3]), sYs[2],sYs[4]), lwd = 3, col = c(cBp[1,4],cBp[1,1],cBp[1,3]))
 
@@ -221,7 +221,7 @@ dA = cbind(log(dAily0$x+1),dAily0[,4],dAily0[,5])
 dA = dA[which(!is.na(dA[,3])),]
 matplot(dA[,1],dA[,-1], type = "l", xlab = bquote("ln Harvest rate (" ~ italic(.(colnames(yield)[1])) ~ "," ~ day^-1 ~ ")"), lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main="Continuous Harvest\nunfeasible scenario=0", xlim = c(0,max(log(dAily$x+1))))
 mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
-text(max(log(dAily$x+1)),max(dA[,-1],na.rm = T)*.4,LETTERS[3], cex = 2)
+text(0,max(dA[,-1],na.rm = T)*.9,LETTERS[3], cex = 2)
 
 invisible(dev.off())
 

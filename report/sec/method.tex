@@ -45,7 +45,7 @@ Destructive harvest \phy-only system (\PoN).
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2
 \end{array}\right.\label{eq:PoN}\end{equation}
 
-Six algebraic stable system states were found by symbolic solving using SymPy (v1.5.1) in python3 (v3.7.3) (Table \ref{t:eqm}).  Equilibria 3 \& 4 were the only biologically-meaningful defined stable positions.  Defined solutions only contained parameters (not equilibria 5 \& 6) and biologically-meaningful solutions were non-negative densities (not equilibrium 2).  Hence equilibrium 3 \& 4 represented \PoH\ and \PBH\ respectively; equilibrium 1 was an alternative stable position for both systems.
+Six algebraic stable system states were found by symbolic solving using SymPy (v1.5.1) in python3 (v3.7.3) (Table \ref{t:eqm}).  Equilibria 3 \& 4 were the only biologically-meaningful defined stable positions.  Defined solutions only contained parameters (not equilibria 5 \& 6) and biologically-meaningful solutions were non-negative densities across all possible state variables (not equilibrium 2) under respective systems.  Hence equilibrium 3 \& 4 represented \PoH\ and \PBH\ respectively; equilibrium 1 was an alternative stable position for both systems.
 
 \begin{table}[H]
     \centering
@@ -108,6 +108,6 @@ Destructive harvest systems ($x=0$) were integrated by python3 (v3.7.3) SciPy (v
 1.1 million ($11\times500\times200$) samples were collected for each system.  We also integrated destructive systems in a log-spaced time ($T$ = 0-100) to observe the system behaviour before stability.
 
 \subsection{Carbon yield analysis}
-Pairwise Wilcox signed rank tests (R v4.0.2; with bonferroni adjustment and no paired situations) tested significance between system sets with harvest interval/rate contained maximum yield (n=5500).  Early destructive systems development were plotted on log-spaced time.  Median yield was plotted against the range of harvest intervals/rates.  Effect of \bac\ was compared within each harvest mode on selected harvest intervals/rates.  Effect of biological parameters were deduced through log-yield distributions across each parameter.
+Feasible/Defined solutions were extracted in two ways for distribution comparisons following the above definition.  Unfeasible solutions were set zero for an overview and set as invalid for observing yield distributions within feasibility limits.  Pairwise Wilcox signed rank tests (R v4.0.2; with bonferroni adjustment and no paired situations) tested significance between system sets with harvest interval/rate contained maximum yield (n=5500) for unfeasible solutions set zero.  Early destructive systems development were plotted on log-spaced time.  Median yield was plotted against the range of harvest intervals/rates.  Effect of \bac\ was compared within each harvest mode on selected harvest intervals/rates.  Effect of biological parameters were deduced through log-yield distributions across each parameter.
 
 \end{document}

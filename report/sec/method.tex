@@ -49,7 +49,7 @@ Six algebraic stable system states were found by symbolic solving using SymPy (v
 
 \begin{table}[H]
     \centering
-    \caption{Table of equilibria from the four variations of the proposed model (Eq.\ref{eq:PBH})}
+    \caption[Model equilibria]{Equilibria from the four variations of the proposed model (Eq.\ref{eq:PBH})}
     \begin{tabular}{cl|ccc}\hline
         equilibrium & scenario & $C$ & $P$ & $B$ (\PBH\ \& \PBN\ only) \\\hline
         1 & \PBH, \PoH & 0 & 0 & 0 \\
@@ -67,7 +67,7 @@ Data was deficient for half of our defined parameters.  Hence the widest percent
 
 \begin{table}[H]
     \centering
-    \caption[Algebra variables]{Table showing biological variables and corresponding ranges framing the parameter space}
+    \caption[Algebra variables]{Biological variables and corresponding ranges framing the parameter space}
     \begin{tabular}{cclll}\hline
         variable & unit & description & min & max \\\hline
         $N'(t)$ & \dxdt & rate of change of respective carbon pool {\tiny($N=C,P,B$)} & - & - \\
@@ -93,7 +93,7 @@ Data was deficient for half of our defined parameters.  Hence the widest percent
 \end{equation}
 
 \subsection{Model experiment}
-System carbon content in continuous harvest systems was analytically calculated by C (compiler gcc v7.5.0). Yield in \PoH\ was independent from harvest rates because yield was defined as
+System carbon content in continuous harvest systems was analytically calculated by C-lang (compiler gcc v7.5.0). Yield in \PoH\ was independent from harvest rates because yield was defined as
 \begin{equation}
     \text{yield} = x\cdot C
     \label{eq:yield}

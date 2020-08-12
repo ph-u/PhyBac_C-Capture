@@ -218,7 +218,7 @@ matplot(dA[,1],log(dA[,-1]+1), type = "l", xlab = aX0[2], lty = 1, ylab = "", ce
 mtext(axTitle[12],side=2,line=2, padj = -.1, cex = 1)
 text(0,max(log(dA[,-1]+1),na.rm = T)*.9,LETTERS[2], cex = 2)
 
-legend("bottomleft", inset=c(0,-.18), ncol = 3, bty = "n", legend = c(paste0(sYs[1],"/",sYs[3]), sYs[2],sYs[4]), lwd = 3, col = c(cBp[1,4],cBp[1,1],cBp[1,3]))
+legend("top", inset=c(0,0), ncol = 3, bty = "n", legend = c(paste0(sYs[1],"/",sYs[3]), sYs[2],sYs[4]), lwd = 3, col = c(cBp[1,4],cBp[1,1],cBp[1,3]))
 
 invisible(dev.off())
 

@@ -10,6 +10,11 @@
 
 cBp = data.frame(PBN=c("#000000","#0000001A"), PoN=c("#D55E00","#D55E004D"), PBH=c("#E69F00","#E69F004D"), PoH=c("#009E73","#009E734D"))
 
+paper = 7 ## graph reference width
+texCex = 1.2
+marRef = c(4,4,1,.1)
+
+
 # fontSize = function(graphWidth=17,modifier=1){
 #   ## 17cm: a4paper 21cm - margin 2cm *2
 #   ## https://medium.com/@zkareemz/golden-ratio-62b3b6d4282a

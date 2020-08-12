@@ -10,7 +10,8 @@
 
 ##### pkg import #####
 source("../code/func.R")
-paper = 7
+source("../code/graphVariables.R")
+yLab = bquote("Standardisation constant" ~ "(" ~ day^-1 ~ ")")
 
 ##### data import #####
 rAw = read.csv("../data/BioTraits.csv",stringsAsFactors = F) ## dimension (n*c) = 25826*155
@@ -38,10 +39,15 @@ rAw$stdConst.day <- normArrheniusEq(rAw$StandardisedTraitValue, rAw$Ea.eV, rAw$C
 
 ##### boxplot std-cst #####
 pdf("../result/stdCst.pdf", width = paper, height = paper*.7)
-par(mfrow=c(1,2))
-boxplot(rAw$stdConst.day~rAw$role, xlab = "role", ylab = "Standardisation constant (1/day)", pch=4, cex=.7)
-boxplot(rAw$stdConst.day~rAw$role, ylim=c(0,9e5), xlab = "role", ylab = "Standardisation constant (1/day)", pch=4, cex=.7)
+par(mfrow=c(1,2),mar=marRef)
+
+boxplot(rAw$stdConst.day~rAw$role, xlab = "", ylab = "", pch=4, cex=.7)
+mtext(yLab, side = 2, padj = -1.8, adj=.5)
+
+boxplot(rAw$stdConst.day~rAw$role, ylim=c(0,9e5), xlab = "", ylab = "", pch=4, cex=.7)
+mtext(yLab, side = 2, padj = -1.8, adj=.5)
 text(1,4e5,"values out of bound",srt=90)
+
 invisible(dev.off())
 cat("output Temperature standardisation constant boxplot finished\n")
 

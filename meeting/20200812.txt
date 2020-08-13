@@ -1,3 +1,6 @@
+## proof-of-concept type project
+## debugging common misconception
+
 abstract: sales pitch
 clear before dig deep; reason -> question
 general motivation for doing the project

@@ -1,41 +1,7 @@
-% Author: PokMan Ho
-% Script: disc.tex
-% Desc: MRes thesis discussion section on the application
-% Input: none
-% Output: none
-% Arguments: 0
-% Date: Jan 2020
-
+% 20200813
 \documentclass[../thesis.tex]{subfiles} %% use packages & commands as this main file
-
 \begin{document}
-%\section{Discussion}
-\subsection{Strengths and Constrains}
-Our model reflects a general \phy-\bac\ \pbs\ with several blanketed assumptions to initialise the investigation.  Since the model is spatial, temporal and temperature independent, a few key population dynamics factors is captured.  Limited by available species-tagged data, the investigation covered large ranges of each defined biological parameter (Table \ref{t:ranges}).
 
-%The ordinary differential equation (ODE) model is reflecting a general reality.  It is general due to its spatial, temporal and temperature independence.  A minimal number of terms are used on one \phy\ and one \bac (Eq.\ref{eq:PBH}).  This system is real because each parameter carry realistic biological meaning (Table \ref{t:ranges}) measured through experiments.  The ODE carries one mechanistic component, the intraspecific interference ($\aP$), which makes the ecological relationship testable.  The system is mathematically simple, enhancing readability and adaptability into more complex systems.  Complicated systems with multiple trophic levels can either use an enhanced version of this model or a set of generalised parameters to represent real system's autotrophic and resource cycling ability.
-
-%Blanketed assumptions are needed to initiate a testable model in this pilot study.  For example, we have assumed an unlimited resource supply except space.  Yet light attenuation and nitrogen availability are common parameters in location-specific aquatic models (Table \ref{modComp}).  Our assumption is to test whether space sensitivity of \phy\ can be the sole factor for a \pbs\ to achieve stability.  This ideal state is possible through a continuous supply of nutrients with a shallow water column to ensure light and nutrients can reach every part of the system.  These blanketed assumptions are also testable null hypotheses.  With more observations, these assumptions can either be falsified, restricted or kept.  Model variations can also be scripted based on different sets of environmental conditions.
-
-%Parameter ranges in this study are not limited to the described species.  It is beneficial in exploring biological possibilities yet fall short on realism.  Due to the lack of biological data, possible microbial candidates for the \pbs\ are not provided.  Most of the parameter values (except \phy\ growth rate $\gP$ and bacterial clearance rate $\gB$) used in our model were from publications decades ago.  Experimental details such as environmental pH, oxygen availability and apparatus preparation hence cannot be standardised.  \Bac l clearance rate was modified from growth rates assuming these two quantities have an arbitrary linear relationship and growth rates of microbes (both \phy\ and \bac) have similar ranges.  For the data collected, there is no species with a full set of information (either [$\ePR$, $\eP$, $\gP$, $\aP$] or [$\eBR$, $\eB$, $\gB$, $\mB$]).  Some \bac l data was also recorded as ``\bac l community" \autocite{cochran1988estimation}, making analyses only achievable in a community level.
-
-\subsection{Applications and Future Directions}
-%% theoretical and applicable
-The first line of application is constructing organic carbon capture devices.  Feasibility can be calculated by using biological features of proposed organisms as inputs.  Experimental time and expenses can hence be minimised to the few combinations with theoretical feasibility.  LCA comparisons between this system and other geo-engineering proposals are easy because carbon density is the unit in this model.  Additional factors need to be considered in a LCA are the carbon footprints of the carbon harvest and genetic modification processes.
-
-Microbial carbon-capture cells (MCC) \autocite{varanasi2020improvement,mohamed2020bioelectricity,neethu2018enhancement,pandit2012microbial} is one of the organic carbon capture devices, using \phy\ and \bac\ as electricity generator components.  A carbon-to-electricity conversion formula can be fitted by experimental data of \bac l biomass density and electric potential.  Maximisation of bioelectricity can hence be calculated by this model using the conversion formula.
-
-Modification or generalisation of this model is possible to summarise primary productivity and matter decomposition ability in an ecosystem.  Summary of ecosystem features before and after a development project as the model inputs.  Difference between the carbon yield is a quantitative impact indicator on ecosystem carbon harvest ability.  When modifying the model, consumers in an ecosystem can be symbolised by other terms (such as the death rates of producers) \autocite{hurtt1996pelagic}.  Alternatively, a consumer equation can be explicitly added.  Integrating the ODE system can quantify carbon yield impact for an environmental impact assessment (EIA).
-
-
-Some reported biological features are not in our current model.  For example, some \phy\ reabsorb environmental carbon \autocite{j1989respiration,bratbak1985phytoplankton,samejima1958heterotrophic}.  \Phy\ can change its relationship with \bac\ from commensalism to competition \autocite{bratbak1985phytoplankton} if reabsorption is important.  Also, whether intraspecific interference as the sole stabilisation factor for \phy\ \autocite{o2017unexpected,savage2004effects,allen2007recasting,bernhardt2018metabolic}.  Finally, whether carbon source preferences \autocite{amon1996bacterial} of \bac\ cause deviations from the model.
-
-%Confirmation of whether carbon reabsorption by \phy\ \autocite{j1989respiration,bratbak1985phytoplankton,samejima1958heterotrophic} is an important factor is needed, especially when the organic carbon pool is the sole carbon source for \bac\ in a carbon harvest device.  If reabsorption is important, it will change the relationship of \phy\ and \bac\ from commensalism (this study) to competition \autocite{bratbak1985phytoplankton}.  Hence the equilibrium positions may be shifted.
-
-%Intraspecific interference is the density-dependent mechanism for \phy\ to reach population stability \autocite{o2017unexpected,savage2004effects,allen2007recasting,bernhardt2018metabolic}.  In our model, \bac\ has a density-independent death rate.  It will be crucial to investigate whether \bac\ also has a density-dependent death rate as carbon capture ability is potentially be modified if the intraspecific relationship has changed.
-
-%All types of organic carbon in our model system is assumed as one.  Yet different classes of biomolecules can have different nutritional values and handling difficulties \autocite{amon1996bacterial}.  So it is important to show whether carbon source preference by \bac\ alter carbon yield.
-
-Some reports also indicate that \phy\ and \bac\ communicate with biochemical signals \autocite{beliaev2014inference,amin2012interactions}.  Communication between these two microbes will raise a question of ``how important do communication influence the microbial behaviour and affect the carbon yield".  Records on nutrient limitation show \bac\ can switch its nutrient source and compete with \phy\ \autocite{danger2007bacteria}.  This questions on how well does wastewater resemble an ``unlimited nutrient source".
+a
 
 \end{document}

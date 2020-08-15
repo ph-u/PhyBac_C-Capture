@@ -72,7 +72,7 @@ for(p0 in 1:3){
   }else if(p0 == 2){ ## destructive / continuous harvest for coexistence systems
     nAm = c("harvB", 10,12, 1,1, 1,3, 1)
   }else{ ## destructive / continuous harvest for phytoplankton-only systems
-    nAm = c("harvP", 11,13, 1,2, 4,4, 1)
+    nAm = c("harvP", 11,13, 1,1, 2,4, 1)
   }
   for(p1 in 1:as.numeric(nAm[8])){
     pdf(paste0(ot,nAm[1],ifelse(as.numeric(nAm[8])==1,"",p1),".pdf"), width = paper, height = paper*texCex*ifelse(as.numeric(nAm[8])==1,1,.5))
@@ -94,7 +94,7 @@ for(p0 in 1:3){
       text(1,yMAX*.92,LETTERS[i-1], cex = 2)
     };rm(i)
     legend("topright", ncol = 2, bg=rgb(1,1,1,.7), legend = unique(yDp$variable), lwd = 1, lty = as.numeric(nAm[4:5]), pch = 16, col = c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), box.col = rgb(1,1,1,1))
-  };invisible(dev.off())
+    invisible(dev.off())}
 };rm(p0,nAm,yDp,p1,tMp)
 
 ## parameter range significance
@@ -129,17 +129,16 @@ par(mfrow=c(1,2),mar=marRef, xpd=T, cex.lab=texCex, cex.axis=1.1)
 
 for(i in 1:2){
   if(i==1){
-    t = yd; aSs = c(4,1,1,2,10,13); t1 = selInter
+    t = yd; aSs = c(2,1,1,2,10,13,1,2); t1 = selInter
   }else{
-    t = yd0; aSs = c(4,3,3,4,1,14); t1 = selRange
+    t = yd0; aSs = c(4,3,3,4,1,14,3,4); t1 = selRange
   }
   boxplot(log(t$value+1)~interaction(t$variable,t$x), pch=3, cex=.3, xlab = axTitle[aSs[5]], ylab = "", xaxt="n", main = axTitle[aSs[6]], border=c(cBp[1,aSs[1]],cBp[1,aSs[2]]), col=c(cBp[2,aSs[1]],cBp[2,aSs[2]]), ylim=c(-1,6))
   axis(side = 1, at=1:length(unique(interaction(t$variable,t$x))), labels = paste0(sYs[aSs[3]:aSs[4]],"\n",rep(t1, each=2)), padj = .3)
   mtext(axTitle[12], side = 2, padj = -1.4, adj = .5, cex = texCex)
   text(.7,6,LETTERS[i], cex = 2)
+  legend("bottomright", inset=c(0,0), ncol = 2, bty = "n", legend = c(sYs[aSs[7]],sYs[aSs[8]]), lwd = 3, col = c(cBp[1,aSs[1]],cBp[1,aSs[2]]))
 };rm(i,t,aSs,t1)
-
-legend("bottomleft", inset=c(0,0), ncol = 3, bty = "n", legend = c(paste0(sYs[1],"/",sYs[3]), sYs[2],sYs[4]), lwd = 3, col = c(cBp[1,4],cBp[1,1],cBp[1,3]))
 
 invisible(dev.off())
 
@@ -160,7 +159,7 @@ lIm = 20 ## set x axis limit
 dEst = dEst[which(dEst$t<=lIm),]
 
 pdf(paste0(ot,"Sample.pdf"), width = paper*1.5, height = paper*.7)
-par(mfrow = c(1,3),mar=c(4,5,1,.1), xpd=T)
+par(mfrow = c(1,3),mar=c(4,5,1,.1), xpd=T, cex.lab=texCex, cex.axis=texCex)
 aX = c( ## set the y-axis label for each subplot
   bquote(italic(C) ~ "density (" ~ gC*m^-3 ~ ")"),
   bquote(italic(P) ~ "density (" ~ gC*m^-3 ~ ")"),
@@ -171,7 +170,7 @@ aX = c( ## set the y-axis label for each subplot
 ## plot
 for(i in 1:3){
   if(i<3){
-    matplot(dEst$t,cbind(dEst[,3*i],dEst[,3*i+3]), type = "l", xlab = "number of days", main=aX[3+i], lty = 1, ylab = aX[i], cex = .5, col = c(cBp[1,4],cBp[1,1]), xlim = c(0,lIm), lwd = 2, cex.axis=1.5, cex.lab=1.5)
+    matplot(dEst$t,cbind(dEst[,3*i],dEst[,3*i+3]), type = "l", xlab = "number of days", main=aX[3+i], lty = 1, ylab = aX[i], cex = .5, col = c(cBp[1,2],cBp[1,1]), xlim = c(0,lIm), lwd = 2, cex.axis=1.5, cex.lab=1.5)
     
     text(max(dEst$t)*.1,min(c(dEst[,3*i],dEst[,3*i+3]), na.rm = T)+diff(range(c(dEst[,3*i],dEst[,3*i+3])*.97, na.rm = T)),LETTERS[i], cex = 2)
   }else{
@@ -179,7 +178,7 @@ for(i in 1:3){
     text(max(dEst$t)*.1,min(dEst$b4.M, na.rm = T)+diff(range(dEst$b4.M, na.rm = T))*.97,LETTERS[i], cex = 2)
   }
   if(i==3){
-    legend("bottom", inset=c(0,0), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,4],cBp[1,1]), cex = texCex)
+    legend("bottom", inset=c(0,0), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,2],cBp[1,1]), cex = texCex)
   }
 };rm(i)
 
@@ -204,21 +203,21 @@ aX0 = c(
 )
 
 pdf(paste0(ot,"DailyYield.pdf"), width = paper*1.5, height = paper*.7)
-par(mfrow=c(1,2),mar=marRef, xpd=T)
+par(mfrow=c(1,2),mar=marRef, xpd=T, cex.lab=texCex, cex.axis=texCex)
 
 dA = cbind(log(dAily$x+1),dAily[,2],dAily[,3])
 dA = dA[which(!is.na(dA[,3])),]
-matplot(dA[,1],dA[,-1], type = "l", xlab = aX0[1], lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,1]), lwd = 2, main=axTitle[13], xlim = c(0,max(log(dAily$x+1))))
-mtext(axTitle[11],side=2,line=2, padj = -.1, cex = 1)
+matplot(dA[,1],dA[,-1], type = "l", xlab = aX0[1], lty = 1, ylab = "", cex = .5, col = c(cBp[1,2],cBp[1,1]), lwd = 2, main=axTitle[13], xlim = c(0,max(log(dAily$x+1))))
+mtext(axTitle[11],side=2,line=2, padj = -.1, cex = texCex)
 text(0,max(dA[,-1],na.rm = T)*.9,LETTERS[1], cex = 2)
 
 dA = cbind(log(dAily$x+1),dAily[,4],dAily[,5])
 dA = dA[which(!is.na(dA[,3])),]
 matplot(dA[,1],log(dA[,-1]+1), type = "l", xlab = aX0[2], lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main=axTitle[14], xlim = c(0,max(log(dAily$x+1))))
-mtext(axTitle[12],side=2,line=2, padj = -.1, cex = 1)
+mtext(axTitle[12],side=2,line=2, padj = -.1, cex = texCex)
 text(0,max(log(dA[,-1]+1),na.rm = T)*.9,LETTERS[2], cex = 2)
 
-legend("top", inset=c(0,0), ncol = 3, bty = "n", legend = c(paste0(sYs[1],"/",sYs[3]), sYs[2],sYs[4]), lwd = 3, col = c(cBp[1,4],cBp[1,1],cBp[1,3]))
+legend("topleft", inset=c(0,0), ncol = 4, bty = "n", legend = sYs[1:4], lwd = 3, col = c(cBp[1,2],cBp[1,1],cBp[1,4],cBp[1,3]))
 
 invisible(dev.off())
 

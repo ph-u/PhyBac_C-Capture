@@ -1,6 +1,6 @@
 ![alt text](http://www.imperial.ac.uk/ImageCropToolT4/imageTool/uploaded-images/Blue-on-white--tojpeg_1495792235526_x1.jpg)
 
-# Modelling the feasibility of carbon harvest from a phytoplankton and bacteria system
+# Phytoplankton-bacteria coexistence systems maximise carbon yield
 
 This repository is the collection of scripts, programs and report(s) for the thesis project as a partial fulfillment of graduation requirement for the course.
 

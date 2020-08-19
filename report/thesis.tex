@@ -22,7 +22,7 @@ style 		= authoryear
 
 \hypersetup{
 	colorlinks=true,
-	linkcolor=blue,
+	linkcolor=black,
 	filecolor=black,
 	urlcolor=blue,
 	citecolor=black
@@ -69,9 +69,29 @@ style 		= authoryear
 \newcommand{\pbs}{coexistence system}
 \newcommand{\lnExplain}{  Definitions of parameters are in Table \ref{t:ranges}.  Raw yields are incremented by 1 because the minimum yield is larger than -1 and there are 0 yield in some scenarios.  Hence log of incremented yields shifts and bounds the distribution between -1 and 6.}
 
+%% title page <https://tex.stackexchange.com/questions/125552/logo-and-picture-on-titlepage>
+\makeatletter
+\def\@maketitle{
+\includegraphics[width=7cm]{report/media/icl.jpg}\\[3.5cm]
+\begin{center}
+    {\Huge \bfseries \sffamily \@title }\\[3cm]
+    {\Large \@author}\\
+    {\Large \@date}\\[7cm]
+    
+    A thesis submitted for the partial fulfilment of the requirements for the degree of Master of Research at Imperial College London
+    
+    \vspace{1cm}
+    
+    Formatted in the Journal style of \textit{Ecology Letters}
+    
+    Submitted for the MRes in Computational Methods in Ecology and Evolution
+\end{center}
+}
+\makeatother
+
 \usepackage{subfiles} %% load last
 
-\title{\Phy-\bac\ \pbs s maximise carbon yield}
+\title{\Phy-\bac\ \pbs s maximise carbon yield\vspace{3.5cm}}
 %\title{Modelling the carbon harvest feasibility of a \phy\ and \bac\ system}
 \author{PokMan Ho}
 \date{August 2020}

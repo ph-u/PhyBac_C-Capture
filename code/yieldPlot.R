@@ -210,14 +210,14 @@ dA = dA[which(!is.na(dA[,3])),]
 matplot(dA[,1],dA[,-1], type = "l", xlab = aX0[1], lty = 1, ylab = "", cex = .5, col = c(cBp[1,2],cBp[1,1]), lwd = 2, main=axTitle[13], xlim = c(0,max(log(dAily$x+1))))
 mtext(axTitle[11],side=2,line=2, padj = -.1, cex = texCex)
 text(0,max(dA[,-1],na.rm = T)*.9,LETTERS[1], cex = 2)
+legend("right", inset=c(0,0), ncol = 2, bty = "n", legend = sYs[1:2], lwd = 3, col = c(cBp[1,2],cBp[1,1]))
 
 dA = cbind(log(dAily$x+1),dAily[,4],dAily[,5])
 dA = dA[which(!is.na(dA[,3])),]
 matplot(dA[,1],log(dA[,-1]+1), type = "l", xlab = aX0[2], lty = 1, ylab = "", cex = .5, col = c(cBp[1,4],cBp[1,3]), lwd = 2, main=axTitle[14], xlim = c(0,max(log(dAily$x+1))))
 mtext(axTitle[12],side=2,line=2, padj = -.1, cex = texCex)
 text(0,max(log(dA[,-1]+1),na.rm = T)*.9,LETTERS[2], cex = 2)
-
-legend("topleft", inset=c(0,0), ncol = 4, bty = "n", legend = sYs[1:4], lwd = 3, col = c(cBp[1,2],cBp[1,1],cBp[1,4],cBp[1,3]))
+legend("top", inset=c(0,0), ncol = 2, bty = "n", legend = sYs[3:4], lwd = 3, col = c(cBp[1,4],cBp[1,3]))
 
 invisible(dev.off())
 

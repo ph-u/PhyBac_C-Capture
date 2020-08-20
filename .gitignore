@@ -13,7 +13,7 @@ p_*
 *.odt#
 .ipynb_checkpoints
 *.pyc
-meeting/*.pdf
+meeting
 proposal
 reference
 sandbox

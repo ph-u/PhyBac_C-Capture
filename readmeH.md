@@ -2,7 +2,8 @@
 
 # Phytoplankton-bacteria coexistence systems maximise carbon yield
 
-This repository is the collection of scripts, programs and report(s) for the thesis project as a partial fulfillment of graduation requirement for the course.
+Scripts for the partial fulfilment of the requirements for the degree of Master of Research at Imperial College London.  
+Submitted for the MRes in Computational Methods in Ecology and Evolution.
 
 ## License
 
@@ -22,8 +23,6 @@ python | | 3.7.3
 . | numpy | 1.19.0
 . | pandas | 1.0.5
 R | | 4.0.2
-. | ggplot2 | 3.3.2
-. | gridExtra | 2.3
 TeX | | TeX Live 2019
 . | LuaTeX | 1.10.0
 . | BibTeX | 0.99d
@@ -42,10 +41,9 @@ TeX | | TeX Live 2019
 
 ## Guides
 
-1. `code/`: scripts with description headers
-0. `data/`: small data files
+1. `code/`: scripts and the new quantitative model
+0. `data/`: raw data
 0. `result/`: important graphs
-0. `report/`: main thesis TeX script and categorized report content
-0. the project can be reproduced by running `bash project.sh` in the `code/` directory
+0. This project is **reproducible**: run `bash project.sh` in `code/`
 
 ## Coding scripts summary

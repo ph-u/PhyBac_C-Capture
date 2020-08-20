@@ -1,4 +1,0 @@
-log-integration, num days 0-100; change Fig.3A
-unit in 3B explain in legend: Harvest rate (x)
-name interval & rates x, include in paragraph
-name subplots 3AB

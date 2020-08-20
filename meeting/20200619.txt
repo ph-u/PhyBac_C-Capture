@@ -1,6 +1,0 @@
-categorize parameters by unit
-stick with uniform dist: not enough info & using Latin cube
-coef of variation: cv
-joint range of parameters
-percentage argument for parameters without many values
-percentage ranges on gP data -> same percentage error mB, for similar unit

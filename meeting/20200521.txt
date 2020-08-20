@@ -1,9 +1,0 @@
-1. same exploration using py3
-switch integrator of py3 using settings: LSODA, LSODE, LSODES
-small number magnifying numerical error, once go negative can't go back
-closer to boundary, more likely to unstable solve (confounding error)
-2. parameter stability
-3. converge solution analytical
-
-stochasticity can take effect & cells easy to obtain, so small initial pop may not be meaningful
-

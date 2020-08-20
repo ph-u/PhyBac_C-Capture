@@ -1,6 +1,0 @@
-def: C & P; B!=0
-discuss wide range of 
-many opossible combinatnion -> not golden scenario
-critical graphs: show all data-handling possibilities as panels
-detailed graphs: show interesting bits only
-3 colours

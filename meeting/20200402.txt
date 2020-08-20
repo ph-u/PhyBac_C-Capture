@@ -1,7 +1,0 @@
-bioengineering aspect
-max CUE & others
-more general model which reduced to 0 in previous model
-X steady state carbon removal
-limit to phytoplankton biocell if bacteria pollution exist
-compare previous model with current one
-biofuel cells model: how to harvest carbon

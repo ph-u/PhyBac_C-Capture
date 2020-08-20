@@ -23,22 +23,6 @@ python | | 3.7.3
 . | numpy | 1.19.0
 . | pandas | 1.0.5
 R | | 4.0.2
-TeX | | TeX Live 2019
-. | LuaTeX | 1.10.0
-. | BibTeX | 0.99d
-. | geometry | 5.8
-. | babel | 3.36
-. | graphicx | 1.1a
-. | hyperref | 7.00c
-. | longtable | 4.12
-. | lscape | 3.01
-. | amsmath | 2.17d
-. | amssymb | 3.01
-. | csquotes | 5.2h
-. | float | 1.3d
-. | csvsimple | 1.21
-. | biblatex | 3.13a
-. | subfiles | 1.5
 
 ## Guides
 

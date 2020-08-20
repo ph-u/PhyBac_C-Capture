@@ -1,6 +1,6 @@
 ![alt text](http://www.imperial.ac.uk/ImageCropToolT4/imageTool/uploaded-images/Blue-on-white--tojpeg_1495792235526_x1.jpg)
 
-# Phytoplankton-bacteria coexistence systems maximise carbon yield
+# The potential of phytoplankton-bacteria systems to maximise carbon capture
 
 Scripts for the partial fulfilment of the requirements for the degree of Master of Research at Imperial College London.  
 Submitted for the MRes in Computational Methods in Ecology and Evolution.

@@ -31,6 +31,7 @@ TeX | | TeX Live 2019
 . | graphicx | 1.1a
 . | hyperref | 7.00c
 . | longtable | 4.12
+. | lscape | 3.01
 . | amsmath | 2.17d
 . | amssymb | 3.01
 . | csquotes | 5.2h

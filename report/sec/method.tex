@@ -3,9 +3,9 @@
 \begin{document}
 
 \subsection{The model}
-The system was a set of ordinary differential equations (ODE).  It was a temperature-independent system with two biological components (\phy\ and \bac) and three density state variables (organic carbon $C$, \phy\ biomass $P$ and \bac l biomass $B$). \Phy\ and \bac\ received carbon from different sources but performed the same functions (Fig.\ref{f:model}). \Phy\ photosynthesized carbon dioxide from the atmosphere (an unlimited source) and \bac\ consumed carbon from the $C$ pool.  Both \phy\ and \bac\ had three ways to allocate carbon: respiration, leakage and biomass incorporation. Some biomass from each component died and became carbon in the $C$ pool.  Organic carbon in the environment could either be consumed by \bac\ or harvested but not reabsorbed by \phy.  Four major assumptions were upheld:  \Rn{1}) environmental conditions were always spatially homogeneous; \Rn{2}) unlimited nutrient; \Rn{3}) light intensity was homogeneous in the whole system as the culture could be shaped as a thin panel; \Rn{4}) \bac\ had no preference on any carbon types in the $C$ pool.  In short, living space for \phy\ was the only limiting factor.
+The system is a set of ordinary differential equations (ODE).  It is a temperature-static system with two biological components (\phy\ and \bac) and three density state variables (organic carbon $C$, \phy\ biomass $P$ and \bac l biomass $B$). \Phy\ and \bac\ receive carbon from different sources but perform the same functions (Fig.\ref{f:model}). \Phy\ photosynthesizes carbon dioxide from the atmosphere (an unlimited source) and \bac\ consume carbon from the $C$ pool.  Both \phy\ and \bac\ have three ways to allocate carbon: respiration, leakage and biomass incorporation. Some biomass from each component die and become carbon in the $C$ pool.  Organic carbon in the environment can either be consumed by \bac\ or harvested but not reabsorbed by \phy.  Four major assumptions are made:  \Rn{1}) environmental conditions are always spatially homogeneous; \Rn{2}) unlimited nutrient; \Rn{3}) temperature remains constant while the system is functioning; \Rn{4}) light intensity is homogeneous in the whole system as the culture can be shaped as a thin panel; \Rn{5}) \bac\ have no preference on any carbon types in the $C$ pool.  In short, living space for \phy\ is the only limiting factor.
 
-The rate of carbon density change of state variables (grams of carbon per metre cube per day, \dxdt) were the currencies in our equations.  The equations were composed of three state variables of carbon densities, four life history traits of \phy, four life history traits of \bac\ and one harvest rate parameter (Eq.\ref{eq:PBH}).
+The rate of carbon density change of state variables (grams of carbon per metre cube per day, \dxdt) are the currencies in our equations.  The equations are composed of three state variables of carbon densities, four life history traits of \phy, four life history traits of \bac\ and one harvest rate parameter (Eq.\ref{eq:PBH}).
 
 \begin{equation}\left\{\begin{array}{rl}
     C'(t) &= \ePR(1-\eP)\cdot\gP\cdot P +\aP\cdot P^2 +(\eBR(1-\eB)-1)\cdot\gB\cdot C\cdot B +\mB\cdot B -xC\\
@@ -13,37 +13,37 @@ The rate of carbon density change of state variables (grams of carbon per metre 
     B'(t) &= \eBR\cdot\eB\cdot\gB\cdot C\cdot B -\mB\cdot B
 \end{array}\right.\label{eq:PBH}\end{equation}
 
-In Eq.\ref{eq:PBH}, $C'(t)$, $P'(t)$ and $B'(t)$ were the rates of density change (\dxdt).  $\ePR$ was the fraction of non-respired carbon for $P$, $\eP$ was the fraction of carbon incorporated as $P$ biomass, $\eBR$ was the fraction of non-respired carbon for $B$ and $\eB$ was the fraction of carbon incorporated as $B$ biomass.  These four were ``fraction parameters”.  $\gP$ was the growth rate of $P$ (\dayU), $\aP$ was the intraspecific interference of $P$ (\denI), $\gB$ was the resource clearance rate of $B$  (\denI) and $\mB$ was the death rate of $B$ (\dayU).  These four were ``rate parameters”.  $x$ was the harvest rate (\dayU), which was the speed of carbon harvest from the $C$ pool in a continuous harvest system.  $x$ was set to zero in destructive harvest systems and the harvest interval $T$ (day) was the replacement parameter.  The interval was defined as
+In Eq.\ref{eq:PBH}, $C'(t)$, $P'(t)$ and $B'(t)$ are the rates of density change (\dxdt).  $\ePR$ is the fraction of non-respired carbon for $P$, $\eP$ is the fraction of carbon incorporated as $P$ biomass, $\eBR$ is the fraction of non-respired carbon for $B$ and $\eB$ is the fraction of carbon incorporated as $B$ biomass.  These four are ``fraction parameters”.  $\gP$ is the growth rate of $P$ (\dayU), $\aP$ is the intraspecific interference of $P$ (\denI), $\gB$ is the resource clearance rate of $B$  (\denI) and $\mB$ is the death rate of $B$ (\dayU).  These four are ``rate parameters”.  $x$ is the harvest rate (\dayU), which is the speed of carbon harvest from the $C$ pool in a continuous harvest system.  $x$ is set to zero in destructive harvest systems and the harvest interval $T$ (day) is the alternative parameter for the yield measurement.  The interval is defined as
 
-\begin{equation}
+\begin{equation*}
     T = x-1
     \label{eq:TvsX}
-\end{equation}
+\end{equation*}
 
-Values of equivalent $T$ and $x$ were differ by 1 because the day of system establishment was day 0.  Continuous harvest started on day 0 but destructive harvest started on day 1.  Carbon yield from continuous harvest on the very first day was equivalent to the carbon harvested by destructive harvest on the second day.
+Values of equivalent $T$ and $x$ differ by 1 because the day of system establishment is day 0.  Continuous harvest starts on day 0 but destructive harvest starts on day 1.  Carbon yield from continuous harvest on the very first day is equivalent to the carbon harvested by destructive harvest on the second day.
 
-Daily yield in continuous harvest systems was defined as
+Daily yield in continuous harvest systems is defined as
 
 \begin{equation}
     \text{daily yield} = x\cdot C
     \label{eq:yield}
 \end{equation}
 
-and the equivalent for destructive harvest was ``average yield", which was defined as
+and the equivalent for destructive harvest is ``average yield", which is defined as
 
-\begin{equation}
-    \text{average yield} = \dfrac{[\text{total carbon}]|_{T}-[\text{total carbon}]|_{T=0}}{T}
+\begin{equation*}
+    \text{average yield} = \dfrac{[\text{total carbon}]|_{T}-[\text{total carbon}]|_{0}}{T}
     \label{eq:avgYd}
-\end{equation}
+\end{equation*}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=.8\linewidth]{media/model.png}
-    \caption[Model visualization]{The theoretical coexistence open system of \phy\ and \bac\ allows carbon exchange with external carbon dioxide source.  The dashed box is the defined boundary allowed matter exchange.  Blue arrows are the directions of carbon flow.  Pink boxes are the carbon pools (i.e. state variables).  White boxes are biochemical processes in indicated organisms.  These processes diverge carbon from source to different carbon pools.}
+    \caption[Model visualization]{The theoretical coexistence open system of \phy\ and \bac\ allows carbon exchange with external carbon dioxide source.  The dashed box is the defined boundary allowed matter exchange.  Blue arrows are the directions of carbon flow.  Pink boxes are the carbon pools (i.e. state variables).  White boxes are biochemical processes in indicated organisms.  These processes divert carbon from source to different carbon pools.}
     \label{f:model}
 \end{figure}
 
-Eq.\ref{eq:PBH} was a \pbs\ of $P$ and $B$ under continuous harvest (\PBH).  Three alternative versions on $P$-only continuous harvest (\PoH), $P$ and $B$ destructive harvest (\PBN) and $P$-only destructive harvest (\PoN) were branched.
+Eq.\ref{eq:PBH} is a \pbs\ of $P$ and $B$ under continuous harvest (\PBH).  Three alternative versions on $P$-only continuous harvest (\PoH), $P$ and $B$ destructive harvest (\PBN) and $P$-only destructive harvest (\PoN) were branched.
 
 Continuous harvest \phy-only system (\PoH);
 \begin{equation}\left\{\begin{array}{rl}
@@ -64,7 +64,7 @@ Destructive harvest \phy-only system (\PoN).
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2
 \end{array}\right.\label{eq:PoN}\end{equation}
 
-Three biologically meaningful system stable states for continuous harvest systems were deduced using SymPy (v1.5.1) in python3 (v3.7.3) (Table \ref{t:eqm}).  Equilibrium 2 \& 3 were \PoH\ \& \PBH\ respectively with equilibrium 1 as a common alternative stable state.  Destructive systems could only be investigated through integration because the analytical solutions were the state variables.
+Three biologically meaningful system stable states for continuous harvest systems are deduced using SymPy (v1.5.1) in python3 (v3.7.3) (Table \ref{t:eqm}).  Equilibrium 2 \& 3 are \PoH\ \& \PBH\ respectively with equilibrium 1 as a common alternative stable state.  Destructive systems can only be investigated through integration because the analytical solutions are the state variables.
 
 \begin{table}[H]
     \centering
@@ -107,6 +107,6 @@ A set of 5500 (11 sample values $\times$ 500 expected sample frequency) unique b
 Continuous harvest system carbon contents were analytically calculated by C-lang (compiler gcc v7.5.0) using equilibrium positions from Table \ref{t:eqm}. Yield in \PoH\ was independent from harvest rates as defined in Eq.\ref{eq:yield}.  Destructive harvest system carbon contents were numerically integrated by python3 (v3.7.3) SciPy (v1.2.3) ``odeint" function using Eq.\ref{eq:PBH}.  Initial densities for \PBN\ and \PoN\ were $C=P=B=1$ and $C=P=1$, $B=0$ \den\ respectively.  I also integrated destructive systems in a log-spaced time ($T$ = 0-100) to observe the system behaviour before stability.
 
 \subsection{Carbon yield analysis}
-Feasible solutions were defined as all state variables in respective parameter combination were non-negatives.  Unfeasible solutions were set as invalid data (NA) for observing yield distributions within feasibility limits.  The data was right-skewed with outlier values more than 100x of the median in its respective set.  Pairwise Wilcox signed rank tests in R (v4.0.2) with bonferroni adjustment and no paired situations were therefore chosen for median comparisons between systems.  Early destructive systems development were plotted on log-spaced time.  Effect of \bac\ was compared within each harvest mode on selected harvest intervals/rates.  Effect of biological parameters were deduced through log-yield distributions across each parameter.
+Feasible solutions were defined as non-negative abundances in all state variables for a scenario.  Unfeasible solutions were set as invalid data (NA) for observing yield distributions within feasibility limits.  The data was right-skewed with outlier values more than 100x of the median in its respective set.  Pairwise Wilcox signed rank tests in R (v4.0.2) with bonferroni adjustment and no paired situations were therefore chosen for median comparisons between systems.  Early destructive systems development were plotted on log-spaced time.  Effect of \bac\ was compared within each harvest mode on selected harvest intervals/rates.  Effect of biological parameters were deduced through log-yield distributions across each parameter.
 
 \end{document}

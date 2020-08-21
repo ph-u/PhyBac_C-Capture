@@ -9,7 +9,7 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage[margin=2cm]{geometry}
 \usepackage[english]{babel}
-\usepackage{graphicx, hyperref, longtable, lscape, amsmath, amssymb, csquotes, float, csvsimple}
+\usepackage{graphicx, hyperref, longtable, lscape, amsmath, amssymb, csquotes, float, csvsimple, lineno, setspace}
 \graphicspath{{../result/}{media/}}
 
 \usepackage[
@@ -27,6 +27,8 @@ style 		= authoryear
 	urlcolor=blue,
 	citecolor=black
 }
+\doublespacing
+\linenumbers
 
 \newcommand{\beginSupp}{%% https://support.authorea.com/en-us/article/how-to-create-an-appendix-section-or-supplementary-information-1g25i5a/
 \setcounter{table}{0}
@@ -75,15 +77,15 @@ style 		= authoryear
 \def\@maketitle{
 \includegraphics[width=7cm]{report/media/icl.jpg}\\[3.5cm]
 \begin{center}
-    {\Huge \bfseries \sffamily \@title}\\[7cm]
+    {\Huge \bfseries \sffamily \@title}\\[5cm]
     {\Large \@author}\\
-    {\Large \@date}\\[6cm]
+    {\Large \@date}\\[5cm]
     
     A thesis submitted for the partial fulfilment of the requirements for the degree of Master of Research at Imperial College London
     
     \vspace{1cm}
     
-    Formatted in the Journal style of \textit{Ecology Letters}
+    Formatted in the Journal style of \textit{Journal of Ecology}
     
     Submitted for the MRes in Computational Methods in Ecology and Evolution
 \end{center}

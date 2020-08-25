@@ -16,9 +16,14 @@
 autocite 	= inline,%superscript
 backend 	= biber,
 sortcites 	= true,
-style 		= authoryear
+style 		= authoryear,
+maxcitenames= 7 % http://www.khirevich.com/latex/biblatex/
 ]{biblatex}
 \bibliography{sec/thesis}
+\renewbibmacro{in:}{} % https://tex.stackexchange.com/questions/10682/suppress-in-biblatex
+\DeclareFieldFormat[article]{pages}{#1} % https://tex.stackexchange.com/questions/40023/biblatex-no-pages-for-article
+\DeclareFieldFormat[article]{title}{#1} % https://tex.stackexchange.com/questions/94089/remove-quotes-from-inbook-reference-title-with-biblatex
+\DeclareFieldFormat[article]{url}{}
 
 \hypersetup{
 	colorlinks=true,
@@ -27,7 +32,7 @@ style 		= authoryear
 	urlcolor=blue,
 	citecolor=black
 }
-\doublespacing
+\renewcommand{\baselinestretch}{1.5}
 \linenumbers
 
 \newcommand{\beginSupp}{%% https://support.authorea.com/en-us/article/how-to-create-an-appendix-section-or-supplementary-information-1g25i5a/

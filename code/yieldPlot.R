@@ -4,7 +4,7 @@
 # Script 	: yieldPlot.R
 # Desc 		: the combined plot for yield flux by each parameter
 # Input 	: `Rscript yieldPlot.R`
-# Output 	: `result/yieldFlux.pdf`
+# Output 	: `result/` graphs
 # Arg 		: 0
 # Date 		: Jul 2020
 
@@ -159,12 +159,12 @@ lIm = 20 ## set x axis limit
 dEst = dEst[which(dEst$t<=lIm),]
 
 pdf(paste0(ot,"Sample.pdf"), width = paper*1.5, height = paper*.7)
-par(mfrow = c(1,3),mar=c(4,5,1,.1), xpd=T, cex.lab=texCex, cex.axis=texCex)
+par(mfrow = c(1,3),mar=c(4,5,1.5,.1), xpd=T, cex.lab=texCex, cex.axis=texCex, cex.main=texCex)
 aX = c( ## set the y-axis label for each subplot
   bquote(italic(C) ~ "density (" ~ gC*m^-3 ~ ")"),
   bquote(italic(P) ~ "density (" ~ gC*m^-3 ~ ")"),
   bquote(italic(B) ~ "density (" ~ gC*m^-3 ~ ")"),
-  "organic carbon", "phytoplankton biomass","bacterial biomass"
+  "Organic Carbon", "Phytoplankton Biomass","Bacterial Biomass"
 )
 
 ## plot

@@ -46,23 +46,23 @@ and the equivalent for destructive harvest is ``average yield", which is defined
 Eq.\ref{eq:PBH} is a \pbs\ of $P$ and $B$ under continuous harvest (\PBH).  Three systems on $P$-only continuous harvest (\PoH), $P$ and $B$ destructive harvest (\PBN) and $P$-only destructive harvest (\PoN) were branched.
 
 Continuous harvest \phy-only system (\PoH);
-\begin{equation}\left\{\begin{array}{rl}
+\begin{equation*}\left\{\begin{array}{rl}
     C'(t) &= \ePR(1-\eP)\cdot\gP\cdot P +\aP\cdot P^2 -xC\\
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2
-\end{array}\right.\label{eq:PoH}\end{equation}
+\end{array}\right.\label{eq:PoH}\end{equation*}
 
 Destructive harvest \pbs\ of $P$ and $B$ (\PBN); and
-\begin{equation}\left\{\begin{array}{rl}
+\begin{equation*}\left\{\begin{array}{rl}
     C'(t) &= \ePR(1-\eP)\cdot\gP\cdot P +\aP\cdot P^2 +(\eBR(1-\eB)-1)\cdot\gB\cdot C\cdot B +\mB\cdot B\\
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2\\
     B'(t) &= \eBR\cdot\eB\cdot\gB\cdot C\cdot B -\mB\cdot B
-\end{array}\right.\label{eq:PBN}\end{equation}
+\end{array}\right.\label{eq:PBN}\end{equation*}
 
 Destructive harvest \phy-only system (\PoN).
-\begin{equation}\left\{\begin{array}{rl}
+\begin{equation*}\left\{\begin{array}{rl}
     C'(t) &= \ePR(1-\eP)\cdot\gP\cdot P +\aP\cdot P^2\\
     P'(t) &= \ePR\cdot\eP\cdot\gP\cdot P -\aP\cdot P^2
-\end{array}\right.\label{eq:PoN}\end{equation}
+\end{array}\right.\label{eq:PoN}\end{equation*}
 
 Three biologically meaningful system stable states for continuous harvest systems are deduced using SymPy (v1.5.1) in python3 (v3.7.3) (Table \ref{t:eqm}).  Equilibrium 2 \& 3 are \PoH\ \& \PBH\ respectively. Equilibrium 1 was a default alternative stable state with no carbon in the system.  Destructive systems can only be investigated through integration because the analytical solutions are invalid; these solutions consisted with state variables only but not biological parameters.
 

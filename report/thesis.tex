@@ -17,13 +17,13 @@ autocite 	= inline,%superscript
 backend 	= biber,
 sortcites 	= true,
 style 		= authoryear,
-maxcitenames= 7 % http://www.khirevich.com/latex/biblatex/
+maxcitenames= 3, % http://www.khirevich.com/latex/biblatex/
+maxbibnames = 7
 ]{biblatex}
 \bibliography{sec/thesis}
 \renewbibmacro{in:}{} % https://tex.stackexchange.com/questions/10682/suppress-in-biblatex
 \DeclareFieldFormat[article]{pages}{#1} % https://tex.stackexchange.com/questions/40023/biblatex-no-pages-for-article
 \DeclareFieldFormat[article]{title}{#1} % https://tex.stackexchange.com/questions/94089/remove-quotes-from-inbook-reference-title-with-biblatex
-\DeclareFieldFormat[article]{url}{}
 \DeclareFieldFormat[article]{number}{(#1)} % https://tex.stackexchange.com/questions/81569/biblatex-parentheses-around-the-volume-number-of-an-article
 \renewbibmacro*{volume+number+eid}{% https://tex.stackexchange.com/questions/145615/remove-punctuation-comma-after-volume-number-in-biblatex
   \printfield{volume}

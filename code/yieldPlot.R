@@ -159,7 +159,7 @@ lIm = 20 ## set x axis limit
 dEst = dEst[which(dEst$t<=lIm),]
 
 pdf(paste0(ot,"Sample.pdf"), width = paper*1.5, height = paper*.7)
-par(mfrow = c(1,3),mar=c(4,5,1.5,.1), xpd=T, cex.lab=texCex, cex.axis=texCex, cex.main=texCex)
+par(mfrow = c(1,3),mar=c(4,5,1.5,.1), xpd=T, cex.lab=texCex, cex.axis=texCex, cex.main=2)
 aX = c( ## set the y-axis label for each subplot
   bquote(italic(C) ~ "density (" ~ gC*m^-3 ~ ")"),
   bquote(italic(P) ~ "density (" ~ gC*m^-3 ~ ")"),

@@ -68,7 +68,7 @@ for(i in 1:nrow(ydMx)){
 ## plot yield across parameter ranges
 for(p0 in 1:3){
   if(p0 == 1){ ## with / without bateria
-    nAm = c("bacEff", 12,13, 1,1, 4,1, 2)
+    nAm = c("bacEff", 12,13, 1,1, 2,1, 2)
   }else if(p0 == 2){ ## destructive / continuous harvest for coexistence systems
     nAm = c("harvB", 10,12, 1,1, 1,3, 1)
   }else{ ## destructive / continuous harvest for phytoplankton-only systems
@@ -87,7 +87,7 @@ for(p0 in 1:3){
       yMAX = round(max(yDp$value, na.rm = T))
       yMAX = ifelse(nAm[1]=="bacEff" & i>5,1.5,yMAX)
       boxplot(yDp$value ~ yDp$variable + yDp[,i], pch=3, cex=.3, lty=as.numeric(nAm[4:5]), xlab = "", ylab = "", xaxt="n", border=c(cBp[1,as.numeric(nAm[6])],cBp[1,as.numeric(nAm[7])]), col=c(cBp[2,as.numeric(nAm[6])],cBp[2,as.numeric(nAm[7])]), ylim=c(0,yMAX))
-      axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,2])[order(unique(yDp[,2]))],2), hadj = .79, las=2)
+      axis(side = 1, at=seq(1,length(unique(interaction(yDp$variable,yDp[,i]))),2)+.5, labels = round(unique(yDp[,i])[order(unique(yDp[,i]))],2), hadj = .79, las=2)
       
       mtext(axTitle[i], side = 1, padj = 2.7+ifelse((i-1)%%4<3 & (i-1)%%4>0,.5,-.2), adj=.7)
       mtext(axTitle[12], side = 2, padj = -1.7, adj = 1)

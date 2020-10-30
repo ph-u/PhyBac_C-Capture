@@ -31,6 +31,7 @@ rAw = rAw[which( ## dimension (n*c) = 3160*8
     rAw$Published==T & ## published data
     rAw$StandardisedTraitValue>0 ## rm data recording no growth (purpose is only to obtain a reasonable standardization constant)
 ),c("FinalID", "StandardisedTraitValue", "StandardisedTraitUnit", "ConPhylum", "ConGenus", "ConSpecies", "ConTemp", "ConTempUnit")]
+# ),-148] ## delete messy column "Citation"
 
 ##### standardization constant (std-cst) calculation #####
 rAw$Ea.eV <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],.32,.66) ## activation energy of photosynthetic (0.32eV) and heterotrophic (0.65eV) lifestyle
@@ -53,5 +54,6 @@ cat("output Temperature standardisation constant boxplot finished\n")
 
 ##### intermediate data export #####
 write.csv(rAw, "../data/gRate.csv", quote = F, row.names = F)
+# write.csv(rAw, "../data/p_gRate.csv", quote = F, row.names = F)
 # summary(rAw$stdConst.day[which(rAw$role=="photocell")])
 # summary(rAw$stdConst.day[which(rAw$role!="photocell")])

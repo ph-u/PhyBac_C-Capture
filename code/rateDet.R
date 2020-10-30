@@ -54,6 +54,6 @@ cat("output Temperature standardisation constant boxplot finished\n")
 
 ##### intermediate data export #####
 write.csv(rAw, "../data/gRate.csv", quote = F, row.names = F)
-# write.csv(rAw, "../data/p_gRate.csv", quote = F, row.names = F)
+# write.table(rAw, "../data/p_gRate.txt", quote = F, row.names = F, sep="\t")
 # summary(rAw$stdConst.day[which(rAw$role=="photocell")])
 # summary(rAw$stdConst.day[which(rAw$role!="photocell")])

@@ -34,6 +34,7 @@ rAw$parameter <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],"gP","gBx10
 
 ##### intermediate data export #####
 rAw$Citation = gsub(",",";",rAw$Citation)
+rAw$Location = gsub(",",";",rAw$Location)
 write.csv(rAw, "../data/mData.csv", quote = F, row.names = F)
 # summary(rAw$stdConst.day[which(rAw$role=="photocell")])
 # summary(rAw$stdConst.day[which(rAw$role!="photocell")])

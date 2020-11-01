@@ -8,7 +8,7 @@
 # Arg 		: 0
 # Date 		: 20201101
 
-##### pkg import #####
+##### pkg #####
 library(lattice)
 
 ##### in #####
@@ -24,20 +24,15 @@ long2wide = function(col1, col2, data) {
     }}
     return(dF)
 }
-wide2long = function(data,c1,c2) {
-    dF = as.data.frame(matrix(nr = prod(dim(data)), nc = 3))
-    colnames(dF) = c(c1,c2,"value")
-    i=1
-    for(x in 1:nrow(data)){for(y in 1:ncol(data)){
-        dF[i,] = c(rownames(data)[x],colnames(data)[y],data[x,y])
-        i = i+1
-    }}
-    return(dF)
-}
 
-##### pivot tables #####
+##### heatmap #####
 rAw[is.na(rAw)] = "no_Info"
 phy = long2wide("ConPhylum", "parameter", rAw)
-pdf("../result/parComplete.pdf", width=10)
-levelplot(as.matrix(log(t(phy))), ylab="ConPhylum", xlab="parameter", main="The degree of overlap between parameter requirements and\nphylum of species in available data", col.regions = rev(grey(0:100/100)), aspect="fill")
-dev.off()
+pdf("../result/parCompleteP.pdf", width=10)
+levelplot(as.matrix(log(t(phy))), ylab="Consumer Phylum", xlab="parameter", main="The degree of overlap (log-scale) between parameter requirements and\nphylum of species in available data", col.regions = rev(grey(0:100/100)), aspect="fill")
+invisible(dev.off())
+
+phyG = long2wide("ConGenus", "parameter", rAw)
+pdf("../result/parCompleteG.pdf", width=10, height=21)
+levelplot(as.matrix(log(t(phyG))), ylab="Consumer Genus", xlab="parameter", main="The degree of overlap (log-scale) between parameter requirements and\ngenus of species in available data", col.regions = rev(grey(0:100/100)), aspect="fill")
+invisible(dev.off())

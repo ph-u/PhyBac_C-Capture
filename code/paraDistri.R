@@ -4,7 +4,7 @@
 # Script 	: paraDistri.R
 # Desc 		: mData.csv attribute graphs plotting
 # Input 	: `Rscript paraDistri.R`
-# Output 	: graphs in `result/parComplete.pdf` on data attribute discriptions
+# Output 	: `result/parComplete[PG].pdf`
 # Arg 		: 0
 # Date 		: 20201101
 

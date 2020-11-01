@@ -9,6 +9,7 @@
 # Date 		: 20201101
 
 ##### pkg import #####
+library(lattice)
 
 ##### in #####
 rAw = read.csv("../data/mData.csv", stringsAsFactor=F)

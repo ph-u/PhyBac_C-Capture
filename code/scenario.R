@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-# Author 	: PokMan HO
+# Author 	: ph-u
 # Script 	: scenario.R
 # Desc 		: fix sample scenario using real-life parameter ranges
 # Input 	: `Rscript scenario.R`

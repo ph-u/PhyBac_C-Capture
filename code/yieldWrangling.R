@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-# Author 	: PokMan HO
+# Author 	: ph-u
 # Script 	: yieldWrangling.R
 # Desc 		: collect and wrangle all scenario simulation data
 # Input 	: `source("../code/yieldWrangling.R")` in R scripts

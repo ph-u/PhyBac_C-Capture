@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-# Author 	: PokMan HO
+# Author 	: ph-u
 # Script 	: func.R
 # Desc 		: self-defined functions
 # Input 	: `source("../code/func.R")` in R scripts

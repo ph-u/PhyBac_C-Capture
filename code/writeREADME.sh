@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Author 		: PokMan Ho
+## Author 		: ph-u
 ## Script 		: writeREADME.sh
 ## Desc 		: readme.md generator
 ## Input 		: ```bash writeREADME.sh```

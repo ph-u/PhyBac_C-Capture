@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-# Author 	: PokMan HO
+# Author 	: ph-u
 # Script 	: yieldPlot.R
 # Desc 		: the combined plot for yield flux by each parameter
 # Input 	: `Rscript yieldPlot.R`

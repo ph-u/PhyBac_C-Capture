@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-# Author 	: PokMan HO
+# Author 	: ph-u
 # Script 	: metaData.R
 # Desc 		: BioTraits metadata extraction -- modified version of rateDet.R
 # Input 	: `Rscript metaData.R`
@@ -29,7 +29,7 @@ rAw = rAw[which( ## dimension (n*c) = 3160*8
     !is.na(rAw$ConSpecies) & ## known species
     rAw$Published==T & ## published data
     rAw$StandardisedTraitValue>0 ## rm data recording no growth (purpose is only to obtain a reasonable standardization constant)
-),c("StandardisedTraitValue", "StandardisedTraitUnit", "ConPhylum", "ConGenus", "ConSpecies", "ConTemp", "ConTempUnit","Labfield","ResCommon","SecondStressor","SecondStressorValue","Citation","DOI")]
+),c("StandardisedTraitValue", "StandardisedTraitUnit", "ConPhylum", "ConClass", "ConOrder", "ConFamily", "ConGenus", "ConSpecies", "ConTemp", "ConTempUnit","Labfield","ResCommon","SecondStressor","SecondStressorValue","Citation","DOI")]
 
 ##### intermediate data export #####
 rAw$parameter <-ifelse(rAw$ConPhylum %in% unique(rAw$ConPhylum)[6:7],"gP","gB10")

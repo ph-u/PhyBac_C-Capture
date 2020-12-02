@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Author 	: PokMan HO
+# Author 	: ph-u
 # Script 	: func.py
 # Desc 		: project model
 # Input 	: `import func` in a python3 script inside `code/` directory
@@ -16,7 +16,7 @@ function bin for python3:
 """
 
 __appname__="func.py"
-__author__="PokMan Ho"
+__author__="ph-u"
 __version__="0.0.1"
 __license__="none"
 

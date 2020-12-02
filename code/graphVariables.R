@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-# Author 	: PokMan HO
+# Author 	: ph-u
 # Script 	: graphVariables.R
 # Desc 		: self-defined objects for plots
 # Input 	: `source("../code/graphVariables.R")` in R scripts

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Author 	: PokMan Ho
+# Author 	: ph-u
 # Script 	: project.sh
 # Desc 		: main script for project reproduction
 # Input 	: `bash project.sh`

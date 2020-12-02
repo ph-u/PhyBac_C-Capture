@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-# Author 	: PokMan HO
+# Author 	: ph-u
 # Script 	: rateDet.R
 # Desc 		: BioTraits data wrangling
 # Input 	: `Rscript rateDet.R`

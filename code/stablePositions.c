@@ -1,5 +1,5 @@
 /*
-Author 	: PokMan HO
+Author 	: ph-u
 Script 	: stablePositions.c
 Desc 	: calculate two alternative stabilities from a parameter scenario
 Input 	: `gcc stablePositions.c -o p_sP;./p_sP [x] [ePR] [eP] [gP] [aP] [eBR] [eB] [gB] [mB]`

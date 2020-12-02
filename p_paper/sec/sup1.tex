@@ -1,0 +1,90 @@
+% 20201005
+\documentclass[env.tex]{subfiles}
+
+\newcommand{\aq}{aquatic}
+\newcommand{\te}{terrestrial}
+\newcommand{\mL}{mixed layer}
+\newcommand{\hg}{homogeneous}
+\newcommand{\thl}{theoretical}
+\newcommand{\sP}{subarctic Pacific}
+\newcommand{\sgs}{Sargasso Sea}
+\newcommand{\nA}{N. Atlantic}
+\newcommand{\ds}{density}
+\newcommand{\pl}{population size}
+\newcommand{\mC}{molar Concentration}
+\newcommand{\ct}{continuous}
+\newcommand{\y}{yes}
+\newcommand{\n}{no}
+\newcommand{\ft}{fluctuation}
+\newcommand{\sd}{steady}
+
+\begin{document}
+\subsection{Features comparison between models}
+
+\begin{table}[H]
+    \centering
+    \caption[Model features comparison]{Table of features comparison (16 features) between model in this project with aquatic slab models (22 models) and two terrestrial nutrient cycle models}
+    \label{modComp}
+\end{table}
+
+\begin{landscape}
+\begin{longtable}{p{2cm}|p{.05\linewidth}p{.07\linewidth}p{.1\linewidth}p{.1\linewidth}p{.13\linewidth}p{.06\linewidth}p{.14\linewidth}p{.1\linewidth}}\hline
+    model & year & system & structure & condition & location & element & unit & time-frame \\\hline
+    this study & 2020 & \aq & CPB & \mL & \thl & C & \ds & \ct \\
+    \parencite{evans1985model} & 1985 & \aq & NPZ & \mL & \sP & n.a. & \pl & spring \\
+    \parencite{frost1987grazing} & 1987 & \aq & NP(Z) & \mL & \sP & n.a. & \pl & \ct \\
+    \parencite{fasham1990nitrogen} & 1990 & \aq & 2NPZDB(DOM) & \hg & \sgs & N & \mC & \ct \\
+    \parencite{robinson1993simulated} & 1993 & \aq & P2Z & \mL & upwell Pacific & C & \ds & by-year \\
+    \parencite{fasham1995use} & 1995 & \aq & 2NPZDB(DOM) & - & \sP & - & - \\
+    \parencite{matear1995parameter} & 1995 & \aq & 2NP2ZDB(DOM) & \mL & \sP & n.a. & \pl & \ct \\
+    \parencite{hurtt1996pelagic} & 1996 & \aq & 2NPR & \mL & \sgs & N & \mC & \ct \\
+    \parencite{xiao1996relative} & 1996 & \te & CNP & dual cycles & \thl & C, N & \ds & \ct \\
+    \parencite{popova1997chaotic} & 1997 & \aq & NPZD & \mL & \thl & N & \mC & \ct \\
+    \parencite{anderson1998modelling} & 1998 & \aq & 2NPZDB(DOM) & slab & Engligh Channel & N & \mC & \ct \\
+    \parencite{spitz1998data} & 1998 & \aq & 2NPZDB(DOM) & \mL & \sgs & N & \mC & \ct \\
+    \parencite{fennel2001testing} & 2001 & \aq & NPZD & \mL & \sgs & N & \mC & \ct \\
+    \parencite{natvik2001weak} & 2001 & \aq & NPZ & - & Flemish Cap & - & - & - \\
+    \parencite{schartau2001parameter} & 2001 & \aq & NPZ & \mL & \sgs & N & \mC & \ct \\
+    \parencite{spitz2001configuring} & 2001 & \aq & 2NPZDB(DOM) & \mL & \sgs & N & \mC & \ct \\
+    \parencite{ito2002simulation} & 2002 & \te & CP & \hg & \thl & C & \ds & no \\
+    \parencite{hemmings2004split} & 2004 & \aq & NPZ & - & \nA & - & - & - \\
+    \parencite{onitsuka2005differences} & 2005 & \aq & NPZD, 2N2P3Z(DOM) & slab & Japan sea & N & \mC & \ct \\
+    \parencite{findlay2006modelling} & 2006 & \aq & NP & \mL & \thl & hypo & \mC & \ct \\
+    \parencite{mitra2007accounting} & 2007 & \aq & 2NPZDB(DOM) & \hg & \nA & N & \mC & short \\
+    \parencite{mitra2009closure} & 2009 & \aq & 2NPZDB(DOM) & \hg & \nA & N & \mC & \ct \\
+    \parencite{llebot2010role} & 2010 & \aq & 2N2PD(DOM) & \hg & Mediterranean Bay & N & \mC & \ct \\
+    \parencite{kidston2013phytoplankton} & 2013 & \aq & NPZD & \mL & Southern Ocean & N & \mC & \ct \\
+    \parencite{anderson2015empower} & 2015 & \aq & NPZD & \mL & \thl & N & \mC & \ct \\
+\hline\end{longtable}
+
+\begin{longtable}{p{2cm}|p{.07\linewidth}p{.1\linewidth}p{.1\linewidth}p{.1\linewidth}p{.1\linewidth}p{.1\linewidth}p{.1\linewidth}p{.1\linewidth}}\hline
+    model & thermocline & density-depend motality & trophic levels (main level + decomposer) & explicit players & sunlight & system setting & respiration & resource allocation \\\hline
+    this study & \n & \phy & 1+1 & \y & \n & \ft & \y & \y \\
+    \parencite{evans1985model} & \y & \n & 1+0 & \y & \y & \sd & \n & \n \\
+    \parencite{frost1987grazing} & \y & \n & 2+0 & \n & \y & \sd & \n & \n \\
+    \parencite{fasham1990nitrogen} & \y & \n & 2+1 & \y & \n & \sd & \n & \n \\
+    \parencite{robinson1993simulated} & \y & unknown & 3+0 & no equations & \y & \ft & \n & \n \\
+    \parencite{fasham1995use} & - & - & - & model 03 & - & - & \n & \n \\
+    \parencite{matear1995parameter} & \y & \n & 2+0 & \y & \y & \ft & \n & \n \\
+    \parencite{hurtt1996pelagic} & \y & \n & 1+0 & model 03 & \n & \sd & \n & \n \\
+    \parencite{xiao1996relative} & \n & \n & 1+1 & \y & \y & \sd & \y & \y \\
+    \parencite{popova1997chaotic} & \y & \n & 2+0 & \y & \y & \ft & \n & \n \\
+    \parencite{anderson1998modelling} & \y & \n & 2+1 & \n & \y & \ft & \n & \n \\
+    \parencite{spitz1998data} & \y & \n & 2+1 & \y & \y & \ft & \n & \n \\
+    \parencite{fennel2001testing} & \y & \n & 2+0 & \y & \y & \ft & \n & \n \\
+    \parencite{natvik2001weak} & - & - & - & no equations & - & - & \n & \n \\
+    \parencite{schartau2001parameter} & \y & \n & 2+0 & \n & \y & \ft & \n & \n \\
+    \parencite{spitz2001configuring} & \y & \n & 2+1 & model 11 & \n & \ft & \n & \n \\
+    \parencite{ito2002simulation} & \n & \n & 1+0 & \y & \n & \sd & \n & \n \\
+    \parencite{hemmings2004split} & - & - & - & statistical & - & - & \n & \n \\
+    \parencite{onitsuka2005differences} & \y & \n & 2+0 & \y & \n & \ft & \n & \n \\
+    \parencite{findlay2006modelling} & \y & \n & 1+0 & \n & \n & \ft & \n & \n \\
+    \parencite{mitra2007accounting} & \n & \n & 2+1 & \n & \n & perturbation & \n & \n \\
+    \parencite{mitra2009closure} & \n & \n & 2+1 & \y & \n & cannibalism & \n & \n \\
+    \parencite{llebot2010role} & \n & \n & 2+0 & \y & \y & \sd & \n & \n \\
+    \parencite{kidston2013phytoplankton} & \y & \phy & 2+0 & \y & \y & \sd & \n & \n \\
+    \parencite{anderson2015empower} & \y & \phy & 2+1 & \y & \y & \ft & \n & \n \\
+\hline\end{longtable}
+\end{landscape}
+
+\end{document}

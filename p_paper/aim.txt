@@ -1,0 +1,23 @@
+target audience: experimental microbiologists
+aim: give guidance on trait values that need to search for
+flow:
+1. consortia was having a few successful cases but there is no structured way to search
+2. previously searches were done through genetics and/or phenomenological methods -> not a direct cause to the observation of enhanced carbon capture
+3. a new model uses biomechanisms to explain the observations without the complex biochemical interactions reported
+4. spatial effect may already be a crucial effect on the effect
+5. a new insight on future searches: focus on life history trait values
+
+20201123
+species data don't exist -- more available data, more clearer picture
+variability of parameter: stocastic / uncertainty
+controllable parameters?
+intraspecific variability (criteria to select) vs interspecific variability -- directional searchable?
+
+thrown out data -- why non-feasible (feasibility %, keep top x percentile) -- fair number of data
+source of data
+
+<parameter range>
+opinion paper? -- I believe this, here is my evidence...
+paper -- my idea, initial go, idea for next
+focus on journal features?
+motivation of publishing, which paper/platform

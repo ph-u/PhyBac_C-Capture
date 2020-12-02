@@ -1,0 +1,49 @@
+Overview -- climate change seriousness, urgency
+
+Review of several popular geoengineering proposals
+
+Life Cycle Analyses of popular geoengineering proposals
+
+Geoengineering proposals key obstacles
+
+Experimental microbial co-existence (consortia) samples
+
+Popular approaches in microbial co-existence system research
+
+Key obstacles of microbial co-existence research
+- no central direction
+- manipulation of external environment but no mechanistic explanations of how things work
+- the need of mechanistic models to highlight potentials
+
+Review of recent mechanistic microbial ecology models
+
+Ideas of a mechanistic co-existence model scattered in ecological models
+
+Key elements vital to a mechanistic co-existence model (and why)
+- efficiency of material uptake (non-respired carbon fraction, ePR | eBR)
+- efficiency of biomass incorporation (eP | eB)
+- growth rate (for unlimited resource, gP) / clearance rate (for limited resource, eB)
+- death rate (density-dependence, aP | independence, mB)
+- carbon harvest rate (x)
+[FIGURE: Model illustration]
+[EQUATION: Core model ODE]
+
+Parameter sensitivity analysis
+[TABLE: Parameter ranges]
+[FIGURE: top 0.3% percentile of carbon yield in all four model alternatives (the 0.3% limit is set by PBC)]
+
+Key challenges
+- data availability
+- data taxonomic bias
+- experimental conditions non-standardised
+- temperature ranges (thermal performance)
+- indirect inference of some parameter values (especially for efficiencies)
+
+Conclusion
+- co-existence systems have the potential to be efficient and safe carbon capture devices
+- currently lacking solid frameworks to investigate the potential
+- this is a preliminary outline of an investigation direction
+- some promising empirical proves have already published
+- the observed phenomenon is mathematically sounded
+- more research should focus on reporting life history traits of cultivable phytoplankton and bacteria
+- life cycle analysis is important to determine useful implementations of co-existence systems
